@@ -1,0 +1,462 @@
+extends Node2D
+
+
+##############################
+#####    Path linking    #####
+##############################
+
+@onready var animplayer: AnimationPlayer = $"../AnimationPlayer"
+
+####################
+#####  Points  #####
+####################
+@onready var lpoints: Label = $"../Level/PointCounters/LabelPoints"
+@onready var ltoppoints: Label = $"../KniffelBonusMeter/KniffelTopCounter"
+@onready var lbottompoints: Label = $"../Level/PointCounters/LabelBottomPoints"
+
+####################
+#####  Buttons #####
+####################
+@onready var sd1: Button = $"../Dices/DiceContainer/D1"
+@onready var sd2: Button = $"../Dices/DiceContainer/D2"
+@onready var sd3: Button = $"../Dices/DiceContainer/D3"
+@onready var sd4: Button = $"../Dices/DiceContainer/D4"
+@onready var sd5: Button = $"../Dices/DiceContainer/D5"
+
+@onready var bkniffel: Button = $"../Level/SelectActionButtom/Kniffel"
+@onready var bchance: Button = $"../Level/SelectActionButtom/Chance"
+@onready var bx_3: Button = $"../Level/SelectActionButtom/x3"
+@onready var bx_4: Button = $"../Level/SelectActionButtom/x4"
+@onready var bbig_straigth: Button = $"../Level/SelectActionButtom/BigStraigth"
+@onready var bsmall_straigth: Button = $"../Level/SelectActionButtom/SmallStraigth"
+@onready var bfull_house: Button = $"../Level/SelectActionButtom/FullHouse"
+
+####################
+#####  Labels  #####
+####################
+@onready var l1: Label = $"../Level/PointCounters/Label1"
+@onready var l2: Label = $"../Level/PointCounters/Label2"
+@onready var l3: Label = $"../Level/PointCounters/Label3"
+@onready var l4: Label = $"../Level/PointCounters/Label4"
+@onready var l5: Label = $"../Level/PointCounters/Label5"
+@onready var l6: Label = $"../Level/PointCounters/Label6"
+@onready var lx3: Label = $"../Level/PointCounters/LabelX3"
+@onready var lx4: Label = $"../Level/PointCounters/LabelX4"
+@onready var lsmallstraight: Label = $"../Level/PointCounters/LabelSmallStraight"
+@onready var lbigstraight: Label = $"../Level/PointCounters/LabelBigStraight"
+@onready var lkniffel: Label = $"../Level/PointCounters/LabelKniffel"
+@onready var lchance: Label = $"../Level/PointCounters/LabelChance"
+@onready var lfullhouse: Label = $"../Level/PointCounters/LabelFullHouse"
+
+#############################
+#####     Variables     #####
+#############################
+var d1 = 0
+var d2 = 0
+var d3 = 0
+var d4 = 0
+var d5 = 0
+
+var update_progressbar = false
+
+var dice_count = 5
+
+var points = 0
+var bonus_points = 0
+var top_points_counter = 0
+var bottom_points_counter = 0
+var has_bonus = false
+@export var bonus_treashold = 63
+@export var bonus_amount = 35 
+
+var max_throw_count = 3
+var throw_count = 0
+
+var sDices = [sd1, sd2 , sd3, sd4, sd5]
+
+var locked_slot = [false, false, false, false, false]
+var dices = [d1, d2 , d3, d4, d5]
+
+var actions = [false, false, false, false, false, false]
+var diceValues = [0, 0, 0, 0, 0, 0,]
+var buttom_actions = [false, false, false, false, false, false, false]
+
+
+################################
+#####   Methods for calc   #####
+################################
+func _ready() -> void:
+	resetDice()
+
+func throwDices() -> void:
+	if throw_count == 0:
+		resetLocked()
+	if throw_count < max_throw_count:
+		throw_count += 1
+		$"../Dices/RollDiceButton".text = str("Roll Dice (", max_throw_count - throw_count, ")")
+		for i in dice_count:
+			if locked_slot[i] == false:
+				dices[i - 1] = rng()
+				choseDie(i)
+
+func choseDie(die) -> void:
+	if die == 0:
+		sd1.text = str(0)
+		var td1 = create_tween()
+		td1.tween_property(sd1, "text", str((dices[die - 1])), 0.1)
+	elif die == 1:
+		sd2.text = str(0)
+		var td2 = create_tween()
+		td2.tween_property(sd2, "text", str((dices[die - 1])), 0.1)
+	elif die == 2:
+		sd3.text = str(0)
+		var td3 = create_tween()
+		td3.tween_property(sd3, "text", str((dices[die - 1])), 0.1)
+	elif die == 3:
+		sd4.text = str(0)
+		var td4 = create_tween()
+		td4.tween_property(sd4, "text", str((dices[die - 1])), 0.1)
+	elif die == 4:
+		sd5.text = str(0)
+		var td5 = create_tween()
+		td5.tween_property(sd5, "text", str((dices[die - 1])), 0.1)
+
+func rng() -> int:
+	return(RandomNumberGenerator.new().randi_range(1,6))
+
+func resetDice() -> void:
+	var tween1 = create_tween()
+	tween1.tween_property(ltoppoints, "text", str("Points: ",top_points_counter, " / 63"), 0.1)
+	var tween = create_tween()
+	tween.tween_property($"../KniffelBonusMeter/TextureProgressBar", "value",top_points_counter, 0.2,).set_trans(Tween.TRANS_SINE)
+	var tween3 = create_tween()
+	tween3.tween_property(lbottompoints, "text", str("Bottom Points: ", bottom_points_counter), 0.1)
+	lbottompoints.text = str("Bottom Points : ", bottom_points_counter)
+	sd1.text = ""
+	sd2.text = ""
+	sd3.text = ""
+	sd4.text = ""
+	sd5.text = ""
+	d1 = 0
+	d2 = 0
+	d3 = 0
+	d4 = 0
+	d5 = 0
+	resetLocked()
+	throw_count = 0
+
+func resetLocked() -> void:
+	locked_slot = [false, false, false, false, false]
+	sd1.button_pressed = false
+	sd2.button_pressed = false
+	sd3.button_pressed = false
+	sd4.button_pressed = false
+	sd5.button_pressed = false
+
+func checkActions() -> void:
+	var all_actions_done = 0
+	for i in 6:
+		if actions[i] == true:
+			all_actions_done += 1
+		else: 
+			all_actions_done = 0
+	if all_actions_done == 6:
+		if top_points_counter >= bonus_treashold:
+			top_points_counter += bonus_amount
+			points += top_points_counter
+			lpoints.text = str("All Points : ", points)
+
+################################
+#####    Action Methods    #####
+################################
+func chance() -> void:
+	if buttom_actions[6] == false:
+		var dice_value = 0
+		for i in dice_count:
+			dice_value += dices[i] 
+		resetDice()
+		bottom_points_counter += dice_value
+		lchance.text = str(dice_value)
+		buttom_actions[6] = true
+
+func kniffel() -> void:
+	if buttom_actions[5] == false:
+		if dices.count(dices[0]) == 5:
+			lkniffel.text = "50"
+			bottom_points_counter += 50
+		else: 
+			lkniffel.text = "0"
+		resetDice()
+		buttom_actions[5] = true
+
+func big_straight() -> void:
+	if buttom_actions[4] == false:
+		var big_straight_counter = 0
+		dices.sort()
+		for i in dices:
+			if i <= 4:
+				if dices[i - 1] - dices[i] == -1:
+					big_straight_counter += 1
+		if big_straight_counter >= 3:
+			bottom_points_counter += 40
+			lbigstraight.text = "40"
+		else:
+			lbigstraight.text = "0"
+		resetDice()
+		buttom_actions[4] = true
+
+func small_straight() -> void:
+	if buttom_actions[3] == false:
+		var small_straight_counter = 0
+		dices.sort()
+		for i in dices:
+			if i <= 4:
+				if dices[i - 1] - dices[i] != -1:
+					i +=1
+				if dices[i - 1] - dices[i] == -1:
+						small_straight_counter += 1
+		if small_straight_counter >= 2:
+			lsmallstraight.text = "30"
+			bottom_points_counter += 30
+		else:
+			lsmallstraight.text = "0"
+		resetDice()
+		buttom_actions[3] = true
+
+func x3() -> void:
+	if actions[0] == false: 
+		dices.sort()
+		var is_x3 = false
+		for i in dice_count:
+			if dices.count(dices[i - 1]) >= 3:
+				is_x3 = true
+				break
+		if x3:
+			var dice_value = 0
+			for i in dice_count:
+				dice_value += dices[i]
+			bottom_points_counter += dice_value
+			lx3.text = str(dice_value)
+		elif is_x3 == false:
+			lx3.text = "0"
+		resetDice()
+		buttom_actions[0] = true
+
+func x4() -> void:
+	if actions[1] == false: 
+		dices.sort()
+		var is_x4 = false
+		for i in dice_count:
+				if dices.count(dices[i - 1]) >= 4:
+					is_x4 = true
+					break
+		if is_x4:
+			var dice_value = 0
+			for i in dice_count:
+				dice_value += dices[i]
+			bottom_points_counter += dice_value
+			lx4.text = str(dice_value)
+		else:
+			lx4.text = "0"
+		resetDice()
+		buttom_actions[1] = true
+
+func full_house() -> void:
+	if buttom_actions[2] == false:
+		dices.sort()
+		var dif_dice
+		var dice_counted = dices.count(dices[0])
+		var dif_dice_counted = 0
+		for i in dice_count:
+			if dices[i] != dices[0]:
+				print(dices[i])
+				dif_dice = dices[i]
+				break
+		dif_dice_counted = dices.count(dif_dice)
+		if dice_counted == 3 && dif_dice_counted == 2:
+			bottom_points_counter += 25
+			lfullhouse.text = "25"
+			resetDice()
+			buttom_actions[2] = true
+		elif dice_counted == 2 && dif_dice_counted == 3:
+			bottom_points_counter += 25
+			lfullhouse.text = "25"
+			resetDice()
+			buttom_actions[2] = true
+		else:
+			resetDice()
+			buttom_actions[2] = true
+			lfullhouse.text = "0"
+
+###############################
+#####   keyboard compat   #####
+###############################
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("unlockAll"):
+		resetLocked()
+	if Input.is_action_just_pressed("roll"):
+		throwDices()
+	if Input.is_action_just_pressed("D1_Lock"):
+		if sd1.button_pressed == false:
+			sd1.button_pressed = true
+		else:
+			sd1.button_pressed = false
+	if Input.is_action_just_pressed("D2_Lock"):
+		if sd2.button_pressed == false:
+			sd2.button_pressed = true
+		else:
+			sd2.button_pressed = false
+	if Input.is_action_just_pressed("D3_Lock"):
+		if sd3.button_pressed == false:
+			sd3.button_pressed = true
+		else:
+			sd3.button_pressed = false
+	if Input.is_action_just_pressed("D4_Lock"):
+		if sd4.button_pressed == false:
+			sd4.button_pressed = true
+		else:
+			sd4.button_pressed = false
+	if Input.is_action_just_pressed("D5_Lock"):
+		if sd5.button_pressed == false:
+				sd5.button_pressed = true
+		else:
+			sd5.button_pressed = false
+	
+	#Keyboard compatibility
+	if Input.is_action_just_pressed("chance"):
+		chance()
+	if Input.is_action_just_pressed("kniffel"):
+		kniffel()
+	if Input.is_action_just_pressed("3x"):
+		x3()
+	if Input.is_action_just_pressed("4x"):
+		x4()
+	if Input.is_action_just_pressed("big_straight"):
+		big_straight()
+	if Input.is_action_just_pressed("Full_House"):
+		full_house()
+	if Input.is_action_just_pressed("small_straight"):
+		small_straight()
+
+##############################
+#####     Lock Dices     #####
+##############################
+func _on_d_1_toggled(toggled_on: bool) -> void:
+	locked_slot[0] = toggled_on
+
+func _on_d_2_toggled(toggled_on: bool) -> void:
+	locked_slot[1] = toggled_on
+
+func _on_d_3_toggled(toggled_on: bool) -> void:
+	locked_slot[2] = toggled_on
+
+func _on_d_4_toggled(toggled_on: bool) -> void:
+	locked_slot[3] = toggled_on
+
+func _on_d_5_toggled(toggled_on: bool) -> void:
+	locked_slot[4] = toggled_on
+
+
+###############################
+#####    Select Action    #####
+###############################
+func _on_one_select_button_pressed() -> void:
+	var dice_counted = 1
+	if actions[dice_counted - 1] == false:
+		for i in dice_count:
+			if dices[i] == dice_counted:
+				diceValues[dice_counted - 1] += dice_counted
+		l1.text = str(diceValues[dice_counted - 1])
+		top_points_counter += diceValues[dice_counted - 1]
+		actions[dice_counted - 1] = true
+		animplayer.play("D1_select")
+		resetDice()
+		checkActions()
+
+func _on_two_select_button_pressed() -> void:
+	var dice_counted = 2
+	if actions[dice_counted - 1] == false:
+		for i in dice_count:
+			if dices[i] == dice_counted:
+				diceValues[dice_counted - 1] += dice_counted
+		l2.text = str(diceValues[dice_counted - 1])
+		top_points_counter += diceValues[dice_counted - 1]
+		actions[dice_counted - 1] = true
+		resetDice()
+		checkActions()
+
+func _on_three_select_button_pressed() -> void:
+	var dice_counted = 3
+	if actions[dice_counted - 1] == false:
+		for i in dice_count:
+			if dices[i] == dice_counted:
+				diceValues[dice_counted - 1] += dice_counted
+		l3.text = str(diceValues[dice_counted - 1])
+		top_points_counter += diceValues[dice_counted - 1]
+		actions[dice_counted - 1] = true
+		resetDice()
+		checkActions()
+
+func _on_four_select_button_pressed() -> void:
+	var dice_counted = 4
+	if actions[dice_counted - 1] == false:
+		for i in dice_count:
+			if dices[i] == dice_counted:
+				diceValues[dice_counted - 1] += dice_counted
+		l4.text = str(diceValues[dice_counted - 1])
+		top_points_counter += diceValues[dice_counted - 1]
+		actions[dice_counted - 1] = true
+		resetDice()
+		checkActions()
+
+func _on_five_select_button_pressed() -> void:
+	var dice_counted = 5
+	if actions[dice_counted - 1] == false:
+		for i in dice_count:
+			if dices[i] == dice_counted:
+				diceValues[dice_counted - 1] += dice_counted
+		l5.text = str(diceValues[dice_counted - 1])
+		top_points_counter += diceValues[dice_counted - 1]
+		actions[dice_counted - 1] = true
+		resetDice()
+		checkActions()
+
+func _on_six_select_button_pressed() -> void:
+	var dice_counted = 6
+	if actions[dice_counted - 1] == false:
+		for i in dice_count:
+			if dices[i] == dice_counted:
+				diceValues[dice_counted - 1] += dice_counted
+		l6.text = str(diceValues[dice_counted - 1])
+		top_points_counter += diceValues[dice_counted - 1]
+		actions[dice_counted - 1] = true
+		resetDice()
+		checkActions()
+
+func _on_x_3_pressed() -> void:
+	x3()
+
+func _on_x_4_pressed() -> void:
+	x4()
+
+func _on_full_house_pressed() -> void:
+	full_house()
+
+func _on_small_straigth_pressed() -> void:
+	small_straight()
+
+func _on_big_straigth_pressed() -> void:
+	big_straight()
+
+func _on_kniffel_pressed() -> void:
+	kniffel()
+
+func _on_chance_pressed() -> void:
+	chance()
+
+
+func _on_roll_dice_button_pressed() -> void:
+	throwDices()
+
+func _on_unlock_all_button_pressed() -> void:
+	resetLocked()
