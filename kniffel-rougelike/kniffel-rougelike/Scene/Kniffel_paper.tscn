@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bux05u53jlkja"]
+
+[ext_resource type="Texture2D" uid="uid://4dk4vq7hmh4a" path="res://Art/Kniffel_block_ready.png" id="1_sglly"]
+
+[sub_resource type="Gradient" id="Gradient_sglly"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u8wue"]
+gradient = SubResource("Gradient_sglly")
+
+[node name="Level" type="Node2D" unique_id=1824013333]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1619690147]
+texture = ExtResource("1_sglly")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1239192210]
+offset_left = -198.0
+offset_top = -253.0
+offset_right = 58.0
+offset_bottom = -213.0
+scale = Vector2(0.51396346, 1.4686593)
+texture = SubResource("GradientTexture1D_u8wue")
