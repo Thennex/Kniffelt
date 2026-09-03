@@ -1,9 +1,16 @@
 extends Node2D
 
 
+<<<<<<< HEAD
 ############################################################
 #####                   Path linking                   #####
 ############################################################
+=======
+##############################
+#####    Path linking    #####
+##############################
+
+>>>>>>> 6ccf1f747569058257b9593b42b7d542d6f5483e
 @onready var animplayer: AnimationPlayer = $"../AnimationPlayer"
 
 ####################
@@ -88,9 +95,15 @@ extends Node2D
 @onready var lfullhoused4: Label = $"../Level/SelectActionButtom/showItem/FullHouseShower/LFullHouseD4"
 @onready var lfullhoused5: Label = $"../Level/SelectActionButtom/showItem/FullHouseShower/LFullHouseD5"
 
+<<<<<<< HEAD
 ##########################################################
 #####                     Variables                  #####
 ##########################################################
+=======
+#############################
+#####     Variables     #####LBigStraightD9
+#############################
+>>>>>>> 6ccf1f747569058257b9593b42b7d542d6f5483e
 var d1 = 0
 var d2 = 0
 var d3 = 0
@@ -125,9 +138,13 @@ var actions = [false, false, false, false, false, false]
 var diceValues = [0, 0, 0, 0, 0, 0,]
 var buttom_actions = [false, false, false, false, false, false, false]
 
+<<<<<<< HEAD
 var smallstraight1 = [1, 2, 3, 4] 
 var smallstraight2 = [2, 3, 4, 5]
 var smallstraight3 = [3, 4, 5, 6]
+=======
+
+>>>>>>> 6ccf1f747569058257b9593b42b7d542d6f5483e
 ################################
 #####   Methods for calc   #####
 ################################
@@ -300,6 +317,7 @@ func kniffel() -> void:
 
 func big_straight() -> void:
 	if buttom_actions[4] == false:
+<<<<<<< HEAD
 		var is_big_straight = false
 		var pureDices = []
 		for i in dice_count:
@@ -313,11 +331,23 @@ func big_straight() -> void:
 		if is_big_straight:
 			lbigstraight.text = "40"
 			bottom_points_counter +=40
+=======
+		var big_straight_counter = 0
+		dices.sort()
+		for i in dices:
+			if i != dices.size() - 1:
+				if dices[i - 1] - dices[i] == -1:
+					big_straight_counter += 1
+		if big_straight_counter >= 3:
+			bottom_points_counter += 40
+			lbigstraight.text = "40"
+>>>>>>> 6ccf1f747569058257b9593b42b7d542d6f5483e
 		else:
 			lbigstraight.text = "0"
 		resetDice()
 		buttom_actions[4] = true
 
+<<<<<<< HEAD
 func small_straight() -> void:
 	if buttom_actions[3] == false:
 		var is_small_straight = false
@@ -335,6 +365,25 @@ func small_straight() -> void:
 				if pureDices[0] + 1 == pureDices[1] && pureDices[0] + 2 == pureDices[2] && pureDices[0] + 3 == pureDices[3] && pureDices[0] + 4  == pureDices[4]:
 					is_small_straight = true
 		if is_small_straight:
+=======
+
+
+####NEEEEEEDS FIXIN
+
+
+
+
+
+func small_straight() -> void:
+	if buttom_actions[3] == false:
+		var small_straight_counter = 0
+		dices.sort()
+		for i in dices:
+			if i < dices.size():
+				if dices[i - 1] - dices[i] == -1:
+						small_straight_counter += 1
+		if small_straight_counter >= 3:
+>>>>>>> 6ccf1f747569058257b9593b42b7d542d6f5483e
 			lsmallstraight.text = "30"
 			bottom_points_counter += 30
 		else:
