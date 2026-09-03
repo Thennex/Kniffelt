@@ -48,14 +48,59 @@ extends Node2D
 @onready var lchance: Label = $"../Level/PointCounters/LabelChance"
 @onready var lfullhouse: Label = $"../Level/PointCounters/LabelFullHouse"
 
+###########################
+#####  change Labels  #####
+###########################
+@onready var lx3d1: Label = $"../Level/SelectActionButtom/showItem/x3Shower/Lx3D1"
+@onready var lx3d2: Label = $"../Level/SelectActionButtom/showItem/x3Shower/Lx3D2"
+@onready var lx3d3: Label = $"../Level/SelectActionButtom/showItem/x3Shower/Lx3D3"
+
+@onready var lx4d1: Label = $"../Level/SelectActionButtom/showItem/x4Shower/Lx4D1"
+@onready var lx4d2: Label = $"../Level/SelectActionButtom/showItem/x4Shower/Lx4D2"
+@onready var lx4d3: Label = $"../Level/SelectActionButtom/showItem/x4Shower/Lx4D3"
+@onready var lx4d4: Label = $"../Level/SelectActionButtom/showItem/x4Shower/Lx4D4"
+
+@onready var lkniffeld1: Label = $"../Level/SelectActionButtom/showItem/KniffelShower/LKniffelD1"
+@onready var lkniffeld2: Label = $"../Level/SelectActionButtom/showItem/KniffelShower/LKniffelD2"
+@onready var lkniffeld3: Label = $"../Level/SelectActionButtom/showItem/KniffelShower/LKniffelD3"
+@onready var lkniffeld4: Label = $"../Level/SelectActionButtom/showItem/KniffelShower/LKniffelD4"
+@onready var lkniffeld5: Label = $"../Level/SelectActionButtom/showItem/KniffelShower/LKniffelD5"
+
+@onready var lchanced1: Label = $"../Level/SelectActionButtom/showItem/ChanceShower/LChanceD1"
+@onready var lchanced2: Label = $"../Level/SelectActionButtom/showItem/ChanceShower/LChanceD2"
+@onready var lchanced3: Label = $"../Level/SelectActionButtom/showItem/ChanceShower/LChanceD3"
+@onready var lchanced4: Label = $"../Level/SelectActionButtom/showItem/ChanceShower/LChanceD4"
+@onready var lchanced5: Label = $"../Level/SelectActionButtom/showItem/ChanceShower/LChanceD5"
+
+@onready var lbigstraightd1: Label = $"../Level/SelectActionButtom/showItem/BigStraightShower/LBigStraightD1"
+@onready var lbigstraightd2: Label = $"../Level/SelectActionButtom/showItem/BigStraightShower/LBigStraightD2"
+@onready var lbigstraightd3: Label = $"../Level/SelectActionButtom/showItem/BigStraightShower/LBigStraightD3"
+@onready var lbigstraightd4: Label = $"../Level/SelectActionButtom/showItem/BigStraightShower/LBigStraightD4"
+@onready var lbigstraightd5: Label = $"../Level/SelectActionButtom/showItem/BigStraightShower/LBigStraightD5"
+
+@onready var lsmallstraightd1: Label = $"../Level/SelectActionButtom/showItem/SmallStraightShower/LSmallStraightD1"
+@onready var lsmallstraightd2: Label = $"../Level/SelectActionButtom/showItem/SmallStraightShower/LSmallStraightD2"
+@onready var lsmallstraightd3: Label = $"../Level/SelectActionButtom/showItem/SmallStraightShower/LSmallStraightD3"
+@onready var lsmallstraightd4: Label = $"../Level/SelectActionButtom/showItem/SmallStraightShower/LSmallStraightD4"
+
+@onready var lfullhoused1: Label = $"../Level/SelectActionButtom/showItem/FullHouseShower/LFullHouseD1"
+@onready var lfullhoused2: Label = $"../Level/SelectActionButtom/showItem/FullHouseShower/LFullHouseD2"
+@onready var lfullhoused3: Label = $"../Level/SelectActionButtom/showItem/FullHouseShower/LFullHouseD3"
+@onready var lfullhoused4: Label = $"../Level/SelectActionButtom/showItem/FullHouseShower/LFullHouseD4"
+@onready var lfullhoused5: Label = $"../Level/SelectActionButtom/showItem/FullHouseShower/LFullHouseD5"
+
 #############################
-#####     Variables     #####
+#####     Variables     #####LBigStraightD9
 #############################
 var d1 = 0
 var d2 = 0
 var d3 = 0
 var d4 = 0
 var d5 = 0
+
+var changeDieMemory = 1
+var small_straight_memory = 1
+var big_straight_memory = 1
 
 var update_progressbar = false
 
@@ -87,6 +132,68 @@ var buttom_actions = [false, false, false, false, false, false, false]
 ################################
 func _ready() -> void:
 	resetDice()
+	changeShowers()
+
+func changeShowers() -> void:
+	lx3d1.text = str(changeDieMemory)
+	lx3d2.text = str(changeDieMemory)
+	lx3d3.text = str(changeDieMemory)
+	lx4d1.text = str(changeDieMemory)
+	lx4d2.text = str(changeDieMemory)
+	lx4d3.text = str(changeDieMemory)
+	lx4d4.text = str(changeDieMemory)
+	lkniffeld1.text = str(changeDieMemory)
+	lkniffeld2.text = str(changeDieMemory)
+	lkniffeld3.text = str(changeDieMemory)
+	lkniffeld4.text = str(changeDieMemory)
+	lkniffeld5.text = str(changeDieMemory)
+	lchanced1.text = str(rng())
+	lchanced2.text = str(rng())
+	lchanced3.text = str(rng())
+	lchanced4.text = str(rng())
+	lchanced5.text = str(rng())
+	if small_straight_memory == 1:
+		lsmallstraightd1.text = "1"
+		lsmallstraightd2.text = "2"
+		lsmallstraightd3.text = "3"
+		lsmallstraightd4.text = "4"
+		small_straight_memory = 2
+	elif small_straight_memory == 2:
+		lsmallstraightd1.text = "2"
+		lsmallstraightd2.text = "3"
+		lsmallstraightd3.text = "4"
+		lsmallstraightd4.text = "5"
+		small_straight_memory = 3
+	elif small_straight_memory == 3:
+		lsmallstraightd1.text = "3"
+		lsmallstraightd2.text = "4"
+		lsmallstraightd3.text = "5"
+		lsmallstraightd4.text = "6"
+		small_straight_memory = 1
+	if big_straight_memory == 1:
+		lbigstraightd1.text = "1"
+		lbigstraightd2.text = "2"
+		lbigstraightd3.text = "3"
+		lbigstraightd4.text = "4"
+		lbigstraightd5.text = "5"
+		big_straight_memory = 2
+	elif big_straight_memory == 2:
+		lbigstraightd1.text = "2"
+		lbigstraightd2.text = "3"
+		lbigstraightd3.text = "4"
+		lbigstraightd4.text = "5"
+		lbigstraightd5.text = "6"
+		big_straight_memory = 1
+	
+	lfullhoused1.text = str(changeDieMemory)
+	lfullhoused2.text = str(changeDieMemory)
+	lfullhoused3.text = str(changeDieMemory)
+	if changeDieMemory != 6:
+		changeDieMemory +=1
+	else:
+		changeDieMemory = 1
+	lfullhoused4.text = str(changeDieMemory)
+	lfullhoused5.text = str(changeDieMemory)
 
 func throwDices() -> void:
 	if throw_count == 0:
@@ -156,7 +263,7 @@ func resetLocked() -> void:
 func checkActions() -> void:
 	var all_actions_done = 0
 	for i in 6:
-		if actions[i] == true:
+		if actions[i - 1] == true:
 			all_actions_done += 1
 		else: 
 			all_actions_done = 0
@@ -164,7 +271,8 @@ func checkActions() -> void:
 		if top_points_counter >= bonus_treashold:
 			top_points_counter += bonus_amount
 			points += top_points_counter
-			lpoints.text = str("All Points : ", points)
+			var tween = create_tween()
+			tween.tween_property(lpoints, "text", str("All Points : ", points), .1)
 
 ################################
 #####    Action Methods    #####
@@ -194,7 +302,7 @@ func big_straight() -> void:
 		var big_straight_counter = 0
 		dices.sort()
 		for i in dices:
-			if i <= 4:
+			if i != dices.size() - 1:
 				if dices[i - 1] - dices[i] == -1:
 					big_straight_counter += 1
 		if big_straight_counter >= 3:
@@ -205,17 +313,23 @@ func big_straight() -> void:
 		resetDice()
 		buttom_actions[4] = true
 
+
+
+####NEEEEEEDS FIXIN
+
+
+
+
+
 func small_straight() -> void:
 	if buttom_actions[3] == false:
 		var small_straight_counter = 0
 		dices.sort()
 		for i in dices:
-			if i <= 4:
-				if dices[i - 1] - dices[i] != -1:
-					i +=1
+			if i < dices.size():
 				if dices[i - 1] - dices[i] == -1:
 						small_straight_counter += 1
-		if small_straight_counter >= 2:
+		if small_straight_counter >= 3:
 			lsmallstraight.text = "30"
 			bottom_points_counter += 30
 		else:
@@ -231,13 +345,13 @@ func x3() -> void:
 			if dices.count(dices[i - 1]) >= 3:
 				is_x3 = true
 				break
-		if x3:
+		if is_x3:
 			var dice_value = 0
 			for i in dice_count:
 				dice_value += dices[i]
 			bottom_points_counter += dice_value
 			lx3.text = str(dice_value)
-		elif is_x3 == false:
+		else:
 			lx3.text = "0"
 		resetDice()
 		buttom_actions[0] = true
@@ -321,6 +435,8 @@ func _process(_delta: float) -> void:
 				sd5.button_pressed = true
 		else:
 			sd5.button_pressed = false
+	
+	
 	
 	#Keyboard compatibility
 	if Input.is_action_just_pressed("chance"):
@@ -460,3 +576,7 @@ func _on_roll_dice_button_pressed() -> void:
 
 func _on_unlock_all_button_pressed() -> void:
 	resetLocked()
+
+
+func _on_timer_timeout() -> void:
+	changeShowers()

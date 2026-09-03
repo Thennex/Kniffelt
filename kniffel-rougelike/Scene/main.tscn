@@ -345,6 +345,406 @@ scale = Vector2(24.541414, 8.657359)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_sblpm")
 theme_override_styles/hover = SubResource("StyleBoxTexture_r34rm")
 
+[node name="showItem" type="Control" parent="Level/SelectActionButtom" unique_id=2026477537]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="x3Shower" type="Control" parent="Level/SelectActionButtom/showItem" unique_id=1827189432]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Lx3D1" type="Label" parent="Level/SelectActionButtom/showItem/x3Shower" unique_id=174194131]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -183.0
+offset_top = -4.0
+offset_right = -143.0
+offset_bottom = 19.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 28
+text = "1"
+horizontal_alignment = 1
+
+[node name="Lx3D2" type="Label" parent="Level/SelectActionButtom/showItem/x3Shower" unique_id=1125336636]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -147.0
+offset_top = -4.0
+offset_right = -107.0
+offset_bottom = 35.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 28
+text = "1"
+horizontal_alignment = 1
+
+[node name="Lx3D3" type="Label" parent="Level/SelectActionButtom/showItem/x3Shower" unique_id=560150466]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -111.0
+offset_top = -4.0
+offset_right = -71.0
+offset_bottom = 35.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 28
+text = "1"
+horizontal_alignment = 1
+
+[node name="x4Shower" type="Control" parent="Level/SelectActionButtom/showItem" unique_id=101679220]
+anchors_preset = 0
+offset_left = 202.0
+offset_top = -5.0
+offset_right = 242.0
+offset_bottom = 35.0
+
+[node name="Lx4D1" type="Label" parent="Level/SelectActionButtom/showItem/x4Shower" unique_id=1345041231]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -183.0
+offset_right = -143.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="Lx4D2" type="Label" parent="Level/SelectActionButtom/showItem/x4Shower" unique_id=2117634412]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -158.0
+offset_right = -118.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="Lx4D3" type="Label" parent="Level/SelectActionButtom/showItem/x4Shower" unique_id=620651749]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -133.0
+offset_right = -93.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="Lx4D4" type="Label" parent="Level/SelectActionButtom/showItem/x4Shower" unique_id=183135010]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -108.0
+offset_right = -68.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="KniffelShower" type="Control" parent="Level/SelectActionButtom/showItem" unique_id=656342100]
+anchors_preset = 0
+offset_left = 202.0
+offset_top = 147.0
+offset_right = 242.0
+offset_bottom = 187.0
+
+[node name="LKniffelD1" type="Label" parent="Level/SelectActionButtom/showItem/KniffelShower" unique_id=1029701377]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -183.0
+offset_right = -143.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LKniffelD2" type="Label" parent="Level/SelectActionButtom/showItem/KniffelShower" unique_id=871421864]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -158.0
+offset_right = -118.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LKniffelD3" type="Label" parent="Level/SelectActionButtom/showItem/KniffelShower" unique_id=1885433169]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -133.0
+offset_right = -93.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LKniffelD4" type="Label" parent="Level/SelectActionButtom/showItem/KniffelShower" unique_id=1039745502]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -108.0
+offset_right = -68.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LKniffelD5" type="Label" parent="Level/SelectActionButtom/showItem/KniffelShower" unique_id=1368640475]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -83.0
+offset_right = -43.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="ChanceShower" type="Control" parent="Level/SelectActionButtom/showItem" unique_id=205172846]
+anchors_preset = 0
+offset_left = -6.0
+offset_top = 223.0
+offset_right = 34.0
+offset_bottom = 263.0
+
+[node name="LChanceD1" type="Label" parent="Level/SelectActionButtom/showItem/ChanceShower" unique_id=1842261104]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -183.0
+offset_right = -143.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LChanceD2" type="Label" parent="Level/SelectActionButtom/showItem/ChanceShower" unique_id=887546641]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -158.0
+offset_right = -118.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LChanceD3" type="Label" parent="Level/SelectActionButtom/showItem/ChanceShower" unique_id=1539464476]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -133.0
+offset_right = -93.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LChanceD4" type="Label" parent="Level/SelectActionButtom/showItem/ChanceShower" unique_id=1273515747]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -108.0
+offset_right = -68.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LChanceD5" type="Label" parent="Level/SelectActionButtom/showItem/ChanceShower" unique_id=1380692331]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -83.0
+offset_right = -43.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="BigStraightShower" type="Control" parent="Level/SelectActionButtom/showItem" unique_id=1627898850]
+anchors_preset = 0
+offset_left = -6.0
+offset_top = 147.0
+offset_right = 34.0
+offset_bottom = 187.0
+
+[node name="LBigStraightD1" type="Label" parent="Level/SelectActionButtom/showItem/BigStraightShower" unique_id=787940025]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -183.0
+offset_right = -143.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LBigStraightD2" type="Label" parent="Level/SelectActionButtom/showItem/BigStraightShower" unique_id=789575787]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -158.0
+offset_right = -118.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LBigStraightD3" type="Label" parent="Level/SelectActionButtom/showItem/BigStraightShower" unique_id=1857576835]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -133.0
+offset_right = -93.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LBigStraightD4" type="Label" parent="Level/SelectActionButtom/showItem/BigStraightShower" unique_id=1717973882]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -108.0
+offset_right = -68.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LBigStraightD5" type="Label" parent="Level/SelectActionButtom/showItem/BigStraightShower" unique_id=985209232]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -83.0
+offset_right = -43.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="FullHouseShower" type="Control" parent="Level/SelectActionButtom/showItem" unique_id=610941936]
+anchors_preset = 0
+offset_left = -6.0
+offset_top = 71.0
+offset_right = 34.0
+offset_bottom = 111.0
+
+[node name="LFullHouseD1" type="Label" parent="Level/SelectActionButtom/showItem/FullHouseShower" unique_id=2040679838]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -183.0
+offset_right = -143.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LFullHouseD2" type="Label" parent="Level/SelectActionButtom/showItem/FullHouseShower" unique_id=885372296]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -158.0
+offset_right = -118.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LFullHouseD3" type="Label" parent="Level/SelectActionButtom/showItem/FullHouseShower" unique_id=1365156736]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -133.0
+offset_right = -93.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LFullHouseD4" type="Label" parent="Level/SelectActionButtom/showItem/FullHouseShower" unique_id=1780926717]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -108.0
+offset_right = -68.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LFullHouseD5" type="Label" parent="Level/SelectActionButtom/showItem/FullHouseShower" unique_id=534990105]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -83.0
+offset_right = -43.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="SmallStraightShower" type="Control" parent="Level/SelectActionButtom/showItem" unique_id=564072211]
+anchors_preset = 0
+offset_left = 202.0
+offset_top = 71.0
+offset_right = 242.0
+offset_bottom = 111.0
+
+[node name="LSmallStraightD1" type="Label" parent="Level/SelectActionButtom/showItem/SmallStraightShower" unique_id=1006285278]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -183.0
+offset_right = -143.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LSmallStraightD2" type="Label" parent="Level/SelectActionButtom/showItem/SmallStraightShower" unique_id=1757138160]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -158.0
+offset_right = -118.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LSmallStraightD3" type="Label" parent="Level/SelectActionButtom/showItem/SmallStraightShower" unique_id=117054853]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -133.0
+offset_right = -93.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LSmallStraightD4" type="Label" parent="Level/SelectActionButtom/showItem/SmallStraightShower" unique_id=1179488052]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -108.0
+offset_right = -68.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="Level/SelectActionButtom/showItem" unique_id=26003792]
+wait_time = 0.75
+autostart = true
+
 [node name="PointCounters" type="Control" parent="Level" unique_id=340789578]
 layout_mode = 3
 anchors_preset = 0
@@ -402,66 +802,59 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="LabelX3" type="Label" parent="Level/PointCounters" unique_id=1317266521]
 layout_mode = 0
-offset_left = 14.0
-offset_top = -38.0
-offset_right = 54.0
-offset_bottom = -15.0
+offset_left = 13.0
+offset_top = -13.0
+offset_right = 53.0
+offset_bottom = 10.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "x3"
 
 [node name="LabelX4" type="Label" parent="Level/PointCounters" unique_id=1507649130]
 layout_mode = 0
-offset_left = 214.0
-offset_top = -36.0
-offset_right = 254.0
-offset_bottom = -13.0
+offset_left = 216.0
+offset_top = -8.0
+offset_right = 256.0
+offset_bottom = 15.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "x4"
 
 [node name="LabelFullHouse" type="Label" parent="Level/PointCounters" unique_id=1258944441]
 layout_mode = 0
-offset_left = -20.0
-offset_top = 36.0
-offset_right = 61.0
-offset_bottom = 59.0
+offset_left = 26.0
+offset_top = 71.0
+offset_right = 49.0
+offset_bottom = 94.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Full House"
 
 [node name="LabelSmallStraight" type="Label" parent="Level/PointCounters" unique_id=118536737]
 layout_mode = 0
-offset_left = 156.0
-offset_top = 36.0
-offset_right = 264.0
-offset_bottom = 59.0
+offset_left = 222.0
+offset_top = 65.0
+offset_right = 245.0
+offset_bottom = 88.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Small Straight"
 
 [node name="LabelBigStraight" type="Label" parent="Level/PointCounters" unique_id=788343550]
 layout_mode = 0
-offset_left = -30.0
-offset_top = 112.0
-offset_right = 60.0
-offset_bottom = 161.0
+offset_left = 23.0
+offset_top = 144.0
+offset_right = 46.0
+offset_bottom = 167.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Big Straight"
 
 [node name="LabelKniffel" type="Label" parent="Level/PointCounters" unique_id=2120628826]
 layout_mode = 0
-offset_left = 216.0
-offset_top = 113.0
-offset_right = 267.0
-offset_bottom = 136.0
+offset_left = 232.0
+offset_top = 142.0
+offset_right = 255.0
+offset_bottom = 165.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Kniffel"
 
 [node name="LabelChance" type="Label" parent="Level/PointCounters" unique_id=1677314201]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 190.0
-offset_right = 58.0
-offset_bottom = 213.0
+offset_left = 25.0
+offset_top = 216.0
+offset_right = 48.0
+offset_bottom = 239.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Chance"
 
 [node name="LabelPoints" type="Label" parent="Level/PointCounters" unique_id=1112759533]
 layout_mode = 0
@@ -605,6 +998,7 @@ libraries/ = SubResource("AnimationLibrary_c2iwn")
 [connection signal="pressed" from="Level/SelectActionButtom/BigStraigth" to="GameManager" method="_on_big_straigth_pressed"]
 [connection signal="pressed" from="Level/SelectActionButtom/SmallStraigth" to="GameManager" method="_on_small_straigth_pressed"]
 [connection signal="pressed" from="Level/SelectActionButtom/FullHouse" to="GameManager" method="_on_full_house_pressed"]
+[connection signal="timeout" from="Level/SelectActionButtom/showItem/Timer" to="GameManager" method="_on_timer_timeout"]
 [connection signal="toggled" from="Dices/DiceContainer/D1" to="GameManager" method="_on_d_1_toggled"]
 [connection signal="toggled" from="Dices/DiceContainer/D2" to="GameManager" method="_on_d_2_toggled"]
 [connection signal="toggled" from="Dices/DiceContainer/D3" to="GameManager" method="_on_d_3_toggled"]
