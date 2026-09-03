@@ -1,17 +1,14 @@
 extends Node2D
 
 
-<<<<<<< HEAD
 ############################################################
 #####                   Path linking                   #####
 ############################################################
-=======
-##############################
-#####    Path linking    #####
-##############################
-
->>>>>>> 6ccf1f747569058257b9593b42b7d542d6f5483e
 @onready var animplayer: AnimationPlayer = $"../AnimationPlayer"
+
+@onready var menu: VBoxContainer = $"../Menu/VBoxContainer"
+@onready var shortcutoverlay: Control = $"../ShowControls"
+
 
 ####################
 #####  Points  #####
@@ -95,15 +92,9 @@ extends Node2D
 @onready var lfullhoused4: Label = $"../Level/SelectActionButtom/showItem/FullHouseShower/LFullHouseD4"
 @onready var lfullhoused5: Label = $"../Level/SelectActionButtom/showItem/FullHouseShower/LFullHouseD5"
 
-<<<<<<< HEAD
 ##########################################################
 #####                     Variables                  #####
 ##########################################################
-=======
-#############################
-#####     Variables     #####LBigStraightD9
-#############################
->>>>>>> 6ccf1f747569058257b9593b42b7d542d6f5483e
 var d1 = 0
 var d2 = 0
 var d3 = 0
@@ -137,14 +128,7 @@ var dices = [d1, d2 , d3, d4, d5]
 var actions = [false, false, false, false, false, false]
 var diceValues = [0, 0, 0, 0, 0, 0,]
 var buttom_actions = [false, false, false, false, false, false, false]
-
-<<<<<<< HEAD
-var smallstraight1 = [1, 2, 3, 4] 
-var smallstraight2 = [2, 3, 4, 5]
-var smallstraight3 = [3, 4, 5, 6]
-=======
-
->>>>>>> 6ccf1f747569058257b9593b42b7d542d6f5483e
+var done = 0
 ################################
 #####   Methods for calc   #####
 ################################
@@ -250,13 +234,7 @@ func rng() -> int:
 	return(RandomNumberGenerator.new().randi_range(1,6))
 
 func resetDice() -> void:
-	var tween1 = create_tween()
-	tween1.tween_property(ltoppoints, "text", str("Points: ",top_points_counter, " / 63"), 0.1)
-	var tween = create_tween()
-	tween.tween_property($"../KniffelBonusMeter/TextureProgressBar", "value",top_points_counter, 0.2,).set_trans(Tween.TRANS_SINE)
-	var tween3 = create_tween()
-	tween3.tween_property(lbottompoints, "text", str("Bottom Points: ", bottom_points_counter), 0.1)
-	lbottompoints.text = str("Bottom Points : ", bottom_points_counter)
+	$"../Dices/RollDiceButton".text = str("Roll Dice (", 3, ")")
 	sd1.text = ""
 	sd2.text = ""
 	sd3.text = ""
@@ -278,32 +256,66 @@ func resetLocked() -> void:
 	sd4.button_pressed = false
 	sd5.button_pressed = false
 
-func checkActions() -> void:
+################################
+#####    Action Methods    #####
+################################
+#ich weiss das dass falsch geschrieben ist :)
+func checkButtomActions() -> void:
+	var tween3 = create_tween()
+	tween3.tween_property(lbottompoints, "text", str("Bottom Points: ", bottom_points_counter), 0.1)
 	var all_actions_done = 0
-	for i in 6:
+	for i in buttom_actions.size():
+		if buttom_actions[i - 1] == true:
+			all_actions_done += 1
+		else: 
+			all_actions_done = 0
+	if all_actions_done == 7:
+		done += 1
+		end()
+		points += bottom_points_counter
+		var tween = create_tween()
+		tween.tween_property(lpoints, "text", str("All Points : ", points), .1)
+
+func checkActions() -> void:
+	var tween = create_tween()
+	tween.tween_property($"../KniffelBonusMeter/TextureProgressBar", "value",top_points_counter, 0.2,).set_trans(Tween.TRANS_SINE)
+	var tween1 = create_tween()
+	tween1.tween_property(ltoppoints, "text", str("Points: ",top_points_counter, " / 63"), 0.1)
+	var all_actions_done = 0
+	for i in actions.size():
 		if actions[i - 1] == true:
 			all_actions_done += 1
 		else: 
 			all_actions_done = 0
-	if all_actions_done == 6:
+	if all_actions_done == actions.size():
+		var tween2 = create_tween()
 		if top_points_counter >= bonus_treashold:
 			top_points_counter += bonus_amount
 			points += top_points_counter
-			var tween = create_tween()
-			tween.tween_property(lpoints, "text", str("All Points : ", points), .1)
+			tween1.tween_property(ltoppoints, "text", str("Points: ",top_points_counter, " / 63"), 0.1)
+			tween2.tween_property(lpoints, "text", str("All Points : ", points), .1)
+			done += 1
+			end()
+		else:
+			points += top_points_counter
+			tween2.tween_property(lpoints, "text", str("All Points : ", points), .1)
+			done += 1
+			end()
 
-################################
-#####    Action Methods    #####
-################################
+func end() -> void:
+	if done == 2:
+		$"../EndTimer".start()
+
 func chance() -> void:
 	if buttom_actions[6] == false:
 		var dice_value = 0
 		for i in dice_count:
 			dice_value += dices[i] 
-		resetDice()
 		bottom_points_counter += dice_value
 		lchance.text = str(dice_value)
+		resetDice()
 		buttom_actions[6] = true
+		checkButtomActions()
 
 func kniffel() -> void:
 	if buttom_actions[5] == false:
@@ -314,16 +326,17 @@ func kniffel() -> void:
 			lkniffel.text = "0"
 		resetDice()
 		buttom_actions[5] = true
+		checkButtomActions()
 
 func big_straight() -> void:
 	if buttom_actions[4] == false:
-<<<<<<< HEAD
 		var is_big_straight = false
 		var pureDices = []
 		for i in dice_count:
 			if !pureDices.has(dices[i - 1]):
 				pureDices.append(dices[i - 1]) 
 		pureDices.sort()
+		print(pureDices)
 		var pdsize = pureDices.size()
 		if pdsize == 5:
 			if pureDices[0] + 1 == pureDices[1] && pureDices[0] + 2 == pureDices[2] && pureDices[0] + 3 == pureDices[3] && pureDices[0] + 4  == pureDices[4]:
@@ -331,23 +344,12 @@ func big_straight() -> void:
 		if is_big_straight:
 			lbigstraight.text = "40"
 			bottom_points_counter +=40
-=======
-		var big_straight_counter = 0
-		dices.sort()
-		for i in dices:
-			if i != dices.size() - 1:
-				if dices[i - 1] - dices[i] == -1:
-					big_straight_counter += 1
-		if big_straight_counter >= 3:
-			bottom_points_counter += 40
-			lbigstraight.text = "40"
->>>>>>> 6ccf1f747569058257b9593b42b7d542d6f5483e
 		else:
 			lbigstraight.text = "0"
 		resetDice()
 		buttom_actions[4] = true
+		checkButtomActions()
 
-<<<<<<< HEAD
 func small_straight() -> void:
 	if buttom_actions[3] == false:
 		var is_small_straight = false
@@ -356,49 +358,32 @@ func small_straight() -> void:
 			if !pureDices.has(dices[i - 1]):
 				pureDices.append(dices[i - 1]) 
 		pureDices.sort()
+		print(pureDices)
 		var pdsize = pureDices.size()
 		if pdsize > 3:
 			if pdsize == 4:
 				if pureDices[0] + 1 == pureDices[1] && pureDices[0] + 2 == pureDices[2] && pureDices[0] + 3 == pureDices[3]:
 					is_small_straight = true
-			if pdsize == 5:
+			elif pdsize == 5:
 				if pureDices[0] + 1 == pureDices[1] && pureDices[0] + 2 == pureDices[2] && pureDices[0] + 3 == pureDices[3] && pureDices[0] + 4  == pureDices[4]:
 					is_small_straight = true
 		if is_small_straight:
-=======
-
-
-####NEEEEEEDS FIXIN
-
-
-
-
-
-func small_straight() -> void:
-	if buttom_actions[3] == false:
-		var small_straight_counter = 0
-		dices.sort()
-		for i in dices:
-			if i < dices.size():
-				if dices[i - 1] - dices[i] == -1:
-						small_straight_counter += 1
-		if small_straight_counter >= 3:
->>>>>>> 6ccf1f747569058257b9593b42b7d542d6f5483e
 			lsmallstraight.text = "30"
 			bottom_points_counter += 30
 		else:
 			lsmallstraight.text = "0"
 		resetDice()
 		buttom_actions[3] = true
+		checkButtomActions()
 
 func x3() -> void:
-	if actions[0] == false: 
+	if buttom_actions[0] == false: 
 		dices.sort()
 		var is_x3 = false
 		for i in dice_count:
-			if dices.count(dices[i - 1]) >= 3:
-				is_x3 = true
-				break
+			if is_x3 == false:
+				if dices.count(dices[i - 1]) >= 3:
+					is_x3 = true
 		if is_x3:
 			var dice_value = 0
 			for i in dice_count:
@@ -409,15 +394,16 @@ func x3() -> void:
 			lx3.text = "0"
 		resetDice()
 		buttom_actions[0] = true
+		checkButtomActions()
 
 func x4() -> void:
-	if actions[1] == false: 
+	if buttom_actions[1] == false: 
 		dices.sort()
 		var is_x4 = false
 		for i in dice_count:
-				if dices.count(dices[i - 1]) >= 4:
-					is_x4 = true
-					break
+				if is_x4 == false:
+					if dices.count(dices[i - 1]) >= 4:
+						is_x4 = true
 		if is_x4:
 			var dice_value = 0
 			for i in dice_count:
@@ -428,6 +414,7 @@ func x4() -> void:
 			lx4.text = "0"
 		resetDice()
 		buttom_actions[1] = true
+		checkButtomActions()
 
 func full_house() -> void:
 	if buttom_actions[2] == false:
@@ -444,17 +431,15 @@ func full_house() -> void:
 		if dice_counted == 3 && dif_dice_counted == 2:
 			bottom_points_counter += 25
 			lfullhouse.text = "25"
-			resetDice()
-			buttom_actions[2] = true
 		elif dice_counted == 2 && dif_dice_counted == 3:
 			bottom_points_counter += 25
 			lfullhouse.text = "25"
-			resetDice()
-			buttom_actions[2] = true
 		else:
-			resetDice()
-			buttom_actions[2] = true
 			lfullhouse.text = "0"
+		resetDice()
+		buttom_actions[2] = true
+		checkButtomActions()
+
 
 ###############################
 #####   keyboard compat   #####
@@ -634,3 +619,32 @@ func _on_unlock_all_button_pressed() -> void:
 
 func _on_timer_timeout() -> void:
 	changeShowers()
+
+
+func _on_open_menu_button_pressed() -> void:
+	if menu.visible:
+		menu.visible = false
+	else:
+		menu.visible = true
+
+
+func _on_reload_button_pressed() -> void:
+	get_tree().reload_current_scene()
+
+
+func _on_control_button_pressed() -> void:
+	if shortcutoverlay.visible:
+		shortcutoverlay.visible = false
+	else:
+		shortcutoverlay.visible = true
+
+
+func _on_control_button_2_pressed() -> void:
+	if menu.visible:
+		menu.visible = false
+	else:
+		menu.visible = true
+
+
+func _on_end_timer_timeout() -> void:
+	get_tree().reload_current_scene()
