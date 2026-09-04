@@ -1,0 +1,1393 @@
+[gd_scene format=3 uid="uid://4w184mfbly8m"]
+
+[ext_resource type="PackedScene" uid="uid://bux05u53jlkja" path="res://Scene/Kniffel_paper.tscn" id="1_f6udf"]
+[ext_resource type="Texture2D" uid="uid://dox3c6di50rku" path="res://Art/Dies/Kniffel_D1.png" id="2_1xcnr"]
+[ext_resource type="PackedScene" uid="uid://c117dlvmtgtci" path="res://Scene/game_manager.tscn" id="2_sblpm"]
+[ext_resource type="Texture2D" uid="uid://ddlmrg747nofb" path="res://Art/KniffelProgressbar/under_progressbart.png" id="3_3amdw"]
+[ext_resource type="Texture2D" uid="uid://brg7e7khjbirr" path="res://Art/KniffelProgressbar/over_progressbart.png" id="4_1xcnr"]
+[ext_resource type="Texture2D" uid="uid://bq71ulhlbfcvv" path="res://Art/Dies/Kniffel_dice.png" id="4_ow1sv"]
+[ext_resource type="Texture2D" uid="uid://gkcfwgrpm0bq" path="res://Art/KniffelProgressbar/progressbar.png" id="5_3amdw"]
+[ext_resource type="Texture2D" uid="uid://rpj2d6f82ruq" path="res://Art/Kniffel_Settings.png" id="8_75buv"]
+[ext_resource type="AudioStream" uid="uid://dktef6aonmnow" path="res://sfx/DiceRollSFX.wav" id="9_c2iwn"]
+[ext_resource type="AudioStream" uid="uid://dv78xf57lsgc3" path="res://sfx/DiceRollSFX1.wav" id="10_3pt4j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sblpm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ow1sv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1xcnr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r34rm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxd2g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c2iwn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_75buv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3pt4j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7y4ci"]
+
+[sub_resource type="Animation" id="Animation_ow1sv"]
+resource_name = "D1_select"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Level/SelectAction/KniffelD1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-107, -224), Vector2(-107, -228), Vector2(-107, -224)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Level/SelectAction/KniffelD2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-71, -224), Vector2(-71, -228), Vector2(-71, -224)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Level/SelectAction/KniffelD3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-35, -224), Vector2(-35, -228), Vector2(-35, -224)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Level/SelectAction/KniffelD1:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Level/SelectAction/KniffelD2:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Level/SelectAction/KniffelD3:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_75buv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Level/SelectAction/KniffelD1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-107, -224)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Level/SelectAction/KniffelD2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-71, -224)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Level/SelectAction/KniffelD3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-35, -224)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Level/SelectAction/KniffelD1:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Level/SelectAction/KniffelD2:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Level/SelectAction/KniffelD3:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c2iwn"]
+_data = {
+&"D1_select": SubResource("Animation_ow1sv"),
+&"RESET": SubResource("Animation_75buv")
+}
+
+[sub_resource type="InputEventKey" id="InputEventKey_ow1sv"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_ow1sv"]
+events = [SubResource("InputEventKey_ow1sv")]
+
+[node name="Main" type="Node2D" unique_id=265119633]
+
+[node name="Level" parent="." unique_id=1824013333 instance=ExtResource("1_f6udf")]
+position = Vector2(0.5, 0)
+
+[node name="SelectAction" type="Control" parent="Level" unique_id=1567972706]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -59.5
+offset_right = -19.5
+offset_bottom = 40.0
+
+[node name="KniffelD1" type="Sprite2D" parent="Level/SelectAction" unique_id=881766084]
+position = Vector2(-107, -224)
+texture = ExtResource("2_1xcnr")
+offset = Vector2(0.5, 0.5)
+
+[node name="KniffelD2" type="Sprite2D" parent="Level/SelectAction" unique_id=755462156]
+position = Vector2(-71, -224)
+texture = ExtResource("2_1xcnr")
+offset = Vector2(0.5, 0.5)
+
+[node name="KniffelD3" type="Sprite2D" parent="Level/SelectAction" unique_id=2139448720]
+position = Vector2(-35, -224)
+texture = ExtResource("2_1xcnr")
+offset = Vector2(0.5, 0.5)
+
+[node name="OneSelectButton" type="Button" parent="Level/SelectAction" unique_id=661520188]
+layout_mode = 0
+offset_left = -136.0
+offset_top = -247.0
+offset_right = -128.0
+offset_bottom = -239.0
+scale = Vector2(16.021902, 5.6346335)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sblpm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ow1sv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1xcnr")
+
+[node name="TwoSelectButton" type="Button" parent="Level/SelectAction" unique_id=588363723]
+layout_mode = 0
+offset_left = -3.9999995
+offset_top = -246.0
+offset_right = 4.0000005
+offset_bottom = -238.0
+scale = Vector2(15.038319, 5.649229)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sblpm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ow1sv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1xcnr")
+
+[node name="ThreeSelectButton" type="Button" parent="Level/SelectAction" unique_id=542911931]
+layout_mode = 0
+offset_left = 125.99997
+offset_top = -246.0
+offset_right = 133.99997
+offset_bottom = -238.0
+scale = Vector2(15.038319, 5.649229)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sblpm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ow1sv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1xcnr")
+
+[node name="FourSelectButton" type="Button" parent="Level/SelectAction" unique_id=118638316]
+layout_mode = 0
+offset_left = -132.0
+offset_top = -153.0
+offset_right = -124.0
+offset_bottom = -145.0
+scale = Vector2(15.038319, 5.649229)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sblpm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ow1sv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1xcnr")
+
+[node name="FiveSelectButton" type="Button" parent="Level/SelectAction" unique_id=609354610]
+layout_mode = 0
+offset_left = -2.0000157
+offset_top = -152.0
+offset_right = 5.9999843
+offset_bottom = -144.0
+scale = Vector2(15.038319, 5.649229)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sblpm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ow1sv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1xcnr")
+
+[node name="SixSelectButton" type="Button" parent="Level/SelectAction" unique_id=1322915792]
+layout_mode = 0
+offset_left = 123.999985
+offset_top = -153.0
+offset_right = 131.99998
+offset_bottom = -145.0
+scale = Vector2(15.038319, 5.649229)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sblpm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ow1sv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1xcnr")
+
+[node name="SelectActionButtom" type="Control" parent="Level" unique_id=1078926028]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -0.5
+offset_right = 39.5
+offset_bottom = 40.0
+
+[node name="Kniffel" type="Button" parent="Level/SelectActionButtom" unique_id=247946832]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 114.99999
+offset_right = 14.0
+offset_bottom = 122.99999
+scale = Vector2(24.723763, 9.022486)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sblpm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_r34rm")
+
+[node name="Chance" type="Button" parent="Level/SelectActionButtom" unique_id=1985818231]
+layout_mode = 0
+offset_left = -203.00002
+offset_top = 191.0
+offset_right = -195.00002
+offset_bottom = 199.0
+scale = Vector2(24.806013, 9.042253)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sblpm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_r34rm")
+
+[node name="x3" type="Button" parent="Level/SelectActionButtom" unique_id=1649198692]
+layout_mode = 0
+offset_left = -203.0
+offset_top = -37.0
+offset_right = -195.0
+offset_bottom = -29.0
+scale = Vector2(24.864979, 8.99295)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sblpm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_r34rm")
+
+[node name="x4" type="Button" parent="Level/SelectActionButtom" unique_id=1793516131]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -37.0
+offset_right = 14.0
+offset_bottom = -29.0
+scale = Vector2(24.635054, 8.890337)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sblpm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_r34rm")
+
+[node name="BigStraigth" type="Button" parent="Level/SelectActionButtom" unique_id=1129142815]
+layout_mode = 0
+offset_left = -201.99997
+offset_top = 116.0
+offset_right = -193.99997
+offset_bottom = 124.0
+scale = Vector2(24.607542, 8.723351)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sblpm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_r34rm")
+
+[node name="SmallStraigth" type="Button" parent="Level/SelectActionButtom" unique_id=1227377036]
+layout_mode = 0
+offset_left = 5.9999847
+offset_top = 39.000008
+offset_right = 13.999985
+offset_bottom = 47.000008
+scale = Vector2(24.779018, 8.850828)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sblpm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_r34rm")
+
+[node name="FullHouse" type="Button" parent="Level/SelectActionButtom" unique_id=1617449802]
+layout_mode = 0
+offset_left = -201.99997
+offset_top = 40.0
+offset_right = -193.99997
+offset_bottom = 48.0
+scale = Vector2(24.541414, 8.657359)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sblpm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_r34rm")
+
+[node name="showItem" type="Control" parent="Level/SelectActionButtom" unique_id=2026477537]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="x3Shower" type="Control" parent="Level/SelectActionButtom/showItem" unique_id=1827189432]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Lx3D1" type="Label" parent="Level/SelectActionButtom/showItem/x3Shower" unique_id=174194131]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -183.0
+offset_top = -4.0
+offset_right = -143.0
+offset_bottom = 19.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 28
+text = "1"
+horizontal_alignment = 1
+
+[node name="Lx3D2" type="Label" parent="Level/SelectActionButtom/showItem/x3Shower" unique_id=1125336636]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -147.0
+offset_top = -4.0
+offset_right = -107.0
+offset_bottom = 35.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 28
+text = "1"
+horizontal_alignment = 1
+
+[node name="Lx3D3" type="Label" parent="Level/SelectActionButtom/showItem/x3Shower" unique_id=560150466]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -111.0
+offset_top = -4.0
+offset_right = -71.0
+offset_bottom = 35.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 28
+text = "1"
+horizontal_alignment = 1
+
+[node name="x4Shower" type="Control" parent="Level/SelectActionButtom/showItem" unique_id=101679220]
+anchors_preset = 0
+offset_left = 202.0
+offset_top = -5.0
+offset_right = 242.0
+offset_bottom = 35.0
+
+[node name="Lx4D1" type="Label" parent="Level/SelectActionButtom/showItem/x4Shower" unique_id=1345041231]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -183.0
+offset_right = -143.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="Lx4D2" type="Label" parent="Level/SelectActionButtom/showItem/x4Shower" unique_id=2117634412]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -158.0
+offset_right = -118.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="Lx4D3" type="Label" parent="Level/SelectActionButtom/showItem/x4Shower" unique_id=620651749]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -133.0
+offset_right = -93.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="Lx4D4" type="Label" parent="Level/SelectActionButtom/showItem/x4Shower" unique_id=183135010]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -108.0
+offset_right = -68.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="KniffelShower" type="Control" parent="Level/SelectActionButtom/showItem" unique_id=656342100]
+anchors_preset = 0
+offset_left = 202.0
+offset_top = 147.0
+offset_right = 242.0
+offset_bottom = 187.0
+
+[node name="LKniffelD1" type="Label" parent="Level/SelectActionButtom/showItem/KniffelShower" unique_id=1029701377]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -183.0
+offset_right = -143.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LKniffelD2" type="Label" parent="Level/SelectActionButtom/showItem/KniffelShower" unique_id=871421864]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -158.0
+offset_right = -118.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LKniffelD3" type="Label" parent="Level/SelectActionButtom/showItem/KniffelShower" unique_id=1885433169]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -133.0
+offset_right = -93.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LKniffelD4" type="Label" parent="Level/SelectActionButtom/showItem/KniffelShower" unique_id=1039745502]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -108.0
+offset_right = -68.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LKniffelD5" type="Label" parent="Level/SelectActionButtom/showItem/KniffelShower" unique_id=1368640475]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -83.0
+offset_right = -43.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="ChanceShower" type="Control" parent="Level/SelectActionButtom/showItem" unique_id=205172846]
+anchors_preset = 0
+offset_left = -6.0
+offset_top = 223.0
+offset_right = 34.0
+offset_bottom = 263.0
+
+[node name="LChanceD1" type="Label" parent="Level/SelectActionButtom/showItem/ChanceShower" unique_id=1842261104]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -183.0
+offset_right = -143.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LChanceD2" type="Label" parent="Level/SelectActionButtom/showItem/ChanceShower" unique_id=887546641]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -158.0
+offset_right = -118.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LChanceD3" type="Label" parent="Level/SelectActionButtom/showItem/ChanceShower" unique_id=1539464476]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -133.0
+offset_right = -93.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LChanceD4" type="Label" parent="Level/SelectActionButtom/showItem/ChanceShower" unique_id=1273515747]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -108.0
+offset_right = -68.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LChanceD5" type="Label" parent="Level/SelectActionButtom/showItem/ChanceShower" unique_id=1380692331]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -83.0
+offset_right = -43.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="BigStraightShower" type="Control" parent="Level/SelectActionButtom/showItem" unique_id=1627898850]
+anchors_preset = 0
+offset_left = -6.0
+offset_top = 147.0
+offset_right = 34.0
+offset_bottom = 187.0
+
+[node name="LBigStraightD1" type="Label" parent="Level/SelectActionButtom/showItem/BigStraightShower" unique_id=787940025]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -183.0
+offset_right = -143.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LBigStraightD2" type="Label" parent="Level/SelectActionButtom/showItem/BigStraightShower" unique_id=789575787]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -158.0
+offset_right = -118.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LBigStraightD3" type="Label" parent="Level/SelectActionButtom/showItem/BigStraightShower" unique_id=1857576835]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -133.0
+offset_right = -93.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LBigStraightD4" type="Label" parent="Level/SelectActionButtom/showItem/BigStraightShower" unique_id=1717973882]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -108.0
+offset_right = -68.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LBigStraightD5" type="Label" parent="Level/SelectActionButtom/showItem/BigStraightShower" unique_id=985209232]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -83.0
+offset_right = -43.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="FullHouseShower" type="Control" parent="Level/SelectActionButtom/showItem" unique_id=610941936]
+anchors_preset = 0
+offset_left = -6.0
+offset_top = 71.0
+offset_right = 34.0
+offset_bottom = 111.0
+
+[node name="LFullHouseD1" type="Label" parent="Level/SelectActionButtom/showItem/FullHouseShower" unique_id=2040679838]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -183.0
+offset_right = -143.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LFullHouseD2" type="Label" parent="Level/SelectActionButtom/showItem/FullHouseShower" unique_id=885372296]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -158.0
+offset_right = -118.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LFullHouseD3" type="Label" parent="Level/SelectActionButtom/showItem/FullHouseShower" unique_id=1365156736]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -133.0
+offset_right = -93.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LFullHouseD4" type="Label" parent="Level/SelectActionButtom/showItem/FullHouseShower" unique_id=1780926717]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -108.0
+offset_right = -68.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LFullHouseD5" type="Label" parent="Level/SelectActionButtom/showItem/FullHouseShower" unique_id=534990105]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -83.0
+offset_right = -43.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="SmallStraightShower" type="Control" parent="Level/SelectActionButtom/showItem" unique_id=564072211]
+anchors_preset = 0
+offset_left = 202.0
+offset_top = 71.0
+offset_right = 242.0
+offset_bottom = 111.0
+
+[node name="LSmallStraightD1" type="Label" parent="Level/SelectActionButtom/showItem/SmallStraightShower" unique_id=1006285278]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -183.0
+offset_right = -143.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LSmallStraightD2" type="Label" parent="Level/SelectActionButtom/showItem/SmallStraightShower" unique_id=1757138160]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -158.0
+offset_right = -118.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LSmallStraightD3" type="Label" parent="Level/SelectActionButtom/showItem/SmallStraightShower" unique_id=117054853]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -133.0
+offset_right = -93.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="LSmallStraightD4" type="Label" parent="Level/SelectActionButtom/showItem/SmallStraightShower" unique_id=1179488052]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -108.0
+offset_right = -68.0
+offset_bottom = 39.0
+scale = Vector2(0.5407984, 0.5407984)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="Level/SelectActionButtom/showItem" unique_id=26003792]
+wait_time = 0.75
+autostart = true
+
+[node name="PointCounters" type="Control" parent="Level" unique_id=340789578]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -66.5
+offset_right = -26.5
+offset_bottom = 40.0
+
+[node name="Label1" type="Label" parent="Level/PointCounters" unique_id=224180236]
+layout_mode = 0
+offset_left = -78.0
+offset_top = -198.0
+offset_right = -38.0
+offset_bottom = -175.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Label2" type="Label" parent="Level/PointCounters" unique_id=1052165508]
+layout_mode = 0
+offset_left = 51.0
+offset_top = -198.0
+offset_right = 91.0
+offset_bottom = -175.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Label3" type="Label" parent="Level/PointCounters" unique_id=159753425]
+layout_mode = 0
+offset_left = 195.0
+offset_top = -198.0
+offset_right = 235.0
+offset_bottom = -175.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Label4" type="Label" parent="Level/PointCounters" unique_id=1088582638]
+layout_mode = 0
+offset_left = -77.0
+offset_top = -103.0
+offset_right = -37.0
+offset_bottom = -80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Label5" type="Label" parent="Level/PointCounters" unique_id=118451744]
+layout_mode = 0
+offset_left = 51.0
+offset_top = -102.0
+offset_right = 91.0
+offset_bottom = -79.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Label6" type="Label" parent="Level/PointCounters" unique_id=1201383510]
+layout_mode = 0
+offset_left = 192.0
+offset_top = -102.0
+offset_right = 232.0
+offset_bottom = -79.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="LabelX3" type="Label" parent="Level/PointCounters" unique_id=1317266521]
+layout_mode = 0
+offset_left = 13.0
+offset_top = -13.0
+offset_right = 53.0
+offset_bottom = 10.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="LabelX4" type="Label" parent="Level/PointCounters" unique_id=1507649130]
+layout_mode = 0
+offset_left = 216.0
+offset_top = -8.0
+offset_right = 256.0
+offset_bottom = 15.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="LabelFullHouse" type="Label" parent="Level/PointCounters" unique_id=1258944441]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 71.0
+offset_right = 49.0
+offset_bottom = 94.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="LabelSmallStraight" type="Label" parent="Level/PointCounters" unique_id=118536737]
+layout_mode = 0
+offset_left = 222.0
+offset_top = 65.0
+offset_right = 245.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="LabelBigStraight" type="Label" parent="Level/PointCounters" unique_id=788343550]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 144.0
+offset_right = 46.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="LabelKniffel" type="Label" parent="Level/PointCounters" unique_id=2120628826]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 142.0
+offset_right = 255.0
+offset_bottom = 165.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="LabelChance" type="Label" parent="Level/PointCounters" unique_id=1677314201]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 216.0
+offset_right = 48.0
+offset_bottom = 239.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="LabelPoints" type="Label" parent="Level/PointCounters" unique_id=1112759533]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 216.0
+offset_right = 193.0
+offset_bottom = 239.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "All Points : 0"
+
+[node name="LabelBottomPoints" type="Label" parent="Level/PointCounters" unique_id=630989431]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 191.0
+offset_right = 232.0
+offset_bottom = 214.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Bottom Points : 0"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1630180019]
+position = Vector2(286, -4)
+zoom = Vector2(1.1, 1.1)
+
+[node name="GameManager" parent="." unique_id=968434056 instance=ExtResource("2_sblpm")]
+
+[node name="Dices" type="Control" parent="." unique_id=1158556997]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -217.99997
+offset_top = -14.0
+offset_right = -177.99997
+offset_bottom = 26.0
+scale = Vector2(1.6987314, 1.6987314)
+
+[node name="DiceContainer" type="HBoxContainer" parent="Dices" unique_id=1724012370]
+layout_mode = 0
+offset_left = 289.0
+offset_top = 87.0
+offset_right = 555.0
+offset_bottom = 137.0
+
+[node name="D1" type="Button" parent="Dices/DiceContainer" unique_id=322676658]
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.31764707, 0.8627451, 0.07058824, 0.50980395)
+theme_override_colors/icon_hover_color = Color(0.31764707, 0.8627451, 0.07058824, 0.50980395)
+theme_override_colors/icon_hover_pressed_color = Color(0.22745098, 0.63529414, 0.05490196, 0.50980395)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mxd2g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c2iwn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_75buv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3pt4j")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7y4ci")
+toggle_mode = true
+text = "1
+"
+icon = ExtResource("4_ow1sv")
+icon_alignment = 1
+
+[node name="D2" type="Button" parent="Dices/DiceContainer" unique_id=419699359]
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.31764707, 0.8627451, 0.07058824, 0.50980395)
+theme_override_colors/icon_hover_color = Color(0.31764707, 0.8627451, 0.07058824, 0.50980395)
+theme_override_colors/icon_hover_pressed_color = Color(0.22745098, 0.63529414, 0.05490196, 0.50980395)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mxd2g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c2iwn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_75buv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3pt4j")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7y4ci")
+toggle_mode = true
+text = "2"
+icon = ExtResource("4_ow1sv")
+icon_alignment = 1
+
+[node name="D3" type="Button" parent="Dices/DiceContainer" unique_id=1806498131]
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.31764707, 0.8627451, 0.07058824, 0.50980395)
+theme_override_colors/icon_hover_color = Color(0.31764707, 0.8627451, 0.07058824, 0.50980395)
+theme_override_colors/icon_hover_pressed_color = Color(0.22745098, 0.63529414, 0.05490196, 0.50980395)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mxd2g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c2iwn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_75buv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3pt4j")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7y4ci")
+toggle_mode = true
+text = "3
+"
+icon = ExtResource("4_ow1sv")
+icon_alignment = 1
+
+[node name="D4" type="Button" parent="Dices/DiceContainer" unique_id=1350679800]
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.31764707, 0.8627451, 0.07058824, 0.50980395)
+theme_override_colors/icon_hover_color = Color(0.31764707, 0.8627451, 0.07058824, 0.50980395)
+theme_override_colors/icon_hover_pressed_color = Color(0.22745098, 0.63529414, 0.05490196, 0.50980395)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mxd2g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c2iwn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_75buv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3pt4j")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7y4ci")
+toggle_mode = true
+text = "4
+"
+icon = ExtResource("4_ow1sv")
+icon_alignment = 1
+
+[node name="D5" type="Button" parent="Dices/DiceContainer" unique_id=2141928084]
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.31764707, 0.8627451, 0.07058824, 0.50980395)
+theme_override_colors/icon_hover_color = Color(0.31764707, 0.8627451, 0.07058824, 0.50980395)
+theme_override_colors/icon_hover_pressed_color = Color(0.22745098, 0.63529414, 0.05490196, 0.50980395)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mxd2g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c2iwn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_75buv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3pt4j")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7y4ci")
+toggle_mode = true
+text = "5
+"
+icon = ExtResource("4_ow1sv")
+icon_alignment = 1
+
+[node name="UnlockAllButton" type="Button" parent="Dices" unique_id=874554820]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 24.0
+offset_right = 555.0
+offset_bottom = 74.0
+theme_override_font_sizes/font_size = 15
+text = "Unlock
+
+"
+
+[node name="RollDiceButton" type="Button" parent="Dices" unique_id=1220894626]
+layout_mode = 0
+offset_left = 289.0
+offset_top = 24.0
+offset_right = 489.0
+offset_bottom = 74.0
+text = "Roll Dice (3)"
+
+[node name="KniffelBonusMeter" type="Control" parent="." unique_id=1519232610]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="KniffelBonusMeter" unique_id=1877954350]
+layout_mode = 0
+offset_left = -204.0
+offset_top = -76.0
+offset_right = 205.0
+offset_bottom = -36.0
+max_value = 63.0
+texture_under = ExtResource("3_3amdw")
+texture_over = ExtResource("4_1xcnr")
+texture_progress = ExtResource("5_3amdw")
+
+[node name="KniffelTopCounter" type="Label" parent="KniffelBonusMeter" unique_id=4698797]
+layout_mode = 0
+offset_left = -40.0
+offset_top = -73.0
+offset_right = 69.0
+offset_bottom = -50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Points: 0 / 63"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Label" type="Label" parent="KniffelBonusMeter" unique_id=858551459]
+layout_mode = 0
+offset_left = 79.0
+offset_top = -73.0
+offset_right = 178.0
+offset_bottom = -50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "(Bonus: 35)"
+uppercase = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=317965143]
+libraries/ = SubResource("AnimationLibrary_c2iwn")
+
+[node name="Menu" type="Control" parent="." unique_id=1377606212]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="openMenuButton" type="Button" parent="Menu" unique_id=419663389]
+z_index = 4
+layout_mode = 0
+offset_left = 742.0
+offset_top = -286.0
+offset_right = 792.0
+offset_bottom = -236.0
+action_mode = 0
+shortcut = SubResource("Shortcut_ow1sv")
+text = "Menu
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu" unique_id=1421487060]
+visible = false
+z_index = 8
+layout_mode = 0
+offset_left = 137.0
+offset_top = -82.0
+offset_right = 437.0
+offset_bottom = 82.0
+alignment = 1
+
+[node name="ReloadButton" type="Button" parent="Menu/VBoxContainer" unique_id=969869320]
+z_index = 2
+custom_minimum_size = Vector2(300, 80)
+custom_maximum_size = Vector2(300, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.4627451, 0.4627451, 0.4627451, 0.6627451)
+theme_override_colors/icon_pressed_color = Color(0.33333334, 0.33333334, 0.33333334, 0.7411765)
+theme_override_colors/icon_hover_color = Color(0.4117647, 0.4117647, 0.4117647, 0.627451)
+theme_override_colors/icon_hover_pressed_color = Color(0.39688927, 0.39688927, 0.39688924, 0.69803923)
+theme_override_font_sizes/font_size = 50
+text = "RELOAD"
+icon = ExtResource("8_75buv")
+icon_alignment = 1
+
+[node name="ControlButton" type="Button" parent="Menu/VBoxContainer" unique_id=1347173812]
+z_index = 2
+custom_minimum_size = Vector2(300, 80)
+custom_maximum_size = Vector2(300, 80)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_visual_only = false
+tooltip_text = "Toggle Shortcut Overlay"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.4627451, 0.4627451, 0.4627451, 0.6627451)
+theme_override_colors/icon_pressed_color = Color(0.33333334, 0.33333334, 0.33333334, 0.7411765)
+theme_override_colors/icon_hover_color = Color(0.4117647, 0.4117647, 0.4117647, 0.627451)
+theme_override_colors/icon_hover_pressed_color = Color(0.39688927, 0.39688927, 0.39688924, 0.69803923)
+theme_override_font_sizes/font_size = 50
+text = "CONTROLS"
+icon = ExtResource("8_75buv")
+icon_alignment = 1
+
+[node name="ControlButton2" type="Button" parent="Menu/VBoxContainer" unique_id=648112030]
+z_index = 2
+custom_minimum_size = Vector2(300, 80)
+custom_maximum_size = Vector2(300, 80)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_visual_only = false
+tooltip_text = "Toggle Shortcut Overlay"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.4627451, 0.4627451, 0.4627451, 0.6627451)
+theme_override_colors/icon_pressed_color = Color(0.33333334, 0.33333334, 0.33333334, 0.7411765)
+theme_override_colors/icon_hover_color = Color(0.4117647, 0.4117647, 0.4117647, 0.627451)
+theme_override_colors/icon_hover_pressed_color = Color(0.39688927, 0.39688927, 0.39688924, 0.69803923)
+theme_override_font_sizes/font_size = 50
+text = "CLOSE"
+icon = ExtResource("8_75buv")
+icon_alignment = 1
+
+[node name="ShowControls" type="Control" parent="." unique_id=1435994165]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtomActions" type="Control" parent="ShowControls" unique_id=1568461066]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Kniffel" type="Label" parent="ShowControls/ButtomActions" unique_id=746411607]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 114.0
+offset_right = 45.0
+offset_bottom = 137.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "(K)"
+
+[node name="Chance" type="Label" parent="ShowControls/ButtomActions" unique_id=1060102730]
+layout_mode = 0
+offset_left = -203.0
+offset_top = 190.0
+offset_right = -163.0
+offset_bottom = 213.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "(C)"
+
+[node name="Bigstraight" type="Label" parent="ShowControls/ButtomActions" unique_id=15256799]
+layout_mode = 0
+offset_left = -203.0
+offset_top = 114.0
+offset_right = -163.0
+offset_bottom = 137.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "(B)"
+
+[node name="Smallstraight" type="Label" parent="ShowControls/ButtomActions" unique_id=943347851]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 38.0
+offset_right = 45.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "(S)"
+
+[node name="FullHouse" type="Label" parent="ShowControls/ButtomActions" unique_id=773598097]
+layout_mode = 0
+offset_left = -202.0
+offset_top = 38.0
+offset_right = -162.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "(F)"
+
+[node name="X3" type="Label" parent="ShowControls/ButtomActions" unique_id=762112713]
+layout_mode = 0
+offset_left = -201.0
+offset_top = -38.0
+offset_right = -161.0
+offset_bottom = -15.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "(X)"
+
+[node name="X4" type="Label" parent="ShowControls/ButtomActions" unique_id=2090188498]
+layout_mode = 0
+offset_left = 7.0
+offset_top = -38.0
+offset_right = 47.0
+offset_bottom = -15.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "(Z)"
+
+[node name="Actions" type="Control" parent="ShowControls" unique_id=1002466517]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Dices" type="Control" parent="ShowControls" unique_id=549530795]
+anchors_preset = 0
+offset_left = -1.0
+offset_right = 39.0
+offset_bottom = 40.0
+
+[node name="D1" type="Label" parent="ShowControls/Dices" unique_id=59020645]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 286.0
+offset_top = 219.0
+offset_right = 326.0
+offset_bottom = 242.0
+text = "     (1)"
+
+[node name="D2" type="Label" parent="ShowControls/Dices" unique_id=1768117311]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 378.0
+offset_top = 219.0
+offset_right = 418.0
+offset_bottom = 242.0
+text = "     (2)"
+
+[node name="D3" type="Label" parent="ShowControls/Dices" unique_id=1127943411]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 470.0
+offset_top = 219.0
+offset_right = 510.0
+offset_bottom = 242.0
+text = "     (3)"
+
+[node name="D4" type="Label" parent="ShowControls/Dices" unique_id=1922074994]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 561.0
+offset_top = 219.0
+offset_right = 601.0
+offset_bottom = 242.0
+text = "     (4)"
+
+[node name="D5" type="Label" parent="ShowControls/Dices" unique_id=1756674424]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 653.0
+offset_top = 219.0
+offset_right = 693.0
+offset_bottom = 242.0
+text = "     (5)"
+
+[node name="Buttons" type="Control" parent="ShowControls" unique_id=261049701]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Roll" type="Label" parent="ShowControls/Buttons" unique_id=1982851593]
+layout_mode = 0
+offset_left = 334.0
+offset_top = 52.0
+offset_right = 374.0
+offset_bottom = 86.0
+theme_override_font_sizes/font_size = 23
+text = "(R)"
+
+[node name="unlock" type="Label" parent="ShowControls/Buttons" unique_id=1302746943]
+layout_mode = 0
+offset_left = 662.0
+offset_top = 83.0
+offset_right = 702.0
+offset_bottom = 106.0
+text = "(A)"
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1441190003]
+msaa_2d = 3
+screen_space_aa = 2
+use_taa = true
+use_debanding = true
+use_hdr_2d = true
+
+[node name="EndTimer" type="Timer" parent="." unique_id=1049359818]
+one_shot = true
+
+[node name="diceSFX" type="AudioStreamPlayer" parent="." unique_id=715830153]
+stream = ExtResource("9_c2iwn")
+volume_db = -80.0
+pitch_scale = 0.41
+
+[node name="diceSFXTimer" type="Timer" parent="diceSFX" unique_id=1413135705]
+wait_time = 0.7
+one_shot = true
+
+[node name="ExtraDiceSFX" type="AudioStreamPlayer" parent="." unique_id=1301977430]
+stream = ExtResource("10_3pt4j")
+volume_db = -80.0
+pitch_scale = 0.42
+
+[node name="extraDiceSFXTimer" type="Timer" parent="ExtraDiceSFX" unique_id=351087666]
+wait_time = 0.7
+one_shot = true
+
+[connection signal="pressed" from="Level/SelectAction/OneSelectButton" to="GameManager" method="_on_one_select_button_pressed"]
+[connection signal="pressed" from="Level/SelectAction/TwoSelectButton" to="GameManager" method="_on_two_select_button_pressed"]
+[connection signal="pressed" from="Level/SelectAction/ThreeSelectButton" to="GameManager" method="_on_three_select_button_pressed"]
+[connection signal="pressed" from="Level/SelectAction/FourSelectButton" to="GameManager" method="_on_four_select_button_pressed"]
+[connection signal="pressed" from="Level/SelectAction/FiveSelectButton" to="GameManager" method="_on_five_select_button_pressed"]
+[connection signal="pressed" from="Level/SelectAction/SixSelectButton" to="GameManager" method="_on_six_select_button_pressed"]
+[connection signal="pressed" from="Level/SelectActionButtom/Kniffel" to="GameManager" method="_on_kniffel_pressed"]
+[connection signal="pressed" from="Level/SelectActionButtom/Chance" to="GameManager" method="_on_chance_pressed"]
+[connection signal="pressed" from="Level/SelectActionButtom/x3" to="GameManager" method="_on_x_3_pressed"]
+[connection signal="pressed" from="Level/SelectActionButtom/x4" to="GameManager" method="_on_x_4_pressed"]
+[connection signal="pressed" from="Level/SelectActionButtom/BigStraigth" to="GameManager" method="_on_big_straigth_pressed"]
+[connection signal="pressed" from="Level/SelectActionButtom/SmallStraigth" to="GameManager" method="_on_small_straigth_pressed"]
+[connection signal="pressed" from="Level/SelectActionButtom/FullHouse" to="GameManager" method="_on_full_house_pressed"]
+[connection signal="timeout" from="Level/SelectActionButtom/showItem/Timer" to="GameManager" method="_on_timer_timeout"]
+[connection signal="toggled" from="Dices/DiceContainer/D1" to="GameManager" method="_on_d_1_toggled"]
+[connection signal="toggled" from="Dices/DiceContainer/D2" to="GameManager" method="_on_d_2_toggled"]
+[connection signal="toggled" from="Dices/DiceContainer/D3" to="GameManager" method="_on_d_3_toggled"]
+[connection signal="toggled" from="Dices/DiceContainer/D4" to="GameManager" method="_on_d_4_toggled"]
+[connection signal="toggled" from="Dices/DiceContainer/D5" to="GameManager" method="_on_d_5_toggled"]
+[connection signal="pressed" from="Dices/UnlockAllButton" to="GameManager" method="_on_unlock_all_button_pressed"]
+[connection signal="pressed" from="Dices/RollDiceButton" to="GameManager" method="_on_roll_dice_button_pressed"]
+[connection signal="pressed" from="Menu/openMenuButton" to="GameManager" method="_on_open_menu_button_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/ReloadButton" to="GameManager" method="_on_reload_button_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/ControlButton" to="GameManager" method="_on_control_button_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/ControlButton2" to="GameManager" method="_on_control_button_2_pressed"]
+[connection signal="timeout" from="EndTimer" to="GameManager" method="_on_end_timer_timeout"]
+[connection signal="timeout" from="diceSFX/diceSFXTimer" to="GameManager" method="_on_dice_sfx_timer_timeout"]
+[connection signal="timeout" from="ExtraDiceSFX/extraDiceSFXTimer" to="GameManager" method="_on_extra_dice_sfx_timer_timeout"]
