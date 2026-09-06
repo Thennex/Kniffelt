@@ -23,6 +23,13 @@ extends Node2D
 ####################
 #####  Buttons #####
 ####################
+@onready var d1color: Node2D = $"../Level/SelectAction/D1"
+@onready var d2color: Node2D = $"../Level/SelectAction/D2"
+@onready var d3color: Node2D = $"../Level/SelectAction/D3"
+@onready var d4color: Node2D = $"../Level/SelectAction/D4"
+@onready var d5color: Node2D = $"../Level/SelectAction/D5"
+@onready var d6color: Node2D = $"../Level/SelectAction/D6"
+
 @onready var sd1: Button = $"../Dices/DiceContainer/D1"
 @onready var sd2: Button = $"../Dices/DiceContainer/D2"
 @onready var sd3: Button = $"../Dices/DiceContainer/D3"
@@ -132,12 +139,23 @@ var actions = [false, false, false, false, false, false]
 var diceValues = [0, 0, 0, 0, 0, 0,]
 var buttom_actions = [false, false, false, false, false, false, false]
 var done = 0
+
+var color_values = ["ffff00", "00ff00", "00ffff", "009aff", "ff00ff", "ff0000"]
 ################################
 #####   Methods for calc   #####
 ################################
 func _ready() -> void:
+	set_DiceColors()
 	resetDice()
 	changeShowers()
+
+func set_DiceColors() -> void:
+	d1color.modulate = color_values[0]
+	d2color.modulate = color_values[1]
+	d3color.modulate = color_values[2]
+	d4color.modulate = color_values[3]
+	d5color.modulate = color_values[4]
+	d6color.modulate = color_values[5]
 
 func changeShowers() -> void:
 	lx3d1.text = str(changeDieMemory)
@@ -209,13 +227,14 @@ func throwDices() -> void:
 		for i in dice_count:
 			if locked_slot[i] == false:
 				dicesfx.playing = false
-				dicesfx.volume_db = -500
+				dicesfx.volume_db = -5
+				var sfxPitch = 5.0
 				if throw_count == 1:
-					dicesfx.pitch_scale = .25    #1 + (sfxPitch/10)
+					dicesfx.pitch_scale = 1.0 + (sfxPitch/10.0)
 				elif throw_count == 2:
-					dicesfx.pitch_scale = .25    #1 + (sfxPitch/100)
+					dicesfx.pitch_scale = 1.0 + (sfxPitch/100.0)
 				else:
-					dicesfx.pitch_scale = .25 #1 + (sfxPitch/5000)
+					dicesfx.pitch_scale = 1.0 + (sfxPitch/5000.0)
 				dicesfx.play()
 				$"../ExtraDiceSFX/extraDiceSFXTimer".start()
 				dicesfxtimer.start()
@@ -223,28 +242,52 @@ func throwDices() -> void:
 				choseDie(i)
 	
 
+func delayDice(die) -> int:
+	return dices[die - 1] - 6
+
+func set_d1(die_value):
+	if die_value < 0:
+		die_value *= -1
+	sd1.text = str(die_value)
+	sd1.modulate = color_values[die_value - 1]
+func set_d2(die_value):
+	if die_value < 0:
+		die_value *= -1
+	sd2.text = str(die_value)
+	sd2.modulate = color_values[die_value - 1]
+func set_d3(die_value):
+	if die_value < 0:
+		die_value *= -1
+	sd3.text = str(die_value)
+	sd3.modulate = color_values[die_value - 1]
+func set_d4(die_value):
+	if die_value < 0:
+		die_value *= -1
+	sd4.text = str(die_value)
+	sd4.modulate = color_values[die_value - 1]
+func set_d5(die_value):
+	if die_value < 0:
+		die_value *= -1
+	sd5.text = str(die_value)
+	sd5.modulate = color_values[die_value - 1]
+
 func choseDie(die) -> void:
-	var duration = .3
+	var duration = .4
 	if die == 0:
-		sd1.text = str(0)
 		var td1 = create_tween()
-		td1.tween_property(sd1, "text", str((dices[die - 1])), duration)
+		td1.tween_method(set_d1, delayDice(die), dices[die - 1], duration).set_trans(Tween.TRANS_QUAD)
 	elif die == 1:
-		sd2.text = str(0)
 		var td2 = create_tween()
-		td2.tween_property(sd2, "text", str((dices[die - 1])), duration)
+		td2.tween_method(set_d2, delayDice(die), dices[die - 1], duration).set_trans(Tween.TRANS_QUAD)
 	elif die == 2:
-		sd3.text = str(0)
 		var td3 = create_tween()
-		td3.tween_property(sd3, "text", str((dices[die - 1])), duration)
+		td3.tween_method(set_d3, delayDice(die), dices[die - 1], duration).set_trans(Tween.TRANS_QUAD)
 	elif die == 3:
-		sd4.text = str(0)
 		var td4 = create_tween()
-		td4.tween_property(sd4, "text", str((dices[die - 1])), duration)
+		td4.tween_method(set_d4, delayDice(die), dices[die - 1], duration).set_trans(Tween.TRANS_QUAD)
 	elif die == 4:
-		sd5.text = str(0)
 		var td5 = create_tween()
-		td5.tween_property(sd5, "text", str((dices[die - 1])), duration)
+		td5.tween_method(set_d5, delayDice(die), dices[die - 1], duration).set_trans(Tween.TRANS_QUAD)
 
 func rng() -> int:
 	return(RandomNumberGenerator.new().randi_range(1,6))
@@ -271,14 +314,20 @@ func resetLocked() -> void:
 	sd3.button_pressed = false
 	sd4.button_pressed = false
 	sd5.button_pressed = false
-
+	sd1.icon = preload("uid://bq71ulhlbfcvv")
+	sd2.icon = preload("uid://bq71ulhlbfcvv")
+	sd3.icon = preload("uid://bq71ulhlbfcvv")
+	sd4.icon = preload("uid://bq71ulhlbfcvv")
+	sd5.icon = preload("uid://bq71ulhlbfcvv")
 ################################
 #####    Action Methods    #####
 ################################
+func setBottomCounter(bottom_counter) -> void:
+	lbottompoints.text = str(bottom_counter)
 #ich weiss das dass falsch geschrieben ist :)
 func checkButtomActions() -> void:
 	var tween3 = create_tween()
-	tween3.tween_property(lbottompoints, "text", str("Bottom Points: ", bottom_points_counter), 0.1)
+	tween3.tween_method(setBottomCounter, int(lbottompoints.text), bottom_points_counter, .7).set_trans(Tween.TRANS_EXPO)
 	var all_actions_done = 0
 	for i in buttom_actions.size():
 		if buttom_actions[i - 1] == true:
@@ -292,11 +341,14 @@ func checkButtomActions() -> void:
 		var tween = create_tween()
 		tween.tween_property(lpoints, "text", str("All Points : ", points), .1)
 
+func setTopCounter(top_counter) -> void:
+	ltoppoints.text = str(top_counter)
+
 func checkActions() -> void:
 	var tween = create_tween()
-	tween.tween_property($"../KniffelBonusMeter/TextureProgressBar", "value",top_points_counter, 0.2,).set_trans(Tween.TRANS_SINE)
+	tween.tween_property($"../KniffelBonusMeter/TextureProgressBar", "value",top_points_counter, 0.4,).set_trans(Tween.TRANS_EXPO)
 	var tween1 = create_tween()
-	tween1.tween_property(ltoppoints, "text", str("Points: ",top_points_counter, " / 63"), 0.1)
+	tween1.tween_method(setTopCounter, int(ltoppoints.text), top_points_counter, 0.3)
 	var all_actions_done = 0
 	for i in actions.size():
 		if actions[i - 1] == true:
@@ -321,6 +373,79 @@ func checkActions() -> void:
 func end() -> void:
 	if done == 2:
 		$"../EndTimer".start()
+
+func d1s() -> void:
+	var dice_counted = 1
+	if actions[dice_counted - 1] == false:
+		for i in dice_count:
+			if dices[i] == dice_counted:
+				diceValues[dice_counted - 1] += dice_counted
+		l1.text = str(diceValues[dice_counted - 1])
+		top_points_counter += diceValues[dice_counted - 1]
+		actions[dice_counted - 1] = true
+		animplayer.play("D1_select")
+		resetDice()
+		checkActions()
+
+func d2s() -> void:
+	var dice_counted = 2
+	if actions[dice_counted - 1] == false:
+		for i in dice_count:
+			if dices[i] == dice_counted:
+				diceValues[dice_counted - 1] += dice_counted
+		l2.text = str(diceValues[dice_counted - 1])
+		top_points_counter += diceValues[dice_counted - 1]
+		actions[dice_counted - 1] = true
+		resetDice()
+		checkActions()
+
+func d3s() -> void:
+	var dice_counted = 3
+	if actions[dice_counted - 1] == false:
+		for i in dice_count:
+			if dices[i] == dice_counted:
+				diceValues[dice_counted - 1] += dice_counted
+		l3.text = str(diceValues[dice_counted - 1])
+		top_points_counter += diceValues[dice_counted - 1]
+		actions[dice_counted - 1] = true
+		resetDice()
+		checkActions()
+
+func d4s() -> void:
+	var dice_counted = 4
+	if actions[dice_counted - 1] == false:
+		for i in dice_count:
+			if dices[i] == dice_counted:
+				diceValues[dice_counted - 1] += dice_counted
+		l4.text = str(diceValues[dice_counted - 1])
+		top_points_counter += diceValues[dice_counted - 1]
+		actions[dice_counted - 1] = true
+		resetDice()
+		checkActions()
+
+func d5s() -> void:
+	var dice_counted = 5
+	if actions[dice_counted - 1] == false:
+		for i in dice_count:
+			if dices[i] == dice_counted:
+				diceValues[dice_counted - 1] += dice_counted
+		l5.text = str(diceValues[dice_counted - 1])
+		top_points_counter += diceValues[dice_counted - 1]
+		actions[dice_counted - 1] = true
+		resetDice()
+		checkActions()
+
+func d6s() -> void:
+	var dice_counted = 6
+	if actions[dice_counted - 1] == false:
+		for i in dice_count:
+			if dices[i] == dice_counted:
+				diceValues[dice_counted - 1] += dice_counted
+		l6.text = str(diceValues[dice_counted - 1])
+		top_points_counter += diceValues[dice_counted - 1]
+		actions[dice_counted - 1] = true
+		resetDice()
+		checkActions()
 
 func chance() -> void:
 	if buttom_actions[6] == false:
@@ -460,6 +585,7 @@ func full_house() -> void:
 ###############################
 #####   keyboard compat   #####
 ###############################
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("unlockAll"):
 		resetLocked()
@@ -487,122 +613,99 @@ func _process(_delta: float) -> void:
 			sd4.button_pressed = false
 	if Input.is_action_just_pressed("D5_Lock"):
 		if sd5.button_pressed == false:
-				sd5.button_pressed = true
+			sd5.button_pressed = true
 		else:
 			sd5.button_pressed = false
 	
 	
 	
-	#Keyboard compatibility
-	if Input.is_action_just_pressed("chance"):
-		chance()
-	if Input.is_action_just_pressed("kniffel"):
-		kniffel()
+	#Keyboard compatibility for Kniffelpaper
+	if Input.is_action_just_pressed("1s"):
+		d1s()
+	if Input.is_action_just_pressed("2s"):
+		d2s()
+	if Input.is_action_just_pressed("3s"):
+		d3s()
+	if Input.is_action_just_pressed("4s"):
+		d4s()
+	if Input.is_action_just_pressed("5s"):
+		d5s()
+	if Input.is_action_just_pressed("6s"):
+		d6s()
 	if Input.is_action_just_pressed("3x"):
 		x3()
 	if Input.is_action_just_pressed("4x"):
 		x4()
-	if Input.is_action_just_pressed("big_straight"):
-		big_straight()
 	if Input.is_action_just_pressed("Full_House"):
 		full_house()
 	if Input.is_action_just_pressed("small_straight"):
 		small_straight()
+	if Input.is_action_just_pressed("big_straight"):
+		big_straight()
+	if Input.is_action_just_pressed("kniffel"):
+		kniffel()
+	if Input.is_action_just_pressed("chance"):
+		chance()
 
 ##############################
 #####     Lock Dices     #####
 ##############################
 func _on_d_1_toggled(toggled_on: bool) -> void:
 	locked_slot[0] = toggled_on
+	if toggled_on:
+		sd1.icon = preload("uid://dv58cx4brbeo2")
+	else:
+		sd1.icon = preload("uid://bq71ulhlbfcvv")
 
 func _on_d_2_toggled(toggled_on: bool) -> void:
 	locked_slot[1] = toggled_on
+	if toggled_on:
+		sd2.icon = preload("uid://dv58cx4brbeo2")
+	else:
+		sd2.icon = preload("uid://bq71ulhlbfcvv")
 
 func _on_d_3_toggled(toggled_on: bool) -> void:
 	locked_slot[2] = toggled_on
+	if toggled_on:
+		sd3.icon = preload("uid://dv58cx4brbeo2")
+	else:
+		sd3.icon = preload("uid://bq71ulhlbfcvv")
 
 func _on_d_4_toggled(toggled_on: bool) -> void:
 	locked_slot[3] = toggled_on
+	if toggled_on:
+		sd4.icon = preload("uid://dv58cx4brbeo2")
+	else:
+		sd4.icon = preload("uid://bq71ulhlbfcvv")
 
 func _on_d_5_toggled(toggled_on: bool) -> void:
 	locked_slot[4] = toggled_on
+	if toggled_on:
+		sd5.icon = preload("uid://dv58cx4brbeo2")
+	else:
+		sd5.icon = preload("uid://bq71ulhlbfcvv")
 
 
 ###############################
 #####    Select Action    #####
 ###############################
 func _on_one_select_button_pressed() -> void:
-	var dice_counted = 1
-	if actions[dice_counted - 1] == false:
-		for i in dice_count:
-			if dices[i] == dice_counted:
-				diceValues[dice_counted - 1] += dice_counted
-		l1.text = str(diceValues[dice_counted - 1])
-		top_points_counter += diceValues[dice_counted - 1]
-		actions[dice_counted - 1] = true
-		animplayer.play("D1_select")
-		resetDice()
-		checkActions()
+	d1s()
 
 func _on_two_select_button_pressed() -> void:
-	var dice_counted = 2
-	if actions[dice_counted - 1] == false:
-		for i in dice_count:
-			if dices[i] == dice_counted:
-				diceValues[dice_counted - 1] += dice_counted
-		l2.text = str(diceValues[dice_counted - 1])
-		top_points_counter += diceValues[dice_counted - 1]
-		actions[dice_counted - 1] = true
-		resetDice()
-		checkActions()
+	d2s()
 
 func _on_three_select_button_pressed() -> void:
-	var dice_counted = 3
-	if actions[dice_counted - 1] == false:
-		for i in dice_count:
-			if dices[i] == dice_counted:
-				diceValues[dice_counted - 1] += dice_counted
-		l3.text = str(diceValues[dice_counted - 1])
-		top_points_counter += diceValues[dice_counted - 1]
-		actions[dice_counted - 1] = true
-		resetDice()
-		checkActions()
+	d3s()
 
 func _on_four_select_button_pressed() -> void:
-	var dice_counted = 4
-	if actions[dice_counted - 1] == false:
-		for i in dice_count:
-			if dices[i] == dice_counted:
-				diceValues[dice_counted - 1] += dice_counted
-		l4.text = str(diceValues[dice_counted - 1])
-		top_points_counter += diceValues[dice_counted - 1]
-		actions[dice_counted - 1] = true
-		resetDice()
-		checkActions()
+	d4s()
 
 func _on_five_select_button_pressed() -> void:
-	var dice_counted = 5
-	if actions[dice_counted - 1] == false:
-		for i in dice_count:
-			if dices[i] == dice_counted:
-				diceValues[dice_counted - 1] += dice_counted
-		l5.text = str(diceValues[dice_counted - 1])
-		top_points_counter += diceValues[dice_counted - 1]
-		actions[dice_counted - 1] = true
-		resetDice()
-		checkActions()
+	d5s()
 
 func _on_six_select_button_pressed() -> void:
-	var dice_counted = 6
-	if actions[dice_counted - 1] == false:
-		for i in dice_count:
-			if dices[i] == dice_counted:
-				diceValues[dice_counted - 1] += dice_counted
-		l6.text = str(diceValues[dice_counted - 1])
-		top_points_counter += diceValues[dice_counted - 1]
-		actions[dice_counted - 1] = true
-		resetDice()
-		checkActions()
+	d6s()
 
 func _on_x_3_pressed() -> void:
 	x3()
@@ -639,8 +742,10 @@ func _on_timer_timeout() -> void:
 
 func _on_open_menu_button_pressed() -> void:
 	if menu.visible:
+		$"../Menu/ColorRect".visible = false
 		menu.visible = false
 	else:
+		$"../Menu/ColorRect".visible = true
 		menu.visible = true
 
 
@@ -654,22 +759,27 @@ func _on_control_button_pressed() -> void:
 	else:
 		shortcutoverlay.visible = true
 
-
 func _on_control_button_2_pressed() -> void:
 	if menu.visible:
+		$"../Menu/ColorRect".visible = false
 		menu.visible = false
 	else:
+		$"../Menu/ColorRect".visible = true
 		menu.visible = true
-
-
-func _on_end_Timer_timeout() -> void:
-	get_tree().reload_current_scene()
 
 
 func _on_dice_sfx_timer_timeout() -> void:
 	var tween = create_tween()
-	tween.tween_property(dicesfx, "volume_db", -60, .7)
+	tween.tween_property(dicesfx, "volume_db", -60, .3)
 
 
 func _on_extra_dice_sfx_timer_timeout() -> void:
 		$"../ExtraDiceSFX".play()
+
+
+func _on_close_game_button_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_end_timer_timeout() -> void:
+	get_tree().reload_current_scene()

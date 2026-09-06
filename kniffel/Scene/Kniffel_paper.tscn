@@ -10,6 +10,7 @@ colors = PackedColorArray(1, 1, 1, 1)
 gradient = SubResource("Gradient_sglly")
 
 [node name="Level" type="Node2D" unique_id=1824013333]
+texture_filter = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1619690147]
 texture = ExtResource("1_sglly")
