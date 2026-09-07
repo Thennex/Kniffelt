@@ -7,6 +7,8 @@ extends Parallax2D
 @onready var d5: Sprite2D = $d5
 @onready var d6: Sprite2D = $d6
 
+@onready var selectsfx: AudioStreamPlayer = $"../SelectSFX"
+
 var SCROLLINGSPEED = Vector2(20, 20)
 
 var no_switch = false
@@ -47,8 +49,10 @@ func _on_stop_background_button_pressed() -> void:
 	if no_scrolling == true:
 		no_switch = false
 		no_scrolling = false
+		selectsfx.play()
 		autoscroll = SCROLLINGSPEED
 	elif no_scrolling == false:
 		no_switch = true
 		no_scrolling = true
+		selectsfx.play()
 		autoscroll = Vector2(0, 0)

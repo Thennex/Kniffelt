@@ -1,3 +1,2 @@
-res://Scripts/game_manager.gd
 res://Scene/main.tscn
-res://Scene/game_manager.tscn
+res://Scripts/game_manager.gd
