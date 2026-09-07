@@ -16,13 +16,14 @@
 [ext_resource type="Texture2D" uid="uid://dv58cx4brbeo2" path="res://Art/Dies/Kniffel_dice_locked-export.png" id="9_2ix4a"]
 [ext_resource type="AudioStream" uid="uid://dktef6aonmnow" path="res://sfx/DiceRollSFX.wav" id="9_c2iwn"]
 [ext_resource type="AudioStream" uid="uid://dv78xf57lsgc3" path="res://sfx/DiceRollSFX1.wav" id="10_3pt4j"]
+[ext_resource type="FontFile" uid="uid://du32f37clc06n" path="res://Fonts/Delta Block/OpenType (.otf)/DeltaBlock-Regular.otf" id="10_aam5o"]
 [ext_resource type="Texture2D" uid="uid://d5dus5nvxjyb" path="res://Art/Dies/Kniffel_D1-Sheet-export.png" id="11_7y4ci"]
 [ext_resource type="Texture2D" uid="uid://dyxnamhhh1xd3" path="res://Art/Kniffel_unlock_all.png" id="11_jbas8"]
 [ext_resource type="Script" uid="uid://btlc3tfcwlk6o" path="res://Scripts/parallax_manager.gd" id="11_mxd2g"]
 [ext_resource type="Texture2D" uid="uid://domkxicoac5kw" path="res://Art/Kniffel_dice_roll.png" id="11_p2wc2"]
-[ext_resource type="FontFile" uid="uid://du32f37clc06n" path="res://Fonts/GGBotNet Fonts CC0/Delta Block/OpenType (.otf)/DeltaBlock-Regular.otf" id="11_sor6r"]
 [ext_resource type="AudioStream" uid="uid://bceno77oukerm" path="res://sfx/selectSFX.wav" id="21_hiice"]
 [ext_resource type="AudioStream" uid="uid://cyr24cynd1dhm" path="res://sfx/CounterSFX.wav" id="22_sor6r"]
+[ext_resource type="PackedScene" uid="uid://d34y3qx4gnqam" path="res://Scene/settings_menu.tscn" id="24_pqe63"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sblpm"]
 
@@ -1308,7 +1309,7 @@ offset_top = -4.0
 offset_right = -143.0
 offset_bottom = 19.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 28
 text = "1"
 horizontal_alignment = 1
@@ -1322,7 +1323,7 @@ offset_top = -4.0
 offset_right = -107.0
 offset_bottom = 35.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 28
 text = "1"
 horizontal_alignment = 1
@@ -1336,7 +1337,7 @@ offset_top = -4.0
 offset_right = -71.0
 offset_bottom = 35.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 28
 text = "1"
 horizontal_alignment = 1
@@ -1356,7 +1357,7 @@ offset_left = -183.0
 offset_right = -143.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1369,7 +1370,7 @@ offset_left = -158.0
 offset_right = -118.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1382,7 +1383,7 @@ offset_left = -133.0
 offset_right = -93.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1395,7 +1396,7 @@ offset_left = -108.0
 offset_right = -68.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1415,7 +1416,7 @@ offset_left = -183.0
 offset_right = -143.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1428,7 +1429,7 @@ offset_left = -158.0
 offset_right = -118.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1441,7 +1442,7 @@ offset_left = -133.0
 offset_right = -93.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1454,7 +1455,7 @@ offset_left = -108.0
 offset_right = -68.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1467,7 +1468,7 @@ offset_left = -83.0
 offset_right = -43.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1487,7 +1488,7 @@ offset_left = -183.0
 offset_right = -143.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1500,7 +1501,7 @@ offset_left = -158.0
 offset_right = -118.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1513,7 +1514,7 @@ offset_left = -133.0
 offset_right = -93.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1526,7 +1527,7 @@ offset_left = -108.0
 offset_right = -68.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1539,7 +1540,7 @@ offset_left = -83.0
 offset_right = -43.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1559,7 +1560,7 @@ offset_left = -183.0
 offset_right = -143.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1572,7 +1573,7 @@ offset_left = -158.0
 offset_right = -118.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1585,7 +1586,7 @@ offset_left = -133.0
 offset_right = -93.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1598,7 +1599,7 @@ offset_left = -108.0
 offset_right = -68.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1611,7 +1612,7 @@ offset_left = -83.0
 offset_right = -43.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1631,7 +1632,7 @@ offset_left = -183.0
 offset_right = -143.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1644,7 +1645,7 @@ offset_left = -158.0
 offset_right = -118.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1657,7 +1658,7 @@ offset_left = -133.0
 offset_right = -93.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1670,7 +1671,7 @@ offset_left = -108.0
 offset_right = -68.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1683,7 +1684,7 @@ offset_left = -83.0
 offset_right = -43.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1703,7 +1704,7 @@ offset_left = -183.0
 offset_right = -143.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1716,7 +1717,7 @@ offset_left = -158.0
 offset_right = -118.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1729,7 +1730,7 @@ offset_left = -133.0
 offset_right = -93.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
@@ -1742,14 +1743,14 @@ offset_left = -108.0
 offset_right = -68.0
 offset_bottom = 39.0
 scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="Level/SelectActionButtom/showItem" unique_id=26003792]
-wait_time = 0.75
+wait_time = 2.0
 autostart = true
 
 [node name="PointCounters" type="Control" parent="Level" unique_id=340789578]
@@ -1767,7 +1768,7 @@ offset_top = -198.0
 offset_right = -38.0
 offset_bottom = -175.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 
 [node name="Label2" type="Label" parent="Level/PointCounters" unique_id=1052165508]
 layout_mode = 0
@@ -1776,7 +1777,7 @@ offset_top = -198.0
 offset_right = 91.0
 offset_bottom = -175.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 
 [node name="Label3" type="Label" parent="Level/PointCounters" unique_id=159753425]
 layout_mode = 0
@@ -1785,7 +1786,7 @@ offset_top = -198.0
 offset_right = 235.0
 offset_bottom = -175.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 
 [node name="Label4" type="Label" parent="Level/PointCounters" unique_id=1088582638]
 layout_mode = 0
@@ -1794,7 +1795,7 @@ offset_top = -103.0
 offset_right = -37.0
 offset_bottom = -80.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 
 [node name="Label5" type="Label" parent="Level/PointCounters" unique_id=118451744]
 layout_mode = 0
@@ -1803,7 +1804,7 @@ offset_top = -102.0
 offset_right = 91.0
 offset_bottom = -79.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 
 [node name="Label6" type="Label" parent="Level/PointCounters" unique_id=1201383510]
 layout_mode = 0
@@ -1812,7 +1813,7 @@ offset_top = -102.0
 offset_right = 232.0
 offset_bottom = -79.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 
 [node name="LabelX3" type="Label" parent="Level/PointCounters" unique_id=1317266521]
 layout_mode = 0
@@ -1821,7 +1822,7 @@ offset_top = -13.0
 offset_right = 53.0
 offset_bottom = 10.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 
 [node name="LabelX4" type="Label" parent="Level/PointCounters" unique_id=1507649130]
 layout_mode = 0
@@ -1830,7 +1831,7 @@ offset_top = -8.0
 offset_right = 256.0
 offset_bottom = 15.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 
 [node name="LabelFullHouse" type="Label" parent="Level/PointCounters" unique_id=1258944441]
 layout_mode = 0
@@ -1839,7 +1840,7 @@ offset_top = 71.0
 offset_right = 49.0
 offset_bottom = 94.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 
 [node name="LabelSmallStraight" type="Label" parent="Level/PointCounters" unique_id=118536737]
 layout_mode = 0
@@ -1848,7 +1849,7 @@ offset_top = 65.0
 offset_right = 245.0
 offset_bottom = 88.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 
 [node name="LabelBigStraight" type="Label" parent="Level/PointCounters" unique_id=788343550]
 layout_mode = 0
@@ -1857,7 +1858,7 @@ offset_top = 144.0
 offset_right = 46.0
 offset_bottom = 167.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 
 [node name="LabelKniffel" type="Label" parent="Level/PointCounters" unique_id=2120628826]
 layout_mode = 0
@@ -1866,7 +1867,7 @@ offset_top = 142.0
 offset_right = 255.0
 offset_bottom = 165.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 
 [node name="LabelChance" type="Label" parent="Level/PointCounters" unique_id=1677314201]
 layout_mode = 0
@@ -1875,7 +1876,7 @@ offset_top = 216.0
 offset_right = 48.0
 offset_bottom = 239.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 
 [node name="LabelPoints" type="Label" parent="Level/PointCounters" unique_id=1112759533]
 visible = false
@@ -1887,7 +1888,7 @@ offset_right = 405.63998
 offset_bottom = -231.99998
 scale = Vector2(4.3395047, 4.3395047)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1907,7 +1908,7 @@ offset_top = 189.0
 offset_right = 270.5
 offset_bottom = 272.75
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 60
 text = "0"
 horizontal_alignment = 1
@@ -2011,10 +2012,11 @@ icon_alignment = 1
 [node name="D1Label" type="Label" parent="Dices/DiceContainer/D1" unique_id=486225997]
 texture_filter = 6
 layout_mode = 0
+offset_top = 0.71251583
 offset_right = 50.0
-offset_bottom = 50.0
+offset_bottom = 50.712517
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
@@ -2048,10 +2050,11 @@ icon_alignment = 1
 [node name="D2Label" type="Label" parent="Dices/DiceContainer/D2" unique_id=11236930]
 texture_filter = 6
 layout_mode = 0
+offset_top = 0.71251583
 offset_right = 50.0
-offset_bottom = 50.0
+offset_bottom = 50.712517
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 27
 text = "2"
 horizontal_alignment = 1
@@ -2084,10 +2087,11 @@ icon_alignment = 1
 [node name="D3Label" type="Label" parent="Dices/DiceContainer/D3" unique_id=1527300210]
 texture_filter = 6
 layout_mode = 0
+offset_top = 0.71251583
 offset_right = 50.0
-offset_bottom = 50.0
+offset_bottom = 50.712517
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 27
 text = "3"
 horizontal_alignment = 1
@@ -2122,10 +2126,11 @@ icon_alignment = 1
 [node name="D4Label" type="Label" parent="Dices/DiceContainer/D4" unique_id=2010178626]
 texture_filter = 6
 layout_mode = 0
+offset_top = 0.71251583
 offset_right = 50.0
-offset_bottom = 50.0
+offset_bottom = 50.712517
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 27
 text = "4"
 horizontal_alignment = 1
@@ -2160,10 +2165,11 @@ icon_alignment = 1
 [node name="D5Label" type="Label" parent="Dices/DiceContainer/D5" unique_id=99844279]
 texture_filter = 6
 layout_mode = 0
+offset_top = 0.71251583
 offset_right = 50.0
-offset_bottom = 50.0
+offset_bottom = 50.712517
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 27
 text = "5"
 horizontal_alignment = 1
@@ -2199,7 +2205,7 @@ offset_top = 14.263846
 offset_right = 60.139397
 offset_bottom = 37.263847
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "Unlock"
 
 [node name="RollDiceButton" type="Button" parent="Dices" unique_id=1220894626]
@@ -2225,7 +2231,7 @@ offset_left = 8.280643
 offset_right = 208.28064
 offset_bottom = 50.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "Roll Dice (3)"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -2256,7 +2262,7 @@ offset_top = -77.0
 offset_right = 54.0
 offset_bottom = -40.708332
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 26
 text = "0"
 horizontal_alignment = 1
@@ -2271,7 +2277,7 @@ offset_top = -71.0
 offset_right = 203.0
 offset_bottom = -48.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "(> 63 = Bonus: 35)"
 vertical_alignment = 1
 uppercase = true
@@ -2314,14 +2320,13 @@ offset_top = 21.0
 offset_right = 55.0
 offset_bottom = 44.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "Menu"
 uppercase = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu" unique_id=1421487060]
 visible = false
 modulate = Color(0.510092, 0.68303525, 0.90786153, 1)
-z_index = 8
 layout_mode = 0
 offset_left = 137.0
 offset_top = -214.0
@@ -2329,12 +2334,14 @@ offset_right = 437.0
 offset_bottom = 202.0
 alignment = 1
 
-[node name="ReloadButton" type="Button" parent="Menu/VBoxContainer" unique_id=969869320]
+[node name="ControlButton2" type="Button" parent="Menu/VBoxContainer" unique_id=648112030]
 z_index = 2
 custom_minimum_size = Vector2(300, 80)
 custom_maximum_size = Vector2(300, 80)
 layout_mode = 2
-tooltip_text = "Reload the Game"
+offset_transform_enabled = true
+offset_transform_visual_only = false
+tooltip_text = "Close the Menu"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
@@ -2345,52 +2352,21 @@ theme_override_colors/icon_pressed_color = Color(0.33333334, 0.33333334, 0.33333
 theme_override_colors/icon_hover_color = Color(0.4117647, 0.4117647, 0.4117647, 0.627451)
 theme_override_colors/icon_hover_pressed_color = Color(0.39688927, 0.39688927, 0.39688924, 0.69803923)
 theme_override_font_sizes/font_size = 50
+text = "
+"
 icon = ExtResource("8_75buv")
 icon_alignment = 1
 
-[node name="ReloadLabel" type="Label" parent="Menu/VBoxContainer/ReloadButton" unique_id=499910947]
+[node name="CloseLabel" type="Label" parent="Menu/VBoxContainer/ControlButton2" unique_id=1359290477]
 texture_filter = 6
 layout_mode = 0
 offset_top = 4.0
 offset_right = 300.0
 offset_bottom = 84.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 50
-text = "RELOAD"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
-[node name="StopBackgroundButton" type="Button" parent="Menu/VBoxContainer" unique_id=279386222]
-z_index = 2
-custom_minimum_size = Vector2(300, 80)
-custom_maximum_size = Vector2(300, 80)
-layout_mode = 2
-tooltip_text = "Stop the scrolling and changing of the background"
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0.4627451, 0.4627451, 0.4627451, 0.6627451)
-theme_override_colors/icon_pressed_color = Color(0.33333334, 0.33333334, 0.33333334, 0.7411765)
-theme_override_colors/icon_hover_color = Color(0.4117647, 0.4117647, 0.4117647, 0.627451)
-theme_override_colors/icon_hover_pressed_color = Color(0.39688927, 0.39688927, 0.39688924, 0.69803923)
-theme_override_font_sizes/font_size = 50
-icon = ExtResource("8_75buv")
-icon_alignment = 1
-
-[node name="StopBackgroundLabel" type="Label" parent="Menu/VBoxContainer/StopBackgroundButton" unique_id=1767361087]
-texture_filter = 6
-layout_mode = 0
-offset_top = 4.0
-offset_right = 300.0
-offset_bottom = 84.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
-theme_override_font_sizes/font_size = 50
-text = "Stop bg"
+text = "Close"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
@@ -2423,21 +2399,19 @@ offset_top = 4.0
 offset_right = 300.0
 offset_bottom = 84.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 50
-text = "Controls"
+text = "settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="ControlButton2" type="Button" parent="Menu/VBoxContainer" unique_id=648112030]
+[node name="ReloadButton" type="Button" parent="Menu/VBoxContainer" unique_id=969869320]
 z_index = 2
 custom_minimum_size = Vector2(300, 80)
 custom_maximum_size = Vector2(300, 80)
 layout_mode = 2
-offset_transform_enabled = true
-offset_transform_visual_only = false
-tooltip_text = "Close the Menu"
+tooltip_text = "Reload the Game"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
@@ -2448,21 +2422,19 @@ theme_override_colors/icon_pressed_color = Color(0.33333334, 0.33333334, 0.33333
 theme_override_colors/icon_hover_color = Color(0.4117647, 0.4117647, 0.4117647, 0.627451)
 theme_override_colors/icon_hover_pressed_color = Color(0.39688927, 0.39688927, 0.39688924, 0.69803923)
 theme_override_font_sizes/font_size = 50
-text = "
-"
 icon = ExtResource("8_75buv")
 icon_alignment = 1
 
-[node name="CloseLabel" type="Label" parent="Menu/VBoxContainer/ControlButton2" unique_id=1359290477]
+[node name="ReloadLabel" type="Label" parent="Menu/VBoxContainer/ReloadButton" unique_id=499910947]
 texture_filter = 6
 layout_mode = 0
 offset_top = 4.0
 offset_right = 300.0
 offset_bottom = 84.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 50
-text = "Close"
+text = "RELOAD"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
@@ -2497,7 +2469,7 @@ offset_top = 4.0
 offset_right = 300.0
 offset_bottom = 84.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 50
 text = "End Game"
 horizontal_alignment = 1
@@ -2521,6 +2493,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="ButtomActions" type="Control" parent="ShowControls" unique_id=1568461066]
 modulate = Color(0.98274976, 6.08854e-06, 1.540184e-06, 1)
@@ -2537,7 +2510,7 @@ offset_right = 45.0
 offset_bottom = 137.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "(K)"
 
 [node name="Chance" type="Label" parent="ShowControls/ButtomActions" unique_id=1060102730]
@@ -2548,7 +2521,7 @@ offset_right = -163.0
 offset_bottom = 213.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "(C)"
 
 [node name="Bigstraight" type="Label" parent="ShowControls/ButtomActions" unique_id=15256799]
@@ -2559,7 +2532,7 @@ offset_right = -163.0
 offset_bottom = 137.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "(B)"
 
 [node name="Smallstraight" type="Label" parent="ShowControls/ButtomActions" unique_id=943347851]
@@ -2570,7 +2543,7 @@ offset_right = 45.0
 offset_bottom = 61.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "(S)"
 
 [node name="FullHouse" type="Label" parent="ShowControls/ButtomActions" unique_id=773598097]
@@ -2581,7 +2554,7 @@ offset_right = -162.0
 offset_bottom = 61.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "(F)"
 
 [node name="X3" type="Label" parent="ShowControls/ButtomActions" unique_id=762112713]
@@ -2592,7 +2565,7 @@ offset_right = -161.0
 offset_bottom = -15.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "(X)"
 
 [node name="X4" type="Label" parent="ShowControls/ButtomActions" unique_id=2090188498]
@@ -2603,7 +2576,7 @@ offset_right = 47.0
 offset_bottom = -15.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "(Z)"
 
 [node name="Actions" type="Control" parent="ShowControls" unique_id=1002466517]
@@ -2622,7 +2595,7 @@ offset_right = -94.0
 offset_bottom = -245.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "(F1)"
 uppercase = true
 
@@ -2634,7 +2607,7 @@ offset_right = 34.0
 offset_bottom = -245.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "(F2)"
 uppercase = true
 
@@ -2646,7 +2619,7 @@ offset_right = 162.0
 offset_bottom = -245.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "(F3)"
 uppercase = true
 
@@ -2658,7 +2631,7 @@ offset_right = -94.0
 offset_bottom = -151.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "(F4)"
 uppercase = true
 
@@ -2670,7 +2643,7 @@ offset_right = 34.0
 offset_bottom = -151.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "(F5)"
 uppercase = true
 
@@ -2682,7 +2655,7 @@ offset_right = 162.0
 offset_bottom = -151.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "(F6)"
 uppercase = true
 
@@ -2703,7 +2676,7 @@ offset_right = 327.0
 offset_bottom = 159.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "(1)"
 
 [node name="D2" type="Label" parent="ShowControls/Dices" unique_id=1768117311]
@@ -2715,7 +2688,7 @@ offset_right = 419.0
 offset_bottom = 159.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "(2)"
 
 [node name="D3" type="Label" parent="ShowControls/Dices" unique_id=1127943411]
@@ -2727,7 +2700,7 @@ offset_right = 511.0
 offset_bottom = 159.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "(3)"
 
 [node name="D4" type="Label" parent="ShowControls/Dices" unique_id=1922074994]
@@ -2739,7 +2712,7 @@ offset_right = 602.0
 offset_bottom = 159.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "(4)"
 
 [node name="D5" type="Label" parent="ShowControls/Dices" unique_id=1756674424]
@@ -2751,7 +2724,7 @@ offset_right = 694.0
 offset_bottom = 159.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "(5)"
 
 [node name="Buttons" type="Control" parent="ShowControls" unique_id=261049701]
@@ -2766,7 +2739,7 @@ offset_top = 56.0
 offset_right = 372.0
 offset_bottom = 90.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 theme_override_font_sizes/font_size = 23
 text = "(R)"
 uppercase = true
@@ -2778,7 +2751,7 @@ offset_top = 83.0
 offset_right = 704.0
 offset_bottom = 106.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sor6r")
+theme_override_fonts/font = ExtResource("10_aam5o")
 text = "(A)"
 uppercase = true
 
@@ -2824,6 +2797,19 @@ volume_db = -5.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=317965143]
 libraries/ = SubResource("AnimationLibrary_c2iwn")
 
+[node name="SettingsMenu" parent="." unique_id=1799041464 instance=ExtResource("24_pqe63")]
+visible = false
+z_index = 3
+offset_left = 65.0
+offset_top = -267.0
+offset_right = 65.0
+offset_bottom = -267.0
+
+[node name="canThrowTimer" type="Timer" parent="." unique_id=1181418008]
+process_callback = 0
+wait_time = 0.7
+one_shot = true
+
 [connection signal="pressed" from="Level/SelectAction/OneSelectButton" to="GameManager" method="_on_one_select_button_pressed"]
 [connection signal="pressed" from="Level/SelectAction/TwoSelectButton" to="GameManager" method="_on_two_select_button_pressed"]
 [connection signal="pressed" from="Level/SelectAction/ThreeSelectButton" to="GameManager" method="_on_three_select_button_pressed"]
@@ -2846,12 +2832,16 @@ libraries/ = SubResource("AnimationLibrary_c2iwn")
 [connection signal="pressed" from="Dices/UnlockAllButton" to="GameManager" method="_on_unlock_all_button_pressed"]
 [connection signal="pressed" from="Dices/RollDiceButton" to="GameManager" method="_on_roll_dice_button_pressed"]
 [connection signal="pressed" from="Menu/openMenuButton" to="GameManager" method="_on_open_menu_button_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/ReloadButton" to="GameManager" method="_on_reload_button_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/StopBackgroundButton" to="Parallax2D" method="_on_stop_background_button_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/ControlButton" to="GameManager" method="_on_control_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/ControlButton2" to="GameManager" method="_on_control_button_2_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/ControlButton" to="GameManager" method="_on_control_button_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/ReloadButton" to="GameManager" method="_on_reload_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/CloseGameButton" to="GameManager" method="_on_close_game_button_pressed"]
 [connection signal="timeout" from="EndTimer" to="GameManager" method="_on_end_timer_timeout"]
 [connection signal="timeout" from="diceSFX/diceSFXTimer" to="GameManager" method="_on_dice_sfx_timer_timeout"]
 [connection signal="timeout" from="ExtraDiceSFX/extraDiceSFXTimer" to="GameManager" method="_on_extra_dice_sfx_timer_timeout"]
 [connection signal="timeout" from="Timer" to="Parallax2D" method="_on_timer_timeout"]
+[connection signal="bgscrolling" from="SettingsMenu" to="Parallax2D" method="_on_settings_menu_bgscrolling"]
+[connection signal="changeColor" from="SettingsMenu" to="GameManager" method="_on_settings_menu_change_color"]
+[connection signal="closeMenu" from="SettingsMenu" to="GameManager" method="_on_settings_menu_close_menu"]
+[connection signal="showControls" from="SettingsMenu" to="GameManager" method="_on_settings_menu_show_controls"]
+[connection signal="timeout" from="canThrowTimer" to="GameManager" method="_on_can_throw_timer_timeout"]

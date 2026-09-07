@@ -1,0 +1,333 @@
+[gd_scene format=3 uid="uid://d34y3qx4gnqam"]
+
+[ext_resource type="Script" uid="uid://bf45tbsq5k6jo" path="res://Scripts/settings_manager.gd" id="1_f1f6b"]
+[ext_resource type="FontFile" uid="uid://du32f37clc06n" path="res://Fonts/GGBotNet Fonts CC0/Delta Block/OpenType (.otf)/DeltaBlock-Regular.otf" id="1_pyvgt"]
+
+[node name="SettingsMenu" type="Control" unique_id=1799041464]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f1f6b")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2072460100]
+z_index = -1
+custom_minimum_size = Vector2(75, 100)
+custom_maximum_size = Vector2(75, 100)
+layout_mode = 0
+offset_right = 75.0
+offset_bottom = 100.0
+scale = Vector2(5.3736825, 5.3736825)
+color = Color(0.65012825, 0.6501283, 0.65012825, 1)
+
+[node name="BackgroundScrollingButton" type="Button" parent="." unique_id=1109028548]
+z_index = 1
+texture_filter = 3
+custom_minimum_size = Vector2(160, 80)
+custom_maximum_size = Vector2(160, 80)
+layout_mode = 0
+offset_left = 25.0
+offset_top = 15.0
+offset_right = 185.0
+offset_bottom = 95.0
+
+[node name="BackgroundScrollingLabel" type="Label" parent="BackgroundScrollingButton" unique_id=636068229]
+texture_filter = 4
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("1_pyvgt")
+theme_override_font_sizes/font_size = 26
+text = "Background
+scrolling"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ShowControlsButton" type="Button" parent="." unique_id=2007409009]
+texture_filter = 3
+custom_minimum_size = Vector2(160, 80)
+custom_maximum_size = Vector2(160, 80)
+layout_mode = 0
+offset_left = 218.0
+offset_top = 15.0
+offset_right = 378.0
+offset_bottom = 95.0
+
+[node name="ShowControlsLabel" type="Label" parent="ShowControlsButton" unique_id=742942251]
+texture_filter = 4
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("1_pyvgt")
+theme_override_font_sizes/font_size = 31
+text = "Show 
+Controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="." unique_id=1543954079]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 166.0
+offset_right = 185.0
+offset_bottom = 182.0
+
+[node name="SFXLabel" type="Label" parent="SFXSlider" unique_id=944169795]
+texture_filter = 4
+layout_mode = 0
+offset_left = 38.0
+offset_top = -28.0
+offset_right = 129.0
+offset_bottom = -5.0
+theme_override_fonts/font = ExtResource("1_pyvgt")
+text = "SFX Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="MusicSlider" type="HSlider" parent="." unique_id=210301793]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 166.0
+offset_right = 378.0
+offset_bottom = 182.0
+
+[node name="MusicLabel" type="Label" parent="MusicSlider" unique_id=623394452]
+texture_filter = 4
+layout_mode = 0
+offset_left = 31.0
+offset_top = -28.0
+offset_right = 136.0
+offset_bottom = -5.0
+theme_override_fonts/font = ExtResource("1_pyvgt")
+text = "music Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="CloseButton" type="Button" parent="." unique_id=468042014]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 215.0
+offset_right = 185.0
+offset_bottom = 255.0
+
+[node name="ResetLabel2" type="Label" parent="CloseButton" unique_id=196946490]
+texture_filter = 4
+layout_mode = 0
+offset_top = 2.0
+offset_right = 160.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("1_pyvgt")
+theme_override_font_sizes/font_size = 30
+text = "close"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="FullscreenButton" type="Button" parent="." unique_id=1068397011]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 215.0
+offset_right = 378.0
+offset_bottom = 255.0
+
+[node name="FullscreenLabel" type="Label" parent="FullscreenButton" unique_id=1450961907]
+texture_filter = 4
+layout_mode = 0
+offset_top = 2.0
+offset_right = 160.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("1_pyvgt")
+theme_override_font_sizes/font_size = 27
+text = "fullscreen"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="D1ColorButton" type="ColorPickerButton" parent="." unique_id=381340385]
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(160, 80)
+layout_mode = 0
+offset_left = 36.0
+offset_top = 282.0
+offset_right = 116.0
+offset_bottom = 362.0
+color = Color(1, 1, 0, 1)
+
+[node name="Label" type="Label" parent="D1ColorButton" unique_id=674741351]
+texture_filter = 4
+layout_mode = 0
+offset_top = 4.0
+offset_right = 80.0
+offset_bottom = 84.0
+theme_override_fonts/font = ExtResource("1_pyvgt")
+theme_override_font_sizes/font_size = 40
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="D1ColorButton2" type="ColorPickerButton" parent="." unique_id=348789265]
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(160, 80)
+layout_mode = 0
+offset_left = 161.0
+offset_top = 282.0
+offset_right = 241.0
+offset_bottom = 362.0
+color = Color(0, 1, 0, 1)
+
+[node name="Label2" type="Label" parent="D1ColorButton2" unique_id=555361540]
+texture_filter = 4
+layout_mode = 0
+offset_top = 4.0
+offset_right = 80.0
+offset_bottom = 84.0
+theme_override_fonts/font = ExtResource("1_pyvgt")
+theme_override_font_sizes/font_size = 40
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="D1ColorButton3" type="ColorPickerButton" parent="." unique_id=886453080]
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(160, 80)
+layout_mode = 0
+offset_left = 283.0
+offset_top = 282.0
+offset_right = 363.0
+offset_bottom = 362.0
+color = Color(0, 1, 1, 1)
+
+[node name="Label3" type="Label" parent="D1ColorButton3" unique_id=134323000]
+texture_filter = 4
+layout_mode = 0
+offset_top = 4.0
+offset_right = 80.0
+offset_bottom = 84.0
+theme_override_fonts/font = ExtResource("1_pyvgt")
+theme_override_font_sizes/font_size = 40
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="D1ColorButton4" type="ColorPickerButton" parent="." unique_id=57517245]
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(160, 80)
+layout_mode = 0
+offset_left = 36.0
+offset_top = 410.0
+offset_right = 116.0
+offset_bottom = 490.0
+color = Color(0, 0.6039216, 1, 1)
+
+[node name="Label4" type="Label" parent="D1ColorButton4" unique_id=857509105]
+texture_filter = 4
+layout_mode = 0
+offset_top = 4.0
+offset_right = 80.0
+offset_bottom = 84.0
+theme_override_fonts/font = ExtResource("1_pyvgt")
+theme_override_font_sizes/font_size = 40
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="D1ColorButton5" type="ColorPickerButton" parent="." unique_id=926099653]
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(160, 80)
+layout_mode = 0
+offset_left = 161.0
+offset_top = 410.0
+offset_right = 241.0
+offset_bottom = 490.0
+color = Color(1, 0, 1, 1)
+
+[node name="Label5" type="Label" parent="D1ColorButton5" unique_id=661111483]
+texture_filter = 4
+layout_mode = 0
+offset_top = 4.0
+offset_right = 80.0
+offset_bottom = 84.0
+theme_override_fonts/font = ExtResource("1_pyvgt")
+theme_override_font_sizes/font_size = 40
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="D1ColorButton6" type="ColorPickerButton" parent="." unique_id=2010873747]
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(160, 80)
+layout_mode = 0
+offset_left = 283.0
+offset_top = 410.0
+offset_right = 363.0
+offset_bottom = 490.0
+color = Color(1, 0, 0, 1)
+
+[node name="Label6" type="Label" parent="D1ColorButton6" unique_id=188007317]
+texture_filter = 4
+layout_mode = 0
+offset_top = 4.0
+offset_right = 80.0
+offset_bottom = 84.0
+theme_override_fonts/font = ExtResource("1_pyvgt")
+theme_override_font_sizes/font_size = 40
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ApplyButton" type="Button" parent="." unique_id=2109872750]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 365.0
+offset_right = 185.0
+offset_bottom = 405.0
+
+[node name="ApplyLabel" type="Label" parent="ApplyButton" unique_id=1197697466]
+texture_filter = 4
+layout_mode = 0
+offset_top = 3.0
+offset_right = 160.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("1_pyvgt")
+theme_override_font_sizes/font_size = 30
+text = "Apply"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ResetButton" type="Button" parent="." unique_id=1862508210]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 365.0
+offset_right = 378.0
+offset_bottom = 405.0
+
+[node name="ResetLabel" type="Label" parent="ResetButton" unique_id=1352657403]
+texture_filter = 4
+layout_mode = 0
+offset_top = 3.0
+offset_right = 160.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("1_pyvgt")
+theme_override_font_sizes/font_size = 30
+text = "reset"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[connection signal="pressed" from="BackgroundScrollingButton" to="." method="_on_background_scrolling_button_pressed"]
+[connection signal="pressed" from="ShowControlsButton" to="." method="_on_show_controls_button_pressed"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="color_changed" from="D1ColorButton" to="." method="_on_d_1_color_button_color_changed"]
+[connection signal="color_changed" from="D1ColorButton2" to="." method="_on_d_1_color_button_2_color_changed"]
+[connection signal="color_changed" from="D1ColorButton3" to="." method="_on_d_1_color_button_3_color_changed"]
+[connection signal="color_changed" from="D1ColorButton4" to="." method="_on_d_1_color_button_4_color_changed"]
+[connection signal="color_changed" from="D1ColorButton5" to="." method="_on_d_1_color_button_5_color_changed"]
+[connection signal="color_changed" from="D1ColorButton6" to="." method="_on_d_1_color_button_6_color_changed"]
+[connection signal="pressed" from="ApplyButton" to="." method="_on_apply_button_pressed"]
+[connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]

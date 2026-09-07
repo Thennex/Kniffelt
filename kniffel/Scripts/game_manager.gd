@@ -11,6 +11,18 @@ extends Node2D
 @onready var menu: VBoxContainer = $"../Menu/VBoxContainer"
 @onready var shortcutoverlay: Control = $"../ShowControls"
 
+@onready var d1bgcolor: Sprite2D = $"../Parallax2D/d1"
+@onready var d2bgcolor: Sprite2D = $"../Parallax2D/d2"
+@onready var d3bgcolor: Sprite2D = $"../Parallax2D/d3"
+@onready var d4bgcolor: Sprite2D = $"../Parallax2D/d4"
+@onready var d5bgcolor: Sprite2D = $"../Parallax2D/d5"
+@onready var d6bgcolor: Sprite2D = $"../Parallax2D/d6"
+
+@onready var settingsmanager: Control = $"../SettingsMenu"
+
+
+
+
 
 @onready var dicesfx: AudioStreamPlayer = $"../diceSFX"
 @onready var dicesfxtimer: Timer = $"../diceSFX/diceSFXTimer"
@@ -74,7 +86,6 @@ extends Node2D
 @onready var ld4: Label = $"../Dices/DiceContainer/D4/D4Label"
 @onready var ld5: Label = $"../Dices/DiceContainer/D5/D5Label"
 
-
 @onready var lrolldice: Label = $"../Dices/RollDiceButton/RollDiceLabel"
 
 @onready var lx3d1: Label = $"../Level/SelectActionButtom/showItem/x3Shower/Lx3D1"
@@ -137,6 +148,8 @@ var dice_count = 5
 var throw_count = 0
 var locked_slot = [false, false, false, false, false]
 
+var can_throw = true
+
 #####################################
 #####   Variables for Showers   #####
 #####################################
@@ -186,6 +199,25 @@ func _ready() -> void:
 	set_DiceColors()
 	resetDice()
 	changeShowers()
+
+func setColor() -> void:
+	sd1.modulate = color_values[int(ld1.text) - 1]
+	sd2.modulate = color_values[int(ld2.text) - 1]
+	sd3.modulate = color_values[int(ld3.text) - 1]
+	sd4.modulate = color_values[int(ld4.text) - 1]
+	sd5.modulate = color_values[int(ld5.text) - 1]
+	d1color.modulate = color_values[0]
+	d2color.modulate = color_values[1]
+	d3color.modulate = color_values[2]
+	d4color.modulate = color_values[3]
+	d5color.modulate = color_values[4]
+	d6color.modulate = color_values[5]
+	d1bgcolor.modulate = color_values[0]
+	d2bgcolor.modulate = color_values[1]
+	d3bgcolor.modulate = color_values[2]
+	d4bgcolor.modulate = color_values[3]
+	d5bgcolor.modulate = color_values[4]
+	d6bgcolor.modulate = color_values[5]
 
 func set_DiceColors() -> void:
 	d1color.modulate = color_values[0]
@@ -256,29 +288,36 @@ func changeShowers() -> void:
 	lfullhoused4.text = str(changeDieMemory)
 	lfullhoused5.text = str(changeDieMemory)
 
+
+
 func throwDices() -> void:
-	selectsfx.play()
-	if throw_count == 0:
-		resetLocked()
-	if throw_count < max_throw_count:
-		throw_count += 1
-		lrolldice.text = str("Roll Dice (", max_throw_count - throw_count, ")")
-		for i in dice_count:
-			if locked_slot[i] == false:
-				dicesfx.playing = false
-				dicesfx.volume_db = -5
-				var sfxPitch = 5.0
-				if throw_count == 1:
-					dicesfx.pitch_scale = 1.0 + (sfxPitch/10.0)
-				elif throw_count == 2:
-					dicesfx.pitch_scale = 1.0 + (sfxPitch/100.0)
-				else:
-					dicesfx.pitch_scale = 1.0 + (sfxPitch/5000.0)
-				dicesfx.play()
-				$"../ExtraDiceSFX/extraDiceSFXTimer".start()
-				dicesfxtimer.start()
-				dices[i - 1] = rng()
-				choseDie(i)
+	if can_throw:
+		if !areAllLocked():
+			can_throw = false
+			$"../canThrowTimer".start()
+			selectsfx.play()
+			if throw_count == 0:
+				resetLocked()
+			if throw_count < max_throw_count:
+				throw_count += 1
+				lrolldice.text = str("Roll Dice (", max_throw_count - throw_count, ")")
+				for i in dice_count:
+					if locked_slot[i] == false:
+						dicesfx.playing = false
+						dicesfx.volume_db = -5
+						var sfxPitch = 5.0
+						if throw_count == 1:
+							dicesfx.pitch_scale = 1.0 + (sfxPitch/10.0)
+						elif throw_count == 2:
+							dicesfx.pitch_scale = 1.0 + (sfxPitch/100.0)
+						else:
+							dicesfx.pitch_scale = 1.0 + (sfxPitch/5000.0)
+						dicesfx.play()
+						$"../ExtraDiceSFX/extraDiceSFXTimer".start()
+						dicesfxtimer.start()
+						dices[i - 1] = rng()
+						choseDie(i)
+
 
 func delayDice(die) -> int:
 	return dices[die - 1] - 6
@@ -362,6 +401,17 @@ func resetLocked() -> void:
 	sd4.icon = dice_unlocked
 	sd5.icon = dice_unlocked
 
+func areAllLocked() -> bool:
+	var tmp = true
+	for i in dice_count:
+		if locked_slot[i - 1] == true:
+			tmp = true
+		else:
+			tmp = false
+			break
+	return tmp
+
+
 ################################
 #####    Action Methods    #####
 ################################
@@ -387,7 +437,6 @@ func checkButtomActions() -> void:
 	if all_actions_done == 7:
 		done += 1
 		end()
-		points += bottom_points_counter
 		var tween = create_tween()
 		tween.tween_property(lpoints, "text", str("All Points : ", points), .1)
 
@@ -858,6 +907,7 @@ func _on_timer_timeout() -> void:
 ###############################
 func _on_open_menu_button_pressed() -> void:
 	if menu.visible:
+		settingsmanager.visible = false
 		$"../Menu/ColorRect".visible = false
 		selectsfx.play()
 		menu.visible = false
@@ -871,12 +921,10 @@ func _on_reload_button_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _on_control_button_pressed() -> void:
-	if shortcutoverlay.visible:
-		shortcutoverlay.visible = false
-		selectsfx.play()
+	if settingsmanager.visible:
+		settingsmanager.visible = false
 	else:
-		shortcutoverlay.visible = true
-		selectsfx.play()
+		settingsmanager.visible = true
 
 func _on_control_button_2_pressed() -> void:
 	if menu.visible:
@@ -907,3 +955,22 @@ func _on_extra_dice_sfx_timer_timeout() -> void:
 #############################
 func _on_end_timer_timeout() -> void:
 	get_tree().reload_current_scene()
+
+
+################################
+#####    Manual Signals    #####
+################################
+func _on_settings_menu_change_color(array: Variant) -> void:
+	color_values = array
+	setColor()
+
+func _on_settings_menu_show_controls(show_controls: Variant) -> void:
+	shortcutoverlay.visible = show_controls
+	selectsfx.play()
+
+func _on_settings_menu_close_menu() -> void:
+	$"../Menu/VBoxContainer".visible = false
+	$"../Menu/ColorRect".visible = false
+
+func _on_can_throw_timer_timeout() -> void:
+	can_throw = true
