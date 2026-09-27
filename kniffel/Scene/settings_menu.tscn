@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d34y3qx4gnqam"]
 
 [ext_resource type="Script" uid="uid://bf45tbsq5k6jo" path="res://Scripts/settings_manager.gd" id="1_f1f6b"]
-[ext_resource type="FontFile" uid="uid://du32f37clc06n" path="res://Fonts/GGBotNet Fonts CC0/Delta Block/OpenType (.otf)/DeltaBlock-Regular.otf" id="1_pyvgt"]
+[ext_resource type="FontFile" uid="uid://du32f37clc06n" path="res://Fonts/Delta Block/OpenType (.otf)/DeltaBlock-Regular.otf" id="1_pyvgt"]
 
 [node name="SettingsMenu" type="Control" unique_id=1799041464]
 layout_mode = 3
@@ -323,6 +323,7 @@ uppercase = true
 [connection signal="pressed" from="BackgroundScrollingButton" to="." method="_on_background_scrolling_button_pressed"]
 [connection signal="pressed" from="ShowControlsButton" to="." method="_on_show_controls_button_pressed"]
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="FullscreenButton" to="." method="_on_fullscreen_button_pressed"]
 [connection signal="color_changed" from="D1ColorButton" to="." method="_on_d_1_color_button_color_changed"]
 [connection signal="color_changed" from="D1ColorButton2" to="." method="_on_d_1_color_button_2_color_changed"]
 [connection signal="color_changed" from="D1ColorButton3" to="." method="_on_d_1_color_button_3_color_changed"]

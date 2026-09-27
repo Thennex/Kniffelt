@@ -133,9 +133,10 @@ extends Node2D
 ###################################
 #####   Variables for Dices   #####
 ###################################
-var dice_locked = preload("uid://cam1rgsgpia83")
-var dice_unlocked = preload("uid://bq71ulhlbfcvv")
-var d1 = 0
+var dice_locked = preload("uid://camxcabkvly8k") #preload("uid://cam1rgsgpia83")
+var dice_unlocked = preload("uid://bxywxlj5wl2te")
+#preload("uid://bq71ulhlbfcvv")
+var d1 = 0 
 var d2 = 0
 var d3 = 0
 var d4 = 0
@@ -178,6 +179,7 @@ var has_bonus = false
 var actions = [false, false, false, false, false, false]
 var buttom_actions = [false, false, false, false, false, false, false]
 
+var should_tween = true
 #################################
 #####   Variables for End   #####
 #################################
@@ -373,11 +375,11 @@ func resetDice() -> void:
 	print("reset")
 	selectsfx.play()
 	lrolldice.text = str("Roll Dice (", 3, ")")
-	ld1.text = ""
-	ld2.text = ""
-	ld3.text = ""
-	ld4.text = ""
-	ld5.text = ""
+	ld1.text = "D"
+	ld2.text = "I"
+	ld3.text = "C"
+	ld4.text = "E"
+	ld5.text = "S"
 	dices = [0, 0, 0, 0, 0]
 	d1 = 0
 	d2 = 0
@@ -417,18 +419,24 @@ func areAllLocked() -> bool:
 ################################
 func setBottomCounter(bottom_counter) -> void:
 	lbottompoints.text = str(bottom_counter)
+	lbottompoints.rotation += .0001
+	$"../Level/PointCounters/LabelBottomPoints/AnimationPlayer".play("Bottom_counter_pop")
 	if !countersfx.has_stream_playback():
 		countersfx.play()
 		selectsfx.play()
 		countersfx.pitch_scale += .05
-#ich weiss das dass falsch geschrieben ist :)
+	
+
 func checkButtomActions() -> void:
 	resetDice()
 	countersfx.pitch_scale = 1
 	if int(lbottompoints.text) != bottom_points_counter:
 		var tween3 = create_tween()
 		tween3.tween_method(setBottomCounter, int(lbottompoints.text), bottom_points_counter, .7).set_trans(Tween.TRANS_LINEAR)
+		await tween3.finished
+		lbottompoints.rotation = 0
 	var all_actions_done = 0
+	lbottompoints.rotation = 0
 	for i in buttom_actions.size():
 		if buttom_actions[i - 1] == true:
 			all_actions_done += 1
@@ -647,6 +655,7 @@ func small_straight() -> void:
 				if !pureDices.has(dices[i - 1]):
 					pureDices.append(dices[i - 1]) 
 			pureDices.sort()
+			print(pureDices)
 			var pdsize = pureDices.size()
 			if pdsize > 3:
 				if pdsize == 4:
@@ -655,7 +664,7 @@ func small_straight() -> void:
 				elif pdsize == 5:
 					if pureDices[0] + 1 == pureDices[1] && pureDices[0] + 2 == pureDices[2] && pureDices[0] + 3 == pureDices[3]:
 						is_small_straight = true
-					if pureDices[1] + 1 == pureDices[2] && pureDices[1] + 2 == pureDices[3] && pureDices[1] + 3 == pureDices[4]:
+					elif pureDices[1] + 1 == pureDices[2] && pureDices[1] + 2 == pureDices[3] && pureDices[1] + 3 == pureDices[4]:
 						is_small_straight = true
 			if is_small_straight:
 				lsmallstraight.text = "30"
@@ -948,6 +957,8 @@ func _on_close_game_button_pressed() -> void:
 func _on_dice_sfx_timer_timeout() -> void:
 	var tween = create_tween()
 	tween.tween_property(dicesfx, "volume_db", -60, .3)
+	await get_tree().create_timer(.3).timeout
+	dicesfx.stop()
 
 func _on_extra_dice_sfx_timer_timeout() -> void:
 		$"../ExtraDiceSFX".play()

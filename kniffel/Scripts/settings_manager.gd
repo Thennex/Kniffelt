@@ -90,3 +90,10 @@ func _on_show_controls_button_pressed() -> void:
 	else:
 		is_show_controls = true
 	showControls.emit(is_show_controls)
+
+
+func _on_fullscreen_button_pressed() -> void:
+	if DisplayServer.window_get_mode() == 0:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN) 
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
