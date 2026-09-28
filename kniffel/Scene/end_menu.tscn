@@ -43,10 +43,11 @@ uppercase = true
 
 [node name="Button" type="Button" parent="Control" unique_id=1448419984]
 layout_mode = 0
-offset_left = 31.0
-offset_top = 42.0
-offset_right = 339.0
-offset_bottom = 130.0
+offset_left = 149.31097
+offset_top = 52.421535
+offset_right = 457.31097
+offset_bottom = 140.42154
+scale = Vector2(0.33946747, 0.4178171)
 icon = ExtResource("3_m5qvm")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1804619840]

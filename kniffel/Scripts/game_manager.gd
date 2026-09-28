@@ -461,6 +461,7 @@ func end() -> void:
 		lpoints.visible = true
 		var tweenPoints = create_tween()
 		tweenPoints.tween_method(setAllPoints, 0 , points, 1)
+		$"../EndMenu".visible = true
 		$"../EndTimer".start()
 
 #################################
