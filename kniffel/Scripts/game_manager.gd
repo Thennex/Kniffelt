@@ -1,31 +1,29 @@
 extends Node2D
 
-
+#region Variables for Paths
 ############################################################
 #####                   Path linking                   #####
 ############################################################
 @onready var animplayer: AnimationPlayer = $"../AnimationPlayer"
 @onready var selectsfx: AudioStreamPlayer = $"../SelectSFX"
 @onready var countersfx: AudioStreamPlayer = $"../CounterSFX"
-
+@onready var settingsmanager: Control = $"../SettingsMenu"
+@onready var end_menu: Control = $"../EndMenu"
 @onready var menu: VBoxContainer = $"../Menu/VBoxContainer"
 @onready var shortcutoverlay: Control = $"../ShowControls"
+@onready var dicesfx: AudioStreamPlayer = $"../diceSFX"
+@onready var dicesfxtimer: Timer = $"../diceSFX/diceSFXTimer"
 
+########################
+#####  Background  #####
+########################
 @onready var d1bgcolor: Sprite2D = $"../Parallax2D/d1"
 @onready var d2bgcolor: Sprite2D = $"../Parallax2D/d2"
 @onready var d3bgcolor: Sprite2D = $"../Parallax2D/d3"
 @onready var d4bgcolor: Sprite2D = $"../Parallax2D/d4"
 @onready var d5bgcolor: Sprite2D = $"../Parallax2D/d5"
 @onready var d6bgcolor: Sprite2D = $"../Parallax2D/d6"
-
-@onready var settingsmanager: Control = $"../SettingsMenu"
-
-
-
-
-
-@onready var dicesfx: AudioStreamPlayer = $"../diceSFX"
-@onready var dicesfxtimer: Timer = $"../diceSFX/diceSFXTimer"
+@onready var dbgcolor_array : Array = [d1bgcolor, d2bgcolor, d3bgcolor, d4bgcolor, d5bgcolor, d6bgcolor,]
 
 ####################
 #####  Points  #####
@@ -44,6 +42,7 @@ extends Node2D
 @onready var d4color: Node2D = $"../Level/SelectAction/D4"
 @onready var d5color: Node2D = $"../Level/SelectAction/D5"
 @onready var d6color: Node2D = $"../Level/SelectAction/D6"
+@onready var dcolor_array : Array = [d1color, d2color, d3color, d4color, d5color, d6color]
 
 @onready var sd1: Button = $"../Dices/DiceContainer/D1"
 @onready var sd2: Button = $"../Dices/DiceContainer/D2"
@@ -68,6 +67,8 @@ extends Node2D
 @onready var l4: Label = $"../Level/PointCounters/Label4"
 @onready var l5: Label = $"../Level/PointCounters/Label5"
 @onready var l6: Label = $"../Level/PointCounters/Label6"
+@onready var l_array : Array = [l1, l2, l3, l4, l5, l6]
+
 @onready var lx3: Label = $"../Level/PointCounters/LabelX3"
 @onready var lx4: Label = $"../Level/PointCounters/LabelX4"
 @onready var lsmallstraight: Label = $"../Level/PointCounters/LabelSmallStraight"
@@ -85,47 +86,55 @@ extends Node2D
 @onready var ld3: Label = $"../Dices/DiceContainer/D3/D3Label"
 @onready var ld4: Label = $"../Dices/DiceContainer/D4/D4Label"
 @onready var ld5: Label = $"../Dices/DiceContainer/D5/D5Label"
+@onready var ld_array : Array = [ld1, ld2, ld3, ld4, ld5]
 
 @onready var lrolldice: Label = $"../Dices/RollDiceButton/RollDiceLabel"
 
 @onready var lx3d1: Label = $"../Level/SelectActionButtom/showItem/x3Shower/Lx3D1"
 @onready var lx3d2: Label = $"../Level/SelectActionButtom/showItem/x3Shower/Lx3D2"
 @onready var lx3d3: Label = $"../Level/SelectActionButtom/showItem/x3Shower/Lx3D3"
+@onready var lx3d_array : Array = [lx3d1, lx3d2, lx3d3]
 
 @onready var lx4d1: Label = $"../Level/SelectActionButtom/showItem/x4Shower/Lx4D1"
 @onready var lx4d2: Label = $"../Level/SelectActionButtom/showItem/x4Shower/Lx4D2"
 @onready var lx4d3: Label = $"../Level/SelectActionButtom/showItem/x4Shower/Lx4D3"
 @onready var lx4d4: Label = $"../Level/SelectActionButtom/showItem/x4Shower/Lx4D4"
+@onready var lx4d_array : Array = [lx4d1, lx4d2, lx4d3, lx4d4]
 
 @onready var lkniffeld1: Label = $"../Level/SelectActionButtom/showItem/KniffelShower/LKniffelD1"
 @onready var lkniffeld2: Label = $"../Level/SelectActionButtom/showItem/KniffelShower/LKniffelD2"
 @onready var lkniffeld3: Label = $"../Level/SelectActionButtom/showItem/KniffelShower/LKniffelD3"
 @onready var lkniffeld4: Label = $"../Level/SelectActionButtom/showItem/KniffelShower/LKniffelD4"
 @onready var lkniffeld5: Label = $"../Level/SelectActionButtom/showItem/KniffelShower/LKniffelD5"
+@onready var lkniffel_array : Array = [lkniffeld1, lkniffeld2, lkniffeld3, lkniffeld4, lkniffeld5]
 
 @onready var lchanced1: Label = $"../Level/SelectActionButtom/showItem/ChanceShower/LChanceD1"
 @onready var lchanced2: Label = $"../Level/SelectActionButtom/showItem/ChanceShower/LChanceD2"
 @onready var lchanced3: Label = $"../Level/SelectActionButtom/showItem/ChanceShower/LChanceD3"
 @onready var lchanced4: Label = $"../Level/SelectActionButtom/showItem/ChanceShower/LChanceD4"
 @onready var lchanced5: Label = $"../Level/SelectActionButtom/showItem/ChanceShower/LChanceD5"
+@onready var lchance_array : Array = [lchanced1, lchanced2, lchanced3, lchanced4, lchanced5]
 
 @onready var lbigstraightd1: Label = $"../Level/SelectActionButtom/showItem/BigStraightShower/LBigStraightD1"
 @onready var lbigstraightd2: Label = $"../Level/SelectActionButtom/showItem/BigStraightShower/LBigStraightD2"
 @onready var lbigstraightd3: Label = $"../Level/SelectActionButtom/showItem/BigStraightShower/LBigStraightD3"
 @onready var lbigstraightd4: Label = $"../Level/SelectActionButtom/showItem/BigStraightShower/LBigStraightD4"
 @onready var lbigstraightd5: Label = $"../Level/SelectActionButtom/showItem/BigStraightShower/LBigStraightD5"
+@onready var lbigstraight_array : Array = [lbigstraightd1, lbigstraightd2, lbigstraightd3, lbigstraightd4, lbigstraightd5]
 
 @onready var lsmallstraightd1: Label = $"../Level/SelectActionButtom/showItem/SmallStraightShower/LSmallStraightD1"
 @onready var lsmallstraightd2: Label = $"../Level/SelectActionButtom/showItem/SmallStraightShower/LSmallStraightD2"
 @onready var lsmallstraightd3: Label = $"../Level/SelectActionButtom/showItem/SmallStraightShower/LSmallStraightD3"
 @onready var lsmallstraightd4: Label = $"../Level/SelectActionButtom/showItem/SmallStraightShower/LSmallStraightD4"
+@onready var lsmallstraight_array : Array = [lsmallstraightd1, lsmallstraightd2, lsmallstraightd3, lsmallstraightd4]
 
 @onready var lfullhoused1: Label = $"../Level/SelectActionButtom/showItem/FullHouseShower/LFullHouseD1"
 @onready var lfullhoused2: Label = $"../Level/SelectActionButtom/showItem/FullHouseShower/LFullHouseD2"
 @onready var lfullhoused3: Label = $"../Level/SelectActionButtom/showItem/FullHouseShower/LFullHouseD3"
 @onready var lfullhoused4: Label = $"../Level/SelectActionButtom/showItem/FullHouseShower/LFullHouseD4"
 @onready var lfullhoused5: Label = $"../Level/SelectActionButtom/showItem/FullHouseShower/LFullHouseD5"
-
+@onready var lfullhouse_array : Array = [lfullhoused1, lfullhoused2, lfullhoused3, lfullhoused4, lfullhoused5]
+#endregion
 ########################################################################
 #####                           Variables                          #####
 ########################################################################
@@ -133,16 +142,15 @@ extends Node2D
 ###################################
 #####   Variables for Dices   #####
 ###################################
-var dice_locked = preload("uid://camxcabkvly8k") #preload("uid://cam1rgsgpia83")
+var dice_locked = preload("uid://camxcabkvly8k") 
 var dice_unlocked = preload("uid://bxywxlj5wl2te")
-#preload("uid://bq71ulhlbfcvv")
 var d1 = 0 
 var d2 = 0
 var d3 = 0
 var d4 = 0
 var d5 = 0
 var diceValues = [0, 0, 0, 0, 0, 0,]
-var sDices = [sd1, sd2 , sd3, sd4, sd5]
+@onready var sDices = [sd1, sd2 , sd3, sd4, sd5]
 var dices = [d1, d2 , d3, d4, d5]
 var dice_count = 5
 @export var max_throw_count = 3
@@ -150,6 +158,8 @@ var throw_count = 0
 var locked_slot = [false, false, false, false, false]
 
 var can_throw = true
+
+@onready var dice_anim_array : Array = ["D1", "D2", "D3", "D4", "D5", "D6"]
 
 #####################################
 #####   Variables for Showers   #####
@@ -179,7 +189,6 @@ var has_bonus = false
 var actions = [false, false, false, false, false, false]
 var buttom_actions = [false, false, false, false, false, false, false]
 
-var should_tween = true
 #################################
 #####   Variables for End   #####
 #################################
@@ -203,83 +212,37 @@ func _ready() -> void:
 	changeShowers()
 
 func setColor() -> void:
-	sd1.modulate = color_values[int(ld1.text) - 1]
-	sd2.modulate = color_values[int(ld2.text) - 1]
-	sd3.modulate = color_values[int(ld3.text) - 1]
-	sd4.modulate = color_values[int(ld4.text) - 1]
-	sd5.modulate = color_values[int(ld5.text) - 1]
-	d1color.modulate = color_values[0]
-	d2color.modulate = color_values[1]
-	d3color.modulate = color_values[2]
-	d4color.modulate = color_values[3]
-	d5color.modulate = color_values[4]
-	d6color.modulate = color_values[5]
-	d1bgcolor.modulate = color_values[0]
-	d2bgcolor.modulate = color_values[1]
-	d3bgcolor.modulate = color_values[2]
-	d4bgcolor.modulate = color_values[3]
-	d5bgcolor.modulate = color_values[4]
-	d6bgcolor.modulate = color_values[5]
+	for i in sDices.size():
+		sDices[i - 1].modulate = color_values[int(ld_array[i - 1].text) - 1]
+	for i in dbgcolor_array.size():
+		dbgcolor_array[i - 1].modulate = color_values[i - 1]
+	set_DiceColors()
 
 func set_DiceColors() -> void:
-	d1color.modulate = color_values[0]
-	d2color.modulate = color_values[1]
-	d3color.modulate = color_values[2]
-	d4color.modulate = color_values[3]
-	d5color.modulate = color_values[4]
-	d6color.modulate = color_values[5]
+	for i in dcolor_array.size():
+		dcolor_array[i - 1].modulate = color_values[i - 1]
 
 func changeShowers() -> void:
-	lx3d1.text = str(changeDieMemory)
-	lx3d2.text = str(changeDieMemory)
-	lx3d3.text = str(changeDieMemory)
-	lx4d1.text = str(changeDieMemory)
-	lx4d2.text = str(changeDieMemory)
-	lx4d3.text = str(changeDieMemory)
-	lx4d4.text = str(changeDieMemory)
-	lkniffeld1.text = str(changeDieMemory)
-	lkniffeld2.text = str(changeDieMemory)
-	lkniffeld3.text = str(changeDieMemory)
-	lkniffeld4.text = str(changeDieMemory)
-	lkniffeld5.text = str(changeDieMemory)
-	lchanced1.text = str(rng())
-	lchanced2.text = str(rng())
-	lchanced3.text = str(rng())
-	lchanced4.text = str(rng())
-	lchanced5.text = str(rng())
-	if small_straight_memory == 1:
-		lsmallstraightd1.text = "1"
-		lsmallstraightd2.text = "2"
-		lsmallstraightd3.text = "3"
-		lsmallstraightd4.text = "4"
-		small_straight_memory = 2
-	elif small_straight_memory == 2:
-		lsmallstraightd1.text = "2"
-		lsmallstraightd2.text = "3"
-		lsmallstraightd3.text = "4"
-		lsmallstraightd4.text = "5"
-		small_straight_memory = 3
-	elif small_straight_memory == 3:
-		lsmallstraightd1.text = "3"
-		lsmallstraightd2.text = "4"
-		lsmallstraightd3.text = "5"
-		lsmallstraightd4.text = "6"
+	for i in lx3d_array.size():
+		lx3d_array[i - 1].text = str(changeDieMemory)
+	for i in lx4d_array.size():
+		lx4d_array[i - 1].text = str(changeDieMemory)
+	for i in lkniffel_array.size():
+		lkniffel_array[i - 1].text = str(changeDieMemory)
+	for i in lchance_array.size():
+		lchance_array[i - 1].text = str(rng())
+	for i in lsmallstraight_array.size():
+		lsmallstraight_array[i - 1].text = str(i + small_straight_memory - 1)
+	if small_straight_memory == 3:
 		small_straight_memory = 1
+	else:
+		small_straight_memory += 1
+	for i in lbigstraight_array.size():
+		lbigstraight_array[i - 1].text = str( i + big_straight_memory - 1)
 	if big_straight_memory == 1:
-		lbigstraightd1.text = "1"
-		lbigstraightd2.text = "2"
-		lbigstraightd3.text = "3"
-		lbigstraightd4.text = "4"
-		lbigstraightd5.text = "5"
 		big_straight_memory = 2
-	elif big_straight_memory == 2:
-		lbigstraightd1.text = "2"
-		lbigstraightd2.text = "3"
-		lbigstraightd3.text = "4"
-		lbigstraightd4.text = "5"
-		lbigstraightd5.text = "6"
-		big_straight_memory = 1
-	
+	else:
+		big_straight_memory = 2
 	lfullhoused1.text = str(changeDieMemory)
 	lfullhoused2.text = str(changeDieMemory)
 	lfullhoused3.text = str(changeDieMemory)
@@ -291,34 +254,32 @@ func changeShowers() -> void:
 	lfullhoused5.text = str(changeDieMemory)
 
 
-
 func throwDices() -> void:
-	if can_throw:
-		if !areAllLocked():
-			can_throw = false
-			$"../canThrowTimer".start()
-			selectsfx.play()
-			if throw_count == 0:
-				resetLocked()
-			if throw_count < max_throw_count:
-				throw_count += 1
-				lrolldice.text = str("Roll Dice (", max_throw_count - throw_count, ")")
-				for i in dice_count:
-					if locked_slot[i] == false:
-						dicesfx.playing = false
-						dicesfx.volume_db = -5
-						var sfxPitch = 5.0
-						if throw_count == 1:
-							dicesfx.pitch_scale = 1.0 + (sfxPitch/10.0)
-						elif throw_count == 2:
-							dicesfx.pitch_scale = 1.0 + (sfxPitch/100.0)
-						else:
-							dicesfx.pitch_scale = 1.0 + (sfxPitch/5000.0)
-						dicesfx.play()
-						$"../ExtraDiceSFX/extraDiceSFXTimer".start()
-						dicesfxtimer.start()
-						dices[i - 1] = rng()
-						choseDie(i)
+	if can_throw && !areAllLocked():
+		can_throw = false
+		$"../canThrowTimer".start()
+		selectsfx.play()
+		if throw_count == 0:
+			resetLocked()
+		if throw_count < max_throw_count:
+			throw_count += 1
+			lrolldice.text = str("Roll Dice (", max_throw_count - throw_count, ")")
+			for i in dice_count:
+				if locked_slot[i] == false:
+					dicesfx.playing = false
+					dicesfx.volume_db = -5
+					var sfxPitch = 5.0
+					if throw_count == 1:
+						dicesfx.pitch_scale = 1.0 + (sfxPitch/10.0)
+					elif throw_count == 2:
+						dicesfx.pitch_scale = 1.0 + (sfxPitch/100.0)
+					else:
+						dicesfx.pitch_scale = 1.0 + (sfxPitch/5000.0)
+					dicesfx.play()
+					$"../ExtraDiceSFX/extraDiceSFXTimer".start()
+					dicesfxtimer.start()
+					dices[i - 1] = rng()
+					choseDie(i)
 
 
 func delayDice(die) -> int:
@@ -350,6 +311,7 @@ func set_d5(die_value):
 	ld5.text = str(die_value)
 	sd5.modulate = color_values[die_value - 1]
 
+#### Use for LOOOOP for this to fix up !!!!!!!!!!!!!!!
 func choseDie(die) -> void:
 	var duration = .4
 	if die == 0:
@@ -372,7 +334,6 @@ func rng() -> int:
 	return(RandomNumberGenerator.new().randi_range(1,6))
 
 func resetDice() -> void:
-	print("reset")
 	selectsfx.play()
 	lrolldice.text = str("Roll Dice (", 3, ")")
 	ld1.text = "D"
@@ -392,16 +353,9 @@ func resetDice() -> void:
 func resetLocked() -> void:
 	selectsfx.play()
 	locked_slot = [false, false, false, false, false]
-	sd1.button_pressed = false
-	sd2.button_pressed = false
-	sd3.button_pressed = false
-	sd4.button_pressed = false
-	sd5.button_pressed = false
-	sd1.icon = dice_unlocked
-	sd2.icon = dice_unlocked
-	sd3.icon = dice_unlocked
-	sd4.icon = dice_unlocked
-	sd5.icon = dice_unlocked
+	for i in sDices.size():
+		sDices[i - 1].button_pressed = false
+		sDices[i - 1].icon = dice_unlocked
 
 func areAllLocked() -> bool:
 	var tmp = true
@@ -419,24 +373,26 @@ func areAllLocked() -> bool:
 ################################
 func setBottomCounter(bottom_counter) -> void:
 	lbottompoints.text = str(bottom_counter)
-	lbottompoints.rotation += .0001
+	lbottompoints.rotation += .01
 	$"../Level/PointCounters/LabelBottomPoints/AnimationPlayer".play("Bottom_counter_pop")
 	if !countersfx.has_stream_playback():
 		countersfx.play()
+		selectsfx.volume_db = 7
+		$"../Level/PointCounters/LabelBottomPoints/CPUParticles2D".emitting = true
 		selectsfx.play()
-		countersfx.pitch_scale += .05
-	
+		countersfx.pitch_scale += .025
+		await selectsfx.finished
+		selectsfx.volume_db = 0
 
 func checkButtomActions() -> void:
 	resetDice()
 	countersfx.pitch_scale = 1
 	if int(lbottompoints.text) != bottom_points_counter:
 		var tween3 = create_tween()
-		tween3.tween_method(setBottomCounter, int(lbottompoints.text), bottom_points_counter, .7).set_trans(Tween.TRANS_LINEAR)
+		tween3.tween_method(setBottomCounter, int(lbottompoints.text), bottom_points_counter, .7).set_trans(Tween.TRANS_EXPO)
 		await tween3.finished
 		lbottompoints.rotation = 0
 	var all_actions_done = 0
-	lbottompoints.rotation = 0
 	for i in buttom_actions.size():
 		if buttom_actions[i - 1] == true:
 			all_actions_done += 1
@@ -445,8 +401,6 @@ func checkButtomActions() -> void:
 	if all_actions_done == 7:
 		done += 1
 		end()
-		var tween = create_tween()
-		tween.tween_property(lpoints, "text", str("All Points : ", points), .1)
 
 func setTopCounter(top_counter) -> void:
 	ltoppoints.text = str(top_counter)
@@ -489,6 +443,8 @@ func setAllPoints(point_counter) -> void:
 		countersfx.play()
 		selectsfx.play()
 		countersfx.pitch_scale += .05
+		$"../Level/PointCounters/LabelPoints/AnimationPlayer".play("label_points_pop")
+
 
 func end() -> void:
 	if done == 2:
@@ -518,87 +474,17 @@ func plus(value) -> int:
 ################################
 #####    Action Methods    #####
 ################################
-func d1s() -> void:
+func topDs(number) -> void:
 	if dices[0] != 0:
-		var dice_counted = 1
+		var dice_counted = number
 		if actions[dice_counted - 1] == false:
-			for i in dice_count:
+			for i in dices.size():
 				if dices[i] == dice_counted:
 					diceValues[dice_counted - 1] += dice_counted
-			l1.text = str(diceValues[dice_counted - 1])
+			l_array[dice_counted - 1].text = str(diceValues[dice_counted - 1])
 			top_points_counter += diceValues[dice_counted - 1]
 			actions[dice_counted - 1] = true
-			animplayer.play("D1_select")
-			selectsfx.play()
-			checkActions()
-
-func d2s() -> void:
-	if dices[0] != 0:
-		var dice_counted = 2
-		if actions[dice_counted - 1] == false:
-			for i in dice_count:
-				if dices[i] == dice_counted:
-					diceValues[dice_counted - 1] += dice_counted
-			l2.text = str(diceValues[dice_counted - 1])
-			top_points_counter += diceValues[dice_counted - 1]
-			actions[dice_counted - 1] = true
-			animplayer.play("D2_select")
-			selectsfx.play()
-			checkActions()
-
-func d3s() -> void:
-	if dices[0] != 0:
-		var dice_counted = 3
-		if actions[dice_counted - 1] == false:
-			for i in dice_count:
-				if dices[i] == dice_counted:
-					diceValues[dice_counted - 1] += dice_counted
-			l3.text = str(diceValues[dice_counted - 1])
-			top_points_counter += diceValues[dice_counted - 1]
-			actions[dice_counted - 1] = true
-			animplayer.play("D3_select")
-			selectsfx.play()
-			checkActions()
-
-func d4s() -> void:
-	if dices[0] != 0:
-		var dice_counted = 4
-		if actions[dice_counted - 1] == false:
-			for i in dice_count:
-				if dices[i] == dice_counted:
-					diceValues[dice_counted - 1] += dice_counted
-			l4.text = str(diceValues[dice_counted - 1])
-			top_points_counter += diceValues[dice_counted - 1]
-			actions[dice_counted - 1] = true
-			animplayer.play("D4_select")
-			selectsfx.play()
-			checkActions()
-
-func d5s() -> void:
-	if dices[0] != 0:
-		var dice_counted = 5
-		if actions[dice_counted - 1] == false:
-			for i in dice_count:
-				if dices[i] == dice_counted:
-					diceValues[dice_counted - 1] += dice_counted
-			l5.text = str(diceValues[dice_counted - 1])
-			top_points_counter += diceValues[dice_counted - 1]
-			actions[dice_counted - 1] = true
-			animplayer.play("D5_select")
-			selectsfx.play()
-			checkActions()
-
-func d6s() -> void:
-	if dices[0] != 0:
-		var dice_counted = 6
-		if actions[dice_counted - 1] == false:
-			for i in dice_count:
-				if dices[i] == dice_counted:
-					diceValues[dice_counted - 1] += dice_counted
-			l6.text = str(diceValues[dice_counted - 1])
-			top_points_counter += diceValues[dice_counted - 1]
-			actions[dice_counted - 1] = true
-			animplayer.play("D6_select")
+			animplayer.play(dice_anim_array[dice_counted - 1] + "_select")
 			selectsfx.play()
 			checkActions()
 
@@ -655,7 +541,6 @@ func small_straight() -> void:
 				if !pureDices.has(dices[i - 1]):
 					pureDices.append(dices[i - 1]) 
 			pureDices.sort()
-			print(pureDices)
 			var pdsize = pureDices.size()
 			if pdsize > 3:
 				if pdsize == 4:
@@ -726,7 +611,6 @@ func full_house() -> void:
 			var dif_dice_counted = 0
 			for i in dice_count:
 				if dices[i] != dices[0]:
-					print(dices[i])
 					dif_dice = dices[i]
 					break
 			dif_dice_counted = dices.count(dif_dice)
@@ -782,17 +666,17 @@ func _process(_delta: float) -> void:
 	
 	#Keyboard compatibility for Kniffelpaper
 	if Input.is_action_just_pressed("1s"):
-		d1s()
+		topDs(1)
 	if Input.is_action_just_pressed("2s"):
-		d2s()
+		topDs(2)
 	if Input.is_action_just_pressed("3s"):
-		d3s()
+		topDs(3)
 	if Input.is_action_just_pressed("4s"):
-		d4s()
+		topDs(4)
 	if Input.is_action_just_pressed("5s"):
-		d5s()
+		topDs(5)
 	if Input.is_action_just_pressed("6s"):
-		d6s()
+		topDs(6)
 	if Input.is_action_just_pressed("3x"):
 		x3()
 	if Input.is_action_just_pressed("4x"):
@@ -808,9 +692,9 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("chance"):
 		chance()
 
-##############################
-#####     Lock Dices     #####
-##############################
+
+#region --> Lock Dices   
+
 func _on_d_1_toggled(toggled_on: bool) -> void:
 	locked_slot[0] = toggled_on
 	selectsfx.play()
@@ -850,32 +734,32 @@ func _on_d_5_toggled(toggled_on: bool) -> void:
 		sd5.icon = dice_locked
 	else:
 		sd5.icon = dice_unlocked
+#endregion
 
 ########################################################################
 #####                      Buttons and Timers                      #####
 ########################################################################
-
-
-###############################
+#region --> Game relevant Actions
+##############################
 #####    Select Action    #####
 ###############################
 func _on_one_select_button_pressed() -> void:
-	d1s()
+	topDs(1)
 
 func _on_two_select_button_pressed() -> void:
-	d2s()
+	topDs(2)
 
 func _on_three_select_button_pressed() -> void:
-	d3s()
+	topDs(3)
 
 func _on_four_select_button_pressed() -> void:
-	d4s()
+	topDs(4)
 
 func _on_five_select_button_pressed() -> void:
-	d5s()
+	topDs(5)
 
 func _on_six_select_button_pressed() -> void:
-	d6s()
+	topDs(6)
 
 func _on_x_3_pressed() -> void:
 	x3()
@@ -906,6 +790,7 @@ func _on_roll_dice_button_pressed() -> void:
 
 func _on_unlock_all_button_pressed() -> void:
 	resetLocked()
+#endregion 
 
 ##############################
 #####    Shower Timer    #####
@@ -917,14 +802,13 @@ func _on_timer_timeout() -> void:
 #####    Menu Buttons     #####
 ###############################
 func _on_open_menu_button_pressed() -> void:
+	selectsfx.play()
 	if menu.visible:
 		settingsmanager.visible = false
 		$"../Menu/ColorRect".visible = false
-		selectsfx.play()
 		menu.visible = false
 	else:
 		$"../Menu/ColorRect".visible = true
-		selectsfx.play()
 		menu.visible = true
 
 func _on_reload_button_pressed() -> void:
@@ -932,19 +816,19 @@ func _on_reload_button_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _on_control_button_pressed() -> void:
+	selectsfx.play()
 	if settingsmanager.visible:
 		settingsmanager.visible = false
 	else:
 		settingsmanager.visible = true
 
 func _on_control_button_2_pressed() -> void:
+	selectsfx.play()
 	if menu.visible:
 		$"../Menu/ColorRect".visible = false
-		selectsfx.play()
 		menu.visible = false
 	else:
 		$"../Menu/ColorRect".visible = true
-		selectsfx.play()
 		menu.visible = true
 
 func _on_close_game_button_pressed() -> void:
@@ -966,8 +850,6 @@ func _on_extra_dice_sfx_timer_timeout() -> void:
 #############################
 #####    Extra Timer    #####
 #############################
-func _on_end_timer_timeout() -> void:
-	get_tree().reload_current_scene()
 
 
 ################################
@@ -987,3 +869,7 @@ func _on_settings_menu_close_menu() -> void:
 
 func _on_can_throw_timer_timeout() -> void:
 	can_throw = true
+
+func _on_upgrade_menu_selected_upgrade(upgrade: Variant) -> void:
+	var pickedUpgrades : Array = []
+	pickedUpgrades.append(upgrade)

@@ -21,6 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://bxywxlj5wl2te" path="res://Art/Dies/Kniffel_Dice_reworked.png" id="11_xw8bv"]
 [ext_resource type="AudioStream" uid="uid://bceno77oukerm" path="res://sfx/selectSFX.wav" id="21_hiice"]
 [ext_resource type="AudioStream" uid="uid://cyr24cynd1dhm" path="res://sfx/CounterSFX.wav" id="22_sor6r"]
+[ext_resource type="PackedScene" uid="uid://d217ru5dtsin" path="res://Scene/end_menu.tscn" id="23_sor6r"]
+[ext_resource type="PackedScene" uid="uid://vwqgwvcgisf1" path="res://Scene/upgrade_menu.tscn" id="24_aam5o"]
 [ext_resource type="PackedScene" uid="uid://d34y3qx4gnqam" path="res://Scene/settings_menu.tscn" id="24_pqe63"]
 
 [sub_resource type="Curve" id="Curve_4o7ex"]
@@ -38,6 +40,43 @@ point_count = 5
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5x3ix"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u1gkj"]
+
+[sub_resource type="Animation" id="Animation_xw8bv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4.3395047, 4.3395047)]
+}
+
+[sub_resource type="Animation" id="Animation_wimqa"]
+resource_name = "label_points_pop"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(4.3395047, 4.3395047), Vector2(6.115, 6.115), Vector2(4.3395047, 4.3395047)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t372l"]
+_data = {
+&"RESET": SubResource("Animation_xw8bv"),
+&"label_points_pop": SubResource("Animation_wimqa")
+}
 
 [sub_resource type="Animation" id="Animation_aam5o"]
 resource_name = "Bottom_counter_pop"
@@ -65,7 +104,19 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.03, 0.06),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(0.288518, 0.288518, 0.28851795, 1), Color(0, 0, 0, 1)]
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../LabelBottomPointsSprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.05, 0.06),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_nyb1q"]
@@ -94,12 +145,33 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../LabelBottomPointsSprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xw8bv"]
 _data = {
 &"Bottom_counter_pop": SubResource("Animation_aam5o"),
 &"RESET": SubResource("Animation_nyb1q")
 }
+
+[sub_resource type="Curve" id="Curve_u8wue"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9219512, 0.764045), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_pqe63"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.12682927, 0.6853933), 0.0, 0.0, 0, 0, Vector2(0.5121951, -0.5955056), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxd2g"]
 
@@ -4378,16 +4450,21 @@ theme_override_fonts/font = ExtResource("10_aam5o")
 visible = false
 z_index = 3
 layout_mode = 0
-offset_left = 359.5
-offset_top = -254.99998
-offset_right = 405.63998
-offset_bottom = -231.99998
+offset_left = 410.49997
+offset_top = -202.0
+offset_right = 456.63995
+offset_bottom = -179.0
 scale = Vector2(4.3395047, 4.3395047)
+pivot_offset = Vector2(23.07, 11)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_aam5o")
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Level/PointCounters/LabelPoints" unique_id=1115947827]
+libraries/ = SubResource("AnimationLibrary_t372l")
+speed_scale = 1.5
 
 [node name="PointsSprite2D" type="Sprite2D" parent="Level/PointCounters" unique_id=192418415]
 visible = false
@@ -4396,13 +4473,20 @@ position = Vector2(459.5, -215)
 scale = Vector2(4.357967, 4.357967)
 texture = ExtResource("4_ow1sv")
 
+[node name="LabelBottomPointsSprite" type="Sprite2D" parent="Level/PointCounters" unique_id=585086674]
+z_index = -1
+position = Vector2(183.5, 231)
+scale = Vector2(0.61123824, 0.85154104)
+texture = ExtResource("8_75buv")
+
 [node name="LabelBottomPoints" type="Label" parent="Level/PointCounters" unique_id=630989431]
+z_index = 1
 texture_filter = 6
 layout_mode = 1
-offset_left = 75.5
-offset_top = 189.0
-offset_right = 275.5
-offset_bottom = 272.0
+offset_left = 81.5
+offset_top = 191.0
+offset_right = 281.5
+offset_bottom = 274.0
 pivot_offset = Vector2(100, 41)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_aam5o")
@@ -4414,6 +4498,28 @@ uppercase = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/PointCounters/LabelBottomPoints" unique_id=671610857]
 libraries/ = SubResource("AnimationLibrary_xw8bv")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Level/PointCounters/LabelBottomPoints" unique_id=585074036]
+visible = false
+z_index = -1
+position = Vector2(101, 38)
+emitting = false
+amount = 40
+texture = ExtResource("11_xw8bv")
+lifetime = 0.05
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 200)
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
+scale_amount_min = 0.2
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_u8wue")
+hue_variation_min = 0.18
+hue_variation_max = 0.66
+hue_variation_curve = SubResource("Curve_pqe63")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1630180019]
 position = Vector2(286, -4)
@@ -4761,11 +4867,13 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="KniffelBonusMeter" unique_id=1877954350]
+z_index = -1
 layout_mode = 0
-offset_left = -204.0
-offset_top = -76.0
-offset_right = 205.0
-offset_bottom = -36.0
+offset_left = -228.0
+offset_top = -82.0
+offset_right = 181.0
+offset_bottom = -42.0
+scale = Vector2(1.1126593, 1.3358849)
 max_value = 63.0
 texture_under = ExtResource("3_3amdw")
 texture_over = ExtResource("4_1xcnr")
@@ -5099,19 +5207,19 @@ theme_override_fonts/font = ExtResource("10_aam5o")
 text = "(Z)"
 
 [node name="Actions" type="Control" parent="ShowControls" unique_id=1002466517]
-modulate = Color(0.26293245, 0.26293245, 0.26293242, 1)
+modulate = Color(0.88235295, 0, 0.007843138, 1)
 anchors_preset = 0
-offset_left = -57.0
-offset_top = 6.0
-offset_right = -17.0
-offset_bottom = 46.0
+offset_left = -69.0
+offset_top = 16.0
+offset_right = -29.0
+offset_bottom = 56.0
 
 [node name="D1" type="Label" parent="ShowControls/Actions" unique_id=1363329423]
 layout_mode = 0
-offset_left = -134.0
-offset_top = -268.0
-offset_right = -94.0
-offset_bottom = -245.0
+offset_left = -155.0
+offset_top = -266.0
+offset_right = -115.0
+offset_bottom = -243.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_aam5o")
@@ -5132,10 +5240,10 @@ uppercase = true
 
 [node name="D3" type="Label" parent="ShowControls/Actions" unique_id=6487183]
 layout_mode = 0
-offset_left = 122.0
-offset_top = -268.0
-offset_right = 162.0
-offset_bottom = -245.0
+offset_left = 145.0
+offset_top = -267.0
+offset_right = 185.0
+offset_bottom = -244.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_aam5o")
@@ -5144,10 +5252,10 @@ uppercase = true
 
 [node name="D4" type="Label" parent="ShowControls/Actions" unique_id=682662804]
 layout_mode = 0
-offset_left = -134.0
-offset_top = -174.0
-offset_right = -94.0
-offset_bottom = -151.0
+offset_left = -155.0
+offset_top = -172.0
+offset_right = -115.0
+offset_bottom = -149.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_aam5o")
@@ -5168,10 +5276,10 @@ uppercase = true
 
 [node name="D6" type="Label" parent="ShowControls/Actions" unique_id=1070665736]
 layout_mode = 0
-offset_left = 122.0
-offset_top = -174.0
-offset_right = 162.0
-offset_bottom = -151.0
+offset_left = 145.0
+offset_top = -173.0
+offset_right = 185.0
+offset_bottom = -150.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_aam5o")
@@ -5199,7 +5307,7 @@ theme_override_fonts/font = ExtResource("10_aam5o")
 text = "(1)"
 
 [node name="D2" type="Label" parent="ShowControls/Dices" unique_id=1768117311]
-modulate = Color(0.8809954, 0, 0.008490649, 1)
+modulate = Color(0.88235295, 0, 0.007843138, 1)
 layout_mode = 0
 offset_left = 378.0
 offset_top = 136.0
@@ -5330,6 +5438,20 @@ process_callback = 0
 wait_time = 0.7
 one_shot = true
 
+[node name="EndMenu" parent="." unique_id=1207899757 instance=ExtResource("23_sor6r")]
+visible = false
+z_index = 11
+offset_left = -197.0
+offset_top = -234.0
+offset_right = -197.0
+offset_bottom = -234.0
+
+[node name="UpgradeMenu" parent="." unique_id=460068291 instance=ExtResource("24_aam5o")]
+offset_left = 266.0
+offset_top = -293.0
+offset_right = 266.0
+offset_bottom = -293.0
+
 [connection signal="pressed" from="Level/SelectAction/OneSelectButton" to="GameManager" method="_on_one_select_button_pressed"]
 [connection signal="pressed" from="Level/SelectAction/TwoSelectButton" to="GameManager" method="_on_two_select_button_pressed"]
 [connection signal="pressed" from="Level/SelectAction/ThreeSelectButton" to="GameManager" method="_on_three_select_button_pressed"]
@@ -5365,3 +5487,4 @@ one_shot = true
 [connection signal="closeMenu" from="SettingsMenu" to="GameManager" method="_on_settings_menu_close_menu"]
 [connection signal="showControls" from="SettingsMenu" to="GameManager" method="_on_settings_menu_show_controls"]
 [connection signal="timeout" from="canThrowTimer" to="GameManager" method="_on_can_throw_timer_timeout"]
+[connection signal="selectedUpgrade" from="UpgradeMenu" to="GameManager" method="_on_upgrade_menu_selected_upgrade"]

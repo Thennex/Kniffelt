@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://d217ru5dtsin"]
+
+[ext_resource type="FontFile" uid="uid://bhj1cnph3kov7" path="res://Fonts/Delta Block/TrueType (.ttf)/DeltaBlock-Regular.ttf" id="1_5krhm"]
+[ext_resource type="Script" uid="uid://bwqagly0dt57n" path="res://Scripts/end_menu.gd" id="1_6gr40"]
+[ext_resource type="Texture2D" uid="uid://rpj2d6f82ruq" path="res://Art/Kniffel_Settings.png" id="3_m5qvm"]
+
+[node name="EndMenu" type="Control" unique_id=1207899757]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6gr40")
+
+[node name="Control" type="Control" parent="." unique_id=1106714264]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2.766039, 2.766039)
+
+[node name="Label" type="Label" parent="Control" unique_id=1900334101]
+texture_filter = 4
+layout_mode = 0
+offset_left = 144.0
+offset_top = 3.0
+offset_right = 223.0
+offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("1_5krhm")
+text = "Game Done"
+uppercase = true
+
+[node name="Label2" type="Label" parent="Control" unique_id=1922216982]
+texture_filter = 4
+layout_mode = 0
+offset_left = 156.0
+offset_top = 26.0
+offset_right = 218.0
+offset_bottom = 49.0
+theme_override_fonts/font = ExtResource("1_5krhm")
+text = "Points:"
+uppercase = true
+
+[node name="Button" type="Button" parent="Control" unique_id=1448419984]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 42.0
+offset_right = 339.0
+offset_bottom = 130.0
+icon = ExtResource("3_m5qvm")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1804619840]
+z_index = -1
+layout_mode = 0
+offset_left = -266.0
+offset_top = -260.0
+offset_right = -226.0
+offset_bottom = -220.0
+scale = Vector2(41.773396, 30.281584)
+mouse_filter = 2
+color = Color(0.14117648, 0.14117648, 0.14117648, 0.9019608)
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
