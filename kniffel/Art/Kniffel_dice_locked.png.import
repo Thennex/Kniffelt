@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n5bqsl3rqibf"
-path="res://.godot/imported/Kniffel_Dice_reworked_extra.png-c1251600188409ba969ebdad1f77f588.ctex"
+uid="uid://cam1rgsgpia83"
+path="res://.godot/imported/Kniffel_dice_locked.png-63e833546922a28b8d845b8566395266.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Dies/Kniffel_Dice_reworked_extra.png"
-dest_files=["res://.godot/imported/Kniffel_Dice_reworked_extra.png-c1251600188409ba969ebdad1f77f588.ctex"]
+source_file="res://Art/Kniffel_dice_locked.png"
+dest_files=["res://.godot/imported/Kniffel_dice_locked.png-63e833546922a28b8d845b8566395266.ctex"]
 
 [params]
 

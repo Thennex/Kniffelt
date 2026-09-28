@@ -13,6 +13,8 @@ extends Node2D
 @onready var shortcutoverlay: Control = $"../ShowControls"
 @onready var dicesfx: AudioStreamPlayer = $"../diceSFX"
 @onready var dicesfxtimer: Timer = $"../diceSFX/diceSFXTimer"
+@onready var bottomactionsanimations: AnimationPlayer = $"../Level/SelectActionButtom/Sprites_for_anim/BottomActionsAnimations"
+
 
 ########################
 #####  Background  #####
@@ -90,49 +92,49 @@ extends Node2D
 
 @onready var lrolldice: Label = $"../Dices/RollDiceButton/RollDiceLabel"
 
-@onready var lx3d1: Label = $"../Level/SelectActionButtom/showItem/x3Shower/Lx3D1"
-@onready var lx3d2: Label = $"../Level/SelectActionButtom/showItem/x3Shower/Lx3D2"
-@onready var lx3d3: Label = $"../Level/SelectActionButtom/showItem/x3Shower/Lx3D3"
+@onready var lx3d1: Label = $"../Level/SelectActionButtom/x3D/D1/Label"
+@onready var lx3d2: Label = $"../Level/SelectActionButtom/x3D/D2/Label"
+@onready var lx3d3: Label = $"../Level/SelectActionButtom/x3D/D3/Label"
 @onready var lx3d_array : Array = [lx3d1, lx3d2, lx3d3]
 
-@onready var lx4d1: Label = $"../Level/SelectActionButtom/showItem/x4Shower/Lx4D1"
-@onready var lx4d2: Label = $"../Level/SelectActionButtom/showItem/x4Shower/Lx4D2"
-@onready var lx4d3: Label = $"../Level/SelectActionButtom/showItem/x4Shower/Lx4D3"
-@onready var lx4d4: Label = $"../Level/SelectActionButtom/showItem/x4Shower/Lx4D4"
+@onready var lx4d1: Label = $"../Level/SelectActionButtom/x4D/D1/Label"
+@onready var lx4d2: Label = $"../Level/SelectActionButtom/x4D/D2/Label"
+@onready var lx4d3: Label = $"../Level/SelectActionButtom/x4D/D3/Label"
+@onready var lx4d4: Label = $"../Level/SelectActionButtom/x4D/D4/Label"
 @onready var lx4d_array : Array = [lx4d1, lx4d2, lx4d3, lx4d4]
 
-@onready var lkniffeld1: Label = $"../Level/SelectActionButtom/showItem/KniffelShower/LKniffelD1"
-@onready var lkniffeld2: Label = $"../Level/SelectActionButtom/showItem/KniffelShower/LKniffelD2"
-@onready var lkniffeld3: Label = $"../Level/SelectActionButtom/showItem/KniffelShower/LKniffelD3"
-@onready var lkniffeld4: Label = $"../Level/SelectActionButtom/showItem/KniffelShower/LKniffelD4"
-@onready var lkniffeld5: Label = $"../Level/SelectActionButtom/showItem/KniffelShower/LKniffelD5"
+@onready var lkniffeld1: Label = $"../Level/SelectActionButtom/KniffelD/D1/Label"
+@onready var lkniffeld2: Label = $"../Level/SelectActionButtom/KniffelD/D2/Label"
+@onready var lkniffeld3: Label = $"../Level/SelectActionButtom/KniffelD/D3/Label"
+@onready var lkniffeld4: Label = $"../Level/SelectActionButtom/KniffelD/D4/Label"
+@onready var lkniffeld5: Label = $"../Level/SelectActionButtom/KniffelD/D5/Label"
 @onready var lkniffel_array : Array = [lkniffeld1, lkniffeld2, lkniffeld3, lkniffeld4, lkniffeld5]
 
-@onready var lchanced1: Label = $"../Level/SelectActionButtom/showItem/ChanceShower/LChanceD1"
-@onready var lchanced2: Label = $"../Level/SelectActionButtom/showItem/ChanceShower/LChanceD2"
-@onready var lchanced3: Label = $"../Level/SelectActionButtom/showItem/ChanceShower/LChanceD3"
-@onready var lchanced4: Label = $"../Level/SelectActionButtom/showItem/ChanceShower/LChanceD4"
-@onready var lchanced5: Label = $"../Level/SelectActionButtom/showItem/ChanceShower/LChanceD5"
+@onready var lchanced1: Label = $"../Level/SelectActionButtom/ChanceD/D1/Label"
+@onready var lchanced2: Label = $"../Level/SelectActionButtom/ChanceD/D2/Label"
+@onready var lchanced3: Label = $"../Level/SelectActionButtom/ChanceD/D3/Label"
+@onready var lchanced4: Label = $"../Level/SelectActionButtom/ChanceD/D4/Label"
+@onready var lchanced5: Label = $"../Level/SelectActionButtom/ChanceD/D5/Label"
 @onready var lchance_array : Array = [lchanced1, lchanced2, lchanced3, lchanced4, lchanced5]
 
-@onready var lbigstraightd1: Label = $"../Level/SelectActionButtom/showItem/BigStraightShower/LBigStraightD1"
-@onready var lbigstraightd2: Label = $"../Level/SelectActionButtom/showItem/BigStraightShower/LBigStraightD2"
-@onready var lbigstraightd3: Label = $"../Level/SelectActionButtom/showItem/BigStraightShower/LBigStraightD3"
-@onready var lbigstraightd4: Label = $"../Level/SelectActionButtom/showItem/BigStraightShower/LBigStraightD4"
-@onready var lbigstraightd5: Label = $"../Level/SelectActionButtom/showItem/BigStraightShower/LBigStraightD5"
+@onready var lbigstraightd1: Label = $"../Level/SelectActionButtom/BigStraightD/D1/Label"
+@onready var lbigstraightd2: Label = $"../Level/SelectActionButtom/BigStraightD/D2/Label"
+@onready var lbigstraightd3: Label = $"../Level/SelectActionButtom/BigStraightD/D3/Label"
+@onready var lbigstraightd4: Label = $"../Level/SelectActionButtom/BigStraightD/D4/Label"
+@onready var lbigstraightd5: Label = $"../Level/SelectActionButtom/BigStraightD/D5/Label"
 @onready var lbigstraight_array : Array = [lbigstraightd1, lbigstraightd2, lbigstraightd3, lbigstraightd4, lbigstraightd5]
 
-@onready var lsmallstraightd1: Label = $"../Level/SelectActionButtom/showItem/SmallStraightShower/LSmallStraightD1"
-@onready var lsmallstraightd2: Label = $"../Level/SelectActionButtom/showItem/SmallStraightShower/LSmallStraightD2"
-@onready var lsmallstraightd3: Label = $"../Level/SelectActionButtom/showItem/SmallStraightShower/LSmallStraightD3"
-@onready var lsmallstraightd4: Label = $"../Level/SelectActionButtom/showItem/SmallStraightShower/LSmallStraightD4"
+@onready var lsmallstraightd1: Label = $"../Level/SelectActionButtom/SmallStraightD/D1/Label"
+@onready var lsmallstraightd2: Label = $"../Level/SelectActionButtom/SmallStraightD/D2/Label"
+@onready var lsmallstraightd3: Label = $"../Level/SelectActionButtom/SmallStraightD/D3/Label"
+@onready var lsmallstraightd4: Label = $"../Level/SelectActionButtom/SmallStraightD/D4/Label"
 @onready var lsmallstraight_array : Array = [lsmallstraightd1, lsmallstraightd2, lsmallstraightd3, lsmallstraightd4]
 
-@onready var lfullhoused1: Label = $"../Level/SelectActionButtom/showItem/FullHouseShower/LFullHouseD1"
-@onready var lfullhoused2: Label = $"../Level/SelectActionButtom/showItem/FullHouseShower/LFullHouseD2"
-@onready var lfullhoused3: Label = $"../Level/SelectActionButtom/showItem/FullHouseShower/LFullHouseD3"
-@onready var lfullhoused4: Label = $"../Level/SelectActionButtom/showItem/FullHouseShower/LFullHouseD4"
-@onready var lfullhoused5: Label = $"../Level/SelectActionButtom/showItem/FullHouseShower/LFullHouseD5"
+@onready var lfullhoused1: Label = $"../Level/SelectActionButtom/FullHouseD/D1/Label"
+@onready var lfullhoused2: Label = $"../Level/SelectActionButtom/FullHouseD/D2/Label"
+@onready var lfullhoused3: Label = $"../Level/SelectActionButtom/FullHouseD/D3/Label"
+@onready var lfullhoused4: Label = $"../Level/SelectActionButtom/FullHouseD/D4/Label"
+@onready var lfullhoused5: Label = $"../Level/SelectActionButtom/FullHouseD/D5/Label"
 @onready var lfullhouse_array : Array = [lfullhoused1, lfullhoused2, lfullhoused3, lfullhoused4, lfullhoused5]
 #endregion
 ########################################################################
@@ -209,7 +211,7 @@ var color_values = ["ffff00", "00ff00", "00ffff", "009aff", "ff00ff", "ff0000"]
 func _ready() -> void:
 	set_DiceColors()
 	resetDice()
-	changeShowers()
+	#changeShowers()
 
 func setColor() -> void:
 	for i in sDices.size():
@@ -231,18 +233,23 @@ func changeShowers() -> void:
 		lkniffel_array[i - 1].text = str(changeDieMemory)
 	for i in lchance_array.size():
 		lchance_array[i - 1].text = str(rng())
-	for i in lsmallstraight_array.size():
-		lsmallstraight_array[i - 1].text = str(i + small_straight_memory - 1)
+	lsmallstraightd1.text = str(small_straight_memory)
+	lsmallstraightd2.text = str(small_straight_memory + 1)
+	lsmallstraightd3.text = str(small_straight_memory + 2)
+	lsmallstraightd4.text = str(small_straight_memory + 3)
 	if small_straight_memory == 3:
 		small_straight_memory = 1
 	else:
 		small_straight_memory += 1
-	for i in lbigstraight_array.size():
-		lbigstraight_array[i - 1].text = str( i + big_straight_memory - 1)
+	lbigstraightd1.text = str(big_straight_memory)
+	lbigstraightd2.text = str(big_straight_memory + 1)
+	lbigstraightd3.text = str(big_straight_memory + 2)
+	lbigstraightd4.text = str(big_straight_memory + 3)
+	lbigstraightd5.text = str(big_straight_memory + 4)
 	if big_straight_memory == 1:
 		big_straight_memory = 2
 	else:
-		big_straight_memory = 2
+		big_straight_memory = 1
 	lfullhoused1.text = str(changeDieMemory)
 	lfullhoused2.text = str(changeDieMemory)
 	lfullhoused3.text = str(changeDieMemory)
@@ -373,7 +380,7 @@ func areAllLocked() -> bool:
 ################################
 func setBottomCounter(bottom_counter) -> void:
 	lbottompoints.text = str(bottom_counter)
-	lbottompoints.rotation += .01
+	lbottompoints.rotation -= .5 * get_process_delta_time()
 	$"../Level/PointCounters/LabelBottomPoints/AnimationPlayer".play("Bottom_counter_pop")
 	if !countersfx.has_stream_playback():
 		countersfx.play()
@@ -577,6 +584,7 @@ func x3() -> void:
 				lx3.text = str(dice_value)
 			else:
 				lx3.text = "0"
+			bottomactionsanimations.play("X3_select")
 			selectsfx.play()
 			buttom_actions[0] = true
 			checkButtomActions()
@@ -599,6 +607,7 @@ func x4() -> void:
 			else:
 				lx4.text = "0"
 			selectsfx.play()
+			bottomactionsanimations.play("X4_select")
 			buttom_actions[1] = true
 			checkButtomActions()
 
@@ -796,7 +805,7 @@ func _on_unlock_all_button_pressed() -> void:
 #####    Shower Timer    #####
 ##############################
 func _on_timer_timeout() -> void:
-	changeShowers()
+	changeShowers() 
 
 ###############################
 #####    Menu Buttons     #####

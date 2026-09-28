@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bux05u53jlkja"]
 
-[ext_resource type="Texture2D" uid="uid://4dk4vq7hmh4a" path="res://Art/Kniffel_block_ready.png" id="1_sglly"]
+[ext_resource type="Texture2D" uid="uid://cst8hx3tlsbhx" path="res://Art/Kniffel_block_ready-export.png" id="1_sglly"]
 
 [sub_resource type="Gradient" id="Gradient_sglly"]
 offsets = PackedFloat32Array(1)

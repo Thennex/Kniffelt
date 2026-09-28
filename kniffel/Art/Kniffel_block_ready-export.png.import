@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4dk4vq7hmh4a"
-path="res://.godot/imported/Kniffel_block_ready.png-3e55ee8f8144c3207e4c49f48726af09.ctex"
+uid="uid://cst8hx3tlsbhx"
+path="res://.godot/imported/Kniffel_block_ready-export.png-b87b63df289cab399cbeac10790785b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Kniffel_block_ready.png"
-dest_files=["res://.godot/imported/Kniffel_block_ready.png-3e55ee8f8144c3207e4c49f48726af09.ctex"]
+source_file="res://Art/Kniffel_block_ready-export.png"
+dest_files=["res://.godot/imported/Kniffel_block_ready-export.png-b87b63df289cab399cbeac10790785b6.ctex"]
 
 [params]
 

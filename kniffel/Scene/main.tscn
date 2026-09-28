@@ -9,9 +9,7 @@
 [ext_resource type="FontFile" uid="uid://bhj1cnph3kov7" path="res://Fonts/Delta Block/TrueType (.ttf)/DeltaBlock-Regular.ttf" id="5_hiice"]
 [ext_resource type="Texture2D" uid="uid://rpj2d6f82ruq" path="res://Art/Kniffel_Settings.png" id="8_75buv"]
 [ext_resource type="Texture2D" uid="uid://dv58cx4brbeo2" path="res://Art/Dies/Kniffel_dice_locked-export.png" id="9_2ix4a"]
-[ext_resource type="Texture2D" uid="uid://pts7t5nnpxb8" path="res://Art/Dies/Kniffel_small_dies.png" id="9_aam5o"]
 [ext_resource type="AudioStream" uid="uid://dktef6aonmnow" path="res://sfx/DiceRollSFX.wav" id="9_c2iwn"]
-[ext_resource type="Texture2D" uid="uid://dt3vfwutrvhts" path="res://Art/Dies/Kniffell_dies.png" id="9_nyb1q"]
 [ext_resource type="AudioStream" uid="uid://dv78xf57lsgc3" path="res://sfx/DiceRollSFX1.wav" id="10_3pt4j"]
 [ext_resource type="FontFile" uid="uid://du32f37clc06n" path="res://Fonts/Delta Block/OpenType (.otf)/DeltaBlock-Regular.otf" id="10_aam5o"]
 [ext_resource type="Texture2D" uid="uid://d5dus5nvxjyb" path="res://Art/Dies/Kniffel_D1-Sheet-export.png" id="11_7y4ci"]
@@ -34,6 +32,698 @@ point_count = 5
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ow1sv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1xcnr"]
+
+[sub_resource type="Animation" id="Animation_t372l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("x3D_for_anim/D1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("x3D_for_anim/D2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("x3D_for_anim/D3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("x3D_for_anim/D1:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(314.5, 175)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("x3D_for_anim/D2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(498.5, 174)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("x3D_for_anim/D3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(682.5, 176)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("x3D_for_anim/D1:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("x3D_for_anim/D2:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("x3D_for_anim/D3:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("x3D_for_anim/D1:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("x3D_for_anim/D2:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("x3D_for_anim/D3:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("x4D_for_anim/D1:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("x4D_for_anim/D2:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("x4D_for_anim/D3:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("x4D_for_anim/D4:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("x4D_for_anim/D1:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(344.5, 176)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("x4D_for_anim/D2:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(437.5, 176)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("x4D_for_anim/D3:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(544.5, 176)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("x4D_for_anim/D4:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(638.5, 176)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("x4D_for_anim/D1:scale")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("x4D_for_anim/D2:scale")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("x4D_for_anim/D3:scale")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("x4D_for_anim/D4:scale")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("x4D_for_anim/D1:rotation")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("x4D_for_anim/D2:rotation")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("x4D_for_anim/D3:rotation")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("x4D_for_anim/D4:rotation")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_uctnp"]
+resource_name = "X3_select"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("x3D_for_anim/D1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("x3D_for_anim/D2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.035),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("x3D_for_anim/D3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("x3D_for_anim/D1:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(314.5, 175), Vector2(263.5, -61), Vector2(-147.5, -1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("x3D_for_anim/D2:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(498.5, 174), Vector2(423.055, -92), Vector2(-112.5, -1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("x3D_for_anim/D3:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(682.5, 176), Vector2(380.38, -62.4), Vector2(-76.5, -1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("x3D_for_anim/D1:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("x3D_for_anim/D2:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("x3D_for_anim/D3:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("x3D_for_anim/D1:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("x3D_for_anim/D2:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("x3D_for_anim/D3:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="Animation" id="Animation_m37ut"]
+resource_name = "X4_select"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("x4D_for_anim/D1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("x4D_for_anim/D2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.035),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("x4D_for_anim/D3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("x4D_for_anim/D4:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("x4D_for_anim/D1:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(344.5, 176), Vector2(468.5, -66), Vector2(59.5, -1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("x4D_for_anim/D2:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(437.5, 176), Vector2(514.5, -87), Vector2(94.5, -1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("x4D_for_anim/D3:position")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(544.5, 176), Vector2(560.5, -86), Vector2(130.5, -1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("x4D_for_anim/D4:position")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(638.5, 176), Vector2(584.5, -124), Vector2(166.5, -1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("x4D_for_anim/D1:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("x4D_for_anim/D2:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("x4D_for_anim/D3:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("x4D_for_anim/D4:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("x4D_for_anim/D1:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("x4D_for_anim/D2:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("x4D_for_anim/D3:rotation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("x4D_for_anim/D4:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m37ut"]
+_data = {
+&"RESET": SubResource("Animation_t372l"),
+&"X3_select": SubResource("Animation_uctnp"),
+&"X4_select": SubResource("Animation_m37ut")
+}
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sglly"]
 
@@ -3656,122 +4346,2640 @@ offset_right = 39.5
 offset_bottom = 40.0
 
 [node name="x3D" type="Node2D" parent="Level/SelectActionButtom" unique_id=999051362]
+modulate = Color(0.48178947, 0.48178947, 0.48178947, 1)
 
-[node name="D1" type="Sprite2D" parent="Level/SelectActionButtom/x3D" unique_id=513306710]
-position = Vector2(-165.5, -1)
-texture = ExtResource("9_nyb1q")
-offset = Vector2(0, 0.5)
+[node name="D1" type="Sprite2D" parent="Level/SelectActionButtom/x3D" unique_id=1140468819]
+position = Vector2(-147.5, -1)
+texture = ExtResource("11_xw8bv")
 
-[node name="D2" type="Sprite2D" parent="Level/SelectActionButtom/x3D" unique_id=78140208]
-position = Vector2(-129.5, -1)
-texture = ExtResource("9_nyb1q")
-offset = Vector2(0, 0.5)
+[node name="Label" type="Label" parent="Level/SelectActionButtom/x3D/D1" unique_id=960315730]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="D3" type="Sprite2D" parent="Level/SelectActionButtom/x3D" unique_id=1817742685]
-position = Vector2(-93.5, -1)
-texture = ExtResource("9_nyb1q")
-offset = Vector2(0, 0.5)
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/x3D/D1" unique_id=862519244]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D2" type="Sprite2D" parent="Level/SelectActionButtom/x3D" unique_id=902529136]
+position = Vector2(-112.5, -1)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/x3D/D2" unique_id=1760367168]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/x3D/D2" unique_id=796035946]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D3" type="Sprite2D" parent="Level/SelectActionButtom/x3D" unique_id=544149570]
+position = Vector2(-76.5, -1)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/x3D/D3" unique_id=792163438]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/x3D/D3" unique_id=1981359492]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
 
 [node name="x4D" type="Node2D" parent="Level/SelectActionButtom" unique_id=1350935080]
+modulate = Color(0.48178947, 0.48178947, 0.48178947, 1)
 
-[node name="D1" type="Sprite2D" parent="Level/SelectActionButtom/x4D" unique_id=591009387]
-position = Vector2(34.5, -1)
-texture = ExtResource("9_aam5o")
-offset = Vector2(0, 0.5)
-
-[node name="D2" type="Sprite2D" parent="Level/SelectActionButtom/x4D" unique_id=657614199]
-position = Vector2(59.5, -1)
-texture = ExtResource("9_aam5o")
-offset = Vector2(0, 0.5)
-
-[node name="D3" type="Sprite2D" parent="Level/SelectActionButtom/x4D" unique_id=1323039005]
-position = Vector2(84.5, -1)
-texture = ExtResource("9_aam5o")
-offset = Vector2(0, 0.5)
-
-[node name="D4" type="Sprite2D" parent="Level/SelectActionButtom/x4D" unique_id=513269297]
-position = Vector2(109.5, -1)
-texture = ExtResource("9_aam5o")
-offset = Vector2(0, 0.5)
-
-[node name="SmallStraightD" type="Node2D" parent="Level/SelectActionButtom" unique_id=1883543008]
-position = Vector2(0.5, 76)
-
-[node name="D1" type="Sprite2D" parent="Level/SelectActionButtom/SmallStraightD" unique_id=1804004504]
-position = Vector2(34, -1)
-texture = ExtResource("9_aam5o")
-offset = Vector2(0, 0.5)
-
-[node name="D2" type="Sprite2D" parent="Level/SelectActionButtom/SmallStraightD" unique_id=1484999510]
+[node name="D1" type="Sprite2D" parent="Level/SelectActionButtom/x4D" unique_id=1352549915]
 position = Vector2(59, -1)
-texture = ExtResource("9_aam5o")
-offset = Vector2(0, 0.5)
+texture = ExtResource("11_xw8bv")
 
-[node name="D3" type="Sprite2D" parent="Level/SelectActionButtom/SmallStraightD" unique_id=1028428195]
-position = Vector2(84, -1)
-texture = ExtResource("9_aam5o")
-offset = Vector2(0, 0.5)
+[node name="Label" type="Label" parent="Level/SelectActionButtom/x4D/D1" unique_id=1762836494]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="D4" type="Sprite2D" parent="Level/SelectActionButtom/SmallStraightD" unique_id=165550832]
-position = Vector2(109, -1)
-texture = ExtResource("9_aam5o")
-offset = Vector2(0, 0.5)
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/x4D/D1" unique_id=2082617954]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D2" type="Sprite2D" parent="Level/SelectActionButtom/x4D" unique_id=188730040]
+position = Vector2(94, -1)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/x4D/D2" unique_id=1293042142]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/x4D/D2" unique_id=1086109803]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D3" type="Sprite2D" parent="Level/SelectActionButtom/x4D" unique_id=1050419116]
+position = Vector2(130, -1)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/x4D/D3" unique_id=1206571492]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/x4D/D3" unique_id=1218730998]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D4" type="Sprite2D" parent="Level/SelectActionButtom/x4D" unique_id=1032571485]
+position = Vector2(166.5, -1)
+texture = ExtResource("11_xw8bv")
+offset = Vector2(0.5, 0)
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/x4D/D4" unique_id=378442708]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/x4D/D4" unique_id=1195245036]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
 
 [node name="FullHouseD" type="Node2D" parent="Level/SelectActionButtom" unique_id=1527772730]
+modulate = Color(0.48178947, 0.48178947, 0.48178947, 1)
 position = Vector2(-208.5, 76)
 
-[node name="D1" type="Sprite2D" parent="Level/SelectActionButtom/FullHouseD" unique_id=1399722089]
-position = Vector2(35, -1)
-texture = ExtResource("9_aam5o")
-offset = Vector2(0, 0.5)
+[node name="D1" type="Sprite2D" parent="Level/SelectActionButtom/FullHouseD" unique_id=1366496654]
+position = Vector2(24, 0)
+texture = ExtResource("11_xw8bv")
 
-[node name="D2" type="Sprite2D" parent="Level/SelectActionButtom/FullHouseD" unique_id=804286903]
-position = Vector2(60, -1)
-texture = ExtResource("9_aam5o")
-offset = Vector2(0, 0.5)
+[node name="Label" type="Label" parent="Level/SelectActionButtom/FullHouseD/D1" unique_id=99024017]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="D3" type="Sprite2D" parent="Level/SelectActionButtom/FullHouseD" unique_id=924701302]
-position = Vector2(85, -1)
-texture = ExtResource("9_aam5o")
-offset = Vector2(0, 0.5)
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/FullHouseD/D1" unique_id=1298110096]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
 
-[node name="D4" type="Sprite2D" parent="Level/SelectActionButtom/FullHouseD" unique_id=1559401191]
-position = Vector2(110, -1)
-texture = ExtResource("9_aam5o")
-offset = Vector2(0, 0.5)
+[node name="D2" type="Sprite2D" parent="Level/SelectActionButtom/FullHouseD" unique_id=276119420]
+position = Vector2(59, 0)
+texture = ExtResource("11_xw8bv")
 
-[node name="D5" type="Sprite2D" parent="Level/SelectActionButtom/FullHouseD" unique_id=38141883]
-position = Vector2(135, -1)
-texture = ExtResource("9_aam5o")
-offset = Vector2(0, 0.5)
+[node name="Label" type="Label" parent="Level/SelectActionButtom/FullHouseD/D2" unique_id=2008638564]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="FullHouseD2" type="Node2D" parent="Level/SelectActionButtom" unique_id=1517407279]
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/FullHouseD/D2" unique_id=1119903302]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D3" type="Sprite2D" parent="Level/SelectActionButtom/FullHouseD" unique_id=2065334785]
+position = Vector2(95, 0)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/FullHouseD/D3" unique_id=956845172]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/FullHouseD/D3" unique_id=2108148213]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D4" type="Sprite2D" parent="Level/SelectActionButtom/FullHouseD" unique_id=1903275166]
+position = Vector2(131.5, 0)
+texture = ExtResource("11_xw8bv")
+offset = Vector2(0.5, 0)
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/FullHouseD/D4" unique_id=41622754]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/FullHouseD/D4" unique_id=1082281098]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D5" type="Sprite2D" parent="Level/SelectActionButtom/FullHouseD" unique_id=868632746]
+position = Vector2(168, 0)
+texture = ExtResource("11_xw8bv")
+offset = Vector2(0.5, 0)
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/FullHouseD/D5" unique_id=628921624]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/FullHouseD/D5" unique_id=1831488001]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="SmallStraightD" type="Node2D" parent="Level/SelectActionButtom" unique_id=1883543008]
+modulate = Color(0.48178947, 0.48178947, 0.48178947, 1)
+position = Vector2(0.5, 76)
+
+[node name="D1" type="Sprite2D" parent="Level/SelectActionButtom/SmallStraightD" unique_id=1942588004]
+position = Vector2(58.5, 0)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/SmallStraightD/D1" unique_id=1136064189]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/SmallStraightD/D1" unique_id=1638882183]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D2" type="Sprite2D" parent="Level/SelectActionButtom/SmallStraightD" unique_id=2139345163]
+position = Vector2(93.5, 0)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/SmallStraightD/D2" unique_id=1638926676]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/SmallStraightD/D2" unique_id=514128542]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D3" type="Sprite2D" parent="Level/SelectActionButtom/SmallStraightD" unique_id=1375552379]
+position = Vector2(129.5, 0)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/SmallStraightD/D3" unique_id=6720323]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/SmallStraightD/D3" unique_id=1532019000]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D4" type="Sprite2D" parent="Level/SelectActionButtom/SmallStraightD" unique_id=530974539]
+position = Vector2(166, 0)
+texture = ExtResource("11_xw8bv")
+offset = Vector2(0.5, 0)
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/SmallStraightD/D4" unique_id=731236115]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/SmallStraightD/D4" unique_id=1339800158]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="BigStraightD" type="Node2D" parent="Level/SelectActionButtom" unique_id=1047847089]
+modulate = Color(0.48178947, 0.48178947, 0.48178947, 1)
+
+[node name="D1" type="Sprite2D" parent="Level/SelectActionButtom/BigStraightD" unique_id=344279682]
+position = Vector2(-183.5, 153)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/BigStraightD/D1" unique_id=430528341]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/BigStraightD/D1" unique_id=217775970]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D2" type="Sprite2D" parent="Level/SelectActionButtom/BigStraightD" unique_id=260435327]
+position = Vector2(-148.5, 153)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/BigStraightD/D2" unique_id=219510867]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/BigStraightD/D2" unique_id=1625378423]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D3" type="Sprite2D" parent="Level/SelectActionButtom/BigStraightD" unique_id=2136727052]
+position = Vector2(-112.5, 153)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/BigStraightD/D3" unique_id=1652522751]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/BigStraightD/D3" unique_id=1904401729]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D4" type="Sprite2D" parent="Level/SelectActionButtom/BigStraightD" unique_id=195538352]
+position = Vector2(-76, 153)
+texture = ExtResource("11_xw8bv")
+offset = Vector2(0.5, 0)
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/BigStraightD/D4" unique_id=1070844656]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/BigStraightD/D4" unique_id=427623996]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D5" type="Sprite2D" parent="Level/SelectActionButtom/BigStraightD" unique_id=1994338206]
+position = Vector2(-39.5, 153)
+texture = ExtResource("11_xw8bv")
+offset = Vector2(0.5, 0)
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/BigStraightD/D5" unique_id=505107328]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/BigStraightD/D5" unique_id=1214412190]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="KniffelD" type="Node2D" parent="Level/SelectActionButtom" unique_id=1521984715]
+modulate = Color(0.48178947, 0.48178947, 0.48178947, 1)
+
+[node name="D1" type="Sprite2D" parent="Level/SelectActionButtom/KniffelD" unique_id=241554567]
+position = Vector2(44.5, 155)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/KniffelD/D1" unique_id=1871132781]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/KniffelD/D1" unique_id=610302166]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D2" type="Sprite2D" parent="Level/SelectActionButtom/KniffelD" unique_id=265650106]
+position = Vector2(79.5, 155)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/KniffelD/D2" unique_id=1443670183]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/KniffelD/D2" unique_id=104595235]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D3" type="Sprite2D" parent="Level/SelectActionButtom/KniffelD" unique_id=544884198]
+position = Vector2(115.5, 155)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/KniffelD/D3" unique_id=1633513215]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/KniffelD/D3" unique_id=2008836025]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D4" type="Sprite2D" parent="Level/SelectActionButtom/KniffelD" unique_id=919603836]
+position = Vector2(152, 155)
+texture = ExtResource("11_xw8bv")
+offset = Vector2(0.5, 0)
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/KniffelD/D4" unique_id=1961396464]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/KniffelD/D4" unique_id=1389221438]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D5" type="Sprite2D" parent="Level/SelectActionButtom/KniffelD" unique_id=2086610031]
+position = Vector2(188.5, 155)
+texture = ExtResource("11_xw8bv")
+offset = Vector2(0.5, 0)
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/KniffelD/D5" unique_id=1726345289]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/KniffelD/D5" unique_id=1990786480]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="ChanceD" type="Node2D" parent="Level/SelectActionButtom" unique_id=525436389]
+modulate = Color(0.48178947, 0.48178947, 0.48178947, 1)
+
+[node name="D1" type="Sprite2D" parent="Level/SelectActionButtom/ChanceD" unique_id=2095372114]
+position = Vector2(-183.5, 230)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/ChanceD/D1" unique_id=1749767762]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/ChanceD/D1" unique_id=1643429629]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D2" type="Sprite2D" parent="Level/SelectActionButtom/ChanceD" unique_id=859302355]
+position = Vector2(-148.5, 230)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/ChanceD/D2" unique_id=1754062620]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/ChanceD/D2" unique_id=998535382]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D3" type="Sprite2D" parent="Level/SelectActionButtom/ChanceD" unique_id=735374065]
+position = Vector2(-112.5, 230)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/ChanceD/D3" unique_id=1168464551]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/ChanceD/D3" unique_id=348791279]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D4" type="Sprite2D" parent="Level/SelectActionButtom/ChanceD" unique_id=1260047984]
+position = Vector2(-76, 230)
+texture = ExtResource("11_xw8bv")
+offset = Vector2(0.5, 0)
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/ChanceD/D4" unique_id=1034553764]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/ChanceD/D4" unique_id=720928642]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D5" type="Sprite2D" parent="Level/SelectActionButtom/ChanceD" unique_id=1133480517]
+position = Vector2(-39.5, 230)
+texture = ExtResource("11_xw8bv")
+offset = Vector2(0.5, 0)
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/ChanceD/D5" unique_id=942852854]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/ChanceD/D5" unique_id=623398074]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="Sprites_for_anim" type="Node2D" parent="Level/SelectActionButtom" unique_id=791027797]
+
+[node name="x3D_for_anim" type="Node2D" parent="Level/SelectActionButtom/Sprites_for_anim" unique_id=438201498]
+
+[node name="D1" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/x3D_for_anim" unique_id=1670350799]
+visible = false
+position = Vector2(314.5, 175)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/x3D_for_anim/D1" unique_id=1370673413]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/x3D_for_anim/D1" unique_id=1665621165]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D2" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/x3D_for_anim" unique_id=1119615086]
+visible = false
+position = Vector2(498.5, 174)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/x3D_for_anim/D2" unique_id=1216511805]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/x3D_for_anim/D2" unique_id=723960754]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D3" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/x3D_for_anim" unique_id=308229998]
+visible = false
+position = Vector2(682.5, 176)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/x3D_for_anim/D3" unique_id=654359912]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/x3D_for_anim/D3" unique_id=1805136632]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="x4D_for_anim" type="Node2D" parent="Level/SelectActionButtom/Sprites_for_anim" unique_id=662458939]
+
+[node name="D1" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/x4D_for_anim" unique_id=1773220291]
+visible = false
+position = Vector2(344.5, 176)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/x4D_for_anim/D1" unique_id=1227332319]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/x4D_for_anim/D1" unique_id=247938483]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D2" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/x4D_for_anim" unique_id=675308294]
+visible = false
+position = Vector2(437.5, 176)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/x4D_for_anim/D2" unique_id=119347140]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/x4D_for_anim/D2" unique_id=213174010]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D3" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/x4D_for_anim" unique_id=973517827]
+visible = false
+position = Vector2(544.5, 176)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/x4D_for_anim/D3" unique_id=191396526]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/x4D_for_anim/D3" unique_id=852998501]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D4" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/x4D_for_anim" unique_id=1203754936]
+visible = false
+position = Vector2(638.5, 176)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/x4D_for_anim/D4" unique_id=1544159668]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/x4D_for_anim/D4" unique_id=886577789]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="FullHouseD_for_anim" type="Node2D" parent="Level/SelectActionButtom/Sprites_for_anim" unique_id=338560790]
 position = Vector2(-208.5, 76)
 
-[node name="D1" type="Sprite2D" parent="Level/SelectActionButtom/FullHouseD2" unique_id=1757577507]
-position = Vector2(35, -1)
-texture = ExtResource("9_aam5o")
-offset = Vector2(0, 0.5)
+[node name="D1" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim" unique_id=965339745]
+visible = false
+position = Vector2(528, 100)
+texture = ExtResource("11_xw8bv")
 
-[node name="D2" type="Sprite2D" parent="Level/SelectActionButtom/FullHouseD2" unique_id=1067806928]
-position = Vector2(60, -1)
-texture = ExtResource("9_aam5o")
-offset = Vector2(0, 0.5)
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim/D1" unique_id=183008713]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="D3" type="Sprite2D" parent="Level/SelectActionButtom/FullHouseD2" unique_id=1558856743]
-position = Vector2(85, -1)
-texture = ExtResource("9_aam5o")
-offset = Vector2(0, 0.5)
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim/D1" unique_id=302605733]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
 
-[node name="D4" type="Sprite2D" parent="Level/SelectActionButtom/FullHouseD2" unique_id=1203123338]
-position = Vector2(110, -1)
-texture = ExtResource("9_aam5o")
-offset = Vector2(0, 0.5)
+[node name="D2" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim" unique_id=679516066]
+visible = false
+position = Vector2(616, 100)
+texture = ExtResource("11_xw8bv")
 
-[node name="D5" type="Sprite2D" parent="Level/SelectActionButtom/FullHouseD2" unique_id=1138764818]
-position = Vector2(135, -1)
-texture = ExtResource("9_aam5o")
-offset = Vector2(0, 0.5)
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim/D2" unique_id=1090092368]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim/D2" unique_id=122426531]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D3" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim" unique_id=1323450719]
+visible = false
+position = Vector2(706, 99)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim/D3" unique_id=1041342567]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim/D3" unique_id=192304739]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D4" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim" unique_id=1306591065]
+visible = false
+position = Vector2(798, 102)
+texture = ExtResource("11_xw8bv")
+offset = Vector2(0.5, 0)
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim/D4" unique_id=910907619]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim/D4" unique_id=993894481]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D5" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim" unique_id=1047219134]
+visible = false
+position = Vector2(887, 101)
+texture = ExtResource("11_xw8bv")
+offset = Vector2(0.5, 0)
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim/D5" unique_id=2028353137]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim/D5" unique_id=205719492]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="SmallStraightD_for_anim" type="Node2D" parent="Level/SelectActionButtom/Sprites_for_anim" unique_id=725888637]
+position = Vector2(0.5, 76)
+
+[node name="D1" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/SmallStraightD_for_anim" unique_id=568581848]
+visible = false
+position = Vector2(352, 99)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/SmallStraightD_for_anim/D1" unique_id=1978183035]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/SmallStraightD_for_anim/D1" unique_id=957244515]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D2" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/SmallStraightD_for_anim" unique_id=1135048766]
+visible = false
+position = Vector2(440, 98)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/SmallStraightD_for_anim/D2" unique_id=1400393900]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/SmallStraightD_for_anim/D2" unique_id=1489459982]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D3" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/SmallStraightD_for_anim" unique_id=1547115049]
+visible = false
+position = Vector2(543, 100)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/SmallStraightD_for_anim/D3" unique_id=761983530]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/SmallStraightD_for_anim/D3" unique_id=1943782994]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D4" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/SmallStraightD_for_anim" unique_id=1561691736]
+visible = false
+position = Vector2(635, 99)
+texture = ExtResource("11_xw8bv")
+offset = Vector2(0.5, 0)
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/SmallStraightD_for_anim/D4" unique_id=1157355821]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/SmallStraightD_for_anim/D4" unique_id=1453318215]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="BigStraightD_for_anim" type="Node2D" parent="Level/SelectActionButtom/Sprites_for_anim" unique_id=995577110]
+
+[node name="D1" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim" unique_id=883528389]
+visible = false
+position = Vector2(322.5, 175)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim/D1" unique_id=230943865]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim/D1" unique_id=1145108745]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D2" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim" unique_id=1277480267]
+visible = false
+position = Vector2(408.5, 177)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim/D2" unique_id=1187238691]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim/D2" unique_id=319369930]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D3" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim" unique_id=626967786]
+visible = false
+position = Vector2(499.5, 178)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim/D3" unique_id=583812242]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim/D3" unique_id=1477967437]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D4" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim" unique_id=1708560733]
+visible = false
+position = Vector2(586.5, 175)
+texture = ExtResource("11_xw8bv")
+offset = Vector2(0.5, 0)
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim/D4" unique_id=596790669]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim/D4" unique_id=381963091]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D5" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim" unique_id=1331485170]
+visible = false
+position = Vector2(679.5, 175)
+texture = ExtResource("11_xw8bv")
+offset = Vector2(0.5, 0)
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim/D5" unique_id=706068093]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim/D5" unique_id=1332905153]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="KniffelD_for_anim" type="Node2D" parent="Level/SelectActionButtom/Sprites_for_anim" unique_id=1950940790]
+
+[node name="D1" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim" unique_id=1451624710]
+visible = false
+position = Vector2(321.5, 178)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim/D1" unique_id=395706138]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim/D1" unique_id=332415249]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D2" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim" unique_id=1416773385]
+visible = false
+position = Vector2(408.5, 178)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim/D2" unique_id=1268360751]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim/D2" unique_id=3388320]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D3" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim" unique_id=66441105]
+visible = false
+position = Vector2(497.5, 176)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim/D3" unique_id=1293273456]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim/D3" unique_id=694077539]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D4" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim" unique_id=1253615285]
+visible = false
+position = Vector2(588.5, 176)
+texture = ExtResource("11_xw8bv")
+offset = Vector2(0.5, 0)
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim/D4" unique_id=24419230]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim/D4" unique_id=1974751385]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D5" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim" unique_id=1418462951]
+visible = false
+position = Vector2(680.5, 175)
+texture = ExtResource("11_xw8bv")
+offset = Vector2(0.5, 0)
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim/D5" unique_id=1987500044]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim/D5" unique_id=989806135]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="ChanceD_for_anim" type="Node2D" parent="Level/SelectActionButtom/Sprites_for_anim" unique_id=1465700738]
+
+[node name="D1" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim" unique_id=239596527]
+visible = false
+position = Vector2(321.5, 176)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim/D1" unique_id=677263090]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim/D1" unique_id=96312129]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D2" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim" unique_id=1294410899]
+visible = false
+position = Vector2(409.5, 177)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim/D2" unique_id=1484196743]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim/D2" unique_id=744846786]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D3" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim" unique_id=78674531]
+visible = false
+position = Vector2(498.5, 176)
+texture = ExtResource("11_xw8bv")
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim/D3" unique_id=1596607646]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim/D3" unique_id=2004069537]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D4" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim" unique_id=1812570212]
+visible = false
+position = Vector2(587.5, 175)
+texture = ExtResource("11_xw8bv")
+offset = Vector2(0.5, 0)
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim/D4" unique_id=11191843]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim/D4" unique_id=906838930]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="D5" type="Sprite2D" parent="Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim" unique_id=1352821331]
+visible = false
+position = Vector2(682.5, 175)
+texture = ExtResource("11_xw8bv")
+offset = Vector2(0.5, 0)
+
+[node name="Label" type="Label" parent="Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim/D5" unique_id=706214872]
+texture_filter = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -73.0
+offset_right = -0.5
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hiice")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D1" type="CPUParticles2D" parent="Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim/D5" unique_id=64615358]
+scale = Vector2(1.0333333, 1.0333333)
+emitting = false
+amount = 17
+texture = ExtResource("11_xw8bv")
+lifetime = 0.09
+emission_shape = 1
+emission_sphere_radius = 14.58
+spread = 180.0
+gravity = Vector2(9.265, 200)
+initial_velocity_min = 60.61
+initial_velocity_max = 60.61
+angle_min = -109.1
+angle_max = 109.1
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_4o7ex")
+
+[node name="BottomActionsAnimations" type="AnimationPlayer" parent="Level/SelectActionButtom/Sprites_for_anim" unique_id=754128753]
+libraries/ = SubResource("AnimationLibrary_m37ut")
 
 [node name="Kniffel" type="Button" parent="Level/SelectActionButtom" unique_id=247946832]
 layout_mode = 0
@@ -3859,460 +7067,224 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_5x3ix")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_u1gkj")
 
 [node name="showItem" type="Control" parent="Level/SelectActionButtom" unique_id=2026477537]
+visible = false
 texture_filter = 6
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="x3Shower" type="Control" parent="Level/SelectActionButtom/showItem" unique_id=1827189432]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Lx3D1" type="Label" parent="Level/SelectActionButtom/showItem/x3Shower" unique_id=174194131]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = -183.0
-offset_top = -4.0
-offset_right = -143.0
-offset_bottom = 19.0
-scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 28
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Lx3D2" type="Label" parent="Level/SelectActionButtom/showItem/x3Shower" unique_id=1125336636]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = -147.0
-offset_top = -4.0
-offset_right = -107.0
-offset_bottom = 35.0
-scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 28
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Lx3D3" type="Label" parent="Level/SelectActionButtom/showItem/x3Shower" unique_id=560150466]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = -111.0
-offset_top = -4.0
-offset_right = -71.0
-offset_bottom = 35.0
-scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 28
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="x4Shower" type="Control" parent="Level/SelectActionButtom/showItem" unique_id=101679220]
-anchors_preset = 0
-offset_left = 202.0
-offset_top = -5.0
-offset_right = 242.0
-offset_bottom = 35.0
-
-[node name="Lx4D1" type="Label" parent="Level/SelectActionButtom/showItem/x4Shower" unique_id=1345041231]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = -183.0
-offset_right = -143.0
-offset_bottom = 39.0
-scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Lx4D2" type="Label" parent="Level/SelectActionButtom/showItem/x4Shower" unique_id=2117634412]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = -158.0
-offset_right = -118.0
-offset_bottom = 39.0
-scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Lx4D3" type="Label" parent="Level/SelectActionButtom/showItem/x4Shower" unique_id=620651749]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = -133.0
-offset_right = -93.0
-offset_bottom = 39.0
-scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Lx4D4" type="Label" parent="Level/SelectActionButtom/showItem/x4Shower" unique_id=183135010]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = -108.0
-offset_right = -68.0
-offset_bottom = 39.0
-scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="KniffelShower" type="Control" parent="Level/SelectActionButtom/showItem" unique_id=656342100]
 anchors_preset = 0
-offset_left = 202.0
-offset_top = 147.0
-offset_right = 242.0
-offset_bottom = 187.0
+offset_left = 249.5
+offset_top = 143.0
+offset_right = 289.5
+offset_bottom = 183.0
 
 [node name="LKniffelD1" type="Label" parent="Level/SelectActionButtom/showItem/KniffelShower" unique_id=1029701377]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = -183.0
-offset_right = -143.0
-offset_bottom = 39.0
+offset_left = -216.99998
+offset_top = 3.0
+offset_right = -176.99998
+offset_bottom = 42.0
 scale = Vector2(0.5407984, 0.5407984)
 theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LKniffelD2" type="Label" parent="Level/SelectActionButtom/showItem/KniffelShower" unique_id=871421864]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = -158.0
-offset_right = -118.0
-offset_bottom = 39.0
+offset_left = -180.0
+offset_top = 3.0
+offset_right = -140.0
+offset_bottom = 42.0
 scale = Vector2(0.5407984, 0.5407984)
 theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LKniffelD3" type="Label" parent="Level/SelectActionButtom/showItem/KniffelShower" unique_id=1885433169]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = -133.0
-offset_right = -93.0
-offset_bottom = 39.0
+offset_left = -143.0
+offset_top = 3.0
+offset_right = -103.0
+offset_bottom = 42.0
 scale = Vector2(0.5407984, 0.5407984)
 theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LKniffelD4" type="Label" parent="Level/SelectActionButtom/showItem/KniffelShower" unique_id=1039745502]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = -108.0
+offset_top = 3.0
 offset_right = -68.0
-offset_bottom = 39.0
+offset_bottom = 42.0
 scale = Vector2(0.5407984, 0.5407984)
 theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LKniffelD5" type="Label" parent="Level/SelectActionButtom/showItem/KniffelShower" unique_id=1368640475]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = -83.0
-offset_right = -43.0
-offset_bottom = 39.0
+offset_left = -71.0
+offset_top = 3.0
+offset_right = -31.0
+offset_bottom = 42.0
 scale = Vector2(0.5407984, 0.5407984)
 theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ChanceShower" type="Control" parent="Level/SelectActionButtom/showItem" unique_id=205172846]
 anchors_preset = 0
-offset_left = -6.0
-offset_top = 223.0
-offset_right = 34.0
-offset_bottom = 263.0
+offset_left = 41.5
+offset_top = 219.0
+offset_right = 81.5
+offset_bottom = 259.0
 
 [node name="LChanceD1" type="Label" parent="Level/SelectActionButtom/showItem/ChanceShower" unique_id=1842261104]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = -183.0
-offset_right = -143.0
-offset_bottom = 39.0
+offset_left = -237.0
+offset_top = 2.0
+offset_right = -197.0
+offset_bottom = 41.0
 scale = Vector2(0.5407984, 0.5407984)
 theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LChanceD2" type="Label" parent="Level/SelectActionButtom/showItem/ChanceShower" unique_id=887546641]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = -158.0
-offset_right = -118.0
-offset_bottom = 39.0
+offset_left = -200.0
+offset_top = 4.0
+offset_right = -160.0
+offset_bottom = 43.0
 scale = Vector2(0.5407984, 0.5407984)
 theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LChanceD3" type="Label" parent="Level/SelectActionButtom/showItem/ChanceShower" unique_id=1539464476]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = -133.0
-offset_right = -93.0
-offset_bottom = 39.0
+offset_left = -164.0
+offset_top = 4.0
+offset_right = -124.0
+offset_bottom = 43.0
 scale = Vector2(0.5407984, 0.5407984)
 theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LChanceD4" type="Label" parent="Level/SelectActionButtom/showItem/ChanceShower" unique_id=1273515747]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = -108.0
-offset_right = -68.0
-offset_bottom = 39.0
+offset_left = -127.99999
+offset_top = 4.0
+offset_right = -87.99999
+offset_bottom = 43.0
 scale = Vector2(0.5407984, 0.5407984)
 theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LChanceD5" type="Label" parent="Level/SelectActionButtom/showItem/ChanceShower" unique_id=1380692331]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = -83.0
-offset_right = -43.0
-offset_bottom = 39.0
+offset_left = -92.0
+offset_top = 4.0
+offset_right = -52.0
+offset_bottom = 43.0
 scale = Vector2(0.5407984, 0.5407984)
 theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BigStraightShower" type="Control" parent="Level/SelectActionButtom/showItem" unique_id=1627898850]
 anchors_preset = 0
-offset_left = -6.0
-offset_top = 147.0
-offset_right = 34.0
-offset_bottom = 187.0
+offset_left = 41.5
+offset_top = 143.0
+offset_right = 81.5
+offset_bottom = 183.0
 
 [node name="LBigStraightD1" type="Label" parent="Level/SelectActionButtom/showItem/BigStraightShower" unique_id=787940025]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = -183.0
-offset_right = -143.0
-offset_bottom = 39.0
+offset_left = -236.0
+offset_top = 1.0
+offset_right = -196.0
+offset_bottom = 40.0
 scale = Vector2(0.5407984, 0.5407984)
 theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LBigStraightD2" type="Label" parent="Level/SelectActionButtom/showItem/BigStraightShower" unique_id=789575787]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = -158.0
-offset_right = -118.0
-offset_bottom = 39.0
+offset_left = -200.0
+offset_top = 1.0
+offset_right = -160.0
+offset_bottom = 40.0
 scale = Vector2(0.5407984, 0.5407984)
 theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LBigStraightD3" type="Label" parent="Level/SelectActionButtom/showItem/BigStraightShower" unique_id=1857576835]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = -133.0
-offset_right = -93.0
-offset_bottom = 39.0
+offset_left = -164.0
+offset_top = 1.0
+offset_right = -124.0
+offset_bottom = 40.0
 scale = Vector2(0.5407984, 0.5407984)
 theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LBigStraightD4" type="Label" parent="Level/SelectActionButtom/showItem/BigStraightShower" unique_id=1717973882]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = -108.0
-offset_right = -68.0
-offset_bottom = 39.0
+offset_left = -127.99999
+offset_top = 1.0
+offset_right = -87.99999
+offset_bottom = 40.0
 scale = Vector2(0.5407984, 0.5407984)
 theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LBigStraightD5" type="Label" parent="Level/SelectActionButtom/showItem/BigStraightShower" unique_id=985209232]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = -83.0
-offset_right = -43.0
-offset_bottom = 39.0
+offset_left = -92.0
+offset_top = 1.0
+offset_right = -52.0
+offset_bottom = 40.0
 scale = Vector2(0.5407984, 0.5407984)
 theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="FullHouseShower" type="Control" parent="Level/SelectActionButtom/showItem" unique_id=610941936]
-anchors_preset = 0
-offset_left = -6.0
-offset_top = 71.0
-offset_right = 34.0
-offset_bottom = 111.0
-
-[node name="LFullHouseD1" type="Label" parent="Level/SelectActionButtom/showItem/FullHouseShower" unique_id=2040679838]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = -183.0
-offset_right = -143.0
-offset_bottom = 39.0
-scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="LFullHouseD2" type="Label" parent="Level/SelectActionButtom/showItem/FullHouseShower" unique_id=885372296]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = -158.0
-offset_right = -118.0
-offset_bottom = 39.0
-scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="LFullHouseD3" type="Label" parent="Level/SelectActionButtom/showItem/FullHouseShower" unique_id=1365156736]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = -133.0
-offset_right = -93.0
-offset_bottom = 39.0
-scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="LFullHouseD4" type="Label" parent="Level/SelectActionButtom/showItem/FullHouseShower" unique_id=1780926717]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = -108.0
-offset_right = -68.0
-offset_bottom = 39.0
-scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="LFullHouseD5" type="Label" parent="Level/SelectActionButtom/showItem/FullHouseShower" unique_id=534990105]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = -83.0
-offset_right = -43.0
-offset_bottom = 39.0
-scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="SmallStraightShower" type="Control" parent="Level/SelectActionButtom/showItem" unique_id=564072211]
-anchors_preset = 0
-offset_left = 202.0
-offset_top = 71.0
-offset_right = 242.0
-offset_bottom = 111.0
-
-[node name="LSmallStraightD1" type="Label" parent="Level/SelectActionButtom/showItem/SmallStraightShower" unique_id=1006285278]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = -183.0
-offset_right = -143.0
-offset_bottom = 39.0
-scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="LSmallStraightD2" type="Label" parent="Level/SelectActionButtom/showItem/SmallStraightShower" unique_id=1757138160]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = -158.0
-offset_right = -118.0
-offset_bottom = 39.0
-scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="LSmallStraightD3" type="Label" parent="Level/SelectActionButtom/showItem/SmallStraightShower" unique_id=117054853]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = -133.0
-offset_right = -93.0
-offset_bottom = 39.0
-scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="LSmallStraightD4" type="Label" parent="Level/SelectActionButtom/showItem/SmallStraightShower" unique_id=1179488052]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = -108.0
-offset_right = -68.0
-offset_bottom = 39.0
-scale = Vector2(0.5407984, 0.5407984)
-theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
