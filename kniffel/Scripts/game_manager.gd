@@ -16,6 +16,9 @@ extends Node2D
 @onready var bottomactionsanimations: AnimationPlayer = $"../Level/SelectActionButtom/Sprites_for_anim/BottomActionsAnimations"
 
 
+
+
+
 ########################
 #####  Background  #####
 ########################
@@ -162,7 +165,100 @@ var locked_slot = [false, false, false, false, false]
 var can_throw = true
 
 @onready var dice_anim_array : Array = ["D1", "D2", "D3", "D4", "D5", "D6"]
+#region labels for bottom action animations
+#x3d label for anim
+@onready var lx3danim1: Label = $"../Level/SelectActionButtom/Sprites_for_anim/x3D_for_anim/D1/Label"
+@onready var lx3danim2: Label = $"../Level/SelectActionButtom/Sprites_for_anim/x3D_for_anim/D2/Label"
+@onready var lx3danim3: Label = $"../Level/SelectActionButtom/Sprites_for_anim/x3D_for_anim/D3/Label"
+@onready var lx3danim_array : Array = [lx3danim1, lx3danim2, lx3danim3]
+@onready var x3danim1: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/x3D_for_anim/D1"
+@onready var x3danim2: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/x3D_for_anim/D2"
+@onready var x3danim3: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/x3D_for_anim/D3"
+@onready var x3danim_array : Array = [x3danim1, x3danim2, x3danim3]
 
+#x4d label for anim
+@onready var lx4danim1: Label = $"../Level/SelectActionButtom/Sprites_for_anim/x4D_for_anim/D1/Label"
+@onready var lx4danim2: Label = $"../Level/SelectActionButtom/Sprites_for_anim/x4D_for_anim/D2/Label"
+@onready var lx4danim3: Label = $"../Level/SelectActionButtom/Sprites_for_anim/x4D_for_anim/D3/Label"
+@onready var lx4danim4: Label = $"../Level/SelectActionButtom/Sprites_for_anim/x4D_for_anim/D4/Label"
+@onready var lx4danim_array : Array = [lx4danim1, lx4danim2, lx4danim3, lx4danim4]
+@onready var x4danim1: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/x4D_for_anim/D1"
+@onready var x4danim2: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/x4D_for_anim/D2"
+@onready var x4danim3: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/x4D_for_anim/D3"
+@onready var x4danim4: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/x4D_for_anim/D4"
+@onready var x4danim_array : Array = [x4danim1, x4danim2, x4danim3, x4danim4]
+
+# full house label for anim
+@onready var lfulllhouseanim1: Label = $"../Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim/D1/Label"
+@onready var lfulllhouseanim2: Label = $"../Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim/D2/Label"
+@onready var lfulllhouseanim3: Label = $"../Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim/D3/Label"
+@onready var lfulllhouseanim4: Label = $"../Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim/D4/Label"
+@onready var lfulllhouseanim5: Label = $"../Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim/D5/Label"
+@onready var lfullhouseanim_array : Array = [lfulllhouseanim1, lfulllhouseanim2, lfulllhouseanim3, lfulllhouseanim4, lfulllhouseanim5]
+@onready var fulllhouseanim1: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim/D1"
+@onready var fulllhouseanim2: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim/D2"
+@onready var fulllhouseanim3: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim/D3"
+@onready var fulllhouseanim4: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim/D4"
+@onready var fulllhouseanim5: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/FullHouseD_for_anim/D5"
+@onready var fullhouseanim_array : Array = [fulllhouseanim1, fulllhouseanim2, fulllhouseanim3, fulllhouseanim4, fulllhouseanim5]
+
+#smallstraight label for anim
+@onready var lsmallstraightanim1: Label = $"../Level/SelectActionButtom/Sprites_for_anim/SmallStraightD_for_anim/D1/Label"
+@onready var lsmallstraightanim2: Label = $"../Level/SelectActionButtom/Sprites_for_anim/SmallStraightD_for_anim/D2/Label"
+@onready var lsmallstraightanim3: Label = $"../Level/SelectActionButtom/Sprites_for_anim/SmallStraightD_for_anim/D3/Label"
+@onready var lsmallstraightanim4: Label = $"../Level/SelectActionButtom/Sprites_for_anim/SmallStraightD_for_anim/D4/Label"
+@onready var lsmallstraightanim_array : Array = [lsmallstraightanim1, lsmallstraightanim2, lsmallstraightanim3, lsmallstraightanim4]
+@onready var smallstraightanim1: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/SmallStraightD_for_anim/D1"
+@onready var smallstraightanim2: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/SmallStraightD_for_anim/D2"
+@onready var smallstraightanim3: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/SmallStraightD_for_anim/D3"
+@onready var smallstraightanim4: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/SmallStraightD_for_anim/D4"
+@onready var smallstraightanim_array : Array = [smallstraightanim1, smallstraightanim2, smallstraightanim3, smallstraightanim4]
+
+#bigstraight label for anim
+@onready var lbigstraightanim1: Label = $"../Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim/D1/Label"
+@onready var lbigstraightanim2: Label = $"../Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim/D2/Label"
+@onready var lbigstraightanim3: Label = $"../Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim/D3/Label"
+@onready var lbigstraightanim4: Label = $"../Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim/D4/Label"
+@onready var lbigstraightanim5: Label = $"../Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim/D5/Label"
+@onready var lbigstraightanim_array : Array = [lbigstraightanim1, lbigstraightanim2, lbigstraightanim3, lbigstraightanim4, lbigstraightanim5]
+@onready var bigstraightanim1: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim/D1"
+@onready var bigstraightanim2: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim/D2"
+@onready var bigstraightanim3: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim/D3"
+@onready var bigstraightanim4: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim/D4"
+@onready var bigstraightanim5: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/BigStraightD_for_anim/D5"
+@onready var bigstraightanim_array : Array = [bigstraightanim1, bigstraightanim2, bigstraightanim3, bigstraightanim4, bigstraightanim5]
+
+#Kniffel label for anim
+@onready var lkniffelanim1: Label = $"../Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim/D1/Label"
+@onready var lkniffelanim2: Label = $"../Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim/D2/Label"
+@onready var lkniffelanim3: Label = $"../Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim/D3/Label"
+@onready var lkniffelanim4: Label = $"../Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim/D4/Label"
+@onready var lkniffelanim5: Label = $"../Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim/D5/Label"
+@onready var lkniffelanim_array : Array = [lkniffelanim1, lkniffelanim2, lkniffelanim3, lkniffelanim4, lkniffelanim5]
+@onready var kniffelanimd1: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim/D1"
+@onready var kniffelanimd2: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim/D2"
+@onready var kniffelanimd3: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim/D3"
+@onready var kniffelanimd4: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim/D4"
+@onready var kniffelanimd5: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/KniffelD_for_anim/D5"
+@onready var kniffelanim_array : Array = [kniffelanimd1, kniffelanimd2, kniffelanimd3, kniffelanimd4, kniffelanimd5]
+
+
+#chance label for anim
+@onready var lchanceanim1: Label = $"../Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim/D1/Label"
+@onready var lchanceanim2: Label = $"../Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim/D2/Label"
+@onready var lchanceanim3: Label = $"../Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim/D3/Label"
+@onready var lchanceanim4: Label = $"../Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim/D4/Label"
+@onready var lchanceanim5: Label = $"../Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim/D5/Label"
+@onready var lchanceanim_array : Array = [lchanceanim1, lchanceanim2, lchanceanim3, lchanceanim4, lchanceanim5]
+@onready var chanceanim1: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim/D1"
+@onready var chanceanim2: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim/D2"
+@onready var chanceanim3: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim/D3"
+@onready var chanceanim4: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim/D4"
+@onready var chanceanim5: Sprite2D = $"../Level/SelectActionButtom/Sprites_for_anim/ChanceD_for_anim/D5"
+@onready var chanceanim_array : Array = [chanceanim1, chanceanim2, chanceanim3, chanceanim4, chanceanim5]
+
+
+#endregion 
 #####################################
 #####   Variables for Showers   #####
 #####################################
@@ -503,6 +599,10 @@ func chance() -> void:
 			bottom_points_counter += all_dice_value
 			lchance.text = str(all_dice_value)
 			selectsfx.play()
+			bottomactionsanimations.play("chance_select")
+			for i in dices.size():
+				lchanceanim_array[i - 1].text = str(dices[i - 1])
+				chanceanim_array[i - 1].modulate = color_values[dices[i - 1] - 1]
 			buttom_actions[6] = true
 			checkButtomActions()
 
@@ -512,9 +612,17 @@ func kniffel() -> void:
 			if dices.count(dices[0]) == 5:
 				lkniffel.text = "50"
 				bottom_points_counter += 50
+				for i in dices.size():
+					lkniffelanim_array[i - 1].text = str(dices[i - 1])
+					kniffelanim_array[i - 1].modulate = color_values[dices[i - 1] - 1]
+					kniffelanim_array[i - 1].texture = dice_unlocked
 			else: 
-				lkniffel.text = "0"
+				lkniffel.text = ""
+				for i in dices.size():
+					lkniffelanim_array[i - 1].text = ""
 			selectsfx.play()
+			
+			bottomactionsanimations.play("kniffel_select")
 			buttom_actions[5] = true
 			checkButtomActions()
 
@@ -534,9 +642,17 @@ func big_straight() -> void:
 			if is_big_straight:
 				lbigstraight.text = "40"
 				bottom_points_counter +=40
+				for i in dices.size():
+					lbigstraightanim_array[i - 1].text = str(dices[i - 1])
+					bigstraightanim_array[i - 1].modulate = color_values[dices[i - 1] - 1]
+					bigstraightanim_array[i - 1].texture = dice_unlocked
 			else:
-				lbigstraight.text = "0"
+				lbigstraight.text = ""
+				for i in dices.size():
+					lbigstraightanim_array[i - 1].text = ""
 			selectsfx.play()
+			
+			bottomactionsanimations.play("big_straight_select")
 			buttom_actions[4] = true
 			checkButtomActions()
 
@@ -562,29 +678,44 @@ func small_straight() -> void:
 			if is_small_straight:
 				lsmallstraight.text = "30"
 				bottom_points_counter += 30
+				for i in pureDices.size():
+					lsmallstraightanim_array[i - 1].text = str(pureDices[i - 1])
+					smallstraightanim_array[i - 1].modulate = color_values[pureDices[i - 1] - 1]
+					smallstraightanim_array[i - 1].texture = dice_unlocked
 			else:
-				lsmallstraight.text = "0"
+				lsmallstraight.text = ""
+				for i in 4:
+					lsmallstraightanim_array[i - 1].text = ""
 			selectsfx.play()
+			bottomactionsanimations.play("small_straight_select")
 			buttom_actions[3] = true
 			checkButtomActions()
 
 func x3() -> void:
 	if dices[0] != 0:
 		if buttom_actions[0] == false: 
+			var x3dDice = 0
 			dices.sort()
 			var is_x3 = false
 			for i in dice_count:
 				if is_x3 == false:
 					if dices.count(dices[i - 1]) >= 3:
 						is_x3 = true
+						x3dDice = dices[i - 1]
 			if is_x3:
 				var dice_value = 0
 				for i in dice_count:
 					dice_value += dices[i]
+				for i in x3danim_array.size():
+					lx3danim_array[i - 1].text = str(x3dDice)
+					x3danim_array[i - 1].modulate = color_values[x3dDice - 1]
+					x3danim_array[i - 1].texture = dice_unlocked
 				bottom_points_counter += dice_value
 				lx3.text = str(dice_value)
 			else:
-				lx3.text = "0"
+				lx3.text = ""
+				for i in x3danim_array.size():
+					lx3danim_array[i - 1].text = ""
 			bottomactionsanimations.play("X3_select")
 			selectsfx.play()
 			buttom_actions[0] = true
@@ -594,19 +725,27 @@ func x4() -> void:
 	if dices[0] != 0:
 		if buttom_actions[1] == false: 
 			dices.sort()
+			var x4dDice
 			var is_x4 = false
 			for i in dice_count:
 					if is_x4 == false:
 						if dices.count(dices[i - 1]) >= 4:
+							x4dDice = dices[i - 1]
 							is_x4 = true
 			if is_x4:
 				var dice_value = 0
 				for i in dice_count:
 					dice_value += dices[i]
+				for i in x4danim_array.size():
+					lx4danim_array[i - 1].text = str(x4dDice)
+					x4danim_array[i - 1].modulate = color_values[x4dDice - 1]
+					x4danim_array[i - 1].texture = dice_unlocked
 				bottom_points_counter += dice_value
 				lx4.text = str(dice_value)
 			else:
-				lx4.text = "0"
+				lx4.text = ""
+				for i in x4danim_array.size():
+					lx4danim_array[i - 1].text = ""
 			selectsfx.play()
 			bottomactionsanimations.play("X4_select")
 			buttom_actions[1] = true
@@ -627,12 +766,24 @@ func full_house() -> void:
 			if dice_counted == 3 && dif_dice_counted == 2:
 				bottom_points_counter += 25
 				lfullhouse.text = "25"
+				for i in dices.size():
+					lfullhouseanim_array[i - 1].text = str(dices[i - 1])
+					fullhouseanim_array[i - 1].modulate = color_values[dices[i - 1] - 1]
+					fullhouseanim_array[i - 1].texture = dice_unlocked
 			elif dice_counted == 2 && dif_dice_counted == 3:
 				bottom_points_counter += 25
 				lfullhouse.text = "25"
+				for i in dices.size():
+					lfullhouseanim_array[i - 1].text = str(dices[i - 1])
+					fullhouseanim_array[i - 1].modulate = color_values[dices[i - 1] - 1]
+					fullhouseanim_array[i - 1].texture = dice_unlocked
 			else:
-				lfullhouse.text = "0"
+				lfullhouse.text = ""
+				for i in dices.size():
+					lfullhouseanim_array[i - 1].text = ""
 			selectsfx.play()
+			
+			bottomactionsanimations.play("Full_House_select")
 			buttom_actions[2] = true
 			checkButtomActions()
 
