@@ -74,9 +74,6 @@ offset_left = 25.0
 offset_top = 166.0
 offset_right = 185.0
 offset_bottom = 182.0
-max_value = 1.0
-step = 0.001
-value = 0.5
 
 [node name="SFXLabel" type="Label" parent="SFXSlider" unique_id=944169795]
 texture_filter = 4
@@ -97,9 +94,6 @@ offset_left = 218.0
 offset_top = 166.0
 offset_right = 378.0
 offset_bottom = 182.0
-max_value = 1.0
-step = 0.001
-value = 0.5
 
 [node name="MusicLabel" type="Label" parent="MusicSlider" unique_id=623394452]
 texture_filter = 4
@@ -328,8 +322,6 @@ uppercase = true
 
 [connection signal="pressed" from="BackgroundScrollingButton" to="." method="_on_background_scrolling_button_pressed"]
 [connection signal="pressed" from="ShowControlsButton" to="." method="_on_show_controls_button_pressed"]
-[connection signal="value_changed" from="SFXSlider" to="." method="_on_sfx_slider_value_changed"]
-[connection signal="value_changed" from="MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="FullscreenButton" to="." method="_on_fullscreen_button_pressed"]
 [connection signal="color_changed" from="D1ColorButton" to="." method="_on_d_1_color_button_color_changed"]
