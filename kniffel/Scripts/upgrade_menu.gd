@@ -19,17 +19,16 @@ var upgrade_dict = {
 }
 
 func generate_update() -> void:
+	upgrade_selection_array.clear()
 	for i in 3:
 		shuffleUpgrades()
 		var tmp = chooseUpgrade()
-		label_array[i - 1].text = tmp
+		label_array[i].text = tmp
 		upgrade_selection_array.append(tmp)
 
-func rng(min_num, max_num) -> int:
-	return(randi_range(min_num, max_num))
 
 func chooseUpgrade() -> String:
-	return(shuffle_array[rng(0, shuffle_array.size()-1)])
+	return(shuffle_array.pick_random())
 
 func shuffleUpgrades() -> void:
 	for i in probability_array.size():

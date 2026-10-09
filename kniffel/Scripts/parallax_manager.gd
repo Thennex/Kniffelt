@@ -1,48 +1,26 @@
 extends Parallax2D
 
-@onready var d1: Sprite2D = $d1
-@onready var d2: Sprite2D = $d2
-@onready var d3: Sprite2D = $d3
-@onready var d4: Sprite2D = $d4
-@onready var d5: Sprite2D = $d5
-@onready var d6: Sprite2D = $d6
 
-@onready var selectsfx: AudioStreamPlayer = $"../SelectSFX"
+@onready var scrollingbg: Sprite2D = $scrollingbg
+
+@onready var gamemanager: Node2D = $"../../GameManager"
+
+@onready var selectsfx: AudioStreamPlayer = $"../../SelectSFX"
 
 var SCROLLINGSPEED = Vector2(20, 20)
 
 var no_switch = false
 var no_scrolling = false
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
-
-
-
+var color_counter = 0
 
 func _on_timer_timeout() -> void:
-	if no_switch == false:
-		if d1.visible == true:
-			d2.visible = true
-			d1.visible = false
-		elif d2.visible == true:
-			d3.visible = true
-			d2.visible = false
-		elif d3.visible == true:
-			d4.visible = true
-			d3.visible = false
-		elif d4.visible == true:
-			d5.visible = true
-			d4.visible = false
-		elif d5.visible == true:
-			d6.visible = true
-			d5.visible = false
-		elif d6.visible == true:
-			d1.visible = true
-			d6.visible = false
-		
-		
+	if no_switch == true:	return
+	var tween = create_tween()
+	tween.tween_property(scrollingbg, "modulate", gamemanager.color_values[color_counter], 0.5)
+	color_counter += 1 if color_counter < 5 else -5
+
+
 
 func _on_settings_menu_bgscrolling(background_scrolling) -> void:
 	no_switch = background_scrolling
