@@ -6,6 +6,11 @@ signal selectedUpgrade(upgrade)
 @onready var l2: Label = $Menu/Slot2_button/Label2
 @onready var l3: Label = $Menu/Slot3_button/Label3
 
+@onready var button1: Button = $Menu/Slot1_button
+@onready var button2: Button = $Menu/Slot2_button
+@onready var button3: Button = $Menu/Slot3_button
+@onready var button_array: Array = [button1, button2, button3]
+
 @onready var label_array : Array = [l1, l2, l3]
 
 var upgrade_selection_array : Array = []
@@ -36,9 +41,17 @@ func shuffleUpgrades() -> void:
 			shuffle_array.append(upgrade_dict[i])
 	shuffle_array.shuffle()
 
+func mouseBehavior() -> void:
+	if button_array[0].mouse_filter == 2:
+		for i in button_array.size():
+			button_array[i].mouse_filter = 0
+	else:
+		for i in button_array.size():
+			button_array[i].mouse_filter = 2
 
 func _ready() -> void:
 	generate_update()
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -59,3 +72,17 @@ func _on_slot_2_button_pressed() -> void:
 func _on_slot_3_button_pressed() -> void:
 	selectedUpgrade.emit(upgrade_selection_array[2])
 	generate_update()
+
+
+func _on_settings_menu_menu_closed() -> void:
+	$"../Menu/VBoxContainer".visible = false
+	$"../Menu/ColorRect".visible = false
+	for i in button_array.size():
+			button_array[i].mouse_filter = 0
+
+func _on_game_manager_menu_closed() -> void:
+	mouseBehavior()
+
+func _on_game_manager_menu_opened() -> void:
+	for i in button_array.size():
+			button_array[i].mouse_filter = 2

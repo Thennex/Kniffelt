@@ -18,7 +18,6 @@ func _on_button_pressed() -> void:
 	$"..".add_child(Kniffel_paper)
 	Kniffel_paper.add_to_group("Kniffelpaper")
 	gamemanager.kniffelpaper = Kniffel_paper
-	Kniffel_paper.z_index = 2
-	
+	Kniffel_paper.z_index = 3
 	endmenu.visible = false
 	gamemanager.reset()

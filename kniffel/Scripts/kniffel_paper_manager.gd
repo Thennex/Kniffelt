@@ -539,11 +539,15 @@ func setTopCounter(top_counter) -> void:
 		await gamemanager.selectsfx.finished
 		gamemanager.selectsfx.volume_db = 0
 
+func set_BarValue(value):
+	$KniffelBonusMeter/TextureProgressBar.value = value
+
 func checkActions() -> void:
 	gamemanager.resetDice()
 	gamemanager.countersfx.pitch_scale = 1
 	var tween = create_tween()
-	tween.tween_property($KniffelBonusMeter/TextureProgressBar, "value", gamemanager.top_points_counter, 0.4,).set_trans(Tween.TRANS_EXPO)
+	$KniffelBonusMeter/TextureProgressBarFast.value = gamemanager.top_points_counter
+	tween.tween_method(set_BarValue, int(ltoppoints.text), gamemanager.top_points_counter, 0.4,).set_trans(Tween.TRANS_EXPO)
 	if int(ltoppoints.text) != gamemanager.top_points_counter:
 		var tween1 = create_tween()
 		tween1.tween_method(setTopCounter, int(ltoppoints.text), gamemanager.top_points_counter, 0.3)
@@ -580,48 +584,52 @@ func checkTopActionsPoints():
 			top_die_count_array[i] = true
 
 func checkBottomActionsPoints():
+	var dices = gamemanager.dices
 	var bottom_die_count_array : Array = [false, false, false, false, false, false, false] 
 	for i in 7:
+		if bottom_die_count_array[i] == true:	return
 		if buttom_actions[i] == true:	return
-		if bottom_die_count_array[i] == true:return
 		var tmp_bool = false
 		if i == 0:
-			for j in gamemanager.dices.size():
-				if gamemanager.dices.count(j + 1) >= 3:
+			for j in dices.size():
+				if dices.count(j + 1) >= 3:
 					tmp_bool = true
 					break
 			if tmp_bool:
 				lx3.text = str(gamemanager.allDiceCounted())
+				bottom_die_count_array[i] = true
 			else:
 				lx3.text = ""
 		if i == 1:
-			for j in gamemanager.dices.size():
-				if gamemanager.dices.count(j + 1) >= 4:
+			for j in dices.size():
+				if dices.count(j + 1) >= 4:
 					tmp_bool = true
 					break
 			if tmp_bool:
 				lx4.text = str(gamemanager.allDiceCounted())
+				bottom_die_count_array[i] = true
 			else:
 				lx4.text = ""
 		if i == 2:
 			var dif_dice
-			var dice_counted = gamemanager.dices.count(gamemanager.dices[0])
+			var dice_counted = dices.count(dices[0])
 			var dif_dice_counted = 0
-			for l in gamemanager.dices.size():
-				if gamemanager.dices[l] != gamemanager.dices[0]:
-					dif_dice = gamemanager.dices[l]
+			for l in dices.size():
+				if dices[l] != dices[0]:
+					dif_dice = dices[l]
 					break
-			dif_dice_counted = gamemanager.dices.count(dif_dice)
+			dif_dice_counted = dices.count(dif_dice)
 			if dice_counted == 3 && dif_dice_counted == 2 or dice_counted == 2 && dif_dice_counted == 3:
 				lfullhouse.text = "25"
+				bottom_die_count_array[i] = true
 			else:
 				lfullhouse.text = ""
 		if i == 3:
 			var is_small_straight = false
 			var pureDices : Array = []
-			for l in gamemanager.dice_count:
-				if !pureDices.has(gamemanager.dices[l - 1]):
-					pureDices.append(gamemanager.dices[l - 1]) 
+			for l in dices.size():
+				if !pureDices.has(dices[l]):
+					pureDices.append(dices[l]) 
 			pureDices.sort()
 			var pdsize = pureDices.size()
 			if pdsize > 3:
@@ -635,14 +643,16 @@ func checkBottomActionsPoints():
 						is_small_straight = true
 			if is_small_straight:
 				lsmallstraight.text = "30"
+				bottom_die_count_array[i] = true
 			else:
 				lsmallstraight.text = ""
+			print(lsmallstraight.text)
 		if i == 4:
 			var is_big_straight = false
 			var pureDices = []
-			for l in gamemanager.dices.size():
-				if !pureDices.has(gamemanager.dices[l - 1]):
-					pureDices.append(gamemanager.dices[l - 1]) 
+			for l in dices.size():
+				if !pureDices.has(dices[l - 1]):
+					pureDices.append(dices[l - 1]) 
 			pureDices.sort()
 			if pureDices.size() == 5:
 				if pureDices[0] + 1 == pureDices[1] && pureDices[0] + 2 == pureDices[2] && pureDices[0] + 3 == pureDices[3] && pureDices[0] + 4  == pureDices[4]:
@@ -650,16 +660,19 @@ func checkBottomActionsPoints():
 			if is_big_straight:
 				lbigstraight.text = "40"
 				lsmallstraight.text = "30"
+				bottom_die_count_array[i] = true
 			else:
 				lbigstraight.text = ""
 				lsmallstraight.text = ""
 		if i == 5:
-			if gamemanager.dices.count(gamemanager.dices[0]) == 5:
+			if dices.count(dices[0]) == 5:
 				lkniffel.text = "50"
+				bottom_die_count_array[i] = true
 			else:
 				lkniffel.text = ""
 		if i == 6:
 			lchance.text = str(gamemanager.allDiceCounted())
+			bottom_die_count_array[i] = true
 
 
 

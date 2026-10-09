@@ -1,5 +1,9 @@
 extends Node2D
 
+signal menuClosed
+signal menuOpened
+
+
 #region Variables for Paths
 ############################################################
 #####                   Path linking                   #####
@@ -14,10 +18,11 @@ extends Node2D
 @onready var dicesfxtimer: Timer = $"../diceSFX/diceSFXTimer"
 @onready var kniffelpaper: Node2D = $"../Kniffel_paper"
 
+
 ########################
 #####  Background  #####
 ########################
-@onready var scrollingbg: Sprite2D = $"../Parallax/Parallax2D/scrollingbg"
+@onready var scrollingbg: Sprite2D = $"../Design/Parallax2D/scrollingbg"
 
 
 ####################
@@ -109,7 +114,7 @@ var done = 0
 ####################################
 #####   Variables for Design   #####
 ####################################
-var color_values = [Color(1.0, 1.0, 0.0), Color(0.0, 1.0, 0.0), Color(0.0, 1.0, 1.0), Color(0.0, 0.604, 1.0), Color(1.0, 0.0, 1.0), Color(1.0, 0.0, 0.0)]
+var color_values = [Color(0.7, 0.7, 0.0), Color(0.0, 0.7, 0.0), Color(0.0, 0.7, 0.7), Color(0.0, 0.604, 1.0), Color(0.7, 0.0, 0.7), Color(0.7, 0.0, 0.0)]
 #endregion
 
 #region METHODS
@@ -196,6 +201,8 @@ func throwDices() -> void:
 					dicesfxtimer.start()
 					dices[i - 1] = rng()
 					choseDie(i)
+					await get_tree().create_timer(0.1).timeout
+			await get_tree().create_timer(.3).timeout
 			kniffelpaper.checkTopActionsPoints()
 			kniffelpaper.checkBottomActionsPoints()
 
@@ -434,11 +441,20 @@ func _on_open_menu_button_pressed() -> void:
 	if menu.visible:
 		settingsmanager.visible = false
 		$"../Menu/ColorRect".visible = false
+		$"../Menu/MenuCloser".visible = false
 		menu.visible = false
+		menuClosed.emit()
 	else:
 		$"../Menu/ColorRect".visible = true
+		$"../Menu/MenuCloser".visible = true
 		menu.visible = true
+		menuOpened.emit()
 
+func _on_menu_closer_pressed() -> void:
+		$"../Menu/ColorRect".visible = false
+		$"../Menu/MenuCloser".visible = false
+		menu.visible = false
+		menuClosed.emit()
 
 func _on_reload_button_pressed() -> void:
 	selectsfx.play()
@@ -448,16 +464,20 @@ func _on_control_button_pressed() -> void:
 	selectsfx.play()
 	if settingsmanager.visible:
 		settingsmanager.visible = false
+		menuClosed.emit()
 	else:
 		settingsmanager.visible = true
+		menuOpened.emit()
 
 func _on_control_button_2_pressed() -> void:
 	selectsfx.play()
 	if menu.visible:
 		$"../Menu/ColorRect".visible = false
+		$"../Menu/MenuCloser".visible = false
 		menu.visible = false
 	else:
 		$"../Menu/ColorRect".visible = true
+		$"../Menu/MenuCloser".visible = true
 		menu.visible = true
 
 func _on_close_game_button_pressed() -> void:
@@ -492,9 +512,6 @@ func _on_settings_menu_show_controls(show_controls: Variant) -> void:
 	shortcutoverlay.visible = show_controls
 	selectsfx.play()
 
-func _on_settings_menu_close_menu() -> void:
-	$"../Menu/VBoxContainer".visible = false
-	$"../Menu/ColorRect".visible = false
 
 func _on_can_throw_timer_timeout() -> void:
 	can_throw = true

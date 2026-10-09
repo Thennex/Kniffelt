@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://c117dlvmtgtci" path="res://Scene/game_manager.tscn" id="2_sblpm"]
 [ext_resource type="Texture2D" uid="uid://do8drm26167pt" path="res://Art/dice_fancy_bg_parallax.png" id="4_2ix4a"]
 [ext_resource type="Texture2D" uid="uid://bq71ulhlbfcvv" path="res://Art/Dies/Kniffel_dice.png" id="4_ow1sv"]
-[ext_resource type="Texture2D" uid="uid://rpj2d6f82ruq" path="res://Art/Kniffel_Settings.png" id="8_75buv"]
+[ext_resource type="Texture2D" uid="uid://branwm2icl82h" path="res://Art/Kniffel_menu_overlayt.png" id="4_p4j74"]
+[ext_resource type="Texture2D" uid="uid://bttaoj4ggv4bu" path="res://Art/Light/2d_lights_and_shadows_neutral_point_light.webp" id="6_jbas8"]
 [ext_resource type="Texture2D" uid="uid://dv58cx4brbeo2" path="res://Art/Dies/Kniffel_dice_locked-export.png" id="9_2ix4a"]
 [ext_resource type="AudioStream" uid="uid://dktef6aonmnow" path="res://sfx/DiceRollSFX.wav" id="9_c2iwn"]
 [ext_resource type="AudioStream" uid="uid://dv78xf57lsgc3" path="res://sfx/DiceRollSFX1.wav" id="10_3pt4j"]
@@ -13,12 +14,15 @@
 [ext_resource type="Script" uid="uid://btlc3tfcwlk6o" path="res://Scripts/parallax_manager.gd" id="11_mxd2g"]
 [ext_resource type="Texture2D" uid="uid://bxywxlj5wl2te" path="res://Art/Dies/Kniffel_Dice_reworked.png" id="11_xw8bv"]
 [ext_resource type="Texture2D" uid="uid://c74hjy5hondmi" path="res://Art/Kniffel_roll_button_reworked.png" id="13_sor6r"]
+[ext_resource type="Texture2D" uid="uid://d1xg18nq28tsg" path="res://Art/Kniffel_Settings_reworked.png" id="14_hiice"]
 [ext_resource type="Texture2D" uid="uid://bbiavwobojy7j" path="res://Art/Kniffel_overlay.png" id="19_p2wc2"]
 [ext_resource type="AudioStream" uid="uid://bceno77oukerm" path="res://sfx/selectSFX.wav" id="21_hiice"]
 [ext_resource type="AudioStream" uid="uid://cyr24cynd1dhm" path="res://sfx/CounterSFX.wav" id="22_sor6r"]
 [ext_resource type="PackedScene" uid="uid://d217ru5dtsin" path="res://Scene/end_menu.tscn" id="23_sor6r"]
 [ext_resource type="PackedScene" uid="uid://vwqgwvcgisf1" path="res://Scene/upgrade_menu.tscn" id="24_aam5o"]
 [ext_resource type="PackedScene" uid="uid://d34y3qx4gnqam" path="res://Scene/settings_menu.tscn" id="24_pqe63"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p4j74"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxd2g"]
 
@@ -54,6 +58,16 @@ texture = ExtResource("9_2ix4a")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hiice"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t372l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uctnp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m37ut"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yoaul"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mepbf"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0sxm5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wimqa"]
@@ -71,23 +85,39 @@ events = [SubResource("InputEventKey_ow1sv")]
 
 [node name="Main" type="Node2D" unique_id=265119633]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1869814963]
-color = Color(0.9428228, 0.94282264, 0.94282264, 1)
-
 [node name="GameManager" parent="." unique_id=968434056 instance=ExtResource("2_sblpm")]
 visible = true
+max_throw_count = 31
 
 [node name="Kniffel_paper" parent="." unique_id=1824013333 instance=ExtResource("1_f6udf")]
-z_index = 2
+z_index = 3
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1630180019]
 position = Vector2(286, -4)
 zoom = Vector2(1.6, 1.6)
 
-[node name="Parallax" type="Node2D" parent="." unique_id=756166635]
+[node name="PointLight2D" type="PointLight2D" parent="Camera2D" unique_id=142000175]
+scale = Vector2(6.3794045, 4.2194614)
+energy = 0.2
+blend_mode = 2
+texture = ExtResource("6_jbas8")
+texture_scale = 1.23
+
+[node name="PointLight2D2" type="PointLight2D" parent="Camera2D" unique_id=1783993528]
+scale = Vector2(6.3794045, 4.2194614)
+energy = 1.47
+texture = ExtResource("6_jbas8")
+texture_scale = 0.9
+
+[node name="Design" type="Node2D" parent="." unique_id=756166635]
 position = Vector2(314, -7)
 
-[node name="Parallax2D" type="Parallax2D" parent="Parallax" unique_id=680368821]
+[node name="KniffelMenuOverlayt" type="Sprite2D" parent="Design" unique_id=1702140881]
+z_index = 17
+position = Vector2(-27, 4)
+texture = ExtResource("4_p4j74")
+
+[node name="Parallax2D" type="Parallax2D" parent="Design" unique_id=680368821]
 z_index = -2
 repeat_size = Vector2(100, 100)
 autoscroll = Vector2(10, 10)
@@ -96,7 +126,19 @@ follow_viewport = false
 ignore_camera_scroll = true
 script = ExtResource("11_mxd2g")
 
-[node name="ColorRect" type="ColorRect" parent="Parallax/Parallax2D" unique_id=1162804710]
+[node name="scrollingbg" type="Sprite2D" parent="Design/Parallax2D" unique_id=927102487]
+texture = ExtResource("4_2ix4a")
+
+[node name="Timer" type="Timer" parent="Design" unique_id=172223538]
+wait_time = 2.0
+autostart = true
+
+[node name="KniffelOverlay" type="Sprite2D" parent="Design" unique_id=2023242077]
+texture_filter = 4
+position = Vector2(-28, 3)
+texture = ExtResource("19_p2wc2")
+
+[node name="ColorRect" type="ColorRect" parent="Design" unique_id=1162804710]
 modulate = Color(0.1882353, 0.1882353, 0.1882353, 0.9098039)
 top_level = true
 offset_left = -314.0
@@ -105,13 +147,6 @@ offset_right = 887.0
 offset_bottom = 334.0
 mouse_filter = 2
 color = Color(1, 0, 1, 1)
-
-[node name="scrollingbg" type="Sprite2D" parent="Parallax/Parallax2D" unique_id=927102487]
-texture = ExtResource("4_2ix4a")
-
-[node name="Timer" type="Timer" parent="Parallax" unique_id=172223538]
-wait_time = 2.0
-autostart = true
 
 [node name="Dices" type="Control" parent="." unique_id=1158556997]
 z_index = 1
@@ -124,6 +159,8 @@ offset_bottom = 26.0
 scale = Vector2(1.6987314, 1.6987314)
 
 [node name="DiceContainer" type="HBoxContainer" parent="Dices" unique_id=1724012370]
+material = SubResource("ShaderMaterial_p4j74")
+use_parent_material = true
 layout_mode = 0
 offset_left = 289.0
 offset_top = 87.0
@@ -133,6 +170,7 @@ offset_bottom = 137.0
 [node name="D1" type="Button" parent="Dices/DiceContainer" unique_id=322676658]
 modulate = Color(0.581033, 0.58103293, 0.5810329, 1)
 texture_filter = 6
+use_parent_material = true
 custom_minimum_size = Vector2(50, 50)
 custom_maximum_size = Vector2(50, 50)
 layout_mode = 2
@@ -173,6 +211,7 @@ uppercase = true
 [node name="D2" type="Button" parent="Dices/DiceContainer" unique_id=419699359]
 modulate = Color(0.581033, 0.58103293, 0.5810329, 1)
 texture_filter = 6
+use_parent_material = true
 custom_minimum_size = Vector2(50, 50)
 custom_maximum_size = Vector2(50, 50)
 layout_mode = 2
@@ -212,6 +251,7 @@ uppercase = true
 [node name="D3" type="Button" parent="Dices/DiceContainer" unique_id=1806498131]
 modulate = Color(0.581033, 0.58103293, 0.5810329, 1)
 texture_filter = 6
+use_parent_material = true
 custom_minimum_size = Vector2(50, 50)
 custom_maximum_size = Vector2(50, 50)
 layout_mode = 2
@@ -250,6 +290,7 @@ uppercase = true
 [node name="D4" type="Button" parent="Dices/DiceContainer" unique_id=1350679800]
 modulate = Color(0.581033, 0.58103293, 0.5810329, 1)
 texture_filter = 6
+use_parent_material = true
 custom_minimum_size = Vector2(50, 50)
 custom_maximum_size = Vector2(50, 50)
 layout_mode = 2
@@ -290,6 +331,7 @@ uppercase = true
 [node name="D5" type="Button" parent="Dices/DiceContainer" unique_id=2141928084]
 modulate = Color(0.581033, 0.58103293, 0.5810329, 1)
 texture_filter = 6
+use_parent_material = true
 custom_minimum_size = Vector2(50, 50)
 custom_maximum_size = Vector2(50, 50)
 layout_mode = 2
@@ -396,13 +438,27 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="openMenuButton" type="Button" parent="Menu" unique_id=419663389]
-z_index = 4
+[node name="MenuCloser" type="Button" parent="Menu" unique_id=1343157645]
+visible = false
 layout_mode = 0
-offset_left = 787.0
-offset_top = -314.0
-offset_right = 845.0
-offset_bottom = -256.0
+offset_left = -329.99994
+offset_top = -355.99997
+offset_right = -321.99994
+offset_bottom = -347.99997
+scale = Vector2(154.3763, 88.39657)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t372l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uctnp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_m37ut")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yoaul")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mepbf")
+
+[node name="openMenuButton" type="Button" parent="Menu" unique_id=419663389]
+z_index = 764
+layout_mode = 0
+offset_left = 814.0
+offset_top = -336.0
+offset_right = 872.0
+offset_bottom = -278.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.0018410678, 0.0018410682, 0.0018410678, 1)
@@ -434,8 +490,7 @@ uppercase = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu" unique_id=1421487060]
 visible = false
-modulate = Color(0.510092, 0.68303525, 0.90786153, 1)
-z_index = 3
+z_index = 416
 layout_mode = 0
 offset_left = 137.0
 offset_top = -214.0
@@ -463,7 +518,7 @@ theme_override_colors/icon_hover_pressed_color = Color(0.39688927, 0.39688927, 0
 theme_override_font_sizes/font_size = 50
 text = "
 "
-icon = ExtResource("8_75buv")
+icon = ExtResource("14_hiice")
 icon_alignment = 1
 
 [node name="CloseLabel" type="Label" parent="Menu/VBoxContainer/ControlButton2" unique_id=1359290477]
@@ -498,7 +553,7 @@ theme_override_colors/icon_pressed_color = Color(0.33333334, 0.33333334, 0.33333
 theme_override_colors/icon_hover_color = Color(0.4117647, 0.4117647, 0.4117647, 0.627451)
 theme_override_colors/icon_hover_pressed_color = Color(0.39688927, 0.39688927, 0.39688924, 0.69803923)
 theme_override_font_sizes/font_size = 50
-icon = ExtResource("8_75buv")
+icon = ExtResource("14_hiice")
 icon_alignment = 1
 
 [node name="ControlLabel" type="Label" parent="Menu/VBoxContainer/ControlButton" unique_id=1720135882]
@@ -531,7 +586,7 @@ theme_override_colors/icon_pressed_color = Color(0.33333334, 0.33333334, 0.33333
 theme_override_colors/icon_hover_color = Color(0.4117647, 0.4117647, 0.4117647, 0.627451)
 theme_override_colors/icon_hover_pressed_color = Color(0.39688927, 0.39688927, 0.39688924, 0.69803923)
 theme_override_font_sizes/font_size = 50
-icon = ExtResource("8_75buv")
+icon = ExtResource("14_hiice")
 icon_alignment = 1
 
 [node name="ReloadLabel" type="Label" parent="Menu/VBoxContainer/ReloadButton" unique_id=499910947]
@@ -568,7 +623,7 @@ theme_override_colors/icon_hover_pressed_color = Color(0.39688927, 0.39688927, 0
 theme_override_font_sizes/font_size = 50
 text = "
 "
-icon = ExtResource("8_75buv")
+icon = ExtResource("14_hiice")
 icon_alignment = 1
 
 [node name="CloseGameLabel" type="Label" parent="Menu/VBoxContainer/CloseGameButton" unique_id=378037734]
@@ -587,6 +642,7 @@ uppercase = true
 
 [node name="ColorRect" type="ColorRect" parent="Menu" unique_id=667278822]
 visible = false
+z_index = 217
 layout_mode = 0
 offset_left = -332.0
 offset_top = -361.00003
@@ -594,10 +650,18 @@ offset_right = -292.0
 offset_bottom = -321.00003
 scale = Vector2(31.253527, 17.621151)
 mouse_filter = 2
-color = Color(0.14117648, 0.14117648, 0.14117648, 0.8)
+color = Color(0.14117648, 0.14117648, 0.14117648, 0.93333334)
+
+[node name="SettingsMenu" parent="." unique_id=1799041464 instance=ExtResource("24_pqe63")]
+visible = false
+z_index = 450
+offset_left = 65.0
+offset_top = -301.0
+offset_right = 65.0
+offset_bottom = -301.0
 
 [node name="ShowControls" type="Control" parent="." unique_id=1435994165]
-z_index = 2
+z_index = 3
 texture_filter = 6
 layout_mode = 3
 anchors_preset = 0
@@ -888,14 +952,6 @@ stream = ExtResource("22_sor6r")
 volume_db = -5.0
 bus = &"SFX"
 
-[node name="SettingsMenu" parent="." unique_id=1799041464 instance=ExtResource("24_pqe63")]
-visible = false
-z_index = 9
-offset_left = 65.0
-offset_top = -267.0
-offset_right = 65.0
-offset_bottom = -267.0
-
 [node name="canThrowTimer" type="Timer" parent="." unique_id=1181418008]
 process_callback = 0
 wait_time = 0.7
@@ -910,17 +966,16 @@ offset_right = -197.0
 offset_bottom = -234.0
 
 [node name="UpgradeMenu" parent="." unique_id=460068291 instance=ExtResource("24_aam5o")]
+visible = false
+z_index = 1
 offset_left = 266.0
 offset_top = -293.0
 offset_right = 266.0
 offset_bottom = -293.0
 
-[node name="KniffelOverlay" type="Sprite2D" parent="." unique_id=2023242077]
-z_index = 13
-position = Vector2(286, -4)
-texture = ExtResource("19_p2wc2")
-
-[connection signal="timeout" from="Parallax/Timer" to="Parallax/Parallax2D" method="_on_timer_timeout"]
+[connection signal="menuClosed" from="GameManager" to="UpgradeMenu" method="_on_game_manager_menu_closed"]
+[connection signal="menuOpened" from="GameManager" to="UpgradeMenu" method="_on_game_manager_menu_opened"]
+[connection signal="timeout" from="Design/Timer" to="Design/Parallax2D" method="_on_timer_timeout"]
 [connection signal="toggled" from="Dices/DiceContainer/D1" to="GameManager" method="_on_d_1_toggled"]
 [connection signal="toggled" from="Dices/DiceContainer/D2" to="GameManager" method="_on_d_2_toggled"]
 [connection signal="toggled" from="Dices/DiceContainer/D3" to="GameManager" method="_on_d_3_toggled"]
@@ -928,16 +983,17 @@ texture = ExtResource("19_p2wc2")
 [connection signal="toggled" from="Dices/DiceContainer/D5" to="GameManager" method="_on_d_5_toggled"]
 [connection signal="pressed" from="Dices/UnlockAllButton" to="GameManager" method="_on_unlock_all_button_pressed"]
 [connection signal="pressed" from="Dices/RollDiceButton" to="GameManager" method="_on_roll_dice_button_pressed"]
+[connection signal="pressed" from="Menu/MenuCloser" to="GameManager" method="_on_menu_closer_pressed"]
 [connection signal="pressed" from="Menu/openMenuButton" to="GameManager" method="_on_open_menu_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/ControlButton2" to="GameManager" method="_on_control_button_2_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/ControlButton" to="GameManager" method="_on_control_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/ReloadButton" to="GameManager" method="_on_reload_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/CloseGameButton" to="GameManager" method="_on_close_game_button_pressed"]
+[connection signal="bgscrolling" from="SettingsMenu" to="Design/Parallax2D" method="_on_settings_menu_bgscrolling"]
+[connection signal="changeColor" from="SettingsMenu" to="GameManager" method="_on_settings_menu_change_color"]
+[connection signal="menuClosed" from="SettingsMenu" to="UpgradeMenu" method="_on_settings_menu_menu_closed"]
+[connection signal="showControls" from="SettingsMenu" to="GameManager" method="_on_settings_menu_show_controls"]
 [connection signal="timeout" from="diceSFX/diceSFXTimer" to="GameManager" method="_on_dice_sfx_timer_timeout"]
 [connection signal="timeout" from="ExtraDiceSFX/extraDiceSFXTimer" to="GameManager" method="_on_extra_dice_sfx_timer_timeout"]
-[connection signal="bgscrolling" from="SettingsMenu" to="Parallax/Parallax2D" method="_on_settings_menu_bgscrolling"]
-[connection signal="changeColor" from="SettingsMenu" to="GameManager" method="_on_settings_menu_change_color"]
-[connection signal="closeMenu" from="SettingsMenu" to="GameManager" method="_on_settings_menu_close_menu"]
-[connection signal="showControls" from="SettingsMenu" to="GameManager" method="_on_settings_menu_show_controls"]
 [connection signal="timeout" from="canThrowTimer" to="GameManager" method="_on_can_throw_timer_timeout"]
 [connection signal="selectedUpgrade" from="UpgradeMenu" to="GameManager" method="_on_upgrade_menu_selected_upgrade"]

@@ -1,0 +1,26 @@
+[gd_resource type="VisualShader" format=3 uid="uid://b1kjiypujd1f4"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_0el2c"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeRandomRange" id="VisualShaderNodeRandomRange_75ya3"]
+default_input_values = [0, Vector3(1, 1, 1), 1, 0.5, 2, 11.0]
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_2144q"]
+size = Vector2(780, 600)
+
+[resource]
+mode = 1
+flags/light_only = false
+nodes/vertex/0/position = Vector2(600, 120)
+nodes/vertex/2/node = SubResource("VisualShaderNodeInput_0el2c")
+nodes/vertex/2/position = Vector2(-660, -40)
+nodes/vertex/3/node = SubResource("VisualShaderNodeRandomRange_75ya3")
+nodes/vertex/3/position = Vector2(540, -180)
+nodes/vertex/4/node = SubResource("VisualShaderNodeExpression_2144q")
+nodes/vertex/4/position = Vector2(-240, 0)
+nodes/vertex/4/size = Vector2(780, 600)
+nodes/vertex/4/input_ports = "0,3,input0;"
+nodes/vertex/4/output_ports = "0,4,output0;"
+nodes/vertex/4/expression = ""
+nodes/vertex/connections = PackedInt32Array(3, 0, 0, 3, 2, 0, 4, 0, 4, 0, 0, 2)
