@@ -10505,6 +10505,7 @@ theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 
 [node name="LabelSmallStraight" type="Label" parent="PointCounters" unique_id=1948388048]
+z_index = 2
 layout_mode = 0
 offset_left = 264.5
 offset_top = 66.0

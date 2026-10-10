@@ -286,11 +286,6 @@ func areAllLocked() -> bool:
 	return true
 
 
-################################
-#####    Action Methods    #####
-################################ 
-
-
 #############################
 #####    End Methods    #####
 #############################
@@ -319,17 +314,9 @@ func times2(value) -> int:
 func plus(value) -> int:
 	return value + 5
 
-################################
-#####    Action Methods    #####
-################################
-
-
-
-
 ###############################
 #####   keyboard compat   #####
 ###############################
-
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("unlockAll"):
 		resetLocked()
@@ -406,16 +393,8 @@ func _on_d_5_toggled(toggled_on: bool) -> void:
 		sd5.icon = dice_unlocked
 #endregion
 
-#endregion
 
-#region --> Game relevant Actions
-##############################
-#####    Select Action    #####
-###############################
-
-
-
-
+#region --> Throwing dice relevant Actions
 ####################################
 #####    Select Dice Action    #####
 ####################################
@@ -426,13 +405,14 @@ func _on_unlock_all_button_pressed() -> void:
 	resetLocked()
 #endregion 
 
-
+#endregion
 ##############################
 #####    Shower Timer    #####
 ##############################
 func _on_timer_timeout() -> void:
 	changeShowers() 
 
+#region Menu Button signals
 ###############################
 #####    Menu Buttons     #####
 ###############################
@@ -483,7 +463,9 @@ func _on_control_button_2_pressed() -> void:
 func _on_close_game_button_pressed() -> void:
 	selectsfx.play()
 	get_tree().quit()
+#endregion 
 
+#region Sfx Timer signal timeout
 ###########################
 #####    SFX Timer    #####
 ###########################
@@ -495,12 +477,15 @@ func _on_dice_sfx_timer_timeout() -> void:
 
 func _on_extra_dice_sfx_timer_timeout() -> void:
 		$"../ExtraDiceSFX".play()
+#endregion
 
 #############################
 #####    Extra Timer    #####
 #############################
+func _on_can_throw_timer_timeout() -> void:
+	can_throw = true
 
-
+#region manually created Signals
 ################################
 #####    Manual Signals    #####
 ################################
@@ -513,9 +498,7 @@ func _on_settings_menu_show_controls(show_controls: Variant) -> void:
 	selectsfx.play()
 
 
-func _on_can_throw_timer_timeout() -> void:
-	can_throw = true
-
 func _on_upgrade_menu_selected_upgrade(upgrade: Variant) -> void:
 	pickedUpgrades.append(upgrade)
 	print(pickedUpgrades)
+#endregion

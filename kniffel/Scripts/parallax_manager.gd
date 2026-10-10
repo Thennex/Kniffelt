@@ -5,9 +5,7 @@ extends Parallax2D
 @onready var overlay: Sprite2D = $"../KniffelOverlay"
 @onready var kniffelmenuoverlay: Sprite2D = $"../KniffelMenuOverlayt"
 @onready var menu: Control = $"../../Menu"
-
 @onready var gamemanager: Node2D = $"../../GameManager"
-
 @onready var selectsfx: AudioStreamPlayer = $"../../SelectSFX"
 
 var SCROLLINGSPEED = Vector2(20, 20)
@@ -15,7 +13,7 @@ var SCROLLINGSPEED = Vector2(20, 20)
 var no_switch = false
 var no_scrolling = false
 
-var color_counter = 0
+var color_counter = 1
 
 func _on_timer_timeout() -> void:
 	if no_switch == true:	return

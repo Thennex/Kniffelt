@@ -1,17 +1,10 @@
 extends Node2D
 
+#region all variables for paths
 @onready var gamemanager: Node2D = $"../GameManager"
 
 @onready var animtoplayer: AnimationPlayer = $AnimationPlayer
 @onready var animbottomplayer: AnimationPlayer = $SelectActionButtom/Sprites_for_anim/BottomActionsAnimations
-
-
-
-
-########################
-#####  Background  #####
-########################
-
 
 ####################
 #####  Points  #####
@@ -20,10 +13,6 @@ extends Node2D
 @onready var lpoints: Label = $PointCounters/LabelPoints
 @onready var ltoppoints: Label = $KniffelBonusMeter/KniffelTopCounter
 @onready var lbottompoints: Label = $PointCounters/LabelBottomPoints
-
-####################
-#####  Buttons #####
-####################
 
 
 #region sprite path for top actions 
@@ -35,7 +24,7 @@ extends Node2D
 @onready var d2d1selectcolor: Sprite2D = $"SelectAction/D2/D1"
 @onready var d2d2selectcolor: Sprite2D = $"SelectAction/D2/D2"
 @onready var d2d3selectcolor: Sprite2D = $"SelectAction/D2/D3"
-@onready var d2selectcolor_array : Array = [d2d3selectcolor, d2d2selectcolor, d2d3selectcolor]
+@onready var d2selectcolor_array : Array = [d2d1selectcolor, d2d2selectcolor, d2d3selectcolor]
 
 @onready var d3d1selectcolor: Sprite2D = $"SelectAction/D3/D1"
 @onready var d3d2selectcolor: Sprite2D = $"SelectAction/D3/D2"
@@ -60,118 +49,7 @@ extends Node2D
 @onready var dselectcolor_array : Array = [d1selectcolor_array, d2selectcolor_array, d3selectcolor_array, d4selectcolor_array, d5selectcolor_array, d6selectcolor_array]
 #endregion
 
-@onready var d1color: Node2D = $"SelectAction/D1"
-@onready var d2color: Node2D = $"SelectAction/D2"
-@onready var d3color: Node2D = $"SelectAction/D3"
-@onready var d4color: Node2D = $"SelectAction/D4"
-@onready var d5color: Node2D = $"SelectAction/D5"
-@onready var d6color: Node2D = $"SelectAction/D6"
-@onready var dcolor_array : Array = [d1color, d2color, d3color, d4color, d5color, d6color]
-
-@onready var sd1: Button = $"../Dices/DiceContainer/D1"
-@onready var sd2: Button = $"../Dices/DiceContainer/D2"
-@onready var sd3: Button = $"../Dices/DiceContainer/D3"
-@onready var sd4: Button = $"../Dices/DiceContainer/D4"
-@onready var sd5: Button = $"../Dices/DiceContainer/D5"
-
-@onready var bkniffel: Button = $"SelectActionButtom/Kniffel"
-@onready var bchance: Button = $"SelectActionButtom/Chance"
-@onready var bx_3: Button = $"SelectActionButtom/x3"
-@onready var bx_4: Button = $"SelectActionButtom/x4"
-@onready var bbig_straigth: Button = $"SelectActionButtom/BigStraigth"
-@onready var bsmall_straigth: Button = $"SelectActionButtom/SmallStraigth"
-@onready var bfull_house: Button = $"SelectActionButtom/FullHouse"
-
-####################
-#####  Labels  #####
-####################
-@onready var l1: Label = $"PointCounters/Label1"
-@onready var l2: Label = $"PointCounters/Label2"
-@onready var l3: Label = $"PointCounters/Label3"
-@onready var l4: Label = $"PointCounters/Label4"
-@onready var l5: Label = $"PointCounters/Label5"
-@onready var l6: Label = $"PointCounters/Label6"
-@onready var l_array : Array = [l1, l2, l3, l4, l5, l6]
-
-@onready var lx3: Label = $"PointCounters/LabelX3"
-@onready var lx4: Label = $"PointCounters/LabelX4"
-@onready var lfullhouse: Label = $"PointCounters/LabelFullHouse"
-@onready var lsmallstraight: Label = $"PointCounters/LabelSmallStraight"
-@onready var lbigstraight: Label = $"PointCounters/LabelBigStraight"
-@onready var lkniffel: Label = $"PointCounters/LabelKniffel"
-@onready var lchance: Label = $"PointCounters/LabelChance"
-@onready var lbottompoints_array : Array = [lx3, lx4, lfullhouse , lsmallstraight, lbigstraight, lkniffel, lchance]
-
-###########################
-#####  change Labels  #####
-###########################
-
-@onready var ld1: Label = $"../Dices/DiceContainer/D1/D1Label"
-@onready var ld2: Label = $"../Dices/DiceContainer/D2/D2Label"
-@onready var ld3: Label = $"../Dices/DiceContainer/D3/D3Label"
-@onready var ld4: Label = $"../Dices/DiceContainer/D4/D4Label"
-@onready var ld5: Label = $"../Dices/DiceContainer/D5/D5Label"
-@onready var ld_array : Array = [ld1, ld2, ld3, ld4, ld5]
-
-@onready var lrolldice: Label = $"../Dices/RollDiceButton/RollDiceLabel"
-
-@onready var lx3d1: Label = $"SelectActionButtom/x3D/D1/Label"
-@onready var lx3d2: Label = $"SelectActionButtom/x3D/D2/Label"
-@onready var lx3d3: Label = $"SelectActionButtom/x3D/D3/Label"
-@onready var lx3d_array : Array = [lx3d1, lx3d2, lx3d3]
-
-@onready var lx4d1: Label = $"SelectActionButtom/x4D/D1/Label"
-@onready var lx4d2: Label = $"SelectActionButtom/x4D/D2/Label"
-@onready var lx4d3: Label = $"SelectActionButtom/x4D/D3/Label"
-@onready var lx4d4: Label = $"SelectActionButtom/x4D/D4/Label"
-@onready var lx4d_array : Array = [lx4d1, lx4d2, lx4d3, lx4d4]
-
-@onready var lkniffeld1: Label = $"SelectActionButtom/KniffelD/D1/Label"
-@onready var lkniffeld2: Label = $"SelectActionButtom/KniffelD/D2/Label"
-@onready var lkniffeld3: Label = $"SelectActionButtom/KniffelD/D3/Label"
-@onready var lkniffeld4: Label = $"SelectActionButtom/KniffelD/D4/Label"
-@onready var lkniffeld5: Label = $"SelectActionButtom/KniffelD/D5/Label"
-@onready var lkniffel_array : Array = [lkniffeld1, lkniffeld2, lkniffeld3, lkniffeld4, lkniffeld5]
-
-@onready var lchanced1: Label = $"SelectActionButtom/ChanceD/D1/Label"
-@onready var lchanced2: Label = $"SelectActionButtom/ChanceD/D2/Label"
-@onready var lchanced3: Label = $"SelectActionButtom/ChanceD/D3/Label"
-@onready var lchanced4: Label = $"SelectActionButtom/ChanceD/D4/Label"
-@onready var lchanced5: Label = $"SelectActionButtom/ChanceD/D5/Label"
-@onready var lchance_array : Array = [lchanced1, lchanced2, lchanced3, lchanced4, lchanced5]
-
-@onready var lbigstraightd1: Label = $"SelectActionButtom/BigStraightD/D1/Label"
-@onready var lbigstraightd2: Label = $"SelectActionButtom/BigStraightD/D2/Label"
-@onready var lbigstraightd3: Label = $"SelectActionButtom/BigStraightD/D3/Label"
-@onready var lbigstraightd4: Label = $"SelectActionButtom/BigStraightD/D4/Label"
-@onready var lbigstraightd5: Label = $"SelectActionButtom/BigStraightD/D5/Label"
-@onready var lbigstraight_array : Array = [lbigstraightd1, lbigstraightd2, lbigstraightd3, lbigstraightd4, lbigstraightd5]
-
-@onready var lsmallstraightd1: Label = $"SelectActionButtom/SmallStraightD/D1/Label"
-@onready var lsmallstraightd2: Label = $"SelectActionButtom/SmallStraightD/D2/Label"
-@onready var lsmallstraightd3: Label = $"SelectActionButtom/SmallStraightD/D3/Label"
-@onready var lsmallstraightd4: Label = $"SelectActionButtom/SmallStraightD/D4/Label"
-@onready var lsmallstraight_array : Array = [lsmallstraightd1, lsmallstraightd2, lsmallstraightd3, lsmallstraightd4]
-
-@onready var lfullhoused1: Label = $"SelectActionButtom/FullHouseD/D1/Label"
-@onready var lfullhoused2: Label = $"SelectActionButtom/FullHouseD/D2/Label"
-@onready var lfullhoused3: Label = $"SelectActionButtom/FullHouseD/D3/Label"
-@onready var lfullhoused4: Label = $"SelectActionButtom/FullHouseD/D4/Label"
-@onready var lfullhoused5: Label = $"SelectActionButtom/FullHouseD/D5/Label"
-@onready var lfullhouse_array : Array = [lfullhoused1, lfullhoused2, lfullhoused3, lfullhoused4, lfullhoused5]
-#endregion
-
-########################################################################
-#####                           Variables                          #####
-########################################################################
-
-###################################
-#####   Variables for Dices   #####
-###################################
-var dice_unlocked = preload("uid://bxywxlj5wl2te")
-
-@onready var dice_anim_array : Array = ["D1", "D2", "D3", "D4", "D5", "D6"]
-#region labels for bottom action animations
+#region labels and sprites for bottom action animations
 #x3d label for anim
 @onready var lx3danim1: Label = $"SelectActionButtom/Sprites_for_anim/x3D_for_anim/D1/Label"
 @onready var lx3danim2: Label = $"SelectActionButtom/Sprites_for_anim/x3D_for_anim/D2/Label"
@@ -264,13 +142,130 @@ var dice_unlocked = preload("uid://bxywxlj5wl2te")
 @onready var chanceanim_array : Array = [chanceanim1, chanceanim2, chanceanim3, chanceanim4, chanceanim5]
 #endregion
 
+####################
+#####  Labels  #####
+####################
+@onready var d1color: Node2D = $"SelectAction/D1"
+@onready var d2color: Node2D = $"SelectAction/D2"
+@onready var d3color: Node2D = $"SelectAction/D3"
+@onready var d4color: Node2D = $"SelectAction/D4"
+@onready var d5color: Node2D = $"SelectAction/D5"
+@onready var d6color: Node2D = $"SelectAction/D6"
+@onready var dcolor_array : Array = [d1color, d2color, d3color, d4color, d5color, d6color]
+
+@onready var sd1: Button = $"../Dices/DiceContainer/D1"
+@onready var sd2: Button = $"../Dices/DiceContainer/D2"
+@onready var sd3: Button = $"../Dices/DiceContainer/D3"
+@onready var sd4: Button = $"../Dices/DiceContainer/D4"
+@onready var sd5: Button = $"../Dices/DiceContainer/D5"
+
+@onready var bkniffel: Button = $"SelectActionButtom/Kniffel"
+@onready var bchance: Button = $"SelectActionButtom/Chance"
+@onready var bx_3: Button = $"SelectActionButtom/x3"
+@onready var bx_4: Button = $"SelectActionButtom/x4"
+@onready var bbig_straigth: Button = $"SelectActionButtom/BigStraigth"
+@onready var bsmall_straigth: Button = $"SelectActionButtom/SmallStraigth"
+@onready var bfull_house: Button = $"SelectActionButtom/FullHouse"
+
+#################################
+#####  Pointcounter Labels  #####
+#################################
+@onready var l1: Label = $"PointCounters/Label1"
+@onready var l2: Label = $"PointCounters/Label2"
+@onready var l3: Label = $"PointCounters/Label3"
+@onready var l4: Label = $"PointCounters/Label4"
+@onready var l5: Label = $"PointCounters/Label5"
+@onready var l6: Label = $"PointCounters/Label6"
+@onready var l_array : Array = [l1, l2, l3, l4, l5, l6]
+
+@onready var lx3: Label = $"PointCounters/LabelX3"
+@onready var lx4: Label = $"PointCounters/LabelX4"
+@onready var lfullhouse: Label = $"PointCounters/LabelFullHouse"
+@onready var lsmallstraight: Label = $"PointCounters/LabelSmallStraight"
+@onready var lbigstraight: Label = $"PointCounters/LabelBigStraight"
+@onready var lkniffel: Label = $"PointCounters/LabelKniffel"
+@onready var lchance: Label = $"PointCounters/LabelChance"
+@onready var lbottompoints_array : Array = [lx3, lx4, lfullhouse , lsmallstraight, lbigstraight, lkniffel, lchance]
+
+#region change label
+###########################
+#####  change Labels  #####
+###########################
+
+@onready var ld1: Label = $"../Dices/DiceContainer/D1/D1Label"
+@onready var ld2: Label = $"../Dices/DiceContainer/D2/D2Label"
+@onready var ld3: Label = $"../Dices/DiceContainer/D3/D3Label"
+@onready var ld4: Label = $"../Dices/DiceContainer/D4/D4Label"
+@onready var ld5: Label = $"../Dices/DiceContainer/D5/D5Label"
+@onready var ld_array : Array = [ld1, ld2, ld3, ld4, ld5]
+
+@onready var lrolldice: Label = $"../Dices/RollDiceButton/RollDiceLabel"
+
+@onready var lx3d1: Label = $"SelectActionButtom/x3D/D1/Label"
+@onready var lx3d2: Label = $"SelectActionButtom/x3D/D2/Label"
+@onready var lx3d3: Label = $"SelectActionButtom/x3D/D3/Label"
+@onready var lx3d_array : Array = [lx3d1, lx3d2, lx3d3]
+
+@onready var lx4d1: Label = $"SelectActionButtom/x4D/D1/Label"
+@onready var lx4d2: Label = $"SelectActionButtom/x4D/D2/Label"
+@onready var lx4d3: Label = $"SelectActionButtom/x4D/D3/Label"
+@onready var lx4d4: Label = $"SelectActionButtom/x4D/D4/Label"
+@onready var lx4d_array : Array = [lx4d1, lx4d2, lx4d3, lx4d4]
+
+@onready var lkniffeld1: Label = $"SelectActionButtom/KniffelD/D1/Label"
+@onready var lkniffeld2: Label = $"SelectActionButtom/KniffelD/D2/Label"
+@onready var lkniffeld3: Label = $"SelectActionButtom/KniffelD/D3/Label"
+@onready var lkniffeld4: Label = $"SelectActionButtom/KniffelD/D4/Label"
+@onready var lkniffeld5: Label = $"SelectActionButtom/KniffelD/D5/Label"
+@onready var lkniffel_array : Array = [lkniffeld1, lkniffeld2, lkniffeld3, lkniffeld4, lkniffeld5]
+
+@onready var lchanced1: Label = $"SelectActionButtom/ChanceD/D1/Label"
+@onready var lchanced2: Label = $"SelectActionButtom/ChanceD/D2/Label"
+@onready var lchanced3: Label = $"SelectActionButtom/ChanceD/D3/Label"
+@onready var lchanced4: Label = $"SelectActionButtom/ChanceD/D4/Label"
+@onready var lchanced5: Label = $"SelectActionButtom/ChanceD/D5/Label"
+@onready var lchance_array : Array = [lchanced1, lchanced2, lchanced3, lchanced4, lchanced5]
+
+@onready var lbigstraightd1: Label = $"SelectActionButtom/BigStraightD/D1/Label"
+@onready var lbigstraightd2: Label = $"SelectActionButtom/BigStraightD/D2/Label"
+@onready var lbigstraightd3: Label = $"SelectActionButtom/BigStraightD/D3/Label"
+@onready var lbigstraightd4: Label = $"SelectActionButtom/BigStraightD/D4/Label"
+@onready var lbigstraightd5: Label = $"SelectActionButtom/BigStraightD/D5/Label"
+@onready var lbigstraight_array : Array = [lbigstraightd1, lbigstraightd2, lbigstraightd3, lbigstraightd4, lbigstraightd5]
+
+@onready var lsmallstraightd1: Label = $"SelectActionButtom/SmallStraightD/D1/Label"
+@onready var lsmallstraightd2: Label = $"SelectActionButtom/SmallStraightD/D2/Label"
+@onready var lsmallstraightd3: Label = $"SelectActionButtom/SmallStraightD/D3/Label"
+@onready var lsmallstraightd4: Label = $"SelectActionButtom/SmallStraightD/D4/Label"
+@onready var lsmallstraight_array : Array = [lsmallstraightd1, lsmallstraightd2, lsmallstraightd3, lsmallstraightd4]
+
+@onready var lfullhoused1: Label = $"SelectActionButtom/FullHouseD/D1/Label"
+@onready var lfullhoused2: Label = $"SelectActionButtom/FullHouseD/D2/Label"
+@onready var lfullhoused3: Label = $"SelectActionButtom/FullHouseD/D3/Label"
+@onready var lfullhoused4: Label = $"SelectActionButtom/FullHouseD/D4/Label"
+@onready var lfullhoused5: Label = $"SelectActionButtom/FullHouseD/D5/Label"
+@onready var lfullhouse_array : Array = [lfullhoused1, lfullhoused2, lfullhoused3, lfullhoused4, lfullhoused5]
+#endregion
+#endregion
+
+#region VARIABLES
+########################################################################
+#####                           Variables                          #####
+########################################################################
+var dice_unlocked = preload("uid://bxywxlj5wl2te")
+
+#for dynamic animations in method for top action calc
+@onready var dice_anim_array : Array = ["D1", "D2", "D3", "D4", "D5", "D6"]
+
+
 var actions = [false, false, false, false, false, false]
 var buttom_actions = [false, false, false, false, false, false, false]
+#endregion
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
+#region --> Functions for calculating and chosing the chosen Action
+#######################################################################
+#####                  funcs for chosing actions                  #####
+#######################################################################
 func topDs(number) -> void:
 	if gamemanager.dices[0] == 0:	return 
 	var dice_counted = number
@@ -476,8 +471,11 @@ func chance() -> void:
 			buttom_actions[6] = true
 			checkButtomActions()
 
+#endregion
 
-
+#######################################################################
+#####                      funcs for the end                      #####
+#######################################################################
 func setAllPoints(point_counter) -> void:
 	lpoints.text = str(point_counter)
 	if !gamemanager.countersfx.has_stream_playback():
@@ -496,6 +494,9 @@ func end() -> void:
 		tweenPoints.tween_method(setAllPoints, 0 , gamemanager.all_points, 1)
 		$"../EndMenu".visible = true
 
+#######################################################################
+#####              funcs for checking bottom actions              #####
+#######################################################################
 func setBottomCounter(bottom_counter) -> void:
 	lbottompoints.text = str(bottom_counter)
 	lbottompoints.rotation -= .5 * get_process_delta_time()
@@ -527,6 +528,9 @@ func checkButtomActions() -> void:
 		gamemanager.done += 1
 		end()
 
+####################################################################
+#####              funcs for checking top actions              #####
+####################################################################
 func setTopCounter(top_counter) -> void:
 	ltoppoints.text = str(top_counter)
 	ltoppoints.rotation -= .5 * get_process_delta_time()
@@ -570,13 +574,15 @@ func checkActions() -> void:
 			gamemanager.done += 1
 			end()
 
+#######################################################################
+#####                 checking points after throw                 #####
+#######################################################################
 func checkTopActionsPoints():
 	var top_die_count_array : Array = [false, false, false, false, false, false] 
 	for i in 6:
 		if actions[i] == true:	return
 		if top_die_count_array[i] == true:return
 		if gamemanager.dices.count((i + 1)) >= 1:
-			print(str(gamemanager.dices.count((i + 1)) * (i+1)))
 			l_array[i].text = str(gamemanager.dices.count(i + 1) * (i+1))
 			top_die_count_array[i] = true
 		else:
@@ -646,7 +652,6 @@ func checkBottomActionsPoints():
 				bottom_die_count_array[i] = true
 			else:
 				lsmallstraight.text = ""
-			print(lsmallstraight.text)
 		if i == 4:
 			var is_big_straight = false
 			var pureDices = []
@@ -659,11 +664,9 @@ func checkBottomActionsPoints():
 					is_big_straight = true
 			if is_big_straight:
 				lbigstraight.text = "40"
-				lsmallstraight.text = "30"
 				bottom_die_count_array[i] = true
 			else:
 				lbigstraight.text = ""
-				lsmallstraight.text = ""
 		if i == 5:
 			if dices.count(dices[0]) == 5:
 				lkniffel.text = "50"
@@ -673,7 +676,6 @@ func checkBottomActionsPoints():
 		if i == 6:
 			lchance.text = str(gamemanager.allDiceCounted())
 			bottom_die_count_array[i] = true
-
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -705,7 +707,9 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("chance"):
 		chance()
 
-
+#######################################################################
+#####                 funcs for selecting actions                 #####
+#######################################################################
 func _on_one_select_button_pressed() -> void:
 	topDs(1)
 
@@ -716,7 +720,7 @@ func _on_three_select_button_pressed() -> void:
 	topDs(3)
 
 func _on_four_select_button_pressed() -> void:
-				topDs(4)
+	topDs(4)
 
 func _on_five_select_button_pressed() -> void:
 	topDs(5)
