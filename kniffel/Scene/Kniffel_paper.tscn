@@ -12,6 +12,7 @@
 [ext_resource type="Shader" uid="uid://bfaeyw31rk5v0" path="res://Shader/Bar.gdshader" id="9_kpud5"]
 [ext_resource type="Texture2D" uid="uid://brg7e7khjbirr" path="res://Art/KniffelProgressbar/over_progressbart.png" id="10_kpud5"]
 [ext_resource type="Texture2D" uid="uid://gkcfwgrpm0bq" path="res://Art/KniffelProgressbar/progressbar.png" id="11_ghiq7"]
+[ext_resource type="AudioStream" uid="uid://hwlwheixoawu" path="res://sfx/explosion.wav" id="13_ghiq7"]
 
 [sub_resource type="Gradient" id="Gradient_sglly"]
 offsets = PackedFloat32Array(1)
@@ -4091,6 +4092,18 @@ tracks/14/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.05),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_jbas8"]
 resource_name = "D2_select"
@@ -5015,6 +5028,18 @@ tracks/14/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.05),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_75buv"]
@@ -6095,6 +6120,18 @@ tracks/89/path = NodePath("SelectAction/D6/D3/CPUParticles2D3:emitting")
 tracks/89/interp = 1
 tracks/89/loop_wrap = true
 tracks/89/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/90/type = "value"
+tracks/90/imported = false
+tracks/90/enabled = true
+tracks/90/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/90/interp = 1
+tracks/90/loop_wrap = true
+tracks/90/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -10700,6 +10737,10 @@ theme_override_fonts/font = ExtResource("2_k1bdu")
 text = "(>= 63 = Bonus: 35)"
 vertical_alignment = 1
 uppercase = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1060802960]
+stream = ExtResource("13_ghiq7")
+volume_db = -5.0
 
 [connection signal="pressed" from="SelectAction/OneSelectButton" to="." method="_on_one_select_button_pressed"]
 [connection signal="pressed" from="SelectAction/TwoSelectButton" to="." method="_on_two_select_button_pressed"]

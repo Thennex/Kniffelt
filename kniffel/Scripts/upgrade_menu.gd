@@ -13,6 +13,9 @@ signal selectedUpgrade(upgrade)
 
 @onready var label_array : Array = [l1, l2, l3]
 
+@onready var deckanimator: AnimationPlayer = $Menu/CardDeck/DeckAnimator
+
+
 var upgrade_selection_array : Array = []
 var shuffle_array : Array = []
 var probability_array : Array = [5, 3, 2]
@@ -30,6 +33,7 @@ func generate_update() -> void:
 		var tmp = chooseUpgrade()
 		label_array[i].text = tmp
 		upgrade_selection_array.append(tmp)
+	playAnim()
 
 
 func chooseUpgrade() -> String:
@@ -49,9 +53,19 @@ func mouseBehavior() -> void:
 		for i in button_array.size():
 			button_array[i].mouse_filter = 2
 
+func playAnim() -> void:
+	deckanimator.play("RESET")
+	await deckanimator.animation_finished
+	deckanimator.play("upgrade3")
+	await deckanimator.animation_finished
+	deckanimator.play("upgrade2")
+	await deckanimator.animation_finished
+	deckanimator.play("upgrade1")
+
+
 func _ready() -> void:
 	generate_update()
-	
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

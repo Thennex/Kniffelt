@@ -17,6 +17,7 @@ signal menuOpened
 @onready var dicesfx: AudioStreamPlayer = $"../diceSFX"
 @onready var dicesfxtimer: Timer = $"../diceSFX/diceSFXTimer"
 @onready var kniffelpaper: Node2D = $"../Kniffel_paper"
+@onready var camera: Camera2D = $"../Camera2D"
 
 
 ########################
@@ -204,7 +205,6 @@ func throwDices() -> void:
 					dices[i - 1] = rng()
 					choseDie(i)
 					await get_tree().create_timer(0.1).timeout
-			await get_tree().create_timer(.3).timeout
 			kniffelpaper.checkTopActionsPoints()
 			kniffelpaper.checkBottomActionsPoints()
 
@@ -482,7 +482,7 @@ func _on_close_game_button_pressed() -> void:
 func _on_dice_sfx_timer_timeout() -> void:
 	var tween = create_tween()
 	tween.tween_property(dicesfx, "volume_db", -60, .3)
-	await get_tree().create_timer(.3).timeout
+	await tween.finished
 	dicesfx.stop()
 
 func _on_extra_dice_sfx_timer_timeout() -> void:

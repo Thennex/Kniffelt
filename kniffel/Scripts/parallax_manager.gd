@@ -7,6 +7,9 @@ extends Parallax2D
 @onready var menu: Control = $"../../Menu"
 @onready var gamemanager: Node2D = $"../../GameManager"
 @onready var selectsfx: AudioStreamPlayer = $"../../SelectSFX"
+@onready var unlockallbutton: Button = $"../../Dices/UnlockAllButton"
+@onready var rolldicebutton: Button = $"../../Dices/RollDiceButton"
+
 
 var SCROLLINGSPEED = Vector2(20, 20)
 
@@ -21,6 +24,10 @@ func _on_timer_timeout() -> void:
 	var tween_overlay = create_tween()
 	var tween_menu_overlay = create_tween()
 	var tween_menu = create_tween()
+	var tween_roll_button = create_tween()
+	var tween_unlock_button = create_tween()
+	tween_roll_button.tween_property(rolldicebutton, "modulate", gamemanager.color_values[color_counter], 0.5)
+	tween_unlock_button.tween_property(unlockallbutton, "modulate", gamemanager.color_values[color_counter], 0.5)
 	tween_overlay.tween_property(overlay, "modulate", gamemanager.color_values[color_counter], 0.5)
 	tween_bg.tween_property(scrollingbg, "modulate", gamemanager.color_values[color_counter], 0.5)
 	tween_menu_overlay.tween_property(kniffelmenuoverlay, "modulate", gamemanager.color_values[color_counter], 0.5)

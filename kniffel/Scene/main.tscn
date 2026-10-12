@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://do8drm26167pt" path="res://Art/dice_fancy_bg_parallax.png" id="4_2ix4a"]
 [ext_resource type="Texture2D" uid="uid://bq71ulhlbfcvv" path="res://Art/Dies/Kniffel_dice.png" id="4_ow1sv"]
 [ext_resource type="Texture2D" uid="uid://branwm2icl82h" path="res://Art/Kniffel_menu_overlayt.png" id="4_p4j74"]
+[ext_resource type="Script" uid="uid://dmwnb1fwwp3s2" path="res://Scripts/camera_manager.gd" id="6_hiice"]
 [ext_resource type="Texture2D" uid="uid://bttaoj4ggv4bu" path="res://Art/Light/2d_lights_and_shadows_neutral_point_light.webp" id="6_jbas8"]
 [ext_resource type="Texture2D" uid="uid://dv58cx4brbeo2" path="res://Art/Dies/Kniffel_dice_locked-export.png" id="9_2ix4a"]
 [ext_resource type="AudioStream" uid="uid://dktef6aonmnow" path="res://sfx/DiceRollSFX.wav" id="9_c2iwn"]
@@ -13,11 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://dyxnamhhh1xd3" path="res://Art/Kniffel_unlock_all.png" id="11_jbas8"]
 [ext_resource type="Script" uid="uid://btlc3tfcwlk6o" path="res://Scripts/parallax_manager.gd" id="11_mxd2g"]
 [ext_resource type="Texture2D" uid="uid://bxywxlj5wl2te" path="res://Art/Dies/Kniffel_Dice_reworked.png" id="11_xw8bv"]
-[ext_resource type="Texture2D" uid="uid://c74hjy5hondmi" path="res://Art/Kniffel_roll_button_reworked.png" id="13_sor6r"]
 [ext_resource type="Texture2D" uid="uid://d1xg18nq28tsg" path="res://Art/Kniffel_Settings_reworked.png" id="14_hiice"]
+[ext_resource type="Texture2D" uid="uid://g8c2agqtpeg2" path="res://Art/Kniffel_roll_button.png" id="14_p4j74"]
 [ext_resource type="Texture2D" uid="uid://bbiavwobojy7j" path="res://Art/Kniffel_overlay.png" id="19_p2wc2"]
 [ext_resource type="AudioStream" uid="uid://bceno77oukerm" path="res://sfx/selectSFX.wav" id="21_hiice"]
 [ext_resource type="AudioStream" uid="uid://cyr24cynd1dhm" path="res://sfx/CounterSFX.wav" id="22_sor6r"]
+[ext_resource type="Texture2D" uid="uid://d4jpe11g4fg3b" path="res://Art/Hand/IMG_0418.PNG" id="23_pqe63"]
 [ext_resource type="PackedScene" uid="uid://d217ru5dtsin" path="res://Scene/end_menu.tscn" id="23_sor6r"]
 [ext_resource type="PackedScene" uid="uid://vwqgwvcgisf1" path="res://Scene/upgrade_menu.tscn" id="24_aam5o"]
 [ext_resource type="PackedScene" uid="uid://d34y3qx4gnqam" path="res://Scene/settings_menu.tscn" id="24_pqe63"]
@@ -38,25 +40,25 @@ texture = ExtResource("9_2ix4a")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7y4ci"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sor6r"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7pd2g"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xw8bv"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_20xnh"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pqe63"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1sfry"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aam5o"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1kov"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nyb1q"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5wpvy"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wa5s4"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dvq1j"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3mach"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_50v0s"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jbas8"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mu7ye"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p4j74"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2oiod"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hiice"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8bkap"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t372l"]
 
@@ -85,6 +87,281 @@ events = [SubResource("InputEventKey_ow1sv")]
 
 [node name="Main" type="Node2D" unique_id=265119633]
 
+[node name="UpgradeMenu" parent="." unique_id=460068291 instance=ExtResource("24_aam5o")]
+z_index = 5
+offset_left = 266.0
+offset_top = -293.0
+offset_right = 266.0
+offset_bottom = -293.0
+
+[node name="ShowControls" type="Control" parent="." unique_id=1435994165]
+z_index = 14
+texture_filter = 6
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="ButtomActions" type="Control" parent="ShowControls" unique_id=1568461066]
+modulate = Color(0.98274976, 6.08854e-06, 1.540184e-06, 1)
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="X3" type="Label" parent="ShowControls/ButtomActions" unique_id=762112713]
+layout_mode = 0
+offset_left = -182.0
+offset_top = -38.0
+offset_right = -142.0
+offset_bottom = -15.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_aam5o")
+text = "(X)"
+
+[node name="X4" type="Label" parent="ShowControls/ButtomActions" unique_id=2090188498]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -38.0
+offset_right = 64.0
+offset_bottom = -15.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_aam5o")
+text = "(Z)"
+
+[node name="FullHouse" type="Label" parent="ShowControls/ButtomActions" unique_id=773598097]
+layout_mode = 0
+offset_left = -219.0
+offset_top = 39.0
+offset_right = -179.0
+offset_bottom = 62.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_aam5o")
+text = "(F)"
+
+[node name="Smallstraight" type="Label" parent="ShowControls/ButtomActions" unique_id=943347851]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 39.0
+offset_right = 64.0
+offset_bottom = 62.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_aam5o")
+text = "(S)"
+
+[node name="Bigstraight" type="Label" parent="ShowControls/ButtomActions" unique_id=15256799]
+layout_mode = 0
+offset_left = -218.0
+offset_top = 116.0
+offset_right = -178.0
+offset_bottom = 139.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_aam5o")
+text = "(B)"
+
+[node name="Kniffel" type="Label" parent="ShowControls/ButtomActions" unique_id=746411607]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 118.0
+offset_right = 50.0
+offset_bottom = 141.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_aam5o")
+text = "(K)"
+
+[node name="Chance" type="Label" parent="ShowControls/ButtomActions" unique_id=1060102730]
+layout_mode = 0
+offset_left = -218.0
+offset_top = 193.0
+offset_right = -178.0
+offset_bottom = 216.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_aam5o")
+text = "(C)"
+
+[node name="Actions" type="Control" parent="ShowControls" unique_id=1002466517]
+modulate = Color(0.88235295, 0, 0.007843138, 1)
+anchors_preset = 0
+offset_left = -72.0
+offset_top = 14.0
+offset_right = -32.0
+offset_bottom = 54.0
+
+[node name="D1" type="Label" parent="ShowControls/Actions" unique_id=1363329423]
+layout_mode = 0
+offset_left = -155.0
+offset_top = -266.0
+offset_right = -115.0
+offset_bottom = -243.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_aam5o")
+text = "(F1)"
+uppercase = true
+
+[node name="D2" type="Label" parent="ShowControls/Actions" unique_id=1005296132]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -268.0
+offset_right = 34.0
+offset_bottom = -245.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_aam5o")
+text = "(F2)"
+uppercase = true
+
+[node name="D3" type="Label" parent="ShowControls/Actions" unique_id=6487183]
+layout_mode = 0
+offset_left = 145.0
+offset_top = -267.0
+offset_right = 185.0
+offset_bottom = -244.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_aam5o")
+text = "(F3)"
+uppercase = true
+
+[node name="D4" type="Label" parent="ShowControls/Actions" unique_id=682662804]
+layout_mode = 0
+offset_left = -155.0
+offset_top = -172.0
+offset_right = -115.0
+offset_bottom = -149.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_aam5o")
+text = "(F4)"
+uppercase = true
+
+[node name="D5" type="Label" parent="ShowControls/Actions" unique_id=1368453252]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -174.0
+offset_right = 34.0
+offset_bottom = -151.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_aam5o")
+text = "(F5)"
+uppercase = true
+
+[node name="D6" type="Label" parent="ShowControls/Actions" unique_id=1070665736]
+layout_mode = 0
+offset_left = 145.0
+offset_top = -173.0
+offset_right = 185.0
+offset_bottom = -150.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_aam5o")
+text = "(F6)"
+uppercase = true
+
+[node name="Dices" type="Control" parent="ShowControls" unique_id=549530795]
+modulate = Color(0.88235295, 0, 0.007843138, 1)
+z_index = 1
+anchors_preset = 0
+offset_left = -19.0
+offset_top = -6.0
+offset_right = 21.0
+offset_bottom = 34.0
+
+[node name="D1" type="Label" parent="ShowControls/Dices" unique_id=59020645]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 136.0
+offset_right = 327.0
+offset_bottom = 159.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_aam5o")
+text = "(1)"
+
+[node name="D2" type="Label" parent="ShowControls/Dices" unique_id=1768117311]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 136.0
+offset_right = 419.0
+offset_bottom = 159.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_aam5o")
+text = "(2)"
+
+[node name="D3" type="Label" parent="ShowControls/Dices" unique_id=1127943411]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 136.0
+offset_right = 511.0
+offset_bottom = 159.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_aam5o")
+text = "(3)"
+
+[node name="D4" type="Label" parent="ShowControls/Dices" unique_id=1922074994]
+layout_mode = 0
+offset_left = 561.0
+offset_top = 136.0
+offset_right = 602.0
+offset_bottom = 159.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_aam5o")
+text = "(4)"
+
+[node name="D5" type="Label" parent="ShowControls/Dices" unique_id=1756674424]
+layout_mode = 0
+offset_left = 653.0
+offset_top = 136.0
+offset_right = 694.0
+offset_bottom = 159.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_aam5o")
+text = "(5)"
+
+[node name="Buttons" type="Control" parent="ShowControls" unique_id=261049701]
+modulate = Color(0.88235295, 0, 0.007843138, 1)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Roll" type="Label" parent="ShowControls/Buttons" unique_id=1982851593]
+layout_mode = 0
+offset_left = 334.0
+offset_top = 56.0
+offset_right = 374.0
+offset_bottom = 90.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_aam5o")
+theme_override_font_sizes/font_size = 23
+text = "(R)"
+uppercase = true
+
+[node name="unlock" type="Label" parent="ShowControls/Buttons" unique_id=1302746943]
+layout_mode = 0
+offset_left = 664.0
+offset_top = 83.0
+offset_right = 704.0
+offset_bottom = 106.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_aam5o")
+text = "(A)"
+uppercase = true
+
 [node name="EndMenu" parent="." unique_id=1207899757 instance=ExtResource("23_sor6r")]
 visible = false
 z_index = 20
@@ -95,7 +372,6 @@ offset_bottom = -252.0
 
 [node name="GameManager" parent="." unique_id=968434056 instance=ExtResource("2_sblpm")]
 visible = true
-max_throw_count = 131
 
 [node name="Kniffel_paper" parent="." unique_id=1824013333 instance=ExtResource("1_f6udf")]
 z_index = 3
@@ -103,6 +379,7 @@ z_index = 3
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1630180019]
 position = Vector2(286, -4)
 zoom = Vector2(1.6, 1.6)
+script = ExtResource("6_hiice")
 
 [node name="PointLight2D" type="PointLight2D" parent="Camera2D" unique_id=142000175]
 scale = Vector2(6.3794045, 4.2194614)
@@ -387,20 +664,19 @@ offset_left = 496.0
 offset_top = 24.0
 offset_right = 555.0
 offset_bottom = 74.0
-theme_override_colors/icon_pressed_color = Color(0.23921569, 0.23921569, 0.23921569, 1)
-theme_override_colors/icon_hover_color = Color(0.30980393, 0.30980393, 0.30980393, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0.79607844)
+theme_override_colors/icon_hover_color = Color(0.49354547, 0.49354553, 0.49354553, 1)
 theme_override_font_sizes/font_size = 15
-theme_override_styles/normal = SubResource("StyleBoxEmpty_sor6r")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_xw8bv")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_pqe63")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_aam5o")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_nyb1q")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7pd2g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_20xnh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1sfry")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_p1kov")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5wpvy")
 text = "
 
 "
 icon = ExtResource("11_jbas8")
 icon_alignment = 1
-expand_icon = true
 
 [node name="UnlockAllLabel" type="Label" parent="Dices/UnlockAllButton" unique_id=923898801]
 texture_filter = 6
@@ -420,14 +696,14 @@ offset_left = 289.0
 offset_top = 24.0
 offset_right = 489.0
 offset_bottom = 74.0
-theme_override_colors/icon_pressed_color = Color(0.23921569, 0.23921569, 0.23921569, 1)
-theme_override_colors/icon_hover_color = Color(0.30980393, 0.30980393, 0.30980393, 1)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_wa5s4")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_3mach")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_jbas8")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_p4j74")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_hiice")
-icon = ExtResource("13_sor6r")
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0.79607844)
+theme_override_colors/icon_hover_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dvq1j")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_50v0s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mu7ye")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2oiod")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8bkap")
+icon = ExtResource("14_p4j74")
 icon_alignment = 1
 
 [node name="RollDiceLabel" type="Label" parent="Dices/RollDiceButton" unique_id=1337289629]
@@ -672,270 +948,6 @@ offset_top = -301.0
 offset_right = 65.0
 offset_bottom = -301.0
 
-[node name="ShowControls" type="Control" parent="." unique_id=1435994165]
-z_index = 5
-texture_filter = 6
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
-
-[node name="ButtomActions" type="Control" parent="ShowControls" unique_id=1568461066]
-modulate = Color(0.98274976, 6.08854e-06, 1.540184e-06, 1)
-anchors_preset = 0
-offset_top = 1.0
-offset_right = 40.0
-offset_bottom = 41.0
-
-[node name="X3" type="Label" parent="ShowControls/ButtomActions" unique_id=762112713]
-layout_mode = 0
-offset_left = -182.0
-offset_top = -38.0
-offset_right = -142.0
-offset_bottom = -15.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_aam5o")
-text = "(X)"
-
-[node name="X4" type="Label" parent="ShowControls/ButtomActions" unique_id=2090188498]
-layout_mode = 0
-offset_left = 24.0
-offset_top = -38.0
-offset_right = 64.0
-offset_bottom = -15.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_aam5o")
-text = "(Z)"
-
-[node name="FullHouse" type="Label" parent="ShowControls/ButtomActions" unique_id=773598097]
-layout_mode = 0
-offset_left = -219.0
-offset_top = 39.0
-offset_right = -179.0
-offset_bottom = 62.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_aam5o")
-text = "(F)"
-
-[node name="Smallstraight" type="Label" parent="ShowControls/ButtomActions" unique_id=943347851]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 39.0
-offset_right = 64.0
-offset_bottom = 62.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_aam5o")
-text = "(S)"
-
-[node name="Bigstraight" type="Label" parent="ShowControls/ButtomActions" unique_id=15256799]
-layout_mode = 0
-offset_left = -218.0
-offset_top = 116.0
-offset_right = -178.0
-offset_bottom = 139.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_aam5o")
-text = "(B)"
-
-[node name="Kniffel" type="Label" parent="ShowControls/ButtomActions" unique_id=746411607]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 118.0
-offset_right = 50.0
-offset_bottom = 141.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_aam5o")
-text = "(K)"
-
-[node name="Chance" type="Label" parent="ShowControls/ButtomActions" unique_id=1060102730]
-layout_mode = 0
-offset_left = -218.0
-offset_top = 193.0
-offset_right = -178.0
-offset_bottom = 216.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_aam5o")
-text = "(C)"
-
-[node name="Actions" type="Control" parent="ShowControls" unique_id=1002466517]
-modulate = Color(0.88235295, 0, 0.007843138, 1)
-anchors_preset = 0
-offset_left = -72.0
-offset_top = 14.0
-offset_right = -32.0
-offset_bottom = 54.0
-
-[node name="D1" type="Label" parent="ShowControls/Actions" unique_id=1363329423]
-layout_mode = 0
-offset_left = -155.0
-offset_top = -266.0
-offset_right = -115.0
-offset_bottom = -243.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_aam5o")
-text = "(F1)"
-uppercase = true
-
-[node name="D2" type="Label" parent="ShowControls/Actions" unique_id=1005296132]
-layout_mode = 0
-offset_left = -6.0
-offset_top = -268.0
-offset_right = 34.0
-offset_bottom = -245.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_aam5o")
-text = "(F2)"
-uppercase = true
-
-[node name="D3" type="Label" parent="ShowControls/Actions" unique_id=6487183]
-layout_mode = 0
-offset_left = 145.0
-offset_top = -267.0
-offset_right = 185.0
-offset_bottom = -244.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_aam5o")
-text = "(F3)"
-uppercase = true
-
-[node name="D4" type="Label" parent="ShowControls/Actions" unique_id=682662804]
-layout_mode = 0
-offset_left = -155.0
-offset_top = -172.0
-offset_right = -115.0
-offset_bottom = -149.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_aam5o")
-text = "(F4)"
-uppercase = true
-
-[node name="D5" type="Label" parent="ShowControls/Actions" unique_id=1368453252]
-layout_mode = 0
-offset_left = -6.0
-offset_top = -174.0
-offset_right = 34.0
-offset_bottom = -151.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_aam5o")
-text = "(F5)"
-uppercase = true
-
-[node name="D6" type="Label" parent="ShowControls/Actions" unique_id=1070665736]
-layout_mode = 0
-offset_left = 145.0
-offset_top = -173.0
-offset_right = 185.0
-offset_bottom = -150.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_aam5o")
-text = "(F6)"
-uppercase = true
-
-[node name="Dices" type="Control" parent="ShowControls" unique_id=549530795]
-modulate = Color(0.88235295, 0, 0.007843138, 1)
-z_index = 1
-anchors_preset = 0
-offset_left = -19.0
-offset_top = -6.0
-offset_right = 21.0
-offset_bottom = 34.0
-
-[node name="D1" type="Label" parent="ShowControls/Dices" unique_id=59020645]
-layout_mode = 0
-offset_left = 286.0
-offset_top = 136.0
-offset_right = 327.0
-offset_bottom = 159.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_aam5o")
-text = "(1)"
-
-[node name="D2" type="Label" parent="ShowControls/Dices" unique_id=1768117311]
-layout_mode = 0
-offset_left = 378.0
-offset_top = 136.0
-offset_right = 419.0
-offset_bottom = 159.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_aam5o")
-text = "(2)"
-
-[node name="D3" type="Label" parent="ShowControls/Dices" unique_id=1127943411]
-layout_mode = 0
-offset_left = 470.0
-offset_top = 136.0
-offset_right = 511.0
-offset_bottom = 159.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_aam5o")
-text = "(3)"
-
-[node name="D4" type="Label" parent="ShowControls/Dices" unique_id=1922074994]
-layout_mode = 0
-offset_left = 561.0
-offset_top = 136.0
-offset_right = 602.0
-offset_bottom = 159.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_aam5o")
-text = "(4)"
-
-[node name="D5" type="Label" parent="ShowControls/Dices" unique_id=1756674424]
-layout_mode = 0
-offset_left = 653.0
-offset_top = 136.0
-offset_right = 694.0
-offset_bottom = 159.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_aam5o")
-text = "(5)"
-
-[node name="Buttons" type="Control" parent="ShowControls" unique_id=261049701]
-modulate = Color(0.88235295, 0, 0.007843138, 1)
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Roll" type="Label" parent="ShowControls/Buttons" unique_id=1982851593]
-layout_mode = 0
-offset_left = 334.0
-offset_top = 56.0
-offset_right = 374.0
-offset_bottom = 90.0
-theme_override_fonts/font = ExtResource("10_aam5o")
-theme_override_font_sizes/font_size = 23
-text = "(R)"
-uppercase = true
-
-[node name="unlock" type="Label" parent="ShowControls/Buttons" unique_id=1302746943]
-layout_mode = 0
-offset_left = 664.0
-offset_top = 83.0
-offset_right = 704.0
-offset_bottom = 106.0
-theme_override_fonts/font = ExtResource("10_aam5o")
-text = "(A)"
-uppercase = true
-
 [node name="diceSFX" type="AudioStreamPlayer" parent="." unique_id=715830153]
 stream = ExtResource("9_c2iwn")
 pitch_scale = 0.41
@@ -969,14 +981,13 @@ process_callback = 0
 wait_time = 0.7
 one_shot = true
 
-[node name="UpgradeMenu" parent="." unique_id=460068291 instance=ExtResource("24_aam5o")]
-visible = false
+[node name="Img0418" type="Sprite2D" parent="." unique_id=1061252274]
 z_index = 1
-offset_left = 266.0
-offset_top = -293.0
-offset_right = 266.0
-offset_bottom = -293.0
+position = Vector2(788, 195)
+scale = Vector2(2.89182, 2.89182)
+texture = ExtResource("23_pqe63")
 
+[connection signal="selectedUpgrade" from="UpgradeMenu" to="GameManager" method="_on_upgrade_menu_selected_upgrade"]
 [connection signal="menuClosed" from="GameManager" to="UpgradeMenu" method="_on_game_manager_menu_closed"]
 [connection signal="menuOpened" from="GameManager" to="UpgradeMenu" method="_on_game_manager_menu_opened"]
 [connection signal="timeout" from="Design/Timer" to="Design/Parallax2D" method="_on_timer_timeout"]
@@ -1000,4 +1011,3 @@ offset_bottom = -293.0
 [connection signal="timeout" from="diceSFX/diceSFXTimer" to="GameManager" method="_on_dice_sfx_timer_timeout"]
 [connection signal="timeout" from="ExtraDiceSFX/extraDiceSFXTimer" to="GameManager" method="_on_extra_dice_sfx_timer_timeout"]
 [connection signal="timeout" from="canThrowTimer" to="GameManager" method="_on_can_throw_timer_timeout"]
-[connection signal="selectedUpgrade" from="UpgradeMenu" to="GameManager" method="_on_upgrade_menu_selected_upgrade"]

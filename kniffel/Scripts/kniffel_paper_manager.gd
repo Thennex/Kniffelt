@@ -266,8 +266,6 @@ var buttom_actions = [false, false, false, false, false, false, false]
 #####                  funcs for chosing actions                  #####
 #######################################################################
 func topDs(number) -> void:
-	if can_select == false:	return
-	can_select = false
 	if gamemanager.dices[0] == 0:	return 
 	var dice_counted = number
 	if actions[dice_counted - 1] == true:	return 
@@ -282,8 +280,6 @@ func topDs(number) -> void:
 	animtoplayer.play(dice_anim_array[dice_counted - 1] + "_select")
 	gamemanager.selectsfx.play()
 	checkActions()
-	await animtoplayer.animation_finished
-	can_select = true
 
 func x3() -> void:
 	if can_select == false:	return
@@ -571,7 +567,6 @@ func setTopCounter(top_counter) -> void:
 
 func set_BarValue(value):
 	$KniffelBonusMeter/TextureProgressBar.value = value
-	
 
 func checkActions() -> void:
 	gamemanager.resetDice()
