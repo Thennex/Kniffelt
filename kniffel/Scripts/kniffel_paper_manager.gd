@@ -9,8 +9,6 @@ extends Node2D
 ####################
 #####  Points  #####
 ####################
-@onready var pointssprite2d: Sprite2D = $PointCounters/PointsSprite2D
-@onready var lpoints: Label = $PointCounters/LabelPoints
 @onready var ltoppoints: Label = $KniffelBonusMeter/KniffelTopCounter
 @onready var lbottompoints: Label = $PointCounters/LabelBottomPoints
 
@@ -257,6 +255,7 @@ var dice_unlocked = preload("uid://bxywxlj5wl2te")
 #for dynamic animations in method for top action calc
 @onready var dice_anim_array : Array = ["D1", "D2", "D3", "D4", "D5", "D6"]
 
+var can_select = true
 
 var actions = [false, false, false, false, false, false]
 var buttom_actions = [false, false, false, false, false, false, false]
@@ -267,6 +266,8 @@ var buttom_actions = [false, false, false, false, false, false, false]
 #####                  funcs for chosing actions                  #####
 #######################################################################
 func topDs(number) -> void:
+	if can_select == false:	return
+	can_select = false
 	if gamemanager.dices[0] == 0:	return 
 	var dice_counted = number
 	if actions[dice_counted - 1] == true:	return 
@@ -281,8 +282,11 @@ func topDs(number) -> void:
 	animtoplayer.play(dice_anim_array[dice_counted - 1] + "_select")
 	gamemanager.selectsfx.play()
 	checkActions()
+	await animtoplayer.animation_finished
+	can_select = true
 
 func x3() -> void:
+	if can_select == false:	return
 	if gamemanager.dices[0] != 0:
 		if buttom_actions[0] == false: 
 			var x3dDice = 0
@@ -311,8 +315,11 @@ func x3() -> void:
 			gamemanager.selectsfx.play()
 			buttom_actions[0] = true
 			checkButtomActions()
+			await animbottomplayer.animation_finished
+			can_select = true
 
 func x4() -> void:
+	if can_select == false:	return
 	if gamemanager.dices[0] != 0:
 		if buttom_actions[1] == false: 
 			gamemanager.dices.sort()
@@ -341,8 +348,11 @@ func x4() -> void:
 			animbottomplayer.play("X4_select")
 			buttom_actions[1] = true
 			checkButtomActions()
+			await animbottomplayer.animation_finished
+			can_select = true
 
 func full_house() -> void:
+	if can_select == false:	return
 	if gamemanager.dices[0] != 0:
 		if buttom_actions[2] == false:
 			gamemanager.dices.sort()
@@ -370,8 +380,11 @@ func full_house() -> void:
 			animbottomplayer.play("Full_House_select")
 			buttom_actions[2] = true
 			checkButtomActions()
+			await animbottomplayer.animation_finished
+			can_select = true
 
 func small_straight() -> void:
+	if can_select == false:	return
 	if gamemanager.dices[0] != 0:
 		if buttom_actions[3] == false:
 			var is_small_straight = false
@@ -406,8 +419,11 @@ func small_straight() -> void:
 			animbottomplayer.play("small_straight_select")
 			buttom_actions[3] = true
 			checkButtomActions()
+			await animbottomplayer.animation_finished
+			can_select = true
 
 func big_straight() -> void:
+	if can_select == false:	return
 	if gamemanager.dices[0] != 0:
 		if buttom_actions[4] == false:
 			var is_big_straight = false
@@ -436,8 +452,11 @@ func big_straight() -> void:
 			animbottomplayer.play("big_straight_select")
 			buttom_actions[4] = true
 			checkButtomActions()
+			await animbottomplayer.animation_finished
+			can_select = true
 
 func kniffel() -> void:
+	if can_select == false:	return
 	if gamemanager.dices[0] != 0:
 		if buttom_actions[5] == false:
 			if gamemanager.dices.count(gamemanager.dices[0]) == 5:
@@ -455,8 +474,11 @@ func kniffel() -> void:
 			animbottomplayer.play("kniffel_select")
 			buttom_actions[5] = true
 			checkButtomActions()
+			await animbottomplayer.animation_finished
+			can_select = true
 
 func chance() -> void:
+	if can_select == false:	return
 	if gamemanager.dices[0] != 0:
 		if buttom_actions[6] == false:
 			var all_dice_value = gamemanager.allDiceCounted()
@@ -470,29 +492,31 @@ func chance() -> void:
 				chanceanim_array[i - 1].modulate = gamemanager.color_values[gamemanager.dices[i - 1] - 1]
 			buttom_actions[6] = true
 			checkButtomActions()
-
+			await animbottomplayer.animation_finished
+			can_select = true
 #endregion
-
 #######################################################################
 #####                      funcs for the end                      #####
 #######################################################################
 func setAllPoints(point_counter) -> void:
-	lpoints.text = str(point_counter)
+	$"../EndMenu/Control/pointLabel".text = str(point_counter)
+	$"../EndMenu/Control/pointLabel".rotation -= .25 * get_process_delta_time()
+	$"../EndMenu/Control/pointLabel/AnimationPlayer".play("allPoints_pop")
 	if !gamemanager.countersfx.has_stream_playback():
 		gamemanager.countersfx.play()
 		gamemanager.selectsfx.play()
 		gamemanager.countersfx.pitch_scale += .05
-		$"PointCounters/LabelPoints/AnimationPlayer".play("label_points_pop")
 
 func end() -> void:
 	if gamemanager.done == 2:
+		gamemanager.end()
 		gamemanager.all_points += gamemanager.top_points_counter
 		gamemanager.all_points += gamemanager.bottom_points_counter
-		pointssprite2d.visible = true
-		lpoints.visible = true
+		$"../EndMenu".visible = true
 		var tweenPoints = create_tween()
 		tweenPoints.tween_method(setAllPoints, 0 , gamemanager.all_points, 1)
-		$"../EndMenu".visible = true
+		await tweenPoints.finished
+		$"../EndMenu/Control/pointLabel".rotation = 0
 
 #######################################################################
 #####              funcs for checking bottom actions              #####
@@ -503,10 +527,10 @@ func setBottomCounter(bottom_counter) -> void:
 	$"PointCounters/LabelBottomPoints/AnimationPlayer".play("Bottom_counter_pop")
 	if !gamemanager.countersfx.has_stream_playback():
 		gamemanager.countersfx.play()
-		gamemanager.selectsfx.volume_db = 7
 		$"PointCounters/LabelBottomPoints/CPUParticles2D".emitting = true
-		gamemanager.selectsfx.play()
 		gamemanager.countersfx.pitch_scale += .025
+		gamemanager.selectsfx.volume_db = 7
+		gamemanager.selectsfx.play()
 		await gamemanager.selectsfx.finished
 		gamemanager.selectsfx.volume_db = 0
 
@@ -536,21 +560,24 @@ func setTopCounter(top_counter) -> void:
 	ltoppoints.rotation -= .5 * get_process_delta_time()
 	if !gamemanager.countersfx.has_stream_playback():
 		gamemanager.countersfx.play()
-		gamemanager.selectsfx.play()
 		$KniffelBonusMeter/KniffelTopCounter/CPUParticles2D.emitting = true
 		$KniffelBonusMeter/KniffelTopCounter/AnimationPlayer.play("pop")
 		gamemanager.countersfx.pitch_scale += .05
+		gamemanager.selectsfx.volume_db = 7
+		gamemanager.selectsfx.play()
 		await gamemanager.selectsfx.finished
 		gamemanager.selectsfx.volume_db = 0
 
+
 func set_BarValue(value):
 	$KniffelBonusMeter/TextureProgressBar.value = value
+	
 
 func checkActions() -> void:
 	gamemanager.resetDice()
 	gamemanager.countersfx.pitch_scale = 1
 	var tween = create_tween()
-	$KniffelBonusMeter/TextureProgressBarFast.value = gamemanager.top_points_counter
+	$KniffelBonusMeter/TextureProgressBarFast.value = gamemanager.top_points_counter + 0.2
 	tween.tween_method(set_BarValue, int(ltoppoints.text), gamemanager.top_points_counter, 0.4,).set_trans(Tween.TRANS_EXPO)
 	if int(ltoppoints.text) != gamemanager.top_points_counter:
 		var tween1 = create_tween()
@@ -650,8 +677,6 @@ func checkBottomActionsPoints():
 			if is_small_straight:
 				lsmallstraight.text = "30"
 				bottom_die_count_array[i] = true
-			else:
-				lsmallstraight.text = ""
 		if i == 4:
 			var is_big_straight = false
 			var pureDices = []
@@ -665,8 +690,6 @@ func checkBottomActionsPoints():
 			if is_big_straight:
 				lbigstraight.text = "40"
 				bottom_die_count_array[i] = true
-			else:
-				lbigstraight.text = ""
 		if i == 5:
 			if dices.count(dices[0]) == 5:
 				lkniffel.text = "50"

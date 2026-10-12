@@ -110,6 +110,7 @@ var pickedUpgrades : Array = []
 #####   Variables for End   #####
 #################################
 var done = 0
+var number_counter_array : Array = [0, 0, 0, 0, 0, 0]
 
 ####################################
 #####   Variables for Design   #####
@@ -197,6 +198,7 @@ func throwDices() -> void:
 					else:
 						dicesfx.pitch_scale = 1.0 + (sfxPitch/5000.0)
 					dicesfx.play()
+					selectsfx.play()
 					$"../ExtraDiceSFX/extraDiceSFXTimer".start()
 					dicesfxtimer.start()
 					dices[i - 1] = rng()
@@ -247,7 +249,9 @@ func choseDie(die) -> void:
 	tween.tween_method(setd_array[die].call, delayDice(die), dices[die - 1], duration).set_trans(Tween.TRANS_QUAD)
 
 func rng() -> int:
-	return(RandomNumberGenerator.new().randi_range(1,6))
+	var number = RandomNumberGenerator.new().randi_range(1,6)
+	number_counter_array[number - 1] += 1
+	return(number)
 
 func resetDice() -> void:
 	selectsfx.play()
@@ -290,13 +294,19 @@ func areAllLocked() -> bool:
 #####    End Methods    #####
 #############################
 func reset() -> void:
+	number_counter_array = [0, 0, 0, 0, 0, 0]
 	all_points = 0
 	top_points_counter = 0
 	bottom_points_counter = 0
+	$"../Dices".visible = true
+	$"../ShowControls".visible = true
 	has_bonus = false
 	done = 0
 
-
+func end():
+	$"../Dices".visible = false
+	$"../ShowControls".visible = false
+	end_menu.changeStatlabel()
 
 
 #################################

@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cgltdebcdacht" path="res://Art/Dies/Kniffel_Dice_locked_kniffelpaper.png" id="3_ro3rl"]
 [ext_resource type="Texture2D" uid="uid://bxywxlj5wl2te" path="res://Art/Dies/Kniffel_Dice_reworked.png" id="4_slblq"]
 [ext_resource type="FontFile" uid="uid://bhj1cnph3kov7" path="res://Fonts/Delta Block/TrueType (.ttf)/DeltaBlock-Regular.ttf" id="5_m343o"]
-[ext_resource type="Texture2D" uid="uid://bq71ulhlbfcvv" path="res://Art/Dies/Kniffel_dice.png" id="6_c6ntc"]
 [ext_resource type="Texture2D" uid="uid://rpj2d6f82ruq" path="res://Art/Kniffel_Settings.png" id="7_kpud5"]
 [ext_resource type="Texture2D" uid="uid://ddlmrg747nofb" path="res://Art/KniffelProgressbar/under_progressbart.png" id="9_c6ntc"]
 [ext_resource type="Shader" uid="uid://d2yh0qwbbup7q" path="res://Shader/overlay.gdshader" id="9_ghiq7"]
@@ -3807,43 +3806,6 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2d50m"]
 
-[sub_resource type="Animation" id="Animation_xw8bv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4.3395047, 4.3395047)]
-}
-
-[sub_resource type="Animation" id="Animation_wimqa"]
-resource_name = "label_points_pop"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.10000001, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(4.3395047, 4.3395047), Vector2(6.115, 6.115), Vector2(4.3395047, 4.3395047)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jdn2j"]
-_data = {
-&"RESET": SubResource("Animation_xw8bv"),
-&"label_points_pop": SubResource("Animation_wimqa")
-}
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c3yqc"]
 shader = ExtResource("9_kpud5")
 shader_parameter/line_width = 0.2
@@ -6194,6 +6156,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../TextureProgressBar:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_8bkap"]
 resource_name = "pop"
@@ -6209,6 +6195,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.07),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("../TextureProgressBar:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.07),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y2jsj"]
@@ -6233,10 +6243,11 @@ texture = SubResource("GradientTexture1D_u8wue")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1619690147]
 modulate = Color(0.36862746, 0.36862746, 0.36862746, 1)
+z_index = 1
 texture = ExtResource("1_sglly")
 
 [node name="SelectAction" type="Control" parent="." unique_id=1546199705]
-z_index = 1
+z_index = 2
 layout_mode = 3
 anchors_preset = 0
 offset_left = -59.5
@@ -7462,6 +7473,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_onsfn")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_y2jsj")
 
 [node name="SelectActionButtom" type="Control" parent="." unique_id=1724916808]
+z_index = 2
 layout_mode = 3
 anchors_preset = 0
 offset_left = -0.5
@@ -10416,6 +10428,7 @@ wait_time = 2.0
 autostart = true
 
 [node name="PointCounters" type="Control" parent="." unique_id=1202590691]
+z_index = 2
 texture_filter = 6
 layout_mode = 3
 anchors_preset = 0
@@ -10541,33 +10554,6 @@ offset_bottom = 213.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 
-[node name="LabelPoints" type="Label" parent="PointCounters" unique_id=464411496]
-visible = false
-z_index = 19
-layout_mode = 0
-offset_left = 483.5424
-offset_top = -145.05084
-offset_right = 529.6824
-offset_bottom = -122.05084
-scale = Vector2(4.3395047, 4.3395047)
-pivot_offset = Vector2(23.07, 11)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_k1bdu")
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PointCounters/LabelPoints" unique_id=1045198028]
-libraries/ = SubResource("AnimationLibrary_jdn2j")
-speed_scale = 1.5
-
-[node name="PointsSprite2D" type="Sprite2D" parent="PointCounters" unique_id=763611465]
-visible = false
-texture_filter = 5
-position = Vector2(532.5424, -158.05084)
-scale = Vector2(4.357967, 4.357967)
-texture = ExtResource("6_c6ntc")
-
 [node name="LabelBottomPointsSprite" type="Sprite2D" parent="PointCounters" unique_id=1202557711]
 material = SubResource("ShaderMaterial_c3yqc")
 position = Vector2(183.5, 231)
@@ -10654,6 +10640,7 @@ offset_bottom = -52.057304
 scale = Vector2(1.1126593, 1.3358849)
 mouse_filter = 2
 max_value = 63.0
+step = 0.01
 allow_greater = true
 texture_under = ExtResource("9_c6ntc")
 texture_over = ExtResource("10_kpud5")
