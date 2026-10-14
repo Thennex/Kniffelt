@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://deau8rqvcmk10"
-path="res://.godot/imported/ExtraDiceSFX.wav-37ed755d9f31fbe16afb4a0015ae49d5.sample"
+uid="uid://cyr24cynd1dhm"
+path="res://.godot/imported/CounterSFX.wav-7de878e327fb51b6d4ecf18ac86bf526.sample"
 
 [deps]
 
-source_file="res://sfx/ExtraDiceSFX.wav"
-dest_files=["res://.godot/imported/ExtraDiceSFX.wav-37ed755d9f31fbe16afb4a0015ae49d5.sample"]
+source_file="res://SFX/CounterSFX.wav"
+dest_files=["res://.godot/imported/CounterSFX.wav-7de878e327fb51b6d4ecf18ac86bf526.sample"]
 
 [params]
 

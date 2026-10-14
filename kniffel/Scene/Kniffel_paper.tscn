@@ -12,7 +12,7 @@
 [ext_resource type="Shader" uid="uid://bfaeyw31rk5v0" path="res://Shader/Bar.gdshader" id="9_kpud5"]
 [ext_resource type="Texture2D" uid="uid://brg7e7khjbirr" path="res://Art/KniffelProgressbar/over_progressbart.png" id="10_kpud5"]
 [ext_resource type="Texture2D" uid="uid://gkcfwgrpm0bq" path="res://Art/KniffelProgressbar/progressbar.png" id="11_ghiq7"]
-[ext_resource type="AudioStream" uid="uid://hwlwheixoawu" path="res://sfx/explosion.wav" id="13_ghiq7"]
+[ext_resource type="AudioStream" uid="uid://hwlwheixoawu" path="res://SFX/explosion.wav" id="13_ghiq7"]
 
 [sub_resource type="Gradient" id="Gradient_sglly"]
 offsets = PackedFloat32Array(1)
@@ -6279,7 +6279,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.033333335, 0.07),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+"values": [Vector2(1, 1), Vector2(2, 2), Vector2(1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -6350,7 +6350,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="D1Label1" type="Label" parent="SelectAction/DLabelsBackground/D1Labels" unique_id=1770002415]
-modulate = Color(1, 1, 0, 1)
 texture_filter = 6
 layout_mode = 0
 offset_left = -153.5
@@ -6360,6 +6359,7 @@ offset_bottom = -191.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(0.5, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1.2360035, 1.2360035, 1.2360035, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 theme_override_font_sizes/font_size = 27
 text = "1"
@@ -6368,7 +6368,6 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="D1Label2" type="Label" parent="SelectAction/DLabelsBackground/D1Labels" unique_id=182091180]
-modulate = Color(1, 1, 0, 1)
 texture_filter = 6
 layout_mode = 0
 offset_left = -118.5
@@ -6378,6 +6377,7 @@ offset_bottom = -191.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(0.5, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 theme_override_font_sizes/font_size = 27
 text = "1"
@@ -6386,7 +6386,6 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="D1Label3" type="Label" parent="SelectAction/DLabelsBackground/D1Labels" unique_id=395445432]
-modulate = Color(1, 1, 0, 1)
 texture_filter = 6
 layout_mode = 0
 offset_left = -81.5
@@ -6396,6 +6395,7 @@ offset_bottom = -191.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(0.5, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 theme_override_font_sizes/font_size = 27
 text = "1"
@@ -6410,7 +6410,6 @@ offset_right = 193.0
 offset_bottom = 40.0
 
 [node name="D2Label1" type="Label" parent="SelectAction/DLabelsBackground/D2Labels" unique_id=194148705]
-modulate = Color(1, 1, 0, 1)
 texture_filter = 6
 layout_mode = 0
 offset_left = -153.5
@@ -6420,6 +6419,7 @@ offset_bottom = -191.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(0.5, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 theme_override_font_sizes/font_size = 27
 text = "2"
@@ -6428,7 +6428,6 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="D2Label2" type="Label" parent="SelectAction/DLabelsBackground/D2Labels" unique_id=1940378446]
-modulate = Color(1, 1, 0, 1)
 texture_filter = 6
 layout_mode = 0
 offset_left = -118.5
@@ -6438,6 +6437,7 @@ offset_bottom = -191.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(0.5, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 theme_override_font_sizes/font_size = 27
 text = "2"
@@ -6446,7 +6446,6 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="D2Label3" type="Label" parent="SelectAction/DLabelsBackground/D2Labels" unique_id=312821907]
-modulate = Color(1, 1, 0, 1)
 texture_filter = 6
 layout_mode = 0
 offset_left = -81.5
@@ -6456,6 +6455,7 @@ offset_bottom = -191.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(0.5, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 theme_override_font_sizes/font_size = 27
 text = "2"
@@ -6470,7 +6470,6 @@ offset_right = 344.0
 offset_bottom = 40.0
 
 [node name="D3Label1" type="Label" parent="SelectAction/DLabelsBackground/D3Labels" unique_id=1386615029]
-modulate = Color(1, 1, 0, 1)
 texture_filter = 6
 layout_mode = 0
 offset_left = -153.5
@@ -6480,6 +6479,7 @@ offset_bottom = -191.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(0.5, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 theme_override_font_sizes/font_size = 27
 text = "3"
@@ -6488,7 +6488,6 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="D3Label2" type="Label" parent="SelectAction/DLabelsBackground/D3Labels" unique_id=720121087]
-modulate = Color(1, 1, 0, 1)
 texture_filter = 6
 layout_mode = 0
 offset_left = -118.5
@@ -6498,6 +6497,7 @@ offset_bottom = -191.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(0.5, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 theme_override_font_sizes/font_size = 27
 text = "3"
@@ -6506,7 +6506,6 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="D3Label3" type="Label" parent="SelectAction/DLabelsBackground/D3Labels" unique_id=1279199294]
-modulate = Color(1, 1, 0, 1)
 texture_filter = 6
 layout_mode = 0
 offset_left = -81.5
@@ -6516,6 +6515,7 @@ offset_bottom = -191.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(0.5, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 theme_override_font_sizes/font_size = 27
 text = "3"
@@ -6530,7 +6530,6 @@ offset_right = 40.0
 offset_bottom = 135.0
 
 [node name="D4Label1" type="Label" parent="SelectAction/DLabelsBackground/D4Labels" unique_id=820372631]
-modulate = Color(1, 1, 0, 1)
 texture_filter = 6
 layout_mode = 0
 offset_left = -153.5
@@ -6540,6 +6539,7 @@ offset_bottom = -191.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(0.5, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 theme_override_font_sizes/font_size = 27
 text = "4"
@@ -6548,7 +6548,6 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="D4Label2" type="Label" parent="SelectAction/DLabelsBackground/D4Labels" unique_id=575319803]
-modulate = Color(1, 1, 0, 1)
 texture_filter = 6
 layout_mode = 0
 offset_left = -118.5
@@ -6558,6 +6557,7 @@ offset_bottom = -191.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(0.5, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 theme_override_font_sizes/font_size = 27
 text = "4"
@@ -6566,7 +6566,6 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="D4Label3" type="Label" parent="SelectAction/DLabelsBackground/D4Labels" unique_id=924917870]
-modulate = Color(1, 1, 0, 1)
 texture_filter = 6
 layout_mode = 0
 offset_left = -81.5
@@ -6576,6 +6575,7 @@ offset_bottom = -191.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(0.5, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 theme_override_font_sizes/font_size = 27
 text = "4"
@@ -6591,7 +6591,6 @@ offset_right = 193.0
 offset_bottom = 135.0
 
 [node name="D5Label1" type="Label" parent="SelectAction/DLabelsBackground/D5Labels" unique_id=1553597108]
-modulate = Color(1, 1, 0, 1)
 texture_filter = 6
 layout_mode = 0
 offset_left = -153.5
@@ -6601,6 +6600,7 @@ offset_bottom = -191.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(0.5, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 theme_override_font_sizes/font_size = 27
 text = "5"
@@ -6609,7 +6609,6 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="D5Label2" type="Label" parent="SelectAction/DLabelsBackground/D5Labels" unique_id=2112977144]
-modulate = Color(1, 1, 0, 1)
 texture_filter = 6
 layout_mode = 0
 offset_left = -118.5
@@ -6619,6 +6618,7 @@ offset_bottom = -191.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(0.5, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 theme_override_font_sizes/font_size = 27
 text = "5"
@@ -6627,7 +6627,6 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="D5Label3" type="Label" parent="SelectAction/DLabelsBackground/D5Labels" unique_id=1863903759]
-modulate = Color(1, 1, 0, 1)
 texture_filter = 6
 layout_mode = 0
 offset_left = -81.5
@@ -6637,6 +6636,7 @@ offset_bottom = -191.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(0.5, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 theme_override_font_sizes/font_size = 27
 text = "5"
@@ -6652,7 +6652,6 @@ offset_right = 344.0
 offset_bottom = 135.0
 
 [node name="D6Label1" type="Label" parent="SelectAction/DLabelsBackground/D6Labels" unique_id=822404987]
-modulate = Color(1, 1, 0, 1)
 texture_filter = 6
 layout_mode = 0
 offset_left = -153.5
@@ -6662,6 +6661,7 @@ offset_bottom = -191.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(0.5, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 theme_override_font_sizes/font_size = 27
 text = "6"
@@ -6670,7 +6670,6 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="D6Label2" type="Label" parent="SelectAction/DLabelsBackground/D6Labels" unique_id=900435071]
-modulate = Color(1, 1, 0, 1)
 texture_filter = 6
 layout_mode = 0
 offset_left = -118.5
@@ -6680,6 +6679,7 @@ offset_bottom = -191.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(0.5, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 theme_override_font_sizes/font_size = 27
 text = "6"
@@ -6688,7 +6688,6 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="D6Label3" type="Label" parent="SelectAction/DLabelsBackground/D6Labels" unique_id=587404511]
-modulate = Color(1, 1, 0, 1)
 texture_filter = 6
 layout_mode = 0
 offset_left = -81.5
@@ -6698,6 +6697,7 @@ offset_bottom = -191.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(0.5, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 theme_override_font_sizes/font_size = 27
 text = "6"
@@ -7586,28 +7586,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/x3D/D1" unique_id=54664041]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D2" type="Sprite2D" parent="SelectActionButtom/x3D" unique_id=852187934]
 position = Vector2(-112.5, -1)
@@ -7627,28 +7611,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/x3D/D2" unique_id=586095074]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D3" type="Sprite2D" parent="SelectActionButtom/x3D" unique_id=1746919148]
 position = Vector2(-76.5, -1)
@@ -7668,28 +7636,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/x3D/D3" unique_id=1851535337]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="x4D" type="Node2D" parent="SelectActionButtom" unique_id=1066957357]
 modulate = Color(0.48178947, 0.48178947, 0.48178947, 1)
@@ -7712,28 +7664,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/x4D/D1" unique_id=1979712123]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D2" type="Sprite2D" parent="SelectActionButtom/x4D" unique_id=1590965145]
 position = Vector2(94, -1)
@@ -7753,28 +7689,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/x4D/D2" unique_id=975511278]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D3" type="Sprite2D" parent="SelectActionButtom/x4D" unique_id=2036318409]
 position = Vector2(130, -1)
@@ -7794,28 +7714,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/x4D/D3" unique_id=1916714562]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D4" type="Sprite2D" parent="SelectActionButtom/x4D" unique_id=1837583007]
 position = Vector2(166.5, -1)
@@ -7836,28 +7740,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/x4D/D4" unique_id=307653684]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="FullHouseD" type="Node2D" parent="SelectActionButtom" unique_id=1976920854]
 modulate = Color(0.48178947, 0.48178947, 0.48178947, 1)
@@ -7881,28 +7769,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/FullHouseD/D1" unique_id=1940782779]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D2" type="Sprite2D" parent="SelectActionButtom/FullHouseD" unique_id=2090788514]
 position = Vector2(59, 0)
@@ -7922,28 +7794,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/FullHouseD/D2" unique_id=1356941540]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D3" type="Sprite2D" parent="SelectActionButtom/FullHouseD" unique_id=1224979783]
 position = Vector2(95, 0)
@@ -7963,28 +7819,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/FullHouseD/D3" unique_id=1247576879]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D4" type="Sprite2D" parent="SelectActionButtom/FullHouseD" unique_id=741436293]
 position = Vector2(131.5, 0)
@@ -8005,28 +7845,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/FullHouseD/D4" unique_id=879398037]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D5" type="Sprite2D" parent="SelectActionButtom/FullHouseD" unique_id=127121211]
 position = Vector2(168, 0)
@@ -8047,28 +7871,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/FullHouseD/D5" unique_id=2105257090]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="SmallStraightD" type="Node2D" parent="SelectActionButtom" unique_id=1664862710]
 modulate = Color(0.48178947, 0.48178947, 0.48178947, 1)
@@ -8092,28 +7900,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/SmallStraightD/D1" unique_id=1377948897]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D2" type="Sprite2D" parent="SelectActionButtom/SmallStraightD" unique_id=534212824]
 position = Vector2(93.5, 0)
@@ -8133,28 +7925,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/SmallStraightD/D2" unique_id=2114475385]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D3" type="Sprite2D" parent="SelectActionButtom/SmallStraightD" unique_id=67133276]
 position = Vector2(129.5, 0)
@@ -8174,28 +7950,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/SmallStraightD/D3" unique_id=414667754]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D4" type="Sprite2D" parent="SelectActionButtom/SmallStraightD" unique_id=1390002763]
 position = Vector2(166, 0)
@@ -8216,28 +7976,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/SmallStraightD/D4" unique_id=1027620032]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="BigStraightD" type="Node2D" parent="SelectActionButtom" unique_id=1766186833]
 modulate = Color(0.48178947, 0.48178947, 0.48178947, 1)
@@ -8260,28 +8004,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/BigStraightD/D1" unique_id=1134741626]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D2" type="Sprite2D" parent="SelectActionButtom/BigStraightD" unique_id=827977452]
 position = Vector2(-148.5, 153)
@@ -8301,28 +8029,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/BigStraightD/D2" unique_id=731323008]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D3" type="Sprite2D" parent="SelectActionButtom/BigStraightD" unique_id=815141916]
 position = Vector2(-112.5, 153)
@@ -8342,28 +8054,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/BigStraightD/D3" unique_id=128619006]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D4" type="Sprite2D" parent="SelectActionButtom/BigStraightD" unique_id=1108153928]
 position = Vector2(-76, 153)
@@ -8384,28 +8080,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/BigStraightD/D4" unique_id=442522438]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D5" type="Sprite2D" parent="SelectActionButtom/BigStraightD" unique_id=920921901]
 position = Vector2(-39.5, 153)
@@ -8426,28 +8106,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/BigStraightD/D5" unique_id=1176545117]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="KniffelD" type="Node2D" parent="SelectActionButtom" unique_id=1436681499]
 modulate = Color(0.48178947, 0.48178947, 0.48178947, 1)
@@ -8470,28 +8134,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/KniffelD/D1" unique_id=1945649694]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D2" type="Sprite2D" parent="SelectActionButtom/KniffelD" unique_id=528301610]
 position = Vector2(79.5, 155)
@@ -8511,28 +8159,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/KniffelD/D2" unique_id=351068878]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D3" type="Sprite2D" parent="SelectActionButtom/KniffelD" unique_id=1567298308]
 position = Vector2(115.5, 155)
@@ -8552,28 +8184,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/KniffelD/D3" unique_id=171380875]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D4" type="Sprite2D" parent="SelectActionButtom/KniffelD" unique_id=972903363]
 position = Vector2(152, 155)
@@ -8594,28 +8210,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/KniffelD/D4" unique_id=1797363323]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D5" type="Sprite2D" parent="SelectActionButtom/KniffelD" unique_id=1231456639]
 position = Vector2(188.5, 155)
@@ -8636,28 +8236,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/KniffelD/D5" unique_id=1507861439]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="ChanceD" type="Node2D" parent="SelectActionButtom" unique_id=665280179]
 modulate = Color(0.48178947, 0.48178947, 0.48178947, 1)
@@ -8680,28 +8264,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/ChanceD/D1" unique_id=1061935554]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D2" type="Sprite2D" parent="SelectActionButtom/ChanceD" unique_id=349038282]
 position = Vector2(-148.5, 230)
@@ -8721,28 +8289,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/ChanceD/D2" unique_id=1440018116]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D3" type="Sprite2D" parent="SelectActionButtom/ChanceD" unique_id=219782596]
 position = Vector2(-112.5, 230)
@@ -8762,28 +8314,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/ChanceD/D3" unique_id=499939610]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D4" type="Sprite2D" parent="SelectActionButtom/ChanceD" unique_id=1849539761]
 position = Vector2(-76, 230)
@@ -8804,28 +8340,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/ChanceD/D4" unique_id=86087704]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="D5" type="Sprite2D" parent="SelectActionButtom/ChanceD" unique_id=1723293887]
 position = Vector2(-39.5, 230)
@@ -8846,28 +8366,12 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(2.055, 2.055, 2.055, 1)
 theme_override_fonts/font = ExtResource("5_m343o")
 theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="SelectActionButtom/ChanceD/D5" unique_id=1575966989]
-scale = Vector2(1.0333333, 1.0333333)
-emitting = false
-amount = 17
-texture = ExtResource("4_slblq")
-lifetime = 0.09
-emission_shape = 1
-emission_sphere_radius = 14.58
-spread = 180.0
-gravity = Vector2(9.265, 200)
-initial_velocity_min = 60.61
-initial_velocity_max = 60.61
-angle_min = -109.1
-angle_max = 109.1
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_ghiq7")
 
 [node name="Sprites_for_anim" type="Node2D" parent="SelectActionButtom" unique_id=337832463]
 
@@ -10528,6 +10032,8 @@ offset_top = -194.0
 offset_right = -57.5
 offset_bottom = -171.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 
 [node name="Label2" type="Label" parent="PointCounters" unique_id=1901617058]
@@ -10537,6 +10043,8 @@ offset_top = -194.0
 offset_right = 90.5
 offset_bottom = -171.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 
 [node name="Label3" type="Label" parent="PointCounters" unique_id=1529236081]
@@ -10546,6 +10054,8 @@ offset_top = -194.0
 offset_right = 246.5
 offset_bottom = -171.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 
 [node name="Label4" type="Label" parent="PointCounters" unique_id=1140572551]
@@ -10555,6 +10065,8 @@ offset_top = -99.0
 offset_right = -56.5
 offset_bottom = -76.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 
 [node name="Label5" type="Label" parent="PointCounters" unique_id=1724536385]
@@ -10564,6 +10076,8 @@ offset_top = -98.0
 offset_right = 90.5
 offset_bottom = -75.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 
 [node name="Label6" type="Label" parent="PointCounters" unique_id=779366513]
@@ -10573,6 +10087,8 @@ offset_top = -98.0
 offset_right = 243.5
 offset_bottom = -75.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 
 [node name="LabelX3" type="Label" parent="PointCounters" unique_id=1381553370]
@@ -10582,6 +10098,8 @@ offset_top = -11.0
 offset_right = 60.5
 offset_bottom = 12.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 
 [node name="LabelX4" type="Label" parent="PointCounters" unique_id=1864133536]
@@ -10591,6 +10109,8 @@ offset_top = -9.0
 offset_right = 302.5
 offset_bottom = 14.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 
 [node name="LabelFullHouse" type="Label" parent="PointCounters" unique_id=430884914]
@@ -10600,6 +10120,8 @@ offset_top = 36.0
 offset_right = 61.5
 offset_bottom = 59.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 
 [node name="LabelSmallStraight" type="Label" parent="PointCounters" unique_id=1948388048]
@@ -10610,6 +10132,8 @@ offset_top = 66.0
 offset_right = 287.5
 offset_bottom = 89.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 
 [node name="LabelBigStraight" type="Label" parent="PointCounters" unique_id=1520793904]
@@ -10619,6 +10143,8 @@ offset_top = 114.0
 offset_right = 66.5
 offset_bottom = 137.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 
 [node name="LabelKniffel" type="Label" parent="PointCounters" unique_id=472728216]
@@ -10628,6 +10154,8 @@ offset_top = 113.0
 offset_right = 288.5
 offset_bottom = 136.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 
 [node name="LabelChance" type="Label" parent="PointCounters" unique_id=1637974190]
@@ -10637,6 +10165,8 @@ offset_top = 190.0
 offset_right = 69.5
 offset_bottom = 213.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 
 [node name="LabelBottomPointsSprite" type="Sprite2D" parent="PointCounters" unique_id=1202557711]
@@ -10649,12 +10179,13 @@ texture = ExtResource("7_kpud5")
 z_index = 1
 texture_filter = 6
 layout_mode = 1
-offset_left = 81.5
-offset_top = 191.0
-offset_right = 281.5
-offset_bottom = 274.0
+offset_left = 82.5
+offset_top = 193.0
+offset_right = 282.5
+offset_bottom = 276.0
 pivot_offset = Vector2(100, 41)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 theme_override_font_sizes/font_size = 60
 text = "0"
@@ -10741,6 +10272,7 @@ offset_right = 54.0
 offset_bottom = -40.708332
 pivot_offset = Vector2(54, 18.146)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 theme_override_font_sizes/font_size = 26
 text = "0"
@@ -10781,6 +10313,7 @@ offset_top = -71.0
 offset_right = 203.0
 offset_bottom = -48.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_k1bdu")
 text = "(>= 63 = Bonus: 35)"
 vertical_alignment = 1
@@ -10805,3 +10338,4 @@ bus = &"SFX"
 [connection signal="pressed" from="SelectActionButtom/BigStraigth" to="." method="_on_big_straigth_pressed"]
 [connection signal="pressed" from="SelectActionButtom/Kniffel" to="." method="_on_kniffel_pressed"]
 [connection signal="pressed" from="SelectActionButtom/Chance" to="." method="_on_chance_pressed"]
+[connection signal="timeout" from="SelectActionButtom/showItem/Timer" to="." method="_on_timer_timeout"]

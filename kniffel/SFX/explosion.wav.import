@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://cyr24cynd1dhm"
-path="res://.godot/imported/CounterSFX.wav-3a2e0763caba1458452136d13eb48fd8.sample"
+uid="uid://hwlwheixoawu"
+path="res://.godot/imported/explosion.wav-a1edf142c3b20688341f5c9ce77c0c81.sample"
 
 [deps]
 
-source_file="res://sfx/CounterSFX.wav"
-dest_files=["res://.godot/imported/CounterSFX.wav-3a2e0763caba1458452136d13eb48fd8.sample"]
+source_file="res://SFX/explosion.wav"
+dest_files=["res://.godot/imported/explosion.wav-a1edf142c3b20688341f5c9ce77c0c81.sample"]
 
 [params]
 

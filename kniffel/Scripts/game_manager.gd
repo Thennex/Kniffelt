@@ -58,6 +58,14 @@ signal menuOpened
 #####                           Variables                          #####
 ########################################################################
 
+@onready var d1locked: Sprite2D = $"../Dices/DiceContainer/D1/KniffelDiceLocked"
+@onready var d2locked: Sprite2D = $"../Dices/DiceContainer/D2/KniffelDiceLocked"
+@onready var d3locked: Sprite2D = $"../Dices/DiceContainer/D3/KniffelDiceLocked"
+@onready var d4locked: Sprite2D = $"../Dices/DiceContainer/D4/KniffelDiceLocked"
+@onready var d5locked: Sprite2D = $"../Dices/DiceContainer/D5/KniffelDiceLocked"
+@onready var dlocked_array: Array = [d1locked, d2locked, d3locked, d4locked, d5locked]
+
+
 ###################################
 #####   Variables for Dices   #####
 ###################################
@@ -78,42 +86,17 @@ var locked_slot : Array = [false, false, false, false, false]
 
 var can_throw : bool = true
 
-
-#####################################
-#####   Variables for Showers   #####
-#####################################
-var changeDieMemory : int = 1
-var small_straight_memory : int = 1
-var big_straight_memory :int = 1
-
-####################################
-#####   Variables for Points   #####
-####################################
-@onready var all_points : int = 0
-@onready var bonus_points : int = 0
-@onready var top_points_counter : int = 0
-@onready var bottom_points_counter :int = 0
-@onready var point_array: Array = [top_points_counter, bottom_points_counter, bonus_points, all_points]
-
-###################################
-#####   Variables for Bonus   #####
-###################################
-var has_bonus : bool = false
-@export var bonus_treashold : int = 63
-@export var bonus_amount : int = 35 
-
 ######################################
 #####   Variables for Upgrades   #####
 ######################################
 var pickedUpgrades : Array = []
 
-#################################
-#####   Variables for End   #####
-#################################
-var done : int = 0
-var number_counter_array : Array = [0, 0, 0, 0, 0, 0]
 
-const kniffelpaper_node  = preload("uid://bux05u53jlkja")
+####################################
+#####   Variables for Reload   #####
+####################################
+const kniffelpaper_node : PackedScene = preload("uid://bux05u53jlkja")
+
 ####################################
 #####   Variables for Design   #####
 ####################################
@@ -131,52 +114,14 @@ var color_values : Array = [Color(0.7, 0.7, 0.0), Color(0.0, 0.7, 0.0), Color(0.
 func _ready() -> void:
 	setColor()
 	resetDice()
-	await $"../Kniffel_paper".ready
-	changeShowers()
 
 func setColor() -> void:
 	for i in sDices.size():
-		sDices[i - 1].modulate = color_values[int(ld_array[i - 1].text) - 1]
+		sDices[i - 1].self_modulate = color_values[int(ld_array[i - 1].text) - 1]
 
 func set_DiceColors() -> void:
 	for i in kniffelpaper.dcolor_array.size():
 		kniffelpaper.dcolor_array[i - 1].modulate = color_values[i - 1]
-
-func changeShowers() -> void:
-	for i in kniffelpaper.lx3d_array.size():
-		kniffelpaper.lx3d_array[i - 1].text = str(changeDieMemory)
-	for i in kniffelpaper.lx4d_array.size():
-		kniffelpaper.lx4d_array[i - 1].text = str(changeDieMemory)
-	for i in kniffelpaper.lkniffel_array.size():
-		kniffelpaper.lkniffel_array[i - 1].text = str(changeDieMemory)
-	for i in kniffelpaper.lchance_array.size():
-		kniffelpaper.lchance_array[i - 1].text = str(rng())
-	kniffelpaper.lsmallstraightd1.text = str(small_straight_memory)
-	kniffelpaper.lsmallstraightd2.text = str(small_straight_memory + 1)
-	kniffelpaper.lsmallstraightd3.text = str(small_straight_memory + 2)
-	kniffelpaper.lsmallstraightd4.text = str(small_straight_memory + 3)
-	if small_straight_memory == 3:
-		small_straight_memory = 1
-	else:
-		small_straight_memory += 1
-	kniffelpaper.lbigstraightd1.text = str(big_straight_memory)
-	kniffelpaper.lbigstraightd2.text = str(big_straight_memory + 1)
-	kniffelpaper.lbigstraightd3.text = str(big_straight_memory + 2)
-	kniffelpaper.lbigstraightd4.text = str(big_straight_memory + 3)
-	kniffelpaper.lbigstraightd5.text = str(big_straight_memory + 4)
-	if big_straight_memory == 1:
-		big_straight_memory = 2
-	else:
-		big_straight_memory = 1
-	kniffelpaper.lfullhoused1.text = str(changeDieMemory)
-	kniffelpaper.lfullhoused2.text = str(changeDieMemory)
-	kniffelpaper.lfullhoused3.text = str(changeDieMemory)
-	if changeDieMemory != 6:
-		changeDieMemory +=1
-	else:
-		changeDieMemory = 1
-	kniffelpaper.lfullhoused4.text = str(changeDieMemory)
-	kniffelpaper.lfullhoused5.text = str(changeDieMemory)
 
 func throwDices() -> void:
 	if can_throw && !areAllLocked():
@@ -194,17 +139,18 @@ func throwDices() -> void:
 					dicesfx.volume_db = -5
 					var sfxPitch = 5.0
 					if throw_count == 1:
-						dicesfx.pitch_scale = 1.0 + (sfxPitch/10.0)
+						dicesfx.pitch_scale = 1.0 + (sfxPitch/1000.0)
 					elif throw_count == 2:
-						dicesfx.pitch_scale = 1.0 + (sfxPitch/100.0)
+						dicesfx.pitch_scale = 1.0 + (sfxPitch/200.0)
 					else:
-						dicesfx.pitch_scale = 1.0 + (sfxPitch/5000.0)
+						dicesfx.pitch_scale = 1.0 + (sfxPitch/100.0)
 					dicesfx.play()
 					selectsfx.play()
 					$"../ExtraDiceSFX/extraDiceSFXTimer".start()
 					dicesfxtimer.start()
 					dices[i - 1] = rng()
 					choseDie(i)
+					$"../endRollSound".play()
 					await get_tree().create_timer(0.1).timeout
 			kniffelpaper.checkTopActionsPoints()
 			kniffelpaper.checkBottomActionsPoints()
@@ -217,31 +163,46 @@ func set_d1(die_value):
 		die_value *= -1
 	ld1.text = str(die_value)
 	var tween = create_tween()
-	tween.tween_property(sd1, "modulate", color_values[die_value - 1], 0.2)
+	var tween_of = create_tween()
+	tween_of.tween_property(sd1, "offset_transform_position", Vector2(0, -2), .05).set_trans(Tween.TRANS_BOUNCE)
+	tween_of.chain().tween_property(sd1, "offset_transform_position", Vector2(0, 0), .2).set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(sd1, "self_modulate", color_values[die_value - 1], 0.2)
 func set_d2(die_value):
 	if die_value < 0:
 		die_value *= -1
 	ld2.text = str(die_value)
 	var tween = create_tween()
-	tween.tween_property(sd2, "modulate", color_values[die_value - 1], 0.2)
+	var tween_of = create_tween()
+	tween_of.tween_property(sd2, "offset_transform_position", Vector2(0, -2), .05).set_trans(Tween.TRANS_BOUNCE)
+	tween_of.chain().tween_property(sd2, "offset_transform_position", Vector2(0, 0), .2).set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(sd2, "self_modulate", color_values[die_value - 1], 0.2)
 func set_d3(die_value):
 	if die_value < 0:
 		die_value *= -1
 	ld3.text = str(die_value)
 	var tween = create_tween()
-	tween.tween_property(sd3, "modulate", color_values[die_value - 1], 0.2)
+	var tween_of = create_tween()
+	tween_of.tween_property(sd3, "offset_transform_position", Vector2(0, -2), .05).set_trans(Tween.TRANS_BOUNCE)
+	tween_of.chain().tween_property(sd3, "offset_transform_position", Vector2(0, 0), .2).set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(sd3, "self_modulate", color_values[die_value - 1], 0.2)
 func set_d4(die_value):
 	if die_value < 0:
 		die_value *= -1
 	ld4.text = str(die_value)
 	var tween = create_tween()
-	tween.tween_property(sd4, "modulate", color_values[die_value - 1], 0.2)
+	var tween_of = create_tween()
+	tween_of.tween_property(sd4, "offset_transform_position", Vector2(0, -2), .05).set_trans(Tween.TRANS_BOUNCE)
+	tween_of.chain().tween_property(sd4, "offset_transform_position", Vector2(0, 0), .2).set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(sd4, "self_modulate", color_values[die_value - 1], 0.2)
 func set_d5(die_value):
 	if die_value < 0:
 		die_value *= -1
 	ld5.text = str(die_value)
 	var tween = create_tween()
-	tween.tween_property(sd5, "modulate", color_values[die_value - 1], 0.2)
+	var tween_of = create_tween()
+	tween_of.tween_property(sd5, "offset_transform_position", Vector2(0, -2), .05).set_trans(Tween.TRANS_BOUNCE)
+	tween_of.chain().tween_property(sd5, "offset_transform_position", Vector2(0, 0), .2).set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(sd5, "self_modulate", color_values[die_value - 1], 0.2)
 var setd_array : Array = [set_d1, set_d2, set_d3, set_d4, set_d5]
 
 func choseDie(die) -> void:
@@ -251,7 +212,7 @@ func choseDie(die) -> void:
 
 func rng() -> int:
 	var number = RandomNumberGenerator.new().randi_range(1,6)
-	number_counter_array[number - 1] += 1
+	kniffelpaper.number_counter_array[number - 1] += 1
 	return(number)
 
 func resetDice() -> void:
@@ -282,7 +243,7 @@ func resetLocked() -> void:
 	locked_slot = [false, false, false, false, false]
 	for i in sDices.size():
 		sDices[i - 1].button_pressed = false
-		sDices[i - 1].icon = dice_unlocked
+		dlocked_array[i - 1].visible = false
 
 func areAllLocked() -> bool:
 	for i in dice_count:
@@ -295,19 +256,21 @@ func areAllLocked() -> bool:
 #####    End Methods    #####
 #############################
 func reset() -> void:
-	number_counter_array = [0, 0, 0, 0, 0, 0]
-	all_points = 0
-	top_points_counter = 0
-	bottom_points_counter = 0
+	kniffelpaper.number_counter_array = [0, 0, 0, 0, 0, 0]
+	kniffelpaper.all_points = 0
+	kniffelpaper.top_points_counter = 0
+	kniffelpaper.bottom_points_counter = 0
 	$"../Dices".visible = true
 	$"../ShowControls".visible = true
-	has_bonus = false
-	done = 0
+	$"../UpgradeMenu".visible = true
+	kniffelpaper.done = 0
+	resetDice()
 
 func end():
 	$"../Dices".visible = false
 	$"../ShowControls".visible = false
-	end_menu.changeStatlabel()
+	$"../UpgradeMenu".visible = false
+	end_menu.changeStatlabel(kniffelpaper.number_counter_array)
 
 
 #################################
@@ -367,41 +330,52 @@ func _on_d_1_toggled(toggled_on: bool) -> void:
 	locked_slot[0] = toggled_on
 	selectsfx.play()
 	if toggled_on:
-		sd1.icon = dice_locked
+		dlocked_array[0].visible = true
+		ld_array[0].modulate = Color.BLACK
 	else:
-		sd1.icon = dice_unlocked
+		dlocked_array[0].visible = false
+		ld_array[0].modulate = "a4a4a4"
 
 func _on_d_2_toggled(toggled_on: bool) -> void:
 	locked_slot[1] = toggled_on
 	selectsfx.play()
 	if toggled_on:
-		sd2.icon = dice_locked
+		dlocked_array[1].visible = true
+		ld_array[1].modulate = Color.BLACK
 	else:
-		sd2.icon = dice_unlocked
+		dlocked_array[1].visible = false
+		ld_array[1].modulate = "a4a4a4"
+
 
 func _on_d_3_toggled(toggled_on: bool) -> void:
 	locked_slot[2] = toggled_on
 	selectsfx.play()
 	if toggled_on:
-		sd3.icon = dice_locked
+		dlocked_array[2].visible = true
+		ld_array[2].modulate = Color.BLACK
 	else:
-		sd3.icon = dice_unlocked
+		dlocked_array[2].visible = false
+		ld_array[2].modulate = "a4a4a4"
 
 func _on_d_4_toggled(toggled_on: bool) -> void:
 	locked_slot[3] = toggled_on
 	selectsfx.play()
 	if toggled_on:
-		sd4.icon = dice_locked
+		dlocked_array[3].visible = true
+		ld_array[3].modulate = Color.BLACK
 	else:
-		sd4.icon = dice_unlocked
+		dlocked_array[3].visible = false
+		ld_array[3].modulate = "a4a4a4"
 
 func _on_d_5_toggled(toggled_on: bool) -> void:
 	locked_slot[4] = toggled_on
 	selectsfx.play()
 	if toggled_on:
-		sd5.icon = dice_locked
+		dlocked_array[4].visible = true
+		ld_array[4].modulate = Color.BLACK
 	else:
-		sd5.icon = dice_unlocked
+		dlocked_array[4].visible = false
+		ld_array[4].modulate = "a4a4a4"
 #endregion
 
 
@@ -417,11 +391,7 @@ func _on_unlock_all_button_pressed() -> void:
 #endregion 
 
 #endregion
-##############################
-#####    Shower Timer    #####
-##############################
-func _on_timer_timeout() -> void:
-	changeShowers() 
+
 
 #region Menu Button signals
 ###############################
@@ -438,6 +408,7 @@ func _on_open_menu_button_pressed() -> void:
 	else:
 		$"../Menu/ColorRect".visible = true
 		$"../Menu/MenuCloser".visible = true
+		settingsmanager.visible = false
 		menu.visible = true
 		menuOpened.emit()
 
@@ -456,6 +427,7 @@ func _on_reload_button_pressed() -> void:
 	var Kniffel_paper = kniffelpaper_node.instantiate()
 	$"..".add_child(Kniffel_paper)
 	Kniffel_paper.add_to_group("Kniffelpaper")
+	Kniffel_paper.add_to_group("persistent")
 	kniffelpaper = Kniffel_paper
 	Kniffel_paper.z_index = 3
 	$"../EndMenu".visible = false
@@ -469,6 +441,8 @@ func _on_control_button_pressed() -> void:
 		settingsmanager.visible = false
 		menuClosed.emit()
 	else:
+		menu.visible = false
+		$"../Menu/MenuCloser".visible = false
 		settingsmanager.visible = true
 		menuOpened.emit()
 

@@ -15,7 +15,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ltlv5"]
 
-[node name="SettingsMenu" type="Control" unique_id=1799041464]
+[node name="SettingsMenu" type="Control" unique_id=1799041464 groups=["persistent"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -113,7 +113,6 @@ offset_right = 185.0
 offset_bottom = 182.0
 max_value = 1.0
 step = 0.001
-value = 0.5
 
 [node name="SFXLabel" type="Label" parent="Sprite2D/SFXSlider" unique_id=944169795]
 texture_filter = 4
@@ -137,7 +136,6 @@ offset_right = 378.0
 offset_bottom = 182.0
 max_value = 1.0
 step = 0.001
-value = 0.5
 
 [node name="MusicLabel" type="Label" parent="Sprite2D/MusicSlider" unique_id=623394452]
 texture_filter = 4

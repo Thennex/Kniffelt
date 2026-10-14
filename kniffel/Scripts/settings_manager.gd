@@ -7,6 +7,10 @@ signal menuClosed
 
 @onready var gamemanager: Node2D = $"../GameManager"
 
+
+@onready var sfxslider: HSlider = $Sprite2D/SFXSlider
+@onready var musicslider: HSlider = $Sprite2D/MusicSlider
+
 @onready var colorbutton1: ColorPickerButton = $Sprite2D/D1ColorButton
 @onready var colorbutton2: ColorPickerButton = $Sprite2D/D1ColorButton2
 @onready var colorbutton3: ColorPickerButton = $Sprite2D/D1ColorButton3
@@ -21,10 +25,13 @@ var true_color = Color(0.152, 0.711, 0.0)
 var false_color = Color(0.348, 0.039, 0.031)
 
 @onready var color_values: Array = gamemanager.color_values
-@onready var change_color_values = color_values
+@onready var change_color_values : Array = color_values
 
-var is_background_scrolling = true
-var is_show_controls = true
+var is_background_scrolling : bool = true
+var is_show_controls : bool = true
+
+var current_volume_music : float = 0.5
+var current_volume_sfx : float = 0.5
 
 func resetAllColor() -> void:
 	changeColor.emit(color_values)
@@ -32,8 +39,10 @@ func resetAllColor() -> void:
  
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	sfxslider.value = current_volume_sfx
+	musicslider.value = current_volume_music
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(current_volume_sfx))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(current_volume_music))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -76,6 +85,8 @@ func _on_reset_button_pressed() -> void:
 func _on_close_button_pressed() -> void:
 	gamemanager.selectsfx.play()
 	menuClosed.emit()
+	$"../Menu".visible = true
+	$"../Menu/MenuCloser".visible = true
 	visible = false
 
 
@@ -110,15 +121,19 @@ func _on_fullscreen_button_pressed() -> void:
 
 func _on_sfx_slider_value_changed(value: float) -> void:
 	gamemanager.selectsfx.play()
+	current_volume_sfx = value
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))
 
 
 func _on_music_slider_value_changed(value: float) -> void:
 	gamemanager.selectsfx.play()
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("music"), linear_to_db(value))
+	current_volume_music = value
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))
 
 
 func _on_button_pressed() -> void:
 	menuClosed.emit()
 	gamemanager.selectsfx.play()
+	$"../Menu".visible = true
+	$"../Menu/MenuCloser".visible = true
 	visible = false

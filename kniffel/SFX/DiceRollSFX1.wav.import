@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dv78xf57lsgc3"
-path="res://.godot/imported/DiceRollSFX1.wav-c7709854e354dca41f607d10b9465535.sample"
+path="res://.godot/imported/DiceRollSFX1.wav-cadc53670fde9c9fb00e0571a478044a.sample"
 
 [deps]
 
-source_file="res://sfx/DiceRollSFX1.wav"
-dest_files=["res://.godot/imported/DiceRollSFX1.wav-c7709854e354dca41f607d10b9465535.sample"]
+source_file="res://SFX/DiceRollSFX1.wav"
+dest_files=["res://.godot/imported/DiceRollSFX1.wav-cadc53670fde9c9fb00e0571a478044a.sample"]
 
 [params]
 

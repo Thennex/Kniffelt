@@ -18,6 +18,15 @@ var no_scrolling = false
 
 var color_counter = 1
 
+func _ready() -> void:
+	scrollingbg.modulate = gamemanager.color_values[0]
+	overlay.modulate = gamemanager.color_values[0]
+	kniffelmenuoverlay.modulate = gamemanager.color_values[0]
+	menu.modulate = gamemanager.color_values[0]
+	gamemanager.modulate = gamemanager.color_values[0]
+	unlockallbutton.modulate = gamemanager.color_values[0]
+	rolldicebutton.modulate = gamemanager.color_values[0]
+
 func _on_timer_timeout() -> void:
 	if no_switch == true:	return
 	var tween_bg = create_tween()

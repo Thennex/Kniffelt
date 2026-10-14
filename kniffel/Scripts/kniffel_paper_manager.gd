@@ -1,5 +1,9 @@
 extends Node2D
 
+@onready var extrasfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
+
+
 #region all variables for paths
 @onready var gamemanager: Node2D = $"../GameManager"
 
@@ -11,6 +15,17 @@ extends Node2D
 ####################
 @onready var ltoppoints: Label = $KniffelBonusMeter/KniffelTopCounter
 @onready var lbottompoints: Label = $PointCounters/LabelBottomPoints
+
+
+
+@onready var actiond1controls: Control = $SelectAction/DLabelsBackground/D1Labels
+@onready var actiond2controls: Control = $SelectAction/DLabelsBackground/D2Labels
+@onready var actiond3controls: Control = $SelectAction/DLabelsBackground/D3Labels
+@onready var actiond4controls: Control = $SelectAction/DLabelsBackground/D4Labels
+@onready var actiond5controls: Control = $SelectAction/DLabelsBackground/D5Labels
+@onready var actiond6controls: Control = $SelectAction/DLabelsBackground/D6Labels
+@onready var actioncontrols_array: Array = [actiond1controls, actiond2controls, actiond3controls, actiond4controls, actiond5controls, actiond6controls]
+
 
 
 #region sprite path for top actions 
@@ -252,6 +267,34 @@ extends Node2D
 ########################################################################
 var dice_unlocked = preload("uid://bxywxlj5wl2te")
 
+#################################
+#####   Variables for End   #####
+#################################
+var done : int = 0
+var number_counter_array : Array = [0, 0, 0, 0, 0, 0]
+
+####################################
+#####   Variables for Points   #####
+####################################
+@onready var all_points : int = 0
+@onready var bonus_points : int = 0
+@onready var top_points_counter : int = 0
+@onready var bottom_points_counter :int = 0
+@onready var point_array: Array = [top_points_counter, bottom_points_counter, bonus_points, all_points]
+
+#####################################
+#####   Variables for Showers   #####
+#####################################
+var changeDieMemory : int = 1
+var small_straight_memory : int = 1
+var big_straight_memory : int = 1
+
+###################################
+#####   Variables for Bonus   #####
+###################################
+@export var bonus_treashold : int = 63
+@export var bonus_amount : int = 35 
+
 #for dynamic animations in method for top action calc
 @onready var dice_anim_array : Array = ["D1", "D2", "D3", "D4", "D5", "D6"]
 
@@ -275,11 +318,10 @@ func topDs(number) -> void:
 		dselectcolor_array[dice_counted - 1][i].texture = dice_unlocked
 		dselectcolor_array[dice_counted - 1][i].modulate = gamemanager.color_values[dice_counted - 1]
 	l_array[dice_counted - 1].text = str(gamemanager.diceValues[dice_counted - 1])
-	gamemanager.top_points_counter += gamemanager.diceValues[dice_counted - 1]
+	top_points_counter += gamemanager.diceValues[dice_counted - 1]
 	actions[dice_counted - 1] = true
 	animtoplayer.play(dice_anim_array[dice_counted - 1] + "_select")
 	gamemanager.selectsfx.play()
-	
 	checkActions()
 
 func x3() -> void:
@@ -302,13 +344,14 @@ func x3() -> void:
 					lx3danim_array[i - 1].text = str(x3dDice)
 					x3danim_array[i - 1].modulate = gamemanager.color_values[x3dDice - 1]
 					x3danim_array[i - 1].texture = dice_unlocked
-				gamemanager.bottom_points_counter += dice_value
+				bottom_points_counter += dice_value
 				lx3.text = str(dice_value)
 			else:
 				lx3.text = ""
 				for i in x3danim_array.size():
 					lx3danim_array[i - 1].text = ""
 			animbottomplayer.play("X3_select")
+			extrasfx.play()
 			gamemanager.selectsfx.play()
 			buttom_actions[0] = true
 			checkButtomActions()
@@ -335,7 +378,7 @@ func x4() -> void:
 					lx4danim_array[i - 1].text = str(x4dDice)
 					x4danim_array[i - 1].modulate = gamemanager.color_values[x4dDice - 1]
 					x4danim_array[i - 1].texture = dice_unlocked
-				gamemanager.bottom_points_counter += dice_value
+				bottom_points_counter += dice_value
 				lx4.text = str(dice_value)
 			else:
 				lx4.text = ""
@@ -343,6 +386,7 @@ func x4() -> void:
 					lx4danim_array[i - 1].text = ""
 			gamemanager.selectsfx.play()
 			animbottomplayer.play("X4_select")
+			extrasfx.play()
 			buttom_actions[1] = true
 			checkButtomActions()
 			await animbottomplayer.animation_finished
@@ -362,7 +406,7 @@ func full_house() -> void:
 					break
 			dif_dice_counted = gamemanager.dices.count(dif_dice)
 			if dice_counted == 3 && dif_dice_counted == 2 or dice_counted == 2 && dif_dice_counted == 3:
-				gamemanager.bottom_points_counter += 25
+				bottom_points_counter += 25
 				lfullhouse.text = "25"
 				gamemanager.dices.sort()
 				for i in gamemanager.dices.size():
@@ -375,6 +419,7 @@ func full_house() -> void:
 					lfullhouseanim_array[i - 1].text = ""
 			gamemanager.selectsfx.play()
 			animbottomplayer.play("Full_House_select")
+			extrasfx.play()
 			buttom_actions[2] = true
 			checkButtomActions()
 			await animbottomplayer.animation_finished
@@ -402,7 +447,7 @@ func small_straight() -> void:
 						is_small_straight = true
 			if is_small_straight:
 				lsmallstraight.text = "30"
-				gamemanager.bottom_points_counter += 30
+				bottom_points_counter += 30
 				for i in pureDices.size():
 					gamemanager.dices.sort()
 					lsmallstraightanim_array[i - 1].text = str(pureDices[i - 1])
@@ -414,6 +459,7 @@ func small_straight() -> void:
 					lsmallstraightanim_array[i - 1].text = ""
 			gamemanager.selectsfx.play()
 			animbottomplayer.play("small_straight_select")
+			extrasfx.play()
 			buttom_actions[3] = true
 			checkButtomActions()
 			await animbottomplayer.animation_finished
@@ -435,7 +481,7 @@ func big_straight() -> void:
 					is_big_straight = true
 			if is_big_straight:
 				lbigstraight.text = "40"
-				gamemanager.bottom_points_counter +=40
+				bottom_points_counter +=40
 				gamemanager.dices.sort()
 				for i in gamemanager.dices.size():
 					lbigstraightanim_array[i - 1].text = str(gamemanager.dices[i - 1])
@@ -447,6 +493,7 @@ func big_straight() -> void:
 					lbigstraightanim_array[i - 1].text = ""
 			gamemanager.selectsfx.play()
 			animbottomplayer.play("big_straight_select")
+			extrasfx.play()
 			buttom_actions[4] = true
 			checkButtomActions()
 			await animbottomplayer.animation_finished
@@ -458,7 +505,7 @@ func kniffel() -> void:
 		if buttom_actions[5] == false:
 			if gamemanager.dices.count(gamemanager.dices[0]) == 5:
 				lkniffel.text = "50"
-				gamemanager.bottom_points_counter += 50
+				bottom_points_counter += 50
 				for i in gamemanager.dices.size():
 					lkniffelanim_array[i - 1].text = str(gamemanager.dices[i - 1])
 					kniffelanim_array[i - 1].modulate = gamemanager.color_values[gamemanager.dices[i - 1] - 1]
@@ -469,6 +516,7 @@ func kniffel() -> void:
 					lkniffelanim_array[i - 1].text = ""
 			gamemanager.selectsfx.play()
 			animbottomplayer.play("kniffel_select")
+			extrasfx.play()
 			buttom_actions[5] = true
 			checkButtomActions()
 			await animbottomplayer.animation_finished
@@ -479,10 +527,11 @@ func chance() -> void:
 	if gamemanager.dices[0] != 0:
 		if buttom_actions[6] == false:
 			var all_dice_value = gamemanager.allDiceCounted()
-			gamemanager.bottom_points_counter += all_dice_value
+			bottom_points_counter += all_dice_value
 			lchance.text = str(all_dice_value)
 			gamemanager.selectsfx.play()
 			animbottomplayer.play("chance_select")
+			extrasfx.play()
 			gamemanager.dices.sort()
 			for i in gamemanager.dices.size():
 				lchanceanim_array[i - 1].text = str(gamemanager.dices[i - 1])
@@ -505,13 +554,13 @@ func setAllPoints(point_counter) -> void:
 		gamemanager.countersfx.pitch_scale += .05
 
 func end() -> void:
-	if gamemanager.done == 2:
+	if done == 2:
 		gamemanager.end()
-		gamemanager.all_points += gamemanager.top_points_counter
-		gamemanager.all_points += gamemanager.bottom_points_counter
+		all_points += top_points_counter
+		all_points += bottom_points_counter
 		$"../EndMenu".visible = true
 		var tweenPoints = create_tween()
-		tweenPoints.tween_method(setAllPoints, 0 , gamemanager.all_points, 1)
+		tweenPoints.tween_method(setAllPoints, 0 , all_points, 1)
 		await tweenPoints.finished
 		$"../EndMenu/Control/pointLabel".rotation = 0
 
@@ -534,9 +583,9 @@ func setBottomCounter(bottom_counter) -> void:
 func checkButtomActions() -> void:
 	gamemanager.resetDice()
 	gamemanager.countersfx.pitch_scale = 1
-	if int(lbottompoints.text) != gamemanager.bottom_points_counter:
+	if int(lbottompoints.text) != bottom_points_counter:
 		var tween3 = create_tween()
-		tween3.tween_method(setBottomCounter, int(lbottompoints.text), gamemanager.bottom_points_counter, .7).set_trans(Tween.TRANS_EXPO)
+		tween3.tween_method(setBottomCounter, int(lbottompoints.text), bottom_points_counter, .7).set_trans(Tween.TRANS_EXPO)
 		await tween3.finished
 		lbottompoints.rotation = 0
 	var all_actions_done = 0
@@ -546,7 +595,7 @@ func checkButtomActions() -> void:
 		else: 
 			all_actions_done = 0
 	if all_actions_done == 7:
-		gamemanager.done += 1
+		done += 1
 		end()
 
 ####################################################################
@@ -573,11 +622,11 @@ func checkActions() -> void:
 	gamemanager.resetDice()
 	gamemanager.countersfx.pitch_scale = 1
 	var tween = create_tween()
-	$KniffelBonusMeter/TextureProgressBarFast.value = gamemanager.top_points_counter + 0.2
-	tween.tween_method(set_BarValue, int(ltoppoints.text), gamemanager.top_points_counter, 0.4,).set_trans(Tween.TRANS_EXPO)
-	if int(ltoppoints.text) != gamemanager.top_points_counter:
+	$KniffelBonusMeter/TextureProgressBarFast.value = top_points_counter + 0.2
+	tween.tween_method(set_BarValue, int(ltoppoints.text), top_points_counter, 0.4,).set_trans(Tween.TRANS_EXPO)
+	if int(ltoppoints.text) != top_points_counter:
 		var tween1 = create_tween()
-		tween1.tween_method(setTopCounter, int(ltoppoints.text), gamemanager.top_points_counter, 0.3)
+		tween1.tween_method(setTopCounter, int(ltoppoints.text), top_points_counter, 0.3)
 		await tween.finished
 		ltoppoints.rotation = 0
 	var all_actions_done = 0
@@ -587,56 +636,51 @@ func checkActions() -> void:
 		else: 
 			all_actions_done = 0
 	if all_actions_done == actions.size():
-		if gamemanager.top_points_counter >= gamemanager.bonus_treashold:
-			gamemanager.top_points_counter += gamemanager.bonus_amount
+		if top_points_counter >= bonus_treashold:
+			top_points_counter += bonus_amount
 			var tween1 = create_tween()
-			tween1.tween_method(setTopCounter, int(ltoppoints.text), gamemanager.top_points_counter, 0.3)
-			gamemanager.done += 1
+			tween1.tween_method(setTopCounter, int(ltoppoints.text), top_points_counter, 0.3)
+			await tween1.finished
+			ltoppoints.rotation = 0
+			done += 1
 			end()
 		else:
-			gamemanager.done += 1
+			lbottompoints.rotation = 0
+			done += 1
 			end()
 
 #######################################################################
 #####                 checking points after throw                 #####
 #######################################################################
 func checkTopActionsPoints():
-	var top_die_count_array : Array = [false, false, false, false, false, false] 
 	for i in 6:
-		if actions[i] == true:	return
-		if top_die_count_array[i] == true:return
-		if gamemanager.dices.count((i + 1)) >= 1:
-			l_array[i].text = str(gamemanager.dices.count(i + 1) * (i+1))
-			top_die_count_array[i] = true
-		else:
-			l_array[i].text = ""
-			top_die_count_array[i] = true
+		if actions[i] == false:
+			if gamemanager.dices.count((i + 1)) >= 1:
+				l_array[i].text = str(gamemanager.dices.count(i + 1) * (i+1))
+			else:
+				l_array[i].text = ""
 
 func checkBottomActionsPoints():
 	var dices = gamemanager.dices
-	var bottom_die_count_array : Array = [false, false, false, false, false, false, false] 
 	for i in 7:
-		if bottom_die_count_array[i] == true:	return
 		if buttom_actions[i] == true:	return
 		var tmp_bool = false
 		if i == 0:
 			for j in dices.size():
 				if dices.count(j + 1) >= 3:
 					tmp_bool = true
-					break
 			if tmp_bool:
 				lx3.text = str(gamemanager.allDiceCounted())
-				bottom_die_count_array[i] = true
+				print("x3")
 			else:
 				lx3.text = ""
 		if i == 1:
 			for j in dices.size():
 				if dices.count(j + 1) >= 4:
 					tmp_bool = true
-					break
 			if tmp_bool:
 				lx4.text = str(gamemanager.allDiceCounted())
-				bottom_die_count_array[i] = true
+				print("x4")
 			else:
 				lx4.text = ""
 		if i == 2:
@@ -646,11 +690,10 @@ func checkBottomActionsPoints():
 			for l in dices.size():
 				if dices[l] != dices[0]:
 					dif_dice = dices[l]
-					break
 			dif_dice_counted = dices.count(dif_dice)
 			if dice_counted == 3 && dif_dice_counted == 2 or dice_counted == 2 && dif_dice_counted == 3:
 				lfullhouse.text = "25"
-				bottom_die_count_array[i] = true
+				print("fullhouse")
 			else:
 				lfullhouse.text = ""
 		if i == 3:
@@ -671,8 +714,10 @@ func checkBottomActionsPoints():
 					elif pureDices[1] + 1 == pureDices[2] && pureDices[1] + 2 == pureDices[3] && pureDices[1] + 3 == pureDices[4]:
 						is_small_straight = true
 			if is_small_straight:
+				print("smallstraight")
 				lsmallstraight.text = "30"
-				bottom_die_count_array[i] = true
+			else:
+				lsmallstraight.text = ""
 		if i == 4:
 			var is_big_straight = false
 			var pureDices = []
@@ -685,16 +730,72 @@ func checkBottomActionsPoints():
 					is_big_straight = true
 			if is_big_straight:
 				lbigstraight.text = "40"
-				bottom_die_count_array[i] = true
+				print("bigstraigth")
 		if i == 5:
 			if dices.count(dices[0]) == 5:
 				lkniffel.text = "50"
-				bottom_die_count_array[i] = true
+				print("kniffel")
 			else:
 				lkniffel.text = ""
 		if i == 6:
 			lchance.text = str(gamemanager.allDiceCounted())
-			bottom_die_count_array[i] = true
+			print("chance")
+	print("--------------------")
+
+#########################################################
+#####                 change showers                #####
+#########################################################
+func changeShowers() -> void:
+	for i in lx3d_array.size():
+		lx3d_array[i - 1].text = str(changeDieMemory)
+		lx3d_array[i - 1].modulate = gamemanager.color_values[changeDieMemory - 1]
+	for i in lx4d_array.size():
+		lx4d_array[i - 1].text = str(changeDieMemory)
+		lx4d_array[i - 1].modulate = gamemanager.color_values[changeDieMemory - 1]
+	for i in lkniffel_array.size():
+		lkniffel_array[i - 1].text = str(changeDieMemory)
+		lkniffel_array[i - 1].modulate = gamemanager.color_values[changeDieMemory - 1]
+	for i in lchance_array.size():
+		lchance_array[i - 1].text = str(gamemanager.rng())
+		lchance_array[i - 1].modulate = gamemanager.color_values[int(lchance_array[i - 1].text) - 1]
+	lsmallstraightd1.text = str(small_straight_memory)
+	lsmallstraightd2.text = str(small_straight_memory + 1)
+	lsmallstraightd3.text = str(small_straight_memory + 2)
+	lsmallstraightd4.text = str(small_straight_memory + 3)
+	for i in lsmallstraight_array.size():
+		lsmallstraight_array[i - 1].modulate = gamemanager.color_values[int(lsmallstraight_array[i - 1].text) - 1]
+	if small_straight_memory == 3:
+		small_straight_memory = 1
+	else:
+		small_straight_memory += 1
+	lbigstraightd1.text = str(big_straight_memory)
+	lbigstraightd2.text = str(big_straight_memory + 1)
+	lbigstraightd3.text = str(big_straight_memory + 2)
+	lbigstraightd4.text = str(big_straight_memory + 3)
+	lbigstraightd5.text = str(big_straight_memory + 4)
+	for i in lbigstraight_array.size():
+		lbigstraight_array[i - 1].modulate = gamemanager.color_values[int(lbigstraight_array[i - 1].text) - 1]
+	if big_straight_memory == 1:
+		big_straight_memory = 2
+	else:
+		big_straight_memory = 1
+	lfullhoused1.text = str(changeDieMemory)
+	lfullhoused2.text = str(changeDieMemory)
+	lfullhoused3.text = str(changeDieMemory)
+	if changeDieMemory != 6:
+		changeDieMemory +=1
+	else:
+		changeDieMemory = 1
+	lfullhoused4.text = str(changeDieMemory)
+	lfullhoused5.text = str(changeDieMemory)
+	for i in lfullhouse_array.size():
+		lfullhouse_array[i - 1].modulate = gamemanager.color_values[int(lfullhouse_array[i - 1].text) - 1]
+
+
+func _ready() -> void:
+	changeShowers()
+	for i in actioncontrols_array.size():
+		actioncontrols_array[i].modulate = gamemanager.color_values[i]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -768,3 +869,11 @@ func _on_kniffel_pressed() -> void:
 
 func _on_chance_pressed() -> void:
 	chance()
+
+##############################
+#####    Shower Timer    #####
+##############################
+
+
+func _on_timer_timeout() -> void:
+	changeShowers()

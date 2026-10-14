@@ -19,17 +19,25 @@ extends Control
 @onready var diceColor6: Sprite2D = $KniffelDiceReworked6
 @onready var diceColor_array : Array = [diceColor1, diceColor2, diceColor3, diceColor4, diceColor5, diceColor6]
 
-# Called when the nodenters the scene tree for the first time.
+const kniffelpaper : PackedScene = preload("uid://bux05u53jlkja")
+
+var what_die : int = 0
+
 func _ready() -> void:
 	for i in diceColor_array.size():
 		diceColor_array[i].modulate = gamemanager.color_values[i]
 
-const kniffelpaper = preload("uid://bux05u53jlkja")
 
-func changeStatlabel() -> void:
-	var ncounter: Array = gamemanager.number_counter_array
-	for i in ncounter.size():
-		lthrown_array[i].text = str(ncounter[i])
+
+func setChangeLabel(value):
+	lthrown_array[what_die].text = str(value)
+
+func changeStatlabel(ncounter_array : Array) -> void:
+	for i in ncounter_array.size():
+		what_die = i
+		var anim_tween = create_tween()
+		anim_tween.tween_method(setChangeLabel, 0, ncounter_array[i], .2)
+		await anim_tween.finished
 
 func _on_button_pressed() -> void:
 	var tmp_array : Array = get_tree().get_nodes_in_group("Kniffelpaper")
@@ -38,6 +46,7 @@ func _on_button_pressed() -> void:
 	var Kniffel_paper = kniffelpaper.instantiate()
 	$"..".add_child(Kniffel_paper)
 	Kniffel_paper.add_to_group("Kniffelpaper")
+	Kniffel_paper.add_to_group("persistent")
 	gamemanager.kniffelpaper = Kniffel_paper
 	Kniffel_paper.z_index = 3
 	endmenu.visible = false

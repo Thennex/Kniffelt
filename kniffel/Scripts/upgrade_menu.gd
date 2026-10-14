@@ -89,8 +89,8 @@ func _on_slot_3_button_pressed() -> void:
 
 
 func _on_settings_menu_menu_closed() -> void:
-	$"../Menu/VBoxContainer".visible = false
-	$"../Menu/ColorRect".visible = false
+	$"../Menu/VBoxContainer".visible = true
+	$"../Menu/ColorRect".visible = true
 	for i in button_array.size():
 			button_array[i].mouse_filter = 0
 

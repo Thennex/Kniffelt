@@ -257,7 +257,7 @@ offset_right = 616.0
 offset_bottom = 301.64584
 theme_override_fonts/font = ExtResource("4_u8kpy")
 theme_override_font_sizes/font_size = 35
-text = ": 1"
+text = "0"
 uppercase = true
 
 [node name="Lthrown2s" type="Label" parent="Stats" unique_id=577736473]
@@ -269,7 +269,7 @@ offset_right = 622.0
 offset_bottom = 355.64584
 theme_override_fonts/font = ExtResource("4_u8kpy")
 theme_override_font_sizes/font_size = 35
-text = ": 1"
+text = "0"
 uppercase = true
 
 [node name="Lthrown3s" type="Label" parent="Stats" unique_id=19165842]
@@ -281,7 +281,7 @@ offset_right = 655.0
 offset_bottom = 408.64584
 theme_override_fonts/font = ExtResource("4_u8kpy")
 theme_override_font_sizes/font_size = 35
-text = ": 1"
+text = "0"
 uppercase = true
 
 [node name="Lthrown4s" type="Label" parent="Stats" unique_id=1923459864]
@@ -293,7 +293,7 @@ offset_right = 800.0
 offset_bottom = 300.64584
 theme_override_fonts/font = ExtResource("4_u8kpy")
 theme_override_font_sizes/font_size = 35
-text = ": 1"
+text = "0"
 uppercase = true
 
 [node name="Lthrown5s" type="Label" parent="Stats" unique_id=759680401]
@@ -305,7 +305,7 @@ offset_right = 795.0
 offset_bottom = 354.64584
 theme_override_fonts/font = ExtResource("4_u8kpy")
 theme_override_font_sizes/font_size = 35
-text = ": 1"
+text = "0"
 uppercase = true
 
 [node name="Lthrown6s" type="Label" parent="Stats" unique_id=281286537]
@@ -317,7 +317,7 @@ offset_right = 820.0
 offset_bottom = 407.64584
 theme_override_fonts/font = ExtResource("4_u8kpy")
 theme_override_font_sizes/font_size = 35
-text = ": 1"
+text = "0"
 uppercase = true
 
 [node name="KniffelDiceReworked" type="Sprite2D" parent="." unique_id=891511029]
