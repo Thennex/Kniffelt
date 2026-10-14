@@ -11,19 +11,25 @@ extends Control
 @onready var lthrown6: Label = $Stats/Lthrown6s
 @onready var lthrown_array : Array = [lthrown1, lthrown2, lthrown3, lthrown4, lthrown5, lthrown6]
 
-var number_string_array : Array = ["one's", "two's", "three's", "four's", "five's", "six's"]
-
+@onready var diceColor1: Sprite2D = $KniffelDiceReworked
+@onready var diceColor2: Sprite2D = $KniffelDiceReworked2
+@onready var diceColor3: Sprite2D = $KniffelDiceReworked3
+@onready var diceColor4: Sprite2D = $KniffelDiceReworked4
+@onready var diceColor5: Sprite2D = $KniffelDiceReworked5
+@onready var diceColor6: Sprite2D = $KniffelDiceReworked6
+@onready var diceColor_array : Array = [diceColor1, diceColor2, diceColor3, diceColor4, diceColor5, diceColor6]
 
 # Called when the nodenters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	for i in diceColor_array.size():
+		diceColor_array[i].modulate = gamemanager.color_values[i]
 
 const kniffelpaper = preload("uid://bux05u53jlkja")
 
 func changeStatlabel() -> void:
 	var ncounter: Array = gamemanager.number_counter_array
 	for i in ncounter.size():
-		lthrown_array[i].text = str(number_string_array[i], ": ", ncounter[i])
+		lthrown_array[i].text = str(ncounter[i])
 
 func _on_button_pressed() -> void:
 	var tmp_array : Array = get_tree().get_nodes_in_group("Kniffelpaper")

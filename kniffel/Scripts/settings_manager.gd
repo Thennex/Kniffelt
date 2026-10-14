@@ -60,18 +60,21 @@ func _on_d_1_color_button_6_color_changed(color: Color) -> void:
 
 
 func _on_apply_button_pressed() -> void:
+	gamemanager.selectsfx.play()
 	changeColor.emit(change_color_values)
 	menuClosed.emit()
 	visible = false
 
 
 func _on_reset_button_pressed() -> void:
+	gamemanager.selectsfx.play()
 	changeColor.emit(color_values)
 	menuClosed.emit()
 	visible = false
 
 
 func _on_close_button_pressed() -> void:
+	gamemanager.selectsfx.play()
 	menuClosed.emit()
 	visible = false
 
@@ -84,7 +87,7 @@ func _on_background_scrolling_button_pressed() -> void:
 		backgroundscrollingbutton.modulate = true_color
 		is_background_scrolling = true
 	bgscrolling.emit(is_background_scrolling)
-	
+
 
 
 func _on_show_controls_button_pressed() -> void:
@@ -98,6 +101,7 @@ func _on_show_controls_button_pressed() -> void:
 
 
 func _on_fullscreen_button_pressed() -> void:
+	gamemanager.selectsfx.play()
 	if DisplayServer.window_get_mode() == 0:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN) 
 	else:
@@ -105,13 +109,16 @@ func _on_fullscreen_button_pressed() -> void:
 
 
 func _on_sfx_slider_value_changed(value: float) -> void:
+	gamemanager.selectsfx.play()
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))
 
 
 func _on_music_slider_value_changed(value: float) -> void:
+	gamemanager.selectsfx.play()
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("music"), linear_to_db(value))
 
 
 func _on_button_pressed() -> void:
 	menuClosed.emit()
+	gamemanager.selectsfx.play()
 	visible = false

@@ -19,7 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://bbiavwobojy7j" path="res://Art/Kniffel_overlay.png" id="19_p2wc2"]
 [ext_resource type="AudioStream" uid="uid://bceno77oukerm" path="res://sfx/selectSFX.wav" id="21_hiice"]
 [ext_resource type="AudioStream" uid="uid://cyr24cynd1dhm" path="res://sfx/CounterSFX.wav" id="22_sor6r"]
-[ext_resource type="Texture2D" uid="uid://d4jpe11g4fg3b" path="res://Art/Hand/IMG_0418.PNG" id="23_pqe63"]
 [ext_resource type="PackedScene" uid="uid://d217ru5dtsin" path="res://Scene/end_menu.tscn" id="23_sor6r"]
 [ext_resource type="PackedScene" uid="uid://vwqgwvcgisf1" path="res://Scene/upgrade_menu.tscn" id="24_aam5o"]
 [ext_resource type="PackedScene" uid="uid://d34y3qx4gnqam" path="res://Scene/settings_menu.tscn" id="24_pqe63"]
@@ -88,7 +87,8 @@ events = [SubResource("InputEventKey_ow1sv")]
 [node name="Main" type="Node2D" unique_id=265119633]
 
 [node name="UpgradeMenu" parent="." unique_id=460068291 instance=ExtResource("24_aam5o")]
-z_index = 5
+visible = false
+z_index = 2
 offset_left = 266.0
 offset_top = -293.0
 offset_right = 266.0
@@ -376,6 +376,15 @@ visible = true
 [node name="Kniffel_paper" parent="." unique_id=1824013333 instance=ExtResource("1_f6udf")]
 z_index = 3
 
+[node name="SettingsMenu" parent="." unique_id=1799041464 instance=ExtResource("24_pqe63")]
+visible = false
+z_index = 682
+y_sort_enabled = true
+offset_left = 65.0
+offset_top = -301.0
+offset_right = 65.0
+offset_bottom = -301.0
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1630180019]
 position = Vector2(286, -4)
 zoom = Vector2(1.6, 1.6)
@@ -407,7 +416,7 @@ texture = ExtResource("4_p4j74")
 z_index = -2
 repeat_size = Vector2(100, 100)
 autoscroll = Vector2(10, 10)
-repeat_times = 24
+repeat_times = 12
 follow_viewport = false
 ignore_camera_scroll = true
 script = ExtResource("11_mxd2g")
@@ -940,14 +949,6 @@ scale = Vector2(31.253527, 17.621151)
 mouse_filter = 2
 color = Color(0.14117648, 0.14117648, 0.14117648, 0.93333334)
 
-[node name="SettingsMenu" parent="." unique_id=1799041464 instance=ExtResource("24_pqe63")]
-visible = false
-z_index = 450
-offset_left = 65.0
-offset_top = -301.0
-offset_right = 65.0
-offset_bottom = -301.0
-
 [node name="diceSFX" type="AudioStreamPlayer" parent="." unique_id=715830153]
 stream = ExtResource("9_c2iwn")
 pitch_scale = 0.41
@@ -981,15 +982,13 @@ process_callback = 0
 wait_time = 0.7
 one_shot = true
 
-[node name="Img0418" type="Sprite2D" parent="." unique_id=1061252274]
-z_index = 1
-position = Vector2(788, 195)
-scale = Vector2(2.89182, 2.89182)
-texture = ExtResource("23_pqe63")
-
 [connection signal="selectedUpgrade" from="UpgradeMenu" to="GameManager" method="_on_upgrade_menu_selected_upgrade"]
 [connection signal="menuClosed" from="GameManager" to="UpgradeMenu" method="_on_game_manager_menu_closed"]
 [connection signal="menuOpened" from="GameManager" to="UpgradeMenu" method="_on_game_manager_menu_opened"]
+[connection signal="bgscrolling" from="SettingsMenu" to="Design/Parallax2D" method="_on_settings_menu_bgscrolling"]
+[connection signal="changeColor" from="SettingsMenu" to="GameManager" method="_on_settings_menu_change_color"]
+[connection signal="menuClosed" from="SettingsMenu" to="UpgradeMenu" method="_on_settings_menu_menu_closed"]
+[connection signal="showControls" from="SettingsMenu" to="GameManager" method="_on_settings_menu_show_controls"]
 [connection signal="timeout" from="Design/Timer" to="Design/Parallax2D" method="_on_timer_timeout"]
 [connection signal="toggled" from="Dices/DiceContainer/D1" to="GameManager" method="_on_d_1_toggled"]
 [connection signal="toggled" from="Dices/DiceContainer/D2" to="GameManager" method="_on_d_2_toggled"]
@@ -1004,10 +1003,6 @@ texture = ExtResource("23_pqe63")
 [connection signal="pressed" from="Menu/VBoxContainer/ControlButton" to="GameManager" method="_on_control_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/ReloadButton" to="GameManager" method="_on_reload_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/CloseGameButton" to="GameManager" method="_on_close_game_button_pressed"]
-[connection signal="bgscrolling" from="SettingsMenu" to="Design/Parallax2D" method="_on_settings_menu_bgscrolling"]
-[connection signal="changeColor" from="SettingsMenu" to="GameManager" method="_on_settings_menu_change_color"]
-[connection signal="menuClosed" from="SettingsMenu" to="UpgradeMenu" method="_on_settings_menu_menu_closed"]
-[connection signal="showControls" from="SettingsMenu" to="GameManager" method="_on_settings_menu_show_controls"]
 [connection signal="timeout" from="diceSFX/diceSFXTimer" to="GameManager" method="_on_dice_sfx_timer_timeout"]
 [connection signal="timeout" from="ExtraDiceSFX/extraDiceSFXTimer" to="GameManager" method="_on_extra_dice_sfx_timer_timeout"]
 [connection signal="timeout" from="canThrowTimer" to="GameManager" method="_on_can_throw_timer_timeout"]

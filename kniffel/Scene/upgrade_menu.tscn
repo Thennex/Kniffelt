@@ -2,12 +2,16 @@
 
 [ext_resource type="Script" uid="uid://mgxofudtn4s3" path="res://Scripts/upgrade_menu.gd" id="1_nu7k5"]
 [ext_resource type="Shader" uid="uid://d2yh0qwbbup7q" path="res://Shader/overlay.gdshader" id="2_7pd2g"]
+[ext_resource type="Texture2D" uid="uid://d3qbt7616s0qs" path="res://Art/menu/Kniffel_upgrade_menu.png" id="2_20xnh"]
 [ext_resource type="FontFile" uid="uid://bhj1cnph3kov7" path="res://Fonts/Delta Block/TrueType (.ttf)/DeltaBlock-Regular.ttf" id="2_l2osm"]
 [ext_resource type="Texture2D" uid="uid://cxc8eiven7uyv" path="res://Art/Cards/Card_template.png" id="2_whu44"]
 [ext_resource type="Texture2D" uid="uid://dmxlyhrloxrei" path="res://Art/Cards/IMG_0422.png" id="4_7n7ug"]
 [ext_resource type="Texture2D" uid="uid://bxeljsbic36uu" path="res://Art/Cards/IMG_0423.png" id="5_7pd2g"]
 [ext_resource type="Texture2D" uid="uid://dlf5src88uh6w" path="res://Art/Cards/IMG_0424.png" id="6_20xnh"]
 [ext_resource type="Texture2D" uid="uid://2d44k4g6bfak" path="res://Art/Cards/IMG_0425.png" id="7_1sfry"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_20xnh"]
+load_path = "res://.godot/imported/dice_fancy_bg_parallax.png-66671b81bb8ca4ef9e6a59b626da52d6.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5wpvy"]
 shader = ExtResource("2_7pd2g")
@@ -838,17 +842,52 @@ grow_vertical = 2
 script = ExtResource("1_nu7k5")
 
 [node name="Menu" type="Control" parent="." unique_id=208649355]
+z_index = 1
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ColorRect" type="ColorRect" parent="Menu" unique_id=5196593]
-z_index = -4
-layout_mode = 0
-offset_right = 538.0
-offset_bottom = 300.0
-mouse_filter = 2
-color = Color(0.15686275, 0.15686275, 0.15686275, 0.78431374)
+[node name="parallax" type="Control" parent="Menu" unique_id=773182143]
+visible = false
+z_index = 1
+anchors_preset = 0
+offset_left = -26.0
+offset_top = -2.0
+offset_right = 14.0
+offset_bottom = 38.0
+
+[node name="Parallax2D" type="Parallax2D" parent="Menu/parallax" unique_id=1471089304]
+scroll_offset = Vector2(-170, -7)
+repeat_size = Vector2(100, 100)
+autoscroll = Vector2(10, 10)
+repeat_times = 2
+
+[node name="DiceFancyBgParallax" type="Sprite2D" parent="Menu/parallax/Parallax2D" unique_id=509174587]
+position = Vector2(248, 159)
+texture = SubResource("CompressedTexture2D_20xnh")
+
+[node name="parallax2" type="Control" parent="Menu" unique_id=34920413]
+visible = false
+z_index = 1
+anchors_preset = 0
+offset_left = 175.0
+offset_top = -2.0
+offset_right = 215.0
+offset_bottom = 38.0
+
+[node name="Parallax2D" type="Parallax2D" parent="Menu/parallax2" unique_id=1854558201]
+scroll_offset = Vector2(-170, -7)
+repeat_size = Vector2(100, 100)
+autoscroll = Vector2(10, 10)
+repeat_times = 2
+
+[node name="DiceFancyBgParallax" type="Sprite2D" parent="Menu/parallax2/Parallax2D" unique_id=404847798]
+position = Vector2(248, 159)
+texture = SubResource("CompressedTexture2D_20xnh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Menu" unique_id=889578812]
+position = Vector2(270, 150)
+texture = ExtResource("2_20xnh")
 
 [node name="Slot1_button" type="Button" parent="Menu" unique_id=205919846]
 visible = false

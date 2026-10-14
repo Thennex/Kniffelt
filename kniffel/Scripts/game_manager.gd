@@ -63,44 +63,44 @@ signal menuOpened
 ###################################
 var dice_locked = preload("uid://camxcabkvly8k") 
 var dice_unlocked = preload("uid://bxywxlj5wl2te")
-var d1 = 0 
-var d2 = 0
-var d3 = 0
-var d4 = 0
-var d5 = 0
-var diceValues = [0, 0, 0, 0, 0, 0,]
-@onready var sDices = [sd1, sd2 , sd3, sd4, sd5]
-var dices = [d1, d2 , d3, d4, d5]
-var dice_count = 5
-@export var max_throw_count = 3
-var throw_count = 0
-var locked_slot = [false, false, false, false, false]
+var d1 : int = 0 
+var d2 : int = 0
+var d3 : int = 0
+var d4 : int = 0
+var d5 : int = 0
+var diceValues : Array = [0, 0, 0, 0, 0, 0,]
+@onready var sDices : Array = [sd1, sd2 , sd3, sd4, sd5]
+var dices : Array = [d1, d2 , d3, d4, d5]
+var dice_count : int = 5
+@export var max_throw_count : int = 3
+var throw_count : int = 0
+var locked_slot : Array = [false, false, false, false, false]
 
-var can_throw = true
+var can_throw : bool = true
 
 
 #####################################
 #####   Variables for Showers   #####
 #####################################
-var changeDieMemory = 1
-var small_straight_memory = 1
-var big_straight_memory = 1
+var changeDieMemory : int = 1
+var small_straight_memory : int = 1
+var big_straight_memory :int = 1
 
 ####################################
 #####   Variables for Points   #####
 ####################################
-@onready var all_points = 0
-@onready var bonus_points = 0
-@onready var top_points_counter = 0
-@onready var bottom_points_counter = 0
+@onready var all_points : int = 0
+@onready var bonus_points : int = 0
+@onready var top_points_counter : int = 0
+@onready var bottom_points_counter :int = 0
 @onready var point_array: Array = [top_points_counter, bottom_points_counter, bonus_points, all_points]
 
 ###################################
 #####   Variables for Bonus   #####
 ###################################
-var has_bonus = false
-@export var bonus_treashold = 63
-@export var bonus_amount = 35 
+var has_bonus : bool = false
+@export var bonus_treashold : int = 63
+@export var bonus_amount : int = 35 
 
 ######################################
 #####   Variables for Upgrades   #####
@@ -110,13 +110,14 @@ var pickedUpgrades : Array = []
 #################################
 #####   Variables for End   #####
 #################################
-var done = 0
+var done : int = 0
 var number_counter_array : Array = [0, 0, 0, 0, 0, 0]
 
+const kniffelpaper_node  = preload("uid://bux05u53jlkja")
 ####################################
 #####   Variables for Design   #####
 ####################################
-var color_values = [Color(0.7, 0.7, 0.0), Color(0.0, 0.7, 0.0), Color(0.0, 0.7, 0.7), Color(0.0, 0.604, 1.0), Color(0.7, 0.0, 0.7), Color(0.7, 0.0, 0.0)]
+var color_values : Array = [Color(0.7, 0.7, 0.0), Color(0.0, 0.7, 0.0), Color(0.0, 0.7, 0.7), Color(0.0, 0.604, 1.0), Color(0.7, 0.0, 0.7), Color(0.7, 0.0, 0.0)]
 #endregion
 
 #region METHODS
@@ -441,6 +442,7 @@ func _on_open_menu_button_pressed() -> void:
 		menuOpened.emit()
 
 func _on_menu_closer_pressed() -> void:
+		selectsfx.play()
 		$"../Menu/ColorRect".visible = false
 		$"../Menu/MenuCloser".visible = false
 		menu.visible = false
@@ -448,7 +450,18 @@ func _on_menu_closer_pressed() -> void:
 
 func _on_reload_button_pressed() -> void:
 	selectsfx.play()
-	get_tree().change_scene_to_file("res://Scene/main.tscn")
+	var tmp_array : Array = get_tree().get_nodes_in_group("Kniffelpaper")
+	for i in tmp_array.size():
+		tmp_array[i - 1].queue_free()
+	var Kniffel_paper = kniffelpaper_node.instantiate()
+	$"..".add_child(Kniffel_paper)
+	Kniffel_paper.add_to_group("Kniffelpaper")
+	kniffelpaper = Kniffel_paper
+	Kniffel_paper.z_index = 3
+	$"../EndMenu".visible = false
+	reset()
+	$"../Menu/VBoxContainer".visible = false
+	$"../Menu/ColorRect".visible = false
 
 func _on_control_button_pressed() -> void:
 	selectsfx.play()

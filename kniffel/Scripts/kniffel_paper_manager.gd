@@ -255,10 +255,10 @@ var dice_unlocked = preload("uid://bxywxlj5wl2te")
 #for dynamic animations in method for top action calc
 @onready var dice_anim_array : Array = ["D1", "D2", "D3", "D4", "D5", "D6"]
 
-var can_select = true
+var can_select : bool = true
 
-var actions = [false, false, false, false, false, false]
-var buttom_actions = [false, false, false, false, false, false, false]
+var actions : Array = [false, false, false, false, false, false]
+var buttom_actions : Array = [false, false, false, false, false, false, false]
 #endregion
 
 #region --> Functions for calculating and chosing the chosen Action
@@ -279,6 +279,7 @@ func topDs(number) -> void:
 	actions[dice_counted - 1] = true
 	animtoplayer.play(dice_anim_array[dice_counted - 1] + "_select")
 	gamemanager.selectsfx.play()
+	
 	checkActions()
 
 func x3() -> void:

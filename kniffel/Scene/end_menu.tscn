@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://rpj2d6f82ruq" path="res://Art/Kniffel_Settings.png" id="4_prs6u"]
 [ext_resource type="FontFile" uid="uid://du32f37clc06n" path="res://Fonts/Delta Block/OpenType (.otf)/DeltaBlock-Regular.otf" id="4_u8kpy"]
 [ext_resource type="Shader" uid="uid://d2yh0qwbbup7q" path="res://Shader/overlay.gdshader" id="6_prs6u"]
+[ext_resource type="Texture2D" uid="uid://bxywxlj5wl2te" path="res://Art/Dies/Kniffel_Dice_reworked.png" id="8_5wo7h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_prs6u"]
 shader = ExtResource("2_f3ihc")
@@ -230,8 +231,9 @@ color = Color(0.30637, 0.30637, 0.30637, 1)
 
 [node name="Stats" type="Control" parent="." unique_id=1136531932]
 anchors_preset = 0
+offset_top = -11.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 29.0
 mouse_filter = 2
 
 [node name="LStats" type="Label" parent="Stats" unique_id=1233825844]
@@ -249,73 +251,175 @@ uppercase = true
 [node name="Lthrown1s" type="Label" parent="Stats" unique_id=863984488]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 395.0
-offset_top = 264.0
-offset_right = 521.0
-offset_bottom = 302.64584
+offset_left = 490.0
+offset_top = 263.0
+offset_right = 616.0
+offset_bottom = 301.64584
 theme_override_fonts/font = ExtResource("4_u8kpy")
 theme_override_font_sizes/font_size = 35
-text = "One's: 1"
+text = ": 1"
 uppercase = true
 
 [node name="Lthrown2s" type="Label" parent="Stats" unique_id=577736473]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 395.0
-offset_top = 309.0
-offset_right = 527.0
-offset_bottom = 347.64584
+offset_left = 490.0
+offset_top = 317.0
+offset_right = 622.0
+offset_bottom = 355.64584
 theme_override_fonts/font = ExtResource("4_u8kpy")
 theme_override_font_sizes/font_size = 35
-text = "Two's: 1"
+text = ": 1"
 uppercase = true
 
 [node name="Lthrown3s" type="Label" parent="Stats" unique_id=19165842]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 395.0
-offset_top = 362.0
-offset_right = 560.0
-offset_bottom = 400.64584
+offset_left = 490.0
+offset_top = 370.0
+offset_right = 655.0
+offset_bottom = 408.64584
 theme_override_fonts/font = ExtResource("4_u8kpy")
 theme_override_font_sizes/font_size = 35
-text = "three's: 1"
+text = ": 1"
 uppercase = true
 
 [node name="Lthrown4s" type="Label" parent="Stats" unique_id=1923459864]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 584.0
-offset_top = 263.0
-offset_right = 729.0
-offset_bottom = 301.64584
+offset_left = 655.0
+offset_top = 262.0
+offset_right = 800.0
+offset_bottom = 300.64584
 theme_override_fonts/font = ExtResource("4_u8kpy")
 theme_override_font_sizes/font_size = 35
-text = "four's: 1"
+text = ": 1"
 uppercase = true
 
 [node name="Lthrown5s" type="Label" parent="Stats" unique_id=759680401]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 584.0
-offset_top = 308.0
-offset_right = 724.0
-offset_bottom = 346.64584
+offset_left = 655.0
+offset_top = 316.0
+offset_right = 795.0
+offset_bottom = 354.64584
 theme_override_fonts/font = ExtResource("4_u8kpy")
 theme_override_font_sizes/font_size = 35
-text = "fife's: 1"
+text = ": 1"
 uppercase = true
 
 [node name="Lthrown6s" type="Label" parent="Stats" unique_id=281286537]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 584.0
-offset_top = 361.0
-offset_right = 749.0
-offset_bottom = 399.64584
+offset_left = 655.0
+offset_top = 369.0
+offset_right = 820.0
+offset_bottom = 407.64584
 theme_override_fonts/font = ExtResource("4_u8kpy")
 theme_override_font_sizes/font_size = 35
-text = "six's: 1"
+text = ": 1"
+uppercase = true
+
+[node name="KniffelDiceReworked" type="Sprite2D" parent="." unique_id=891511029]
+position = Vector2(451, 271)
+texture = ExtResource("8_5wo7h")
+
+[node name="Label" type="Label" parent="KniffelDiceReworked" unique_id=965721062]
+offset_left = -19.0
+offset_top = -25.0
+offset_right = 21.0
+offset_bottom = 28.041668
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_u8kpy")
+theme_override_font_sizes/font_size = 28
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="KniffelDiceReworked2" type="Sprite2D" parent="." unique_id=1482319126]
+position = Vector2(452, 326)
+texture = ExtResource("8_5wo7h")
+
+[node name="Label" type="Label" parent="KniffelDiceReworked2" unique_id=1499767204]
+offset_left = -19.0
+offset_top = -25.0
+offset_right = 21.0
+offset_bottom = 28.041668
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_u8kpy")
+theme_override_font_sizes/font_size = 28
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="KniffelDiceReworked3" type="Sprite2D" parent="." unique_id=1346428442]
+position = Vector2(452, 381)
+texture = ExtResource("8_5wo7h")
+
+[node name="Label" type="Label" parent="KniffelDiceReworked3" unique_id=530432250]
+offset_left = -19.0
+offset_top = -25.0
+offset_right = 21.0
+offset_bottom = 28.041668
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_u8kpy")
+theme_override_font_sizes/font_size = 28
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="KniffelDiceReworked4" type="Sprite2D" parent="." unique_id=674949701]
+position = Vector2(619, 271)
+texture = ExtResource("8_5wo7h")
+
+[node name="Label" type="Label" parent="KniffelDiceReworked4" unique_id=1199651838]
+offset_left = -19.0
+offset_top = -25.0
+offset_right = 21.0
+offset_bottom = 28.041668
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_u8kpy")
+theme_override_font_sizes/font_size = 28
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="KniffelDiceReworked5" type="Sprite2D" parent="." unique_id=519989333]
+position = Vector2(620, 326)
+texture = ExtResource("8_5wo7h")
+
+[node name="Label" type="Label" parent="KniffelDiceReworked5" unique_id=1733362067]
+offset_left = -19.0
+offset_top = -25.0
+offset_right = 21.0
+offset_bottom = 28.041668
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_u8kpy")
+theme_override_font_sizes/font_size = 28
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="KniffelDiceReworked6" type="Sprite2D" parent="." unique_id=1578958873]
+position = Vector2(620, 381)
+texture = ExtResource("8_5wo7h")
+
+[node name="Label" type="Label" parent="KniffelDiceReworked6" unique_id=1055382844]
+offset_left = -19.0
+offset_top = -25.0
+offset_right = 21.0
+offset_bottom = 28.041668
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_u8kpy")
+theme_override_font_sizes/font_size = 28
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1
 uppercase = true
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
