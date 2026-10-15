@@ -756,7 +756,7 @@ func changeShowers() -> void:
 		lkniffel_array[i - 1].text = str(changeDieMemory)
 		lkniffel_array[i - 1].modulate = gamemanager.color_values[changeDieMemory - 1]
 	for i in lchance_array.size():
-		lchance_array[i - 1].text = str(gamemanager.rng())
+		lchance_array[i - 1].text = str(RandomNumberGenerator.new().randi_range(1,6))
 		lchance_array[i - 1].modulate = gamemanager.color_values[int(lchance_array[i - 1].text) - 1]
 	lsmallstraightd1.text = str(small_straight_memory)
 	lsmallstraightd2.text = str(small_straight_memory + 1)

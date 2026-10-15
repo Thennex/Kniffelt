@@ -71,6 +71,23 @@ signal menuOpened
 ###################################
 var dice_locked = preload("uid://camxcabkvly8k") 
 var dice_unlocked = preload("uid://bxywxlj5wl2te")
+
+#variables for changing dice Values per side
+@export var d1_sides : Array = [1, 2, 3, 4, 5, 6]
+@export var d2_sides : Array = [1, 2, 3, 4, 5, 6]
+@export var d3_sides : Array = [1, 2, 3, 4, 5, 6]
+@export var d4_sides : Array = [1, 2, 3, 4, 5, 6]
+@export var d5_sides : Array = [1, 2, 3, 4, 5, 6]
+var d_sides_array : Array = [d1_sides, d2_sides, d3_sides, d4_sides, d5_sides] 
+
+@export var d1_upgraded_sides : Array = [0, 0, 0, 0, 0, 0]
+@export var d2_upgraded_sides : Array = [0, 0, 0, 0, 0, 0]
+@export var d3_upgraded_sides : Array = [0, 0, 0, 0, 0, 0]
+@export var d4_upgraded_sides : Array = [0, 0, 0, 0, 0, 0]
+@export var d5_upgraded_sides : Array = [0, 0, 0, 0, 0, 0]
+var d_upgraded_sides_array : Array = [d1_upgraded_sides, d2_upgraded_sides, d3_upgraded_sides, d4_upgraded_sides, d5_upgraded_sides]
+
+
 var d1 : int = 0 
 var d2 : int = 0
 var d3 : int = 0
@@ -148,7 +165,7 @@ func throwDices() -> void:
 					selectsfx.play()
 					$"../ExtraDiceSFX/extraDiceSFXTimer".start()
 					dicesfxtimer.start()
-					dices[i - 1] = rng()
+					dices[i - 1] = rng(i)
 					choseDie(i)
 					$"../endRollSound".play()
 					await get_tree().create_timer(0.1).timeout
@@ -210,8 +227,8 @@ func choseDie(die) -> void:
 	var tween = create_tween()
 	tween.tween_method(setd_array[die].call, delayDice(die), dices[die - 1], duration).set_trans(Tween.TRANS_QUAD)
 
-func rng() -> int:
-	var number = RandomNumberGenerator.new().randi_range(1,6)
+func rng(die) -> int:
+	var number = d_sides_array[die][RandomNumberGenerator.new().randi_range(1,6) - 1] 
 	kniffelpaper.number_counter_array[number - 1] += 1
 	return(number)
 

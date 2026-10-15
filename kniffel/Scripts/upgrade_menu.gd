@@ -18,13 +18,42 @@ signal selectedUpgrade(upgrade)
 
 var upgrade_selection_array : Array = []
 var shuffle_array : Array = []
-var probability_array : Array = [5, 3, 2]
-var upgrade_dict = {
-	0 : "plus",
-	1 : "times2",
-	2 : "counted",
-	3 : ""
+
+
+var rare_propability = .35
+var legendary_propability = .15
+
+var upgrade_probabilities_array : Array = [legendary_propability, rare_propability,]
+
+
+
+var common_probability_array : Array = [10, 5, 1]
+var rare_probability_array : Array = [10, 5, 1]
+var legendary_probability_array : Array = [10, 5, 1]
+var probability_array : Array = [legendary_probability_array, rare_probability_array, common_probability_array]
+
+var rarity_chosen : int = 2
+
+var legendary_upgrade_dict : Dictionary  = {
+	0 : "counted",
+	1 : "counted2",
+	2 : "counted3",
 }
+
+var rare_upgrade_dict : Dictionary  = {
+	0 : "times2",
+	1 : "times3",
+	2 : "times4",
+}
+
+var common_upgrade_dict : Dictionary = {
+	0 : "plus",
+	1 : "plus+",
+	2 : "plus++",
+}
+
+
+var upgrade_dict_array : Array = [legendary_upgrade_dict, rare_upgrade_dict, common_upgrade_dict]
 
 func generate_update() -> void:
 	upgrade_selection_array.clear()
@@ -33,17 +62,30 @@ func generate_update() -> void:
 		var tmp = chooseUpgrade()
 		label_array[i].text = tmp
 		upgrade_selection_array.append(tmp)
+	
 	playAnim()
 
 
 func chooseUpgrade() -> String:
 	return(shuffle_array.pick_random())
 
+
+func chooseRarity() -> void:
+	for i in upgrade_probabilities_array.size():
+		if upgrade_probabilities_array[i] * 100 >= RandomNumberGenerator.new().randi_range(0, 100):
+			rarity_chosen = i 
+			return 
+	rarity_chosen = 2
+	return 
+
 func shuffleUpgrades() -> void:
-	for i in probability_array.size():
-		for j in probability_array[i-1]:
-			shuffle_array.append(upgrade_dict[i])
-	shuffle_array.shuffle()
+	chooseRarity()
+	shuffle_array.clear()
+	for i in upgrade_dict_array[rarity_chosen].size():
+		for j in probability_array[rarity_chosen][i]:
+				shuffle_array.append(upgrade_dict_array[rarity_chosen][i])
+	print(shuffle_array)
+
 
 func mouseBehavior() -> void:
 	if button_array[0].mouse_filter == 2:
@@ -98,5 +140,4 @@ func _on_game_manager_menu_closed() -> void:
 	mouseBehavior()
 
 func _on_game_manager_menu_opened() -> void:
-	for i in button_array.size():
-			button_array[i].mouse_filter = 2
+	mouseBehavior()

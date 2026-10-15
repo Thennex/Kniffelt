@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ccso0muf3p4ju"
+path="res://.godot/imported/DiceRollSFX1 (copy 1).wav-c5c5134db8b1826fd92538630678cc24.sample"
+
+[deps]
+
+source_file="res://sfx/DiceRollSFX1 (copy 1).wav"
+dest_files=["res://.godot/imported/DiceRollSFX1 (copy 1).wav-c5c5134db8b1826fd92538630678cc24.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

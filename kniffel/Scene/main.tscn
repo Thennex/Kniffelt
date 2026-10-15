@@ -8,8 +8,8 @@
 [ext_resource type="Script" uid="uid://dmwnb1fwwp3s2" path="res://Scripts/camera_manager.gd" id="6_hiice"]
 [ext_resource type="Texture2D" uid="uid://bttaoj4ggv4bu" path="res://Art/Light/2d_lights_and_shadows_neutral_point_light.webp" id="6_jbas8"]
 [ext_resource type="Texture2D" uid="uid://dv58cx4brbeo2" path="res://Art/Dies/Kniffel_dice_locked-export.png" id="9_2ix4a"]
-[ext_resource type="AudioStream" uid="uid://dktef6aonmnow" path="res://SFX/DiceRollSFX.wav" id="9_c2iwn"]
-[ext_resource type="AudioStream" uid="uid://dv78xf57lsgc3" path="res://SFX/DiceRollSFX1.wav" id="10_3pt4j"]
+[ext_resource type="AudioStream" uid="uid://dktef6aonmnow" path="res://sfx/DiceRollSFX.wav" id="9_c2iwn"]
+[ext_resource type="AudioStream" uid="uid://dv78xf57lsgc3" path="res://sfx/DiceRollSFX1.wav" id="10_3pt4j"]
 [ext_resource type="FontFile" uid="uid://du32f37clc06n" path="res://Fonts/Delta Block/OpenType (.otf)/DeltaBlock-Regular.otf" id="10_aam5o"]
 [ext_resource type="Texture2D" uid="uid://dyxnamhhh1xd3" path="res://Art/Kniffel_unlock_all.png" id="11_jbas8"]
 [ext_resource type="Script" uid="uid://btlc3tfcwlk6o" path="res://Scripts/parallax_manager.gd" id="11_mxd2g"]
@@ -17,9 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://d1xg18nq28tsg" path="res://Art/Kniffel_Settings_reworked.png" id="14_hiice"]
 [ext_resource type="Texture2D" uid="uid://g8c2agqtpeg2" path="res://Art/Kniffel_roll_button.png" id="14_p4j74"]
 [ext_resource type="Texture2D" uid="uid://bbiavwobojy7j" path="res://Art/Kniffel_overlay.png" id="19_p2wc2"]
-[ext_resource type="AudioStream" uid="uid://bceno77oukerm" path="res://SFX/selectSFX.wav" id="21_hiice"]
-[ext_resource type="AudioStream" uid="uid://cyr24cynd1dhm" path="res://SFX/CounterSFX.wav" id="22_sor6r"]
-[ext_resource type="AudioStream" uid="uid://deau8rqvcmk10" path="res://SFX/ExtraDiceSFX.wav" id="23_pqe63"]
+[ext_resource type="AudioStream" uid="uid://bceno77oukerm" path="res://sfx/selectSFX.wav" id="21_hiice"]
+[ext_resource type="AudioStream" uid="uid://cyr24cynd1dhm" path="res://sfx/CounterSFX.wav" id="22_sor6r"]
+[ext_resource type="AudioStream" uid="uid://deau8rqvcmk10" path="res://sfx/ExtraDiceSFX.wav" id="23_pqe63"]
 [ext_resource type="PackedScene" uid="uid://d217ru5dtsin" path="res://Scene/end_menu.tscn" id="23_sor6r"]
 [ext_resource type="PackedScene" uid="uid://vwqgwvcgisf1" path="res://Scene/upgrade_menu.tscn" id="24_aam5o"]
 [ext_resource type="PackedScene" uid="uid://d34y3qx4gnqam" path="res://Scene/settings_menu.tscn" id="24_pqe63"]
@@ -93,7 +93,7 @@ events = [SubResource("InputEventKey_ow1sv")]
 
 [node name="Main" type="Node2D" unique_id=265119633]
 
-[node name="UpgradeMenu" parent="." unique_id=460068291 instance=ExtResource("24_aam5o")]
+[node name="UpgradeMenu" parent="." unique_id=460068291 groups=["persistent"] instance=ExtResource("24_aam5o")]
 z_index = 2
 offset_left = 266.0
 offset_top = -293.0

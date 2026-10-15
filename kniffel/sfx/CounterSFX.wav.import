@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://b6krtq5v04362"
-path="res://.godot/imported/endRollSFX.wav-660b05930c42b1547104ea22b15c0ab0.sample"
+uid="uid://cyr24cynd1dhm"
+path="res://.godot/imported/CounterSFX.wav-3a2e0763caba1458452136d13eb48fd8.sample"
 
 [deps]
 
-source_file="res://SFX/endRollSFX.wav"
-dest_files=["res://.godot/imported/endRollSFX.wav-660b05930c42b1547104ea22b15c0ab0.sample"]
+source_file="res://sfx/CounterSFX.wav"
+dest_files=["res://.godot/imported/CounterSFX.wav-3a2e0763caba1458452136d13eb48fd8.sample"]
 
 [params]
 
