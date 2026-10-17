@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cngtadpmbdgce"
-path="res://.godot/imported/IMG_0420 (copy 1).png-56e6013b70a9f036c7b2b8011efc388a.ctex"
+uid="uid://dxx7pc755aau7"
+path="res://.godot/imported/Courser.PNG-d1e973677adfac02b907caeb05f2d5bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Hand/IMG_0420 (copy 1).png"
-dest_files=["res://.godot/imported/IMG_0420 (copy 1).png-56e6013b70a9f036c7b2b8011efc388a.ctex"]
+source_file="res://Art/Hand/Courser.PNG"
+dest_files=["res://.godot/imported/Courser.PNG-d1e973677adfac02b907caeb05f2d5bd.ctex"]
 
 [params]
 

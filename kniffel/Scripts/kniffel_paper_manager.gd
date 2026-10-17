@@ -584,8 +584,9 @@ func checkButtomActions() -> void:
 	gamemanager.resetDice()
 	gamemanager.countersfx.pitch_scale = 1
 	if int(lbottompoints.text) != bottom_points_counter:
+		var duration = float(bottom_points_counter - int(lbottompoints.text))/100 if float(bottom_points_counter - int(lbottompoints.text))/100 > 0.3 else 0.3 
 		var tween3 = create_tween()
-		tween3.tween_method(setBottomCounter, int(lbottompoints.text), bottom_points_counter, .7).set_trans(Tween.TRANS_EXPO)
+		tween3.tween_method(setBottomCounter, int(lbottompoints.text), bottom_points_counter, duration).set_trans(Tween.TRANS_EXPO)
 		await tween3.finished
 		lbottompoints.rotation = 0
 	var all_actions_done = 0
@@ -625,8 +626,9 @@ func checkActions() -> void:
 	$KniffelBonusMeter/TextureProgressBarFast.value = top_points_counter + 0.2
 	tween.tween_method(set_BarValue, int(ltoppoints.text), top_points_counter, 0.4,).set_trans(Tween.TRANS_EXPO)
 	if int(ltoppoints.text) != top_points_counter:
+		var duration = .3
 		var tween1 = create_tween()
-		tween1.tween_method(setTopCounter, int(ltoppoints.text), top_points_counter, 0.3)
+		tween1.tween_method(setTopCounter, int(ltoppoints.text), top_points_counter, duration)
 		await tween.finished
 		ltoppoints.rotation = 0
 	var all_actions_done = 0

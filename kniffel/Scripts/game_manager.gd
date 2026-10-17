@@ -279,7 +279,7 @@ func reset() -> void:
 	kniffelpaper.bottom_points_counter = 0
 	$"../Dices".visible = true
 	$"../ShowControls".visible = true
-	$"../UpgradeMenu".visible = true
+	$"../UpgradeMenu".visible = false 
 	kniffelpaper.done = 0
 	resetDice()
 

@@ -27,29 +27,35 @@ var upgrade_probabilities_array : Array = [legendary_propability, rare_propabili
 
 
 
-var common_probability_array : Array = [10, 5, 1]
-var rare_probability_array : Array = [10, 5, 1]
-var legendary_probability_array : Array = [10, 5, 1]
+var common_probability_array : Array =    [10, 5, 1, 4, 3]
+var rare_probability_array : Array =      [10, 5, 1, 4, 3]
+var legendary_probability_array : Array = [10, 5, 1, 4, 3]
 var probability_array : Array = [legendary_probability_array, rare_probability_array, common_probability_array]
 
 var rarity_chosen : int = 2
 
 var legendary_upgrade_dict : Dictionary  = {
-	0 : "counted",
-	1 : "counted2",
-	2 : "counted3",
-}
-
-var rare_upgrade_dict : Dictionary  = {
 	0 : "times2",
 	1 : "times3",
 	2 : "times4",
+	3 : "6",
+	4 : "5",
+}
+
+var rare_upgrade_dict : Dictionary  = {
+	0 : "counted",
+	1 : "counted2",
+	2 : "counted3",
+	3 : "4",
+	4 : "3",
 }
 
 var common_upgrade_dict : Dictionary = {
 	0 : "plus",
 	1 : "plus+",
 	2 : "plus++",
+	3 : "2",
+	4 : "1",
 }
 
 
@@ -62,7 +68,6 @@ func generate_update() -> void:
 		var tmp = chooseUpgrade()
 		label_array[i].text = tmp
 		upgrade_selection_array.append(tmp)
-	
 	playAnim()
 
 

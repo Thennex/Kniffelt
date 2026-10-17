@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rqcrprdy1ogn"
-path="res://.godot/imported/IMG_0420 (copy 2).png-18bdd199dc2ff13f933a2dba8c2641b8.ctex"
+uid="uid://cngtadpmbdgce"
+path="res://.godot/imported/OldHandCourser.png-cbd61264ef4a3ae9735d43c89a0a1256.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Hand/IMG_0420 (copy 2).png"
-dest_files=["res://.godot/imported/IMG_0420 (copy 2).png-18bdd199dc2ff13f933a2dba8c2641b8.ctex"]
+source_file="res://Art/Hand/OldHandCourser.png"
+dest_files=["res://.godot/imported/OldHandCourser.png-cbd61264ef4a3ae9735d43c89a0a1256.ctex"]
 
 [params]
 
