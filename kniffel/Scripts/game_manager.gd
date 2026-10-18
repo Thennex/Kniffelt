@@ -66,12 +66,9 @@ signal menuOpened
 @onready var dlocked_array: Array = [d1locked, d2locked, d3locked, d4locked, d5locked]
 
 
-###################################
-#####   Variables for Dices   #####
-###################################
-var dice_locked = preload("uid://camxcabkvly8k") 
-var dice_unlocked = preload("uid://bxywxlj5wl2te")
-
+#################################################
+#####   Variables for upgrading the Dices   #####
+#################################################
 #variables for changing dice Values per side
 @export var d1_sides : Array = [1, 2, 3, 4, 5, 6]
 @export var d2_sides : Array = [1, 2, 3, 4, 5, 6]
@@ -87,6 +84,11 @@ var d_sides_array : Array = [d1_sides, d2_sides, d3_sides, d4_sides, d5_sides]
 @export var d5_upgraded_sides : Array = [0, 0, 0, 0, 0, 0]
 var d_upgraded_sides_array : Array = [d1_upgraded_sides, d2_upgraded_sides, d3_upgraded_sides, d4_upgraded_sides, d5_upgraded_sides]
 
+###################################
+#####   Variables for Dices   #####
+###################################
+var dice_locked = preload("uid://camxcabkvly8k") 
+var dice_unlocked = preload("uid://bxywxlj5wl2te")
 
 var d1 : int = 0 
 var d2 : int = 0
@@ -96,11 +98,9 @@ var d5 : int = 0
 var diceValues : Array = [0, 0, 0, 0, 0, 0,]
 @onready var sDices : Array = [sd1, sd2 , sd3, sd4, sd5]
 var dices : Array = [d1, d2 , d3, d4, d5]
-var dice_count : int = 5
 @export var max_throw_count : int = 3
 var throw_count : int = 0
 var locked_slot : Array = [false, false, false, false, false]
-
 var can_throw : bool = true
 
 ######################################
@@ -117,10 +117,10 @@ const kniffelpaper_node : PackedScene = preload("uid://bux05u53jlkja")
 ####################################
 #####   Variables for Design   #####
 ####################################
-var color_values : Array = [Color(0.7, 0.7, 0.0), Color(0.0, 0.7, 0.0), Color(0.0, 0.7, 0.7), Color(0.0, 0.604, 1.0), Color(0.7, 0.0, 0.7), Color(0.7, 0.0, 0.0)]
+var color_values : Array = [Color(0.7, 0.7, 0.0), Color(0.0, 0.7, 0.0), Color(0.0, 0.7, 0.7), Color(0.0, 0.604, 1.0, 1.0), Color(0.7, 0.0, 0.7), Color(0.7, 0.0, 0.0)]
 #endregion
 
-#region METHODS
+#region METHODSColor(0.7, 0.7, 0.0)
 #######################################################################
 #####                           Methods                           #####
 #######################################################################
@@ -150,7 +150,7 @@ func throwDices() -> void:
 		if throw_count < max_throw_count:
 			throw_count += 1
 			lrolldice.text = str("Roll Dice (", max_throw_count - throw_count, ")")
-			for i in dice_count:
+			for i in dices.size():
 				if locked_slot[i] == false:
 					dicesfx.playing = false
 					dicesfx.volume_db = -5
@@ -263,7 +263,7 @@ func resetLocked() -> void:
 		dlocked_array[i - 1].visible = false
 
 func areAllLocked() -> bool:
-	for i in dice_count:
+	for i in dices.size():
 		if locked_slot[i - 1] == false:
 			return false
 	return true
@@ -279,7 +279,7 @@ func reset() -> void:
 	kniffelpaper.bottom_points_counter = 0
 	$"../Dices".visible = true
 	$"../ShowControls".visible = true
-	$"../UpgradeMenu".visible = false 
+	$"../UpgradeMenu".visible = true
 	kniffelpaper.done = 0
 	resetDice()
 
@@ -295,7 +295,7 @@ func end():
 #################################
 func allDiceCounted() -> int:
 	var dice_value = 0
-	for i in dice_count:
+	for i in dices.size():
 		dice_value += dices[i]
 	return dice_value
 

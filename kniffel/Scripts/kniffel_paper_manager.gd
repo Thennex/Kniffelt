@@ -314,7 +314,7 @@ func topDs(number) -> void:
 	if actions[dice_counted - 1] == true:	return 
 	if gamemanager.dices.count(dice_counted) >= 1:
 		gamemanager.diceValues[dice_counted - 1] = gamemanager.dices.count(dice_counted) * dice_counted
-	for i in clamp(gamemanager.dices.count(dice_counted), 1, 3):
+	for i in clamp(gamemanager.dices.count(dice_counted), 0, 3):
 		dselectcolor_array[dice_counted - 1][i].texture = dice_unlocked
 		dselectcolor_array[dice_counted - 1][i].modulate = gamemanager.color_values[dice_counted - 1]
 	l_array[dice_counted - 1].text = str(gamemanager.diceValues[dice_counted - 1])
@@ -331,14 +331,14 @@ func x3() -> void:
 			var x3dDice = 0
 			gamemanager.dices.sort()
 			var is_x3 = false
-			for i in gamemanager.dice_count:
+			for i in gamemanager.dices.size():
 				if is_x3 == false:
 					if gamemanager.dices.count(gamemanager.dices[i - 1]) >= 3:
 						is_x3 = true
 						x3dDice = gamemanager.dices[i - 1]
 			if is_x3:
 				var dice_value = 0
-				for i in gamemanager.dice_count:
+				for i in gamemanager.dices.size():
 					dice_value += gamemanager.dices[i]
 				for i in x3danim_array.size():
 					lx3danim_array[i - 1].text = str(x3dDice)
@@ -365,14 +365,14 @@ func x4() -> void:
 			gamemanager.dices.sort()
 			var x4dDice
 			var is_x4 = false
-			for i in gamemanager.dice_count:
+			for i in gamemanager.dices.size():
 					if is_x4 == false:
 						if gamemanager.dices.count(gamemanager.dices[i - 1]) >= 4:
 							x4dDice = gamemanager.dices[i - 1]
 							is_x4 = true
 			if is_x4:
 				var dice_value = 0
-				for i in gamemanager.dice_count:
+				for i in gamemanager.dices.size():
 					dice_value += gamemanager.dices[i]
 				for i in x4danim_array.size():
 					lx4danim_array[i - 1].text = str(x4dDice)
@@ -400,7 +400,7 @@ func full_house() -> void:
 			var dif_dice
 			var dice_counted = gamemanager.dices.count(gamemanager.dices[0])
 			var dif_dice_counted = 0
-			for i in gamemanager.dice_count:
+			for i in gamemanager.dices.size():
 				if gamemanager.dices[i] != gamemanager.dices[0]:
 					dif_dice = gamemanager.dices[i]
 					break
@@ -431,7 +431,7 @@ func small_straight() -> void:
 		if buttom_actions[3] == false:
 			var is_small_straight = false
 			var pureDices = []
-			for i in gamemanager.dice_count:
+			for i in gamemanager.dices.size():
 				if !pureDices.has(gamemanager.dices[i - 1]):
 					pureDices.append(gamemanager.dices[i - 1]) 
 			pureDices.sort()
@@ -471,7 +471,7 @@ func big_straight() -> void:
 		if buttom_actions[4] == false:
 			var is_big_straight = false
 			var pureDices = []
-			for i in gamemanager.dice_count:
+			for i in gamemanager.dices.size():
 				if !pureDices.has(gamemanager.dices[i - 1]):
 					pureDices.append(gamemanager.dices[i - 1]) 
 			pureDices.sort()
@@ -663,86 +663,79 @@ func checkTopActionsPoints():
 				l_array[i].text = ""
 
 func checkBottomActionsPoints():
-	var dices = gamemanager.dices
+	var dices : Array = gamemanager.dices
 	for i in 7:
-		if buttom_actions[i] == true:	return
-		var tmp_bool = false
-		if i == 0:
-			for j in dices.size():
-				if dices.count(j + 1) >= 3:
-					tmp_bool = true
-			if tmp_bool:
-				lx3.text = str(gamemanager.allDiceCounted())
-				print("x3")
-			else:
-				lx3.text = ""
-		if i == 1:
-			for j in dices.size():
-				if dices.count(j + 1) >= 4:
-					tmp_bool = true
-			if tmp_bool:
-				lx4.text = str(gamemanager.allDiceCounted())
-				print("x4")
-			else:
-				lx4.text = ""
-		if i == 2:
-			var dif_dice
-			var dice_counted = dices.count(dices[0])
-			var dif_dice_counted = 0
-			for l in dices.size():
-				if dices[l] != dices[0]:
-					dif_dice = dices[l]
-			dif_dice_counted = dices.count(dif_dice)
-			if dice_counted == 3 && dif_dice_counted == 2 or dice_counted == 2 && dif_dice_counted == 3:
-				lfullhouse.text = "25"
-				print("fullhouse")
-			else:
-				lfullhouse.text = ""
-		if i == 3:
-			var is_small_straight = false
-			var pureDices : Array = []
-			for l in dices.size():
-				if !pureDices.has(dices[l]):
-					pureDices.append(dices[l]) 
-			pureDices.sort()
-			var pdsize = pureDices.size()
-			if pdsize > 3:
-				if pdsize == 4:
-					if pureDices[0] + 1 == pureDices[1] && pureDices[0] + 2 == pureDices[2] && pureDices[0] + 3 == pureDices[3]:
-						is_small_straight = true
-				elif pdsize == 5:
-					if pureDices[0] + 1 == pureDices[1] && pureDices[0] + 2 == pureDices[2] && pureDices[0] + 3 == pureDices[3]:
-						is_small_straight = true
-					elif pureDices[1] + 1 == pureDices[2] && pureDices[1] + 2 == pureDices[3] && pureDices[1] + 3 == pureDices[4]:
-						is_small_straight = true
-			if is_small_straight:
-				print("smallstraight")
-				lsmallstraight.text = "30"
-			else:
-				lsmallstraight.text = ""
-		if i == 4:
-			var is_big_straight = false
-			var pureDices = []
-			for l in dices.size():
-				if !pureDices.has(dices[l - 1]):
-					pureDices.append(dices[l - 1]) 
-			pureDices.sort()
-			if pureDices.size() == 5:
-				if pureDices[0] + 1 == pureDices[1] && pureDices[0] + 2 == pureDices[2] && pureDices[0] + 3 == pureDices[3] && pureDices[0] + 4  == pureDices[4]:
-					is_big_straight = true
-			if is_big_straight:
-				lbigstraight.text = "40"
-				print("bigstraigth")
-		if i == 5:
-			if dices.count(dices[0]) == 5:
-				lkniffel.text = "50"
-				print("kniffel")
-			else:
-				lkniffel.text = ""
-		if i == 6:
-			lchance.text = str(gamemanager.allDiceCounted())
-			print("chance")
-	print("--------------------")
+		if buttom_actions[i] == false:
+			if i == 0:
+				var tmp_bool : bool = false
+				for j in dices.size():
+					if dices.count(j + 1) >= 3:
+						tmp_bool = true
+				if tmp_bool:
+					lx3.text = str(gamemanager.allDiceCounted())
+				else:
+					lx3.text = ""
+			if i == 1:
+				var tmp_bool : bool = false
+				for j in dices.size():
+					if dices.count(j + 1) >= 4:
+						tmp_bool = true
+				if tmp_bool:
+					lx4.text = str(gamemanager.allDiceCounted())
+				else:
+					lx4.text = ""
+			if i == 2:
+				var dif_dice
+				var dice_counted = dices.count(dices[0])
+				var dif_dice_counted := 0
+				for l in dices.size():
+					if dices[l] != dices[0]:
+						dif_dice = dices[l]
+				dif_dice_counted = dices.count(dif_dice)
+				if dice_counted == 3 && dif_dice_counted == 2 or dice_counted == 2 && dif_dice_counted == 3:
+					lfullhouse.text = "25"
+				else:
+					lfullhouse.text = ""
+			if i == 3:
+				var is_small_straight = false
+				var pureDices : Array = []
+				for l in dices.size():
+					if !pureDices.has(dices[l]):
+						pureDices.append(dices[l]) 
+				pureDices.sort()
+				var pdsize = pureDices.size()
+				if pdsize > 3:
+					if pdsize == 4:
+						if pureDices[0] + 1 == pureDices[1] && pureDices[0] + 2 == pureDices[2] && pureDices[0] + 3 == pureDices[3]:
+							is_small_straight = true
+					elif pdsize == 5:
+						if pureDices[0] + 1 == pureDices[1] && pureDices[0] + 2 == pureDices[2] && pureDices[0] + 3 == pureDices[3]:
+							is_small_straight = true
+						elif pureDices[1] + 1 == pureDices[2] && pureDices[1] + 2 == pureDices[3] && pureDices[1] + 3 == pureDices[4]:
+							is_small_straight = true
+				if is_small_straight:
+					lsmallstraight.text = "30"
+				else:
+					lsmallstraight.text = ""
+			if i == 4:
+				var is_big_straight : bool = false
+				var pureDices : Array = []
+				for l in dices.size():
+					if !pureDices.has(dices[l - 1]):
+						pureDices.append(dices[l - 1]) 
+				pureDices.sort()
+				if pureDices.size() == 5:
+					if pureDices[0] + 1 == pureDices[1] && pureDices[0] + 2 == pureDices[2] && pureDices[0] + 3 == pureDices[3] && pureDices[0] + 4  == pureDices[4]:
+						is_big_straight = true
+				if is_big_straight:
+					lbigstraight.text = "40"
+			if i == 5:
+				if dices.count(dices[0]) == 5:
+					lkniffel.text = "50"
+				else:
+					lkniffel.text = ""
+			if i == 6:
+				lchance.text = str(gamemanager.allDiceCounted())
 
 #########################################################
 #####                 change showers                #####

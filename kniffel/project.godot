@@ -18,9 +18,9 @@ run/max_fps=120
 boot_splash/bg_color=Color(0.24477646, 0.24477637, 0.24477634, 1)
 boot_splash/use_filter=false
 boot_splash/image="uid://ceh7e4gm5fpcc"
-config/icon="uid://comardgedhyd2"
-config/macos_native_icon="uid://comardgedhyd2"
-config/windows_native_icon="uid://comardgedhyd2"
+config/icon="uid://diygch54kvkjo"
+config/macos_native_icon="uid://diygch54kvkjo"
+config/windows_native_icon="uid://diygch54kvkjo"
 
 [display]
 

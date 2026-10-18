@@ -94,7 +94,6 @@ events = [SubResource("InputEventKey_ow1sv")]
 [node name="Main" type="Node2D" unique_id=265119633]
 
 [node name="UpgradeMenu" parent="." unique_id=460068291 groups=["persistent"] instance=ExtResource("24_aam5o")]
-visible = false
 z_index = 2
 offset_left = 266.0
 offset_top = -293.0
