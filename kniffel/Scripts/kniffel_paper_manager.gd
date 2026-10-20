@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var extrasfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var topbar: TextureProgressBar = $KniffelBonusMeter/TextureProgressBar
 
 
 
@@ -301,7 +302,7 @@ var big_straight_memory : int = 1
 
 var can_select : bool = true
 
-var top_dices_count_array : Array[int] = [0, 0, 0, 0, 0, 0]
+var top_dices_count_array : Array = [0, 0, 0, 0, 0, 0]
 var chance_dices_array : Array = [0, 0, 0, 0, 0]
 var top_points_array : Array = ["", "", "", "", "", "",""]
 var bottom_points_array : Array = ["", "", "", "", "", "","", ""]
@@ -319,9 +320,7 @@ func topDs(number) -> void:
 	if actions[dice_counted - 1] == true:	return 
 	if gamemanager.dices.count(dice_counted) >= 1:
 		gamemanager.diceValues[dice_counted - 1] = gamemanager.dices.count(dice_counted) * dice_counted
-	print(top_dices_count_array)
 	top_dices_count_array[dice_counted - 1] = clampi(gamemanager.dices.count(dice_counted), 0, 3)
-	print(top_dices_count_array)
 	for i in top_dices_count_array[dice_counted - 1]:
 		dselectcolor_array[dice_counted - 1][i].texture = dice_unlocked
 		dselectcolor_array[dice_counted - 1][i].modulate = gamemanager.color_values[dice_counted - 1]
@@ -598,7 +597,8 @@ func loadPaper():
 			animtoplayer.play(dice_top_anim_array[i] + "_select")
 			await animtoplayer.animation_finished
 			l_array[i].text = top_points_array[i]
-			for j in top_dices_count_array:
+			print(top_dices_count_array)
+			for j in top_dices_count_array[i]:
 				dselectcolor_array[i][j].texture = dice_unlocked
 				dselectcolor_array[i][j].modulate = gamemanager.color_values[i]
 	for i in buttom_actions.size():
@@ -613,7 +613,10 @@ func loadPaper():
 						lchanceanim_array[l].modulate = gamemanager.color_values[int(chance_dices_array[l]) - 1] 
 						chanceanim_array[l].modulate = gamemanager.color_values[int(chance_dices_array[l]) - 1]
 	for i in lpoints_array.size():
-		print(point_array)
+		if i == 0:
+			var tween = create_tween()
+			tween.tween_property(topbar, "value", top_points_counter, 0.5).set_trans(Tween.TRANS_EXPO)
+			tween.parallel().tween_property($KniffelBonusMeter/TextureProgressBarFast, "value", top_points_counter + 0.2, 0.1)
 		lpoints_array[i].text = str(point_array[i])
 
 
@@ -693,7 +696,7 @@ func setTopCounter(top_counter) -> void:
 
 
 func set_BarValue(value):
-	$KniffelBonusMeter/TextureProgressBar.value = value
+	topbar.value = value
 
 func checkActions() -> void:
 	gamemanager.resetDice()

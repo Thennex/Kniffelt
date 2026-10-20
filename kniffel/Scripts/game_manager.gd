@@ -121,7 +121,7 @@ const kniffelpaper_node : PackedScene = preload("uid://bux05u53jlkja")
 var color_values : Array = [Color(0.7, 0.7, 0.0), Color(0.0, 0.7, 0.0), Color(0.0, 0.7, 0.7), Color(0.0, 0.604, 1.0, 1.0), Color(0.7, 0.0, 0.7), Color(0.7, 0.0, 0.0)]
 #endregion
 
-#region METHODSColor(0.7, 0.7, 0.0)
+#region METHODS
 #######################################################################
 #####                           Methods                           #####
 #######################################################################
@@ -141,12 +141,9 @@ func save_game():
 	var save_nodes = get_tree().get_nodes_in_group("persistent")
 	for node in save_nodes:
 		if node.scene_file_path.is_empty():
-			print("persistent node '%s' is not an instanced scene, skipped" % node.name)
 			continue
-
-		# Check the node has a save function.
+		# Check if the node has a save function.
 		if !node.has_method("save"):
-			print("persistent node '%s' is missing a save() function, skipped" % node.name)
 			continue
 		
 		# Call the node's save function.
@@ -160,7 +157,7 @@ func save_game():
 
 func load_game():
 	if not FileAccess.file_exists("user://savegame.save"):
-		return # Error! We don't have a save to load.
+		return 
 	var save_nodes = get_tree().get_nodes_in_group("persistent")
 	for node in save_nodes:
 		node.queue_free()
