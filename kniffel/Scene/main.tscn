@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bxywxlj5wl2te" path="res://Art/Dies/Kniffel_Dice_reworked.png" id="11_xw8bv"]
 [ext_resource type="Texture2D" uid="uid://d1xg18nq28tsg" path="res://Art/Kniffel_Settings_reworked.png" id="14_hiice"]
 [ext_resource type="Texture2D" uid="uid://g8c2agqtpeg2" path="res://Art/Kniffel_roll_button.png" id="14_p4j74"]
+[ext_resource type="Texture2D" uid="uid://bg782jn1ddmqw" path="res://Art/Dies/Kniffel_locked_dice.png" id="14_pqe63"]
 [ext_resource type="Texture2D" uid="uid://bbiavwobojy7j" path="res://Art/Kniffel_overlay.png" id="19_p2wc2"]
 [ext_resource type="AudioStream" uid="uid://bceno77oukerm" path="res://sfx/selectSFX.wav" id="21_hiice"]
 [ext_resource type="AudioStream" uid="uid://cyr24cynd1dhm" path="res://sfx/CounterSFX.wav" id="22_sor6r"]
@@ -93,7 +94,7 @@ events = [SubResource("InputEventKey_ow1sv")]
 
 [node name="Main" type="Node2D" unique_id=265119633]
 
-[node name="UpgradeMenu" parent="." unique_id=460068291 groups=["persistent"] instance=ExtResource("24_aam5o")]
+[node name="UpgradeMenu" parent="." unique_id=460068291 instance=ExtResource("24_aam5o")]
 z_index = 2
 offset_left = 266.0
 offset_top = -293.0
@@ -383,6 +384,7 @@ visible = true
 z_index = 3
 
 [node name="SettingsMenu" parent="." unique_id=1799041464 instance=ExtResource("24_pqe63")]
+unique_name_in_owner = true
 visible = false
 z_index = 17
 offset_left = 65.0
@@ -511,12 +513,15 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="KniffelDiceLocked" type="Sprite2D" parent="Dices/DiceContainer/D1" unique_id=374970729]
-visible = false
 modulate = Color(0, 0, 0, 1)
-z_index = -1
 position = Vector2(25, 25)
 scale = Vector2(1.145, 1.145)
-texture = ExtResource("11_xw8bv")
+texture = ExtResource("14_pqe63")
+
+[node name="PointLight2D" type="PointLight2D" parent="Dices/DiceContainer/D1" unique_id=1244907343]
+texture = ExtResource("6_jbas8")
+offset = Vector2(25, 25)
+texture_scale = 0.15
 
 [node name="D2" type="Button" parent="Dices/DiceContainer" unique_id=419699359]
 modulate = Color(0.89492244, 0.89492244, 0.8949223, 1)
@@ -561,12 +566,16 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="KniffelDiceLocked" type="Sprite2D" parent="Dices/DiceContainer/D2" unique_id=179555680]
-visible = false
 modulate = Color(0, 0, 0, 1)
-z_index = -1
 position = Vector2(25, 25)
 scale = Vector2(1.145, 1.145)
-texture = ExtResource("11_xw8bv")
+texture = ExtResource("14_pqe63")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Dices/DiceContainer/D2" unique_id=373726447]
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("6_jbas8")
+offset = Vector2(25, 25)
+texture_scale = 0.15
 
 [node name="D3" type="Button" parent="Dices/DiceContainer" unique_id=1806498131]
 modulate = Color(0.89492244, 0.89492244, 0.8949223, 1)
@@ -611,12 +620,16 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="KniffelDiceLocked" type="Sprite2D" parent="Dices/DiceContainer/D3" unique_id=1531040781]
-visible = false
 modulate = Color(0, 0, 0, 1)
-z_index = -1
 position = Vector2(25, 25)
 scale = Vector2(1.145, 1.145)
-texture = ExtResource("11_xw8bv")
+texture = ExtResource("14_pqe63")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Dices/DiceContainer/D3" unique_id=1475979435]
+scale = Vector2(0.9999999, 0.9999999)
+texture = ExtResource("6_jbas8")
+offset = Vector2(25, 25)
+texture_scale = 0.15
 
 [node name="D4" type="Button" parent="Dices/DiceContainer" unique_id=1350679800]
 modulate = Color(0.89492244, 0.89492244, 0.8949223, 1)
@@ -663,12 +676,16 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="KniffelDiceLocked" type="Sprite2D" parent="Dices/DiceContainer/D4" unique_id=969828881]
-visible = false
 modulate = Color(0, 0, 0, 1)
-z_index = -1
 position = Vector2(25, 25)
 scale = Vector2(1.145, 1.145)
-texture = ExtResource("11_xw8bv")
+texture = ExtResource("14_pqe63")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Dices/DiceContainer/D4" unique_id=1078453185]
+scale = Vector2(0.9999998, 0.9999998)
+texture = ExtResource("6_jbas8")
+offset = Vector2(25, 25)
+texture_scale = 0.15
 
 [node name="D5" type="Button" parent="Dices/DiceContainer" unique_id=2141928084]
 modulate = Color(0.89492244, 0.89492244, 0.8949223, 1)
@@ -715,12 +732,16 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="KniffelDiceLocked" type="Sprite2D" parent="Dices/DiceContainer/D5" unique_id=1199831200]
-visible = false
 modulate = Color(0, 0, 0, 1)
-z_index = -1
 position = Vector2(25, 25)
 scale = Vector2(1.145, 1.145)
-texture = ExtResource("11_xw8bv")
+texture = ExtResource("14_pqe63")
+
+[node name="PointLight2D5" type="PointLight2D" parent="Dices/DiceContainer/D5" unique_id=903631813]
+scale = Vector2(0.99999976, 0.99999976)
+texture = ExtResource("6_jbas8")
+offset = Vector2(25, 25)
+texture_scale = 0.15
 
 [node name="UnlockAllButton" type="Button" parent="Dices" unique_id=874554820]
 texture_filter = 4

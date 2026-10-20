@@ -33,16 +33,38 @@ var is_show_controls : bool = true
 var current_volume_music : float = 0.5
 var current_volume_sfx : float = 0.5
 
+func save():
+	var save_dict = {
+		"filename" : get_scene_file_path(),
+		"parent" : get_parent().get_path(),
+		"pos_x" : position.x,
+		"pos_y" : position.y,
+		"z_index" : z_index,
+		"visible" : visible,
+		"is_background_scrolling" : is_background_scrolling,
+		"is_show_controls" : is_show_controls,
+		"current_volume_music" : current_volume_music,
+		"current_volume_sfx" : current_volume_sfx,
+		"backgroundscrollingbutton.modulate" : backgroundscrollingbutton.modulate, 
+		"showcontrolsbutton.modulate" : showcontrolsbutton.modulate, 
+		"change_color_values" : change_color_values,
+	}
+	return save_dict
+
+func load_audio():
+	sfxslider.value = current_volume_sfx
+	musicslider.value = current_volume_music
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(current_volume_sfx))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(current_volume_music))
+
+
 func resetAllColor() -> void:
 	changeColor.emit(color_values)
 
  
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	sfxslider.value = current_volume_sfx
-	musicslider.value = current_volume_music
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(current_volume_sfx))
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(current_volume_music))
+	load_audio()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
