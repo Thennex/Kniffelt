@@ -26,6 +26,16 @@ var legendary_propability = .15
 var upgrade_probabilities_array : Array = [legendary_propability, rare_propability,]
 
 
+#func save():
+	#var save_dict = {
+		#"filename" : get_scene_file_path(),
+		#"parent" : get_parent().get_path(),
+		#"pos_x" : position.x,
+		#"pos_y" : position.y,
+		#
+	#}
+	#return save_dict 
+
 
 var common_probability_array : Array =    [10, 5, 1, 4, 3]
 var rare_probability_array : Array =      [10, 5, 1, 4, 3]
@@ -89,7 +99,6 @@ func shuffleUpgrades() -> void:
 	for i in upgrade_dict_array[rarity_chosen].size():
 		for j in probability_array[rarity_chosen][i]:
 				shuffle_array.append(upgrade_dict_array[rarity_chosen][i])
-	print(shuffle_array)
 
 
 func mouseBehavior() -> void:

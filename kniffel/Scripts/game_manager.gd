@@ -10,9 +10,10 @@ signal menuOpened
 ############################################################
 @onready var selectsfx: AudioStreamPlayer = $"../SelectSFX"
 @onready var countersfx: AudioStreamPlayer = $"../CounterSFX"
-@onready var settingsmanager: Control = $"../SettingsMenu"
+@onready var settingsmanager: Control = %SettingsMenu
 @onready var end_menu: Control = $"../EndMenu"
 @onready var menu: VBoxContainer = $"../Menu/VBoxContainer"
+@onready var upgrademenu: Control = $"../UpgradeMenu"
 @onready var shortcutoverlay: Control = $"../ShowControls"
 @onready var dicesfx: AudioStreamPlayer = $"../diceSFX"
 @onready var dicesfxtimer: Timer = $"../diceSFX/diceSFXTimer"
@@ -131,6 +132,78 @@ var color_values : Array = [Color(0.7, 0.7, 0.0), Color(0.0, 0.7, 0.0), Color(0.
 func _ready() -> void:
 	setColor()
 	resetDice()
+	await $"..".ready
+	load_game()
+
+
+func save_game():
+	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+	var save_nodes = get_tree().get_nodes_in_group("persistent")
+	for node in save_nodes:
+		if node.scene_file_path.is_empty():
+			print("persistent node '%s' is not an instanced scene, skipped" % node.name)
+			continue
+
+		# Check the node has a save function.
+		if !node.has_method("save"):
+			print("persistent node '%s' is missing a save() function, skipped" % node.name)
+			continue
+		
+		# Call the node's save function.
+		var node_data = node.call("save")
+
+		# JSON provides a static method to serialized JSON string.
+		var json_string = JSON.stringify(node_data)
+
+		# Store the save dictionary as a new line in the save file.
+		save_file.store_line(json_string)
+
+func load_game():
+	if not FileAccess.file_exists("user://savegame.save"):
+		return # Error! We don't have a save to load.
+	var save_nodes = get_tree().get_nodes_in_group("persistent")
+	for node in save_nodes:
+		node.queue_free()
+
+	var save_file = FileAccess.open("user://savegame.save", FileAccess.READ)
+	while save_file.get_position() < save_file.get_length():
+		var json_string = save_file.get_line()
+
+		# Creates the helper class to interact with JSON.
+		var json = JSON.new()
+
+		# Check if there is any error while parsing the JSON string, skip in case of failure.
+		var parse_result = json.parse(json_string)
+		if not parse_result == OK:
+			print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+			continue
+
+		# Get the data from the JSON object.
+		var node_data = json.data
+
+		var new_object = load(node_data["filename"]).instantiate()
+		get_node(node_data["parent"]).add_child(new_object)
+		new_object.add_to_group("persistent")
+		new_object.position = Vector2(node_data["pos_x"], node_data["pos_y"])
+
+		# Now we set the remaining variables.
+		for i in node_data.keys():
+			if i == "filename" or i == "parent" or i == "pos_x" or i == "pos_y":
+				continue
+			new_object.set(i, node_data[i])
+		
+		match node_data["filename"]:
+			"res://Scene/settings_menu.tscn":
+				settingsmanager = new_object
+				settingsmanager.load_audio()
+			"res://Scene/Kniffel_paper.tscn":
+				kniffelpaper = new_object
+				kniffelpaper.loadPaper()
+			"res://Scene/upgrade_menu.tscn":
+				upgrademenu = new_object
+			
+
+
 
 func setColor() -> void:
 	for i in sDices.size():
@@ -279,7 +352,7 @@ func reset() -> void:
 	kniffelpaper.bottom_points_counter = 0
 	$"../Dices".visible = true
 	$"../ShowControls".visible = true
-	$"../UpgradeMenu".visible = true
+	upgrademenu.visible = true
 	kniffelpaper.done = 0
 	resetDice()
 
@@ -476,6 +549,7 @@ func _on_control_button_2_pressed() -> void:
 
 func _on_close_game_button_pressed() -> void:
 	selectsfx.play()
+	save_game()
 	get_tree().quit()
 #endregion 
 
