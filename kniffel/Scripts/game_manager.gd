@@ -135,7 +135,9 @@ func _ready() -> void:
 	await $"..".ready
 	load_game()
 
-
+#######################################################################
+#####       funcs for the saving and loading the whole game       #####
+#######################################################################
 func save_game():
 	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 	var save_nodes = get_tree().get_nodes_in_group("persistent")
@@ -198,10 +200,10 @@ func load_game():
 				kniffelpaper.loadPaper()
 			"res://Scene/upgrade_menu.tscn":
 				upgrademenu = new_object
-			
 
-
-
+#######################################################################
+#####                   funcs for the throwing                    #####
+#######################################################################
 func setColor() -> void:
 	for i in sDices.size():
 		sDices[i - 1].self_modulate = color_values[int(ld_array[i - 1].text) - 1]

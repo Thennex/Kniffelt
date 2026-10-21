@@ -302,8 +302,19 @@ var big_straight_memory : int = 1
 
 var can_select : bool = true
 
+####################################
+#####   Variables for Saving   #####
+####################################
 var top_dices_count_array : Array = [0, 0, 0, 0, 0, 0]
+
+var x3_dice  : int = 0
+var x4_dice : int = 0
+var full_house_dices_array : Array = [0, 0, 0, 0, 0]
+var small_straight_dices_array : Array = [0, 0, 0, 0, 0]
+var big_straight_dices_array : Array = [0, 0, 0, 0, 0]
+var kniffel_dices_array : Array = [0, 0, 0, 0, 0]
 var chance_dices_array : Array = [0, 0, 0, 0, 0]
+
 var top_points_array : Array = ["", "", "", "", "", "",""]
 var bottom_points_array : Array = ["", "", "", "", "", "","", ""]
 var actions : Array = [false, false, false, false, false, false]
@@ -314,6 +325,7 @@ var buttom_actions : Array = [false, false, false, false, false, false, false]
 #######################################################################
 #####                  funcs for chosing actions                  #####
 #######################################################################
+#calculates and applies for TOP ACTIONS 
 func topDs(number) -> void:
 	if gamemanager.dices[0] == 0:	return 
 	var dice_counted = number
@@ -332,7 +344,7 @@ func topDs(number) -> void:
 	gamemanager.selectsfx.play()
 	checkActions()
 
-
+#calculates and applies for BOTTOM ACTION x3
 func x3() -> void:
 	if can_select == false:	return
 	if gamemanager.dices[0] != 0:
@@ -350,6 +362,7 @@ func x3() -> void:
 				for i in gamemanager.dices.size():
 					dice_value += gamemanager.dices[i]
 				for i in x3danim_array.size():
+					x3_dice = x3dDice
 					lx3danim_array[i - 1].text = str(x3dDice)
 					x3danim_array[i - 1].modulate = gamemanager.color_values[x3dDice - 1]
 					x3danim_array[i - 1].texture = dice_unlocked
@@ -368,6 +381,7 @@ func x3() -> void:
 			await animbottomplayer.animation_finished
 			can_select = true
 
+#calculates and applies for BOTTOM ACTION x4
 func x4() -> void:
 	if can_select == false:	return
 	if gamemanager.dices[0] != 0:
@@ -385,6 +399,7 @@ func x4() -> void:
 				for i in gamemanager.dices.size():
 					dice_value += gamemanager.dices[i]
 				for i in x4danim_array.size():
+					x4_dice = x4dDice
 					lx4danim_array[i - 1].text = str(x4dDice)
 					x4danim_array[i - 1].modulate = gamemanager.color_values[x4dDice - 1]
 					x4danim_array[i - 1].texture = dice_unlocked
@@ -403,6 +418,7 @@ func x4() -> void:
 			await animbottomplayer.animation_finished
 			can_select = true
 
+#calculates and applies for ACTION BOTTOM full_house
 func full_house() -> void:
 	if can_select == false:	return
 	if gamemanager.dices[0] != 0:
@@ -422,6 +438,7 @@ func full_house() -> void:
 				bottom_points_array[2] = "25"
 				gamemanager.dices.sort()
 				for i in gamemanager.dices.size():
+					full_house_dices_array[i - 1] = gamemanager.dices[i - 1]
 					lfullhouseanim_array[i - 1].text = str(gamemanager.dices[i - 1])
 					fullhouseanim_array[i - 1].modulate = gamemanager.color_values[gamemanager.dices[i - 1] - 1]
 					fullhouseanim_array[i - 1].texture = dice_unlocked
@@ -437,6 +454,7 @@ func full_house() -> void:
 			await animbottomplayer.animation_finished
 			can_select = true
 
+#calculates and applies for BOTTOM ACTION small_straight
 func small_straight() -> void:
 	if can_select == false:	return
 	if gamemanager.dices[0] != 0:
@@ -463,6 +481,7 @@ func small_straight() -> void:
 				bottom_points_counter += 30
 				for i in pureDices.size():
 					gamemanager.dices.sort()
+					small_straight_dices_array[i - 1] = gamemanager.dices[i - 1]
 					lsmallstraightanim_array[i - 1].text = str(pureDices[i - 1])
 					smallstraightanim_array[i - 1].modulate = gamemanager.color_values[pureDices[i - 1] - 1]
 					smallstraightanim_array[i - 1].texture = dice_unlocked
@@ -478,6 +497,7 @@ func small_straight() -> void:
 			await animbottomplayer.animation_finished
 			can_select = true
 
+#calculates and applies for BOTTOM ACTION big_straight
 func big_straight() -> void:
 	if can_select == false:	return
 	if gamemanager.dices[0] != 0:
@@ -498,6 +518,7 @@ func big_straight() -> void:
 				bottom_points_counter +=40
 				gamemanager.dices.sort()
 				for i in gamemanager.dices.size():
+					big_straight_dices_array[i - 1] = gamemanager.dices[i - 1]
 					lbigstraightanim_array[i - 1].text = str(gamemanager.dices[i - 1])
 					bigstraightanim_array[i - 1].modulate = gamemanager.color_values[gamemanager.dices[i - 1] - 1]
 					bigstraightanim_array[i - 1].texture = dice_unlocked
@@ -514,6 +535,7 @@ func big_straight() -> void:
 			await animbottomplayer.animation_finished
 			can_select = true
 
+#calculates and applies for BOTTOM ACTION kniffel
 func kniffel() -> void:
 	if can_select == false:	return
 	if gamemanager.dices[0] != 0:
@@ -523,6 +545,7 @@ func kniffel() -> void:
 				bottom_points_array[5] = "25"
 				bottom_points_counter += 50
 				for i in gamemanager.dices.size():
+					kniffel_dices_array[i - 1] = gamemanager.dices[i - 1]
 					lkniffelanim_array[i - 1].text = str(gamemanager.dices[i - 1])
 					kniffelanim_array[i - 1].modulate = gamemanager.color_values[gamemanager.dices[i - 1] - 1]
 					kniffelanim_array[i - 1].texture = dice_unlocked
@@ -538,6 +561,7 @@ func kniffel() -> void:
 			await animbottomplayer.animation_finished
 			can_select = true
 
+#calculates and applies for BOTTOM ACTION chance
 func chance() -> void:
 	if can_select == false:	return
 	if gamemanager.dices[0] != 0:
@@ -560,6 +584,10 @@ func chance() -> void:
 			can_select = true
 #endregion
 
+#######################################################################
+#####              funcs for the saving and loading               #####
+#######################################################################
+#saves all Variables needed for loading the whole save
 func save():
 	var save_dict = {
 		"filename" : get_scene_file_path(),
@@ -568,6 +596,12 @@ func save():
 		"pos_y" : position.y,
 		"done" : done, 
 		"top_dices_count_array" : top_dices_count_array,
+		"x3_dice" : x3_dice,
+		"x4_dice" : x4_dice,
+		"full_house_dices_array" : full_house_dices_array,
+		"small_straight_dices_array" : small_straight_dices_array,
+		"big_straight_dices_array" : big_straight_dices_array,
+		"kniffel_dices_array" : kniffel_dices_array,
 		"chance_dices_array" : chance_dices_array,
 		"top_points_array" : top_points_array,
 		"bottom_points_array" : bottom_points_array,
@@ -585,8 +619,7 @@ func save():
 		}
 	return save_dict 
 
-
-
+#loads the whole paper and plays Animations for every saved selected Action
 func loadPaper():
 	point_array[0] = top_points_counter
 	point_array[1] = bottom_points_counter
@@ -601,28 +634,73 @@ func loadPaper():
 			for j in top_dices_count_array[i]:
 				dselectcolor_array[i][j].texture = dice_unlocked
 				dselectcolor_array[i][j].modulate = gamemanager.color_values[i]
+	var top_duration = float(top_points_counter - int(ltoppoints.text))/100 if float(top_points_counter - int(ltoppoints.text))/100 > 0.3 else 0.3 
+	var tween1 = create_tween()
+	tween1.tween_method(setTopCounter, int(ltoppoints.text), top_points_counter, top_duration)
+	var tween = create_tween()
+	tween.tween_property(topbar, "value", top_points_counter, 0.5).set_trans(Tween.TRANS_EXPO)
+	tween.parallel().tween_property($KniffelBonusMeter/TextureProgressBarFast, "value", top_points_counter + 0.2, 0.1)
+	await tween1.finished
+	ltoppoints.rotation = 0
+	gamemanager.countersfx.pitch_scale = 1
 	for i in buttom_actions.size():
 		if buttom_actions[i]:
-			animbottomplayer.play(dice_bottom_anim_array[i] + "_select")
-			await animbottomplayer.animation_finished
 			lbottompoints_array[i].text = bottom_points_array[i]
 			match i:
+				0:
+					for l in lx3danim_array.size():
+						x3danim_array[l].texture = dice_unlocked
+						lx3danim_array[l].text = str(int(x3_dice))
+						lx3danim_array[l].modulate = gamemanager.color_values[x3_dice - 1]
+						x3danim_array[l].modulate = gamemanager.color_values[x3_dice - 1]
+				1:
+					for l in lx4danim_array.size():
+						x4danim_array[l].texture = dice_unlocked
+						lx4danim_array[l].text = str(int(x4_dice))
+						lx4danim_array[l].modulate = gamemanager.color_values[x4_dice - 1]
+						x4danim_array[l].modulate = gamemanager.color_values[x4_dice - 1]
+				2:
+					for l in lfullhouseanim_array.size():
+						fullhouseanim_array[l].texture = dice_unlocked
+						lfullhouseanim_array[l].text = str(int(full_house_dices_array[l]))
+						lfullhouseanim_array[l].modulate = gamemanager.color_values[int(full_house_dices_array[l]) - 1]
+						fullhouseanim_array[l].modulate = gamemanager.color_values[int(full_house_dices_array[l]) - 1]
+				3:
+					for l in lsmallstraight_array.size():
+						smallstraightanim_array[l].texture = dice_unlocked
+						lsmallstraight_array[l].text = str(int(small_straight_dices_array[l]))
+						lsmallstraight_array[l].modulate = gamemanager.color_values[int(small_straight_dices_array[l]) - 1]
+						smallstraightanim_array[l].modulate = gamemanager.color_values[int(small_straight_dices_array[l]) - 1]
+				4:
+					for l in lbigstraight_array.size():
+						bigstraightanim_array[l].texture = dice_unlocked
+						lbigstraight_array[l].text = str(int(big_straight_dices_array[l]))
+						lbigstraight_array[l].modulate = gamemanager.color_values[int(big_straight_dices_array[l]) - 1]
+						bigstraightanim_array[l].modulate = gamemanager.color_values[int(big_straight_dices_array[l]) - 1]
+				5:
+					for l in lkniffel_array.size():
+						kniffelanim_array[l].texture = dice_unlocked
+						lkniffel_array[l].text = str(int(kniffel_dices_array[l]))
+						lkniffel_array[l].modulate = gamemanager.color_values[int(kniffel_dices_array[l]) - 1]
+						kniffelanim_array[l].modulate = gamemanager.color_values[int(kniffel_dices_array[l]) - 1]
 				6:
 					for l in lchanceanim_array.size():
 						lchanceanim_array[l].text = str(int(chance_dices_array[l]))
 						lchanceanim_array[l].modulate = gamemanager.color_values[int(chance_dices_array[l]) - 1] 
 						chanceanim_array[l].modulate = gamemanager.color_values[int(chance_dices_array[l]) - 1]
-	for i in lpoints_array.size():
-		if i == 0:
-			var tween = create_tween()
-			tween.tween_property(topbar, "value", top_points_counter, 0.5).set_trans(Tween.TRANS_EXPO)
-			tween.parallel().tween_property($KniffelBonusMeter/TextureProgressBarFast, "value", top_points_counter + 0.2, 0.1)
-		lpoints_array[i].text = str(point_array[i])
-
+			animbottomplayer.play(dice_bottom_anim_array[i] + "_select")
+			await animbottomplayer.animation_finished
+	var bottom_duration = float(bottom_points_counter - int(lbottompoints.text))/100 if float(bottom_points_counter - int(lbottompoints.text))/100 > 0.3 else 0.3 
+	var tween3 = create_tween()
+	tween3.tween_method(setBottomCounter, int(lbottompoints.text), bottom_points_counter, bottom_duration).set_trans(Tween.TRANS_EXPO)
+	await tween3.finished
+	lbottompoints.rotation = 0
+	gamemanager.countersfx.pitch_scale = 1
 
 #######################################################################
 #####                      funcs for the end                      #####
 #######################################################################
+#Tween Methods for setting the All Points Counter
 func setAllPoints(point_counter) -> void:
 	$"../EndMenu/Control/pointLabel".text = str(point_counter)
 	$"../EndMenu/Control/pointLabel".rotation -= .25 * get_process_delta_time()
@@ -632,6 +710,7 @@ func setAllPoints(point_counter) -> void:
 		gamemanager.selectsfx.play()
 		gamemanager.countersfx.pitch_scale += .05
 
+#shows the Endmenu IF both Actions are completed ELSE do nothing 
 func end() -> void:
 	if done == 2:
 		gamemanager.end()
@@ -646,6 +725,7 @@ func end() -> void:
 #######################################################################
 #####              funcs for checking bottom actions              #####
 #######################################################################
+#Tween Methods for setting the bottom Bar
 func setBottomCounter(bottom_counter) -> void:
 	lbottompoints.text = str(bottom_counter)
 	lbottompoints.rotation -= .5 * get_process_delta_time()
@@ -659,6 +739,7 @@ func setBottomCounter(bottom_counter) -> void:
 		await gamemanager.selectsfx.finished
 		gamemanager.selectsfx.volume_db = 0
 
+#calculate the points for Top Actions before selecting them
 func checkButtomActions() -> void:
 	gamemanager.resetDice()
 	gamemanager.countersfx.pitch_scale = 1
@@ -681,6 +762,7 @@ func checkButtomActions() -> void:
 ####################################################################
 #####              funcs for checking top actions              #####
 ####################################################################
+#Tween Methods for setting the top Bar
 func setTopCounter(top_counter) -> void:
 	ltoppoints.text = str(top_counter)
 	ltoppoints.rotation -= .5 * get_process_delta_time()
@@ -693,11 +775,10 @@ func setTopCounter(top_counter) -> void:
 		gamemanager.selectsfx.play()
 		await gamemanager.selectsfx.finished
 		gamemanager.selectsfx.volume_db = 0
-
-
 func set_BarValue(value):
 	topbar.value = value
 
+#Calculates the points for Top Actions when selected
 func checkActions() -> void:
 	gamemanager.resetDice()
 	gamemanager.countersfx.pitch_scale = 1
@@ -733,6 +814,7 @@ func checkActions() -> void:
 #######################################################################
 #####                 checking points after throw                 #####
 #######################################################################
+#calculate the points for Top Actions before selecting them
 func checkTopActionsPoints():
 	for i in 6:
 		if actions[i] == false:
@@ -741,90 +823,82 @@ func checkTopActionsPoints():
 			else:
 				l_array[i].text = ""
 
-#match example
-#match param3:
-		#3:
-			#print("param3 is 3!")
-		#_:
-			#print("param3 is not 3!")
-
-
-
-#implement it with cases 
+#calculate the points for Bottom Actions before selecting them
 func checkBottomActionsPoints():
 	var dices : Array = gamemanager.dices
 	for i in 7:
 		if buttom_actions[i] == false:
-			if i == 0:
-				var tmp_bool : bool = false
-				for j in dices.size():
-					if dices.count(j + 1) >= 3:
-						tmp_bool = true
-				if tmp_bool:
-					lx3.text = str(gamemanager.allDiceCounted())
-				else:
-					lx3.text = ""
-			if i == 1:
-				var tmp_bool : bool = false
-				for j in dices.size():
-					if dices.count(j + 1) >= 4:
-						tmp_bool = true
-				if tmp_bool:
-					lx4.text = str(gamemanager.allDiceCounted())
-				else:
-					lx4.text = ""
-			if i == 2:
-				var dif_dice
-				var dice_counted = dices.count(dices[0])
-				var dif_dice_counted := 0
-				for l in dices.size():
-					if dices[l] != dices[0]:
-						dif_dice = dices[l]
-				dif_dice_counted = dices.count(dif_dice)
-				if dice_counted == 3 && dif_dice_counted == 2 or dice_counted == 2 && dif_dice_counted == 3:
-					lfullhouse.text = "25"
-				else:
-					lfullhouse.text = ""
-			if i == 3:
-				var is_small_straight = false
-				var pureDices : Array = []
-				for l in dices.size():
-					if !pureDices.has(dices[l]):
-						pureDices.append(dices[l]) 
-				pureDices.sort()
-				var pdsize = pureDices.size()
-				if pdsize > 3:
-					if pdsize == 4:
-						if pureDices[0] + 1 == pureDices[1] && pureDices[0] + 2 == pureDices[2] && pureDices[0] + 3 == pureDices[3]:
-							is_small_straight = true
-					elif pdsize == 5:
-						if pureDices[0] + 1 == pureDices[1] && pureDices[0] + 2 == pureDices[2] && pureDices[0] + 3 == pureDices[3]:
-							is_small_straight = true
-						elif pureDices[1] + 1 == pureDices[2] && pureDices[1] + 2 == pureDices[3] && pureDices[1] + 3 == pureDices[4]:
-							is_small_straight = true
-				if is_small_straight:
-					lsmallstraight.text = "30"
-				else:
-					lsmallstraight.text = ""
-			if i == 4:
-				var is_big_straight : bool = false
-				var pureDices : Array = []
-				for l in dices.size():
-					if !pureDices.has(dices[l - 1]):
-						pureDices.append(dices[l - 1]) 
-				pureDices.sort()
-				if pureDices.size() == 5:
-					if pureDices[0] + 1 == pureDices[1] && pureDices[0] + 2 == pureDices[2] && pureDices[0] + 3 == pureDices[3] && pureDices[0] + 4  == pureDices[4]:
-						is_big_straight = true
-				if is_big_straight:
-					lbigstraight.text = "40"
-			if i == 5:
-				if dices.count(dices[0]) == 5:
-					lkniffel.text = "50"
-				else:
-					lkniffel.text = ""
-			if i == 6:
-				lchance.text = str(gamemanager.allDiceCounted())
+			match i:
+				0:
+					var tmp_bool : bool = false
+					for j in dices.size():
+						if dices.count(j + 1) >= 3:
+							tmp_bool = true
+					if tmp_bool:
+						lx3.text = str(gamemanager.allDiceCounted())
+					else:
+						lx3.text = ""
+				1:
+					var tmp_bool : bool = false
+					for j in dices.size():
+						if dices.count(j + 1) >= 4:
+							tmp_bool = true
+					if tmp_bool:
+						lx4.text = str(gamemanager.allDiceCounted())
+					else:
+						lx4.text = ""
+				2:
+					var dif_dice
+					var dice_counted = dices.count(dices[0])
+					var dif_dice_counted := 0
+					for l in dices.size():
+						if dices[l] != dices[0]:
+							dif_dice = dices[l]
+					dif_dice_counted = dices.count(dif_dice)
+					if dice_counted == 3 && dif_dice_counted == 2 or dice_counted == 2 && dif_dice_counted == 3:
+						lfullhouse.text = "25"
+					else:
+						lfullhouse.text = ""
+				3:
+					var is_small_straight = false
+					var pureDices : Array = []
+					for l in dices.size():
+						if !pureDices.has(dices[l]):
+							pureDices.append(dices[l]) 
+					pureDices.sort()
+					var pdsize = pureDices.size()
+					if pdsize > 3:
+						if pdsize == 4:
+							if pureDices[0] + 1 == pureDices[1] && pureDices[0] + 2 == pureDices[2] && pureDices[0] + 3 == pureDices[3]:
+								is_small_straight = true
+						elif pdsize == 5:
+							if pureDices[0] + 1 == pureDices[1] && pureDices[0] + 2 == pureDices[2] && pureDices[0] + 3 == pureDices[3]:
+								is_small_straight = true
+							elif pureDices[1] + 1 == pureDices[2] && pureDices[1] + 2 == pureDices[3] && pureDices[1] + 3 == pureDices[4]:
+								is_small_straight = true
+					if is_small_straight:
+						lsmallstraight.text = "30"
+					else:
+						lsmallstraight.text = ""
+				4:
+					var is_big_straight : bool = false
+					var pureDices : Array = []
+					for l in dices.size():
+						if !pureDices.has(dices[l - 1]):
+							pureDices.append(dices[l - 1]) 
+					pureDices.sort()
+					if pureDices.size() == 5:
+						if pureDices[0] + 1 == pureDices[1] && pureDices[0] + 2 == pureDices[2] && pureDices[0] + 3 == pureDices[3] && pureDices[0] + 4  == pureDices[4]:
+							is_big_straight = true
+					if is_big_straight:
+						lbigstraight.text = "40"
+				5:
+					if dices.count(dices[0]) == 5:
+						lkniffel.text = "50"
+					else:
+						lkniffel.text = ""
+				6:
+					lchance.text = str(gamemanager.allDiceCounted())
 
 #########################################################
 #####                 change showers                #####
@@ -875,13 +949,12 @@ func changeShowers() -> void:
 	for i in lfullhouse_array.size():
 		lfullhouse_array[i - 1].modulate = gamemanager.color_values[int(lfullhouse_array[i - 1].text) - 1]
 
-
 func _ready() -> void:
 	changeShowers()
 	for i in actioncontrols_array.size():
 		actioncontrols_array[i].modulate = gamemanager.color_values[i]
 
-
+#region FUNCS FOR SELECTING ACTIONS 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("1s"):
@@ -910,6 +983,7 @@ func _process(_delta: float) -> void:
 		kniffel()
 	if Input.is_action_just_pressed("chance"):
 		chance()
+
 
 #######################################################################
 #####                 funcs for selecting actions                 #####
@@ -953,6 +1027,7 @@ func _on_kniffel_pressed() -> void:
 
 func _on_chance_pressed() -> void:
 	chance()
+#endregion
 
 ##############################
 #####    Shower Timer    #####
