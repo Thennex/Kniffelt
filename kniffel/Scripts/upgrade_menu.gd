@@ -152,6 +152,8 @@ func _on_settings_menu_menu_closed() -> void:
 
 func _on_game_manager_menu_closed() -> void:
 	mouseBehavior()
+	$"../Menu/VBoxContainer".visible = true
+	$"../Menu/ColorRect".visible = false
 
 func _on_game_manager_menu_opened() -> void:
 	mouseBehavior()

@@ -200,6 +200,7 @@ func load_game():
 				kniffelpaper.loadPaper()
 			"res://Scene/upgrade_menu.tscn":
 				upgrademenu = new_object
+	
 
 #######################################################################
 #####                   funcs for the throwing                    #####
@@ -493,20 +494,17 @@ func _on_open_menu_button_pressed() -> void:
 		$"../Menu/ColorRect".visible = false
 		$"../Menu/MenuCloser".visible = false
 		menu.visible = false
-		menuClosed.emit()
 	else:
 		$"../Menu/ColorRect".visible = true
 		$"../Menu/MenuCloser".visible = true
 		settingsmanager.visible = false
 		menu.visible = true
-		menuOpened.emit()
 
 func _on_menu_closer_pressed() -> void:
 		selectsfx.play()
 		$"../Menu/ColorRect".visible = false
 		$"../Menu/MenuCloser".visible = false
 		menu.visible = false
-		menuClosed.emit()
 
 func _on_reload_button_pressed() -> void:
 	selectsfx.play()
@@ -528,12 +526,11 @@ func _on_control_button_pressed() -> void:
 	selectsfx.play()
 	if settingsmanager.visible:
 		settingsmanager.visible = false
-		menuClosed.emit()
+		$"../Menu/MenuCloser".visible = false
+		$"../Menu/ColorRect".visible = false
 	else:
 		menu.visible = false
-		$"../Menu/MenuCloser".visible = false
 		settingsmanager.visible = true
-		menuOpened.emit()
 
 func _on_control_button_2_pressed() -> void:
 	selectsfx.play()
