@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c117dlvmtgtci"]
+
+[ext_resource type="Script" uid="uid://g4ui3nox4gsw" path="res://Scripts/game_manager.gd" id="1_5n28g"]
+[ext_resource type="AudioStream" uid="uid://bceno77oukerm" path="res://sfx/selectSFX.wav" id="2_ostif"]
+
+[node name="GameManager" type="Node2D" unique_id=968434056]
+visible = false
+script = ExtResource("1_5n28g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=571098034]
+
+[node name="selectSFX" type="AudioStreamPlayer" parent="." unique_id=491698736]
+stream = ExtResource("2_ostif")
+bus = &"SFX"

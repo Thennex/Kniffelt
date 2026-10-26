@@ -1,0 +1,453 @@
+[gd_scene format=3 uid="uid://elr3l4ne2iae"]
+
+[ext_resource type="Script" uid="uid://cqv1cljvaqpyo" path="res://Scripts/dice_manager.gd" id="1_48jrt"]
+[ext_resource type="Texture2D" uid="uid://bxywxlj5wl2te" path="res://Art/Dies/Kniffel_Dice_reworked.png" id="1_jf0oh"]
+[ext_resource type="FontFile" uid="uid://du32f37clc06n" path="res://Fonts/Delta Block/OpenType (.otf)/DeltaBlock-Regular.otf" id="2_y4h1r"]
+[ext_resource type="Texture2D" uid="uid://bg782jn1ddmqw" path="res://Art/Dies/Kniffel_locked_dice.png" id="3_48jrt"]
+[ext_resource type="Texture2D" uid="uid://bttaoj4ggv4bu" path="res://Art/Light/2d_lights_and_shadows_neutral_point_light.webp" id="4_3sf8g"]
+[ext_resource type="Texture2D" uid="uid://bq71ulhlbfcvv" path="res://Art/Dies/Kniffel_dice.png" id="5_rjx1q"]
+[ext_resource type="Texture2D" uid="uid://dv58cx4brbeo2" path="res://Art/Dies/Kniffel_dice_locked-export.png" id="6_0dlvb"]
+[ext_resource type="Texture2D" uid="uid://dyxnamhhh1xd3" path="res://Art/Kniffel_unlock_all.png" id="7_31exl"]
+[ext_resource type="Texture2D" uid="uid://g8c2agqtpeg2" path="res://Art/Kniffel_roll_button.png" id="8_j0es1"]
+[ext_resource type="AudioStream" uid="uid://dktef6aonmnow" path="res://sfx/DiceRollSFX.wav" id="10_3sf8g"]
+[ext_resource type="AudioStream" uid="uid://bceno77oukerm" path="res://sfx/selectSFX.wav" id="11_3sf8g"]
+[ext_resource type="AudioStream" uid="uid://deau8rqvcmk10" path="res://sfx/ExtraDiceSFX.wav" id="12_rjx1q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxd2g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aam5o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nyb1q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xw8bv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b0nqf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0y2cb"]
+texture = ExtResource("6_0dlvb")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_75buv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jbas8"]
+texture = ExtResource("6_0dlvb")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3pt4j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7y4ci"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7pd2g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_20xnh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1sfry"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1kov"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5wpvy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dvq1j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_50v0s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mu7ye"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2oiod"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8bkap"]
+
+[node name="dice_manager" type="Control" unique_id=1748452920]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -217.99997
+offset_top = -14.0
+offset_right = -177.99997
+offset_bottom = 26.0
+scale = Vector2(1.6987314, 1.6987314)
+script = ExtResource("1_48jrt")
+
+[node name="DiceContainer" type="HBoxContainer" parent="." unique_id=2013898761]
+z_index = 1
+use_parent_material = true
+layout_mode = 0
+offset_left = 289.0
+offset_top = 87.0
+offset_right = 555.0
+offset_bottom = 137.0
+
+[node name="D1" type="Button" parent="DiceContainer" unique_id=465853648]
+modulate = Color(0.89492244, 0.89492244, 0.8949223, 1)
+z_index = 2
+texture_filter = 6
+use_parent_material = true
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.66245234, 0.66245234, 0.6624523, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mxd2g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_aam5o")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nyb1q")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_xw8bv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b0nqf")
+toggle_mode = true
+text = "
+"
+icon = ExtResource("1_jf0oh")
+icon_alignment = 1
+
+[node name="D1Label" type="Label" parent="DiceContainer/D1" unique_id=1928217629]
+modulate = Color(0.641934, 0.64193404, 0.64193386, 1)
+texture_filter = 6
+layout_mode = 0
+offset_top = 0.71251583
+offset_right = 50.0
+offset_bottom = 50.712517
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.8848981, 0.8848981, 0.8848981, 1)
+theme_override_fonts/font = ExtResource("2_y4h1r")
+theme_override_font_sizes/font_size = 27
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="KniffelDiceLocked" type="Sprite2D" parent="DiceContainer/D1" unique_id=175118034]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+position = Vector2(25, 25)
+scale = Vector2(1.145, 1.145)
+texture = ExtResource("3_48jrt")
+
+[node name="PointLight2D" type="PointLight2D" parent="DiceContainer/D1" unique_id=1979629636]
+texture = ExtResource("4_3sf8g")
+offset = Vector2(25, 25)
+texture_scale = 0.15
+
+[node name="D2" type="Button" parent="DiceContainer" unique_id=1229880292]
+modulate = Color(0.89492244, 0.89492244, 0.8949223, 1)
+z_index = 2
+texture_filter = 6
+use_parent_material = true
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.66245234, 0.66245234, 0.6624523, 1)
+theme_override_icons/icon = ExtResource("5_rjx1q")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mxd2g")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0y2cb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_75buv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_jbas8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3pt4j")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7y4ci")
+toggle_mode = true
+icon = ExtResource("1_jf0oh")
+icon_alignment = 1
+
+[node name="D2Label" type="Label" parent="DiceContainer/D2" unique_id=645207468]
+modulate = Color(0.641934, 0.64193404, 0.64193386, 1)
+texture_filter = 6
+layout_mode = 0
+offset_top = 0.71251583
+offset_right = 50.0
+offset_bottom = 50.712517
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.8848981, 0.8848981, 0.8848981, 1)
+theme_override_fonts/font = ExtResource("2_y4h1r")
+theme_override_font_sizes/font_size = 27
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="KniffelDiceLocked" type="Sprite2D" parent="DiceContainer/D2" unique_id=1748364987]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+position = Vector2(25, 25)
+scale = Vector2(1.145, 1.145)
+texture = ExtResource("3_48jrt")
+
+[node name="PointLight2D2" type="PointLight2D" parent="DiceContainer/D2" unique_id=1245152048]
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("4_3sf8g")
+offset = Vector2(25, 25)
+texture_scale = 0.15
+
+[node name="D3" type="Button" parent="DiceContainer" unique_id=858535897]
+modulate = Color(0.89492244, 0.89492244, 0.8949223, 1)
+z_index = 2
+texture_filter = 6
+use_parent_material = true
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.66245234, 0.66245234, 0.6624523, 1)
+theme_override_icons/icon = ExtResource("5_rjx1q")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mxd2g")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0y2cb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_75buv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_jbas8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3pt4j")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7y4ci")
+toggle_mode = true
+icon = ExtResource("1_jf0oh")
+icon_alignment = 1
+
+[node name="D3Label" type="Label" parent="DiceContainer/D3" unique_id=1801506697]
+modulate = Color(0.641934, 0.64193404, 0.64193386, 1)
+texture_filter = 6
+layout_mode = 0
+offset_top = 0.71251583
+offset_right = 50.0
+offset_bottom = 50.712517
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.8848981, 0.8848981, 0.8848981, 1)
+theme_override_fonts/font = ExtResource("2_y4h1r")
+theme_override_font_sizes/font_size = 27
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="KniffelDiceLocked" type="Sprite2D" parent="DiceContainer/D3" unique_id=1486870911]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+position = Vector2(25, 25)
+scale = Vector2(1.145, 1.145)
+texture = ExtResource("3_48jrt")
+
+[node name="PointLight2D3" type="PointLight2D" parent="DiceContainer/D3" unique_id=217003308]
+scale = Vector2(0.9999999, 0.9999999)
+texture = ExtResource("4_3sf8g")
+offset = Vector2(25, 25)
+texture_scale = 0.15
+
+[node name="D4" type="Button" parent="DiceContainer" unique_id=650399884]
+modulate = Color(0.89492244, 0.89492244, 0.8949223, 1)
+z_index = 2
+texture_filter = 6
+use_parent_material = true
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.66245234, 0.66245234, 0.6624523, 1)
+theme_override_icons/icon = ExtResource("5_rjx1q")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mxd2g")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0y2cb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_75buv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_jbas8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3pt4j")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7y4ci")
+toggle_mode = true
+text = "
+"
+icon = ExtResource("1_jf0oh")
+icon_alignment = 1
+
+[node name="D4Label" type="Label" parent="DiceContainer/D4" unique_id=623789050]
+modulate = Color(0.641934, 0.64193404, 0.64193386, 1)
+texture_filter = 6
+layout_mode = 0
+offset_top = 0.71251583
+offset_right = 50.0
+offset_bottom = 50.712517
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.8848981, 0.8848981, 0.8848981, 1)
+theme_override_fonts/font = ExtResource("2_y4h1r")
+theme_override_font_sizes/font_size = 27
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="KniffelDiceLocked" type="Sprite2D" parent="DiceContainer/D4" unique_id=1243431934]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+position = Vector2(25, 25)
+scale = Vector2(1.145, 1.145)
+texture = ExtResource("3_48jrt")
+
+[node name="PointLight2D4" type="PointLight2D" parent="DiceContainer/D4" unique_id=425992218]
+scale = Vector2(0.9999998, 0.9999998)
+texture = ExtResource("4_3sf8g")
+offset = Vector2(25, 25)
+texture_scale = 0.15
+
+[node name="D5" type="Button" parent="DiceContainer" unique_id=1277837373]
+modulate = Color(0.89492244, 0.89492244, 0.8949223, 1)
+z_index = 2
+texture_filter = 6
+use_parent_material = true
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.66245234, 0.66245234, 0.6624523, 1)
+theme_override_icons/icon = ExtResource("5_rjx1q")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mxd2g")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0y2cb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_75buv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_jbas8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3pt4j")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7y4ci")
+toggle_mode = true
+text = "
+"
+icon = ExtResource("1_jf0oh")
+icon_alignment = 1
+
+[node name="D5Label" type="Label" parent="DiceContainer/D5" unique_id=1153710268]
+modulate = Color(0.641934, 0.64193404, 0.64193386, 1)
+texture_filter = 6
+layout_mode = 0
+offset_top = 0.71251583
+offset_right = 50.0
+offset_bottom = 50.712517
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.8848981, 0.8848981, 0.8848981, 1)
+theme_override_fonts/font = ExtResource("2_y4h1r")
+theme_override_font_sizes/font_size = 27
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="KniffelDiceLocked" type="Sprite2D" parent="DiceContainer/D5" unique_id=2022627472]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+position = Vector2(25, 25)
+scale = Vector2(1.145, 1.145)
+texture = ExtResource("3_48jrt")
+
+[node name="PointLight2D5" type="PointLight2D" parent="DiceContainer/D5" unique_id=1497445969]
+scale = Vector2(0.99999976, 0.99999976)
+texture = ExtResource("4_3sf8g")
+offset = Vector2(25, 25)
+texture_scale = 0.15
+
+[node name="UnlockAllButton" type="Button" parent="." unique_id=531074422]
+texture_filter = 4
+layout_mode = 0
+offset_left = 496.0
+offset_top = 24.0
+offset_right = 555.0
+offset_bottom = 74.0
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0.79607844)
+theme_override_colors/icon_hover_color = Color(0.49354547, 0.49354553, 0.49354553, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7pd2g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_20xnh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1sfry")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_p1kov")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5wpvy")
+text = "
+
+"
+icon = ExtResource("7_31exl")
+icon_alignment = 1
+
+[node name="UnlockAllLabel" type="Label" parent="UnlockAllButton" unique_id=1390774367]
+texture_filter = 6
+layout_mode = 0
+offset_left = 6.1393986
+offset_top = 14.263846
+offset_right = 60.139397
+offset_bottom = 37.263847
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_y4h1r")
+text = "Unlock"
+
+[node name="RollDiceButton" type="Button" parent="." unique_id=276069975]
+texture_filter = 4
+layout_mode = 0
+offset_left = 289.0
+offset_top = 24.0
+offset_right = 489.0
+offset_bottom = 74.0
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0.79607844)
+theme_override_colors/icon_hover_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dvq1j")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_50v0s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mu7ye")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2oiod")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8bkap")
+icon = ExtResource("8_j0es1")
+icon_alignment = 1
+
+[node name="RollDiceLabel" type="Label" parent="RollDiceButton" unique_id=1908812198]
+texture_filter = 6
+layout_mode = 0
+offset_left = 8.280643
+offset_right = 208.28064
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_y4h1r")
+text = "Roll Dice (3)"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="diceSFX" type="AudioStreamPlayer" parent="." unique_id=1043796229]
+stream = ExtResource("10_3sf8g")
+pitch_scale = 0.41
+bus = &"SFX"
+
+[node name="diceSFXTimer" type="Timer" parent="diceSFX" unique_id=1047730091]
+wait_time = 0.1
+one_shot = true
+
+[node name="selectSFX" type="AudioStreamPlayer" parent="." unique_id=1819882923]
+stream = ExtResource("11_3sf8g")
+bus = &"SFX"
+
+[node name="can_throw_Timer" type="Timer" parent="." unique_id=1783085232]
+wait_time = 0.5
+one_shot = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2058743231]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="endRollSFX" type="AudioStreamPlayer" parent="." unique_id=1329137069]
+stream = ExtResource("12_rjx1q")
+volume_db = -80.0
+pitch_scale = 4.0
+bus = &"SFX"
+
+[connection signal="toggled" from="DiceContainer/D1" to="." method="_on_d_1_toggled"]
+[connection signal="toggled" from="DiceContainer/D2" to="." method="_on_d_2_toggled"]
+[connection signal="toggled" from="DiceContainer/D3" to="." method="_on_d_3_toggled"]
+[connection signal="toggled" from="DiceContainer/D4" to="." method="_on_d_4_toggled"]
+[connection signal="toggled" from="DiceContainer/D5" to="." method="_on_d_5_toggled"]
+[connection signal="pressed" from="UnlockAllButton" to="." method="_on_unlock_all_button_pressed"]
+[connection signal="pressed" from="RollDiceButton" to="." method="_on_roll_dice_button_pressed"]
+[connection signal="timeout" from="diceSFX/diceSFXTimer" to="." method="_on_dice_sfx_timer_timeout"]
+[connection signal="timeout" from="can_throw_Timer" to="." method="_on_can_throw_timer_timeout"]
