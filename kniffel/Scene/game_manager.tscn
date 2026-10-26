@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://c117dlvmtgtci"]
-
-[ext_resource type="Script" uid="uid://g4ui3nox4gsw" path="res://Scripts/game_manager.gd" id="1_5n28g"]
-
-[node name="GameManager" type="Node2D" unique_id=968434056]
-visible = false
-script = ExtResource("1_5n28g")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=571098034]
