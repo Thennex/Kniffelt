@@ -92,6 +92,7 @@ func _on_d_1_color_button_6_color_changed(color: Color) -> void:
 
 func _on_apply_button_pressed() -> void:
 	gamemanager.selectsfx.play()
+	$"../Menu/ColorRect".visible = false
 	changeColor.emit(change_color_values)
 	menuClosed.emit()
 	visible = false
@@ -99,6 +100,7 @@ func _on_apply_button_pressed() -> void:
 
 func _on_reset_button_pressed() -> void:
 	gamemanager.selectsfx.play()
+	$"../Menu/ColorRect".visible = false
 	changeColor.emit(color_values)
 	menuClosed.emit()
 	visible = false
@@ -107,6 +109,7 @@ func _on_reset_button_pressed() -> void:
 func _on_close_button_pressed() -> void:
 	gamemanager.selectsfx.play()
 	menuClosed.emit()
+	$"../Menu/ColorRect".visible = false
 	$"../Menu".visible = true
 	$"../Menu/MenuCloser".visible = true
 	visible = false
@@ -154,8 +157,7 @@ func _on_music_slider_value_changed(value: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	menuClosed.emit()
 	gamemanager.selectsfx.play()
-	$"../Menu".visible = true
+	$"../Menu/VBoxContainer".visible = true
 	$"../Menu/MenuCloser".visible = true
 	visible = false

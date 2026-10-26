@@ -630,7 +630,6 @@ func loadPaper():
 			animtoplayer.play(dice_top_anim_array[i] + "_select")
 			await animtoplayer.animation_finished
 			l_array[i].text = top_points_array[i]
-			print(top_dices_count_array)
 			for j in top_dices_count_array[i]:
 				dselectcolor_array[i][j].texture = dice_unlocked
 				dselectcolor_array[i][j].modulate = gamemanager.color_values[i]

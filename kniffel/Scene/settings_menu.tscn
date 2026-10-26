@@ -24,6 +24,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f1f6b")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1310741235]
+layout_mode = 0
+offset_left = -585.0
+offset_top = -151.99998
+offset_right = -545.0
+offset_bottom = -111.999985
+scale = Vector2(43.409492, 23.325474)
+color = Color(1, 1, 1, 0)
+
 [node name="Button" type="Button" parent="." unique_id=753271651]
 z_index = -1
 layout_mode = 0
