@@ -3,7 +3,6 @@ extends Control
 signal changeColor(array)
 signal bgscrolling(background_scrolling)
 signal showControls(show_controls)
-signal menuClosed
 
 @onready var gamemanager: Node2D = $"../GameManager"
 
@@ -64,6 +63,8 @@ func resetAllColor() -> void:
  
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	for i in gamemanager.color_values.size():
+		color_values[i] = Color(gamemanager.color_values[i])
 	load_audio()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -72,41 +73,42 @@ func _process(_delta: float) -> void:
 
 
 func _on_d_1_color_button_color_changed(color: Color) -> void:
-	change_color_values[0] = Color(colorbutton1.color) 
+	change_color_values[0] = colorbutton1.color.to_html()
+	print(change_color_values)
 
 func _on_d_1_color_button_2_color_changed(color: Color) -> void:
-	change_color_values[1] = Color(colorbutton2.color)
+	change_color_values[1] = colorbutton2.color.to_html()
 
 func _on_d_1_color_button_3_color_changed(color: Color) -> void:
-	change_color_values[2] = Color(colorbutton3.color)
+	change_color_values[2] = colorbutton3.color.to_html()
 
 func _on_d_1_color_button_4_color_changed(color: Color) -> void:
-	change_color_values[3] = Color(colorbutton4.color)
+	change_color_values[3] = colorbutton4.color.to_html()
 
 func _on_d_1_color_button_5_color_changed(color: Color) -> void:
-	change_color_values[4] = Color(colorbutton5.color)
+	change_color_values[4] = colorbutton5.color.to_html()
 
 func _on_d_1_color_button_6_color_changed(color: Color) -> void:
-	change_color_values[5] = Color(colorbutton6.color)
+	change_color_values[5] = colorbutton6.color.to_html()
 
 
 func _on_apply_button_pressed() -> void:
 	gamemanager.selectsfx.play()
+	$"../Menu/ColorRect".visible = false
 	changeColor.emit(change_color_values)
-	menuClosed.emit()
 	visible = false
 
 
 func _on_reset_button_pressed() -> void:
 	gamemanager.selectsfx.play()
+	$"../Menu/ColorRect".visible = false
 	changeColor.emit(color_values)
-	menuClosed.emit()
 	visible = false
 
 
 func _on_close_button_pressed() -> void:
 	gamemanager.selectsfx.play()
-	menuClosed.emit()
+	$"../Menu/ColorRect".visible = false
 	$"../Menu".visible = true
 	$"../Menu/MenuCloser".visible = true
 	visible = false
@@ -154,8 +156,7 @@ func _on_music_slider_value_changed(value: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	menuClosed.emit()
 	gamemanager.selectsfx.play()
-	$"../Menu".visible = true
+	$"../Menu/VBoxContainer".visible = true
 	$"../Menu/MenuCloser".visible = true
 	visible = false

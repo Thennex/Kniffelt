@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var extrasfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var topbar: TextureProgressBar = $KniffelBonusMeter/TextureProgressBar
+@onready var selectsfx: AudioStreamPlayer = $SelectSFX
+@onready var countersfx: AudioStreamPlayer = $CounterSFX
 
 
 
@@ -341,7 +343,7 @@ func topDs(number) -> void:
 	top_points_counter += gamemanager.diceValues[dice_counted - 1]
 	actions[dice_counted - 1] = true
 	animtoplayer.play(dice_top_anim_array[dice_counted - 1] + "_select")
-	gamemanager.selectsfx.play()
+	selectsfx.play()
 	checkActions()
 
 #calculates and applies for BOTTOM ACTION x3
@@ -375,7 +377,7 @@ func x3() -> void:
 					lx3danim_array[i - 1].text = ""
 			animbottomplayer.play("X3_select")
 			extrasfx.play()
-			gamemanager.selectsfx.play()
+			selectsfx.play()
 			buttom_actions[0] = true
 			checkButtomActions()
 			await animbottomplayer.animation_finished
@@ -410,7 +412,7 @@ func x4() -> void:
 				lx4.text = ""
 				for i in x4danim_array.size():
 					lx4danim_array[i - 1].text = ""
-			gamemanager.selectsfx.play()
+			selectsfx.play()
 			animbottomplayer.play("X4_select")
 			extrasfx.play()
 			buttom_actions[1] = true
@@ -446,7 +448,7 @@ func full_house() -> void:
 				lfullhouse.text = ""
 				for i in gamemanager.dices.size():
 					lfullhouseanim_array[i - 1].text = ""
-			gamemanager.selectsfx.play()
+			selectsfx.play()
 			animbottomplayer.play("Full_House_select")
 			extrasfx.play()
 			buttom_actions[2] = true
@@ -489,7 +491,7 @@ func small_straight() -> void:
 				lsmallstraight.text = ""
 				for i in 4:
 					lsmallstraightanim_array[i - 1].text = ""
-			gamemanager.selectsfx.play()
+			selectsfx.play()
 			animbottomplayer.play("small_straight_select")
 			extrasfx.play()
 			buttom_actions[3] = true
@@ -527,7 +529,7 @@ func big_straight() -> void:
 				for i in gamemanager.dices.size():
 					lbigstraightanim_array[i - 1].text = ""
 					chance_dices_array[i - 1] = gamemanager.dices[i - 1]
-			gamemanager.selectsfx.play()
+			selectsfx.play()
 			animbottomplayer.play("big_straight_select")
 			extrasfx.play()
 			buttom_actions[4] = true
@@ -553,7 +555,7 @@ func kniffel() -> void:
 				lkniffel.text = ""
 				for i in gamemanager.dices.size():
 					lkniffelanim_array[i - 1].text = ""
-			gamemanager.selectsfx.play()
+			selectsfx.play()
 			animbottomplayer.play("kniffel_select")
 			extrasfx.play()
 			buttom_actions[5] = true
@@ -570,7 +572,7 @@ func chance() -> void:
 			bottom_points_counter += all_dice_value
 			lchance.text = str(all_dice_value)
 			bottom_points_array[6] = str(all_dice_value)
-			gamemanager.selectsfx.play()
+			selectsfx.play()
 			animbottomplayer.play("chance_select")
 			extrasfx.play()
 			gamemanager.dices.sort()
@@ -630,7 +632,6 @@ func loadPaper():
 			animtoplayer.play(dice_top_anim_array[i] + "_select")
 			await animtoplayer.animation_finished
 			l_array[i].text = top_points_array[i]
-			print(top_dices_count_array)
 			for j in top_dices_count_array[i]:
 				dselectcolor_array[i][j].texture = dice_unlocked
 				dselectcolor_array[i][j].modulate = gamemanager.color_values[i]
@@ -642,7 +643,7 @@ func loadPaper():
 	tween.parallel().tween_property($KniffelBonusMeter/TextureProgressBarFast, "value", top_points_counter + 0.2, 0.1)
 	await tween1.finished
 	ltoppoints.rotation = 0
-	gamemanager.countersfx.pitch_scale = 1
+	countersfx.pitch_scale = 1
 	for i in buttom_actions.size():
 		if buttom_actions[i]:
 			lbottompoints_array[i].text = bottom_points_array[i]
@@ -695,7 +696,7 @@ func loadPaper():
 	tween3.tween_method(setBottomCounter, int(lbottompoints.text), bottom_points_counter, bottom_duration).set_trans(Tween.TRANS_EXPO)
 	await tween3.finished
 	lbottompoints.rotation = 0
-	gamemanager.countersfx.pitch_scale = 1
+	countersfx.pitch_scale = 1
 
 #######################################################################
 #####                      funcs for the end                      #####
@@ -705,10 +706,10 @@ func setAllPoints(point_counter) -> void:
 	$"../EndMenu/Control/pointLabel".text = str(point_counter)
 	$"../EndMenu/Control/pointLabel".rotation -= .25 * get_process_delta_time()
 	$"../EndMenu/Control/pointLabel/AnimationPlayer".play("allPoints_pop")
-	if !gamemanager.countersfx.has_stream_playback():
-		gamemanager.countersfx.play()
-		gamemanager.selectsfx.play()
-		gamemanager.countersfx.pitch_scale += .05
+	if !countersfx.has_stream_playback():
+		countersfx.play()
+		selectsfx.play()
+		countersfx.pitch_scale += .05
 
 #shows the Endmenu IF both Actions are completed ELSE do nothing 
 func end() -> void:
@@ -730,19 +731,19 @@ func setBottomCounter(bottom_counter) -> void:
 	lbottompoints.text = str(bottom_counter)
 	lbottompoints.rotation -= .5 * get_process_delta_time()
 	$"PointCounters/LabelBottomPoints/AnimationPlayer".play("Bottom_counter_pop")
-	if !gamemanager.countersfx.has_stream_playback():
-		gamemanager.countersfx.play()
+	if !countersfx.has_stream_playback():
+		countersfx.play()
 		$"PointCounters/LabelBottomPoints/CPUParticles2D".emitting = true
-		gamemanager.countersfx.pitch_scale += .025
-		gamemanager.selectsfx.volume_db = 7
-		gamemanager.selectsfx.play()
-		await gamemanager.selectsfx.finished
-		gamemanager.selectsfx.volume_db = 0
+		countersfx.pitch_scale += .025
+		selectsfx.volume_db = 7
+		selectsfx.play()
+		await selectsfx.finished
+		selectsfx.volume_db = 0
 
 #calculate the points for Top Actions before selecting them
 func checkButtomActions() -> void:
 	gamemanager.resetDice()
-	gamemanager.countersfx.pitch_scale = 1
+	countersfx.pitch_scale = 1
 	if int(lbottompoints.text) != bottom_points_counter:
 		var duration = float(bottom_points_counter - int(lbottompoints.text))/100 if float(bottom_points_counter - int(lbottompoints.text))/100 > 0.3 else 0.3 
 		var tween3 = create_tween()
@@ -766,22 +767,22 @@ func checkButtomActions() -> void:
 func setTopCounter(top_counter) -> void:
 	ltoppoints.text = str(top_counter)
 	ltoppoints.rotation -= .5 * get_process_delta_time()
-	if !gamemanager.countersfx.has_stream_playback():
-		gamemanager.countersfx.play()
+	if !countersfx.has_stream_playback():
+		countersfx.play()
 		$KniffelBonusMeter/KniffelTopCounter/CPUParticles2D.emitting = true
 		$KniffelBonusMeter/KniffelTopCounter/AnimationPlayer.play("pop")
-		gamemanager.countersfx.pitch_scale += .05
-		gamemanager.selectsfx.volume_db = 7
-		gamemanager.selectsfx.play()
-		await gamemanager.selectsfx.finished
-		gamemanager.selectsfx.volume_db = 0
+		countersfx.pitch_scale += .05
+		selectsfx.volume_db = 7
+		selectsfx.play()
+		await selectsfx.finished
+		selectsfx.volume_db = 0
 func set_BarValue(value):
 	topbar.value = value
 
 #Calculates the points for Top Actions when selected
 func checkActions() -> void:
 	gamemanager.resetDice()
-	gamemanager.countersfx.pitch_scale = 1
+	countersfx.pitch_scale = 1
 	var tween = create_tween()
 	$KniffelBonusMeter/TextureProgressBarFast.value = top_points_counter + 0.2
 	tween.tween_method(set_BarValue, int(ltoppoints.text), top_points_counter, 0.4,).set_trans(Tween.TRANS_EXPO)
@@ -904,24 +905,25 @@ func checkBottomActionsPoints():
 #####                 change showers                #####
 #########################################################
 func changeShowers() -> void:
+	$SelectActionButtom/showItem/Timer.start()
 	for i in lx3d_array.size():
 		lx3d_array[i - 1].text = str(changeDieMemory)
-		lx3d_array[i - 1].modulate = gamemanager.color_values[changeDieMemory - 1]
+		lx3d_array[i - 1].modulate = Color(gamemanager.color_values[changeDieMemory - 1])
 	for i in lx4d_array.size():
 		lx4d_array[i - 1].text = str(changeDieMemory)
-		lx4d_array[i - 1].modulate = gamemanager.color_values[changeDieMemory - 1]
+		lx4d_array[i - 1].modulate = Color(gamemanager.color_values[changeDieMemory - 1])
 	for i in lkniffel_array.size():
 		lkniffel_array[i - 1].text = str(changeDieMemory)
-		lkniffel_array[i - 1].modulate = gamemanager.color_values[changeDieMemory - 1]
+		lkniffel_array[i - 1].modulate = Color(gamemanager.color_values[changeDieMemory - 1])
 	for i in lchance_array.size():
 		lchance_array[i - 1].text = str(RandomNumberGenerator.new().randi_range(1,6))
-		lchance_array[i - 1].modulate = gamemanager.color_values[int(lchance_array[i - 1].text) - 1]
+		lchance_array[i - 1].modulate = Color(gamemanager.color_values[int(lchance_array[i - 1].text) - 1])
 	lsmallstraightd1.text = str(small_straight_memory)
 	lsmallstraightd2.text = str(small_straight_memory + 1)
 	lsmallstraightd3.text = str(small_straight_memory + 2)
 	lsmallstraightd4.text = str(small_straight_memory + 3)
 	for i in lsmallstraight_array.size():
-		lsmallstraight_array[i - 1].modulate = gamemanager.color_values[int(lsmallstraight_array[i - 1].text) - 1]
+		lsmallstraight_array[i - 1].modulate = Color(gamemanager.color_values[int(lsmallstraight_array[i - 1].text) - 1])
 	if small_straight_memory == 3:
 		small_straight_memory = 1
 	else:
@@ -932,7 +934,7 @@ func changeShowers() -> void:
 	lbigstraightd4.text = str(big_straight_memory + 3)
 	lbigstraightd5.text = str(big_straight_memory + 4)
 	for i in lbigstraight_array.size():
-		lbigstraight_array[i - 1].modulate = gamemanager.color_values[int(lbigstraight_array[i - 1].text) - 1]
+		lbigstraight_array[i - 1].modulate = Color(gamemanager.color_values[int(lbigstraight_array[i - 1].text) - 1])
 	if big_straight_memory == 1:
 		big_straight_memory = 2
 	else:
@@ -947,10 +949,9 @@ func changeShowers() -> void:
 	lfullhoused4.text = str(changeDieMemory)
 	lfullhoused5.text = str(changeDieMemory)
 	for i in lfullhouse_array.size():
-		lfullhouse_array[i - 1].modulate = gamemanager.color_values[int(lfullhouse_array[i - 1].text) - 1]
+		lfullhouse_array[i - 1].modulate = Color(gamemanager.color_values[int(lfullhouse_array[i - 1].text) - 1])
 
 func _ready() -> void:
-	changeShowers()
 	for i in actioncontrols_array.size():
 		actioncontrols_array[i].modulate = gamemanager.color_values[i]
 

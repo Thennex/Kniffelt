@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://4w184mfbly8m"]
 
+[ext_resource type="PackedScene" uid="uid://cehlir3rrolg5" path="res://Scene/save_manager.tscn" id="1_aam5o"]
 [ext_resource type="PackedScene" uid="uid://bux05u53jlkja" path="res://Scene/Kniffel_paper.tscn" id="1_f6udf"]
 [ext_resource type="PackedScene" uid="uid://c117dlvmtgtci" path="res://Scene/game_manager.tscn" id="2_sblpm"]
 [ext_resource type="Texture2D" uid="uid://do8drm26167pt" path="res://Art/dice_fancy_bg_parallax.png" id="4_2ix4a"]
@@ -93,6 +94,8 @@ keycode = 4194305
 events = [SubResource("InputEventKey_ow1sv")]
 
 [node name="Main" type="Node2D" unique_id=265119633]
+
+[node name="Save_manager" parent="." unique_id=1937316321 groups=["persistent"] instance=ExtResource("1_aam5o")]
 
 [node name="UpgradeMenu" parent="." unique_id=460068291 instance=ExtResource("24_aam5o")]
 z_index = 2
@@ -377,20 +380,11 @@ offset_top = -252.0
 offset_right = -59.0
 offset_bottom = -252.0
 
-[node name="GameManager" parent="." unique_id=968434056 instance=ExtResource("2_sblpm")]
+[node name="GameManager" parent="." unique_id=968434056 groups=["persistent"] instance=ExtResource("2_sblpm")]
 visible = true
 
 [node name="Kniffel_paper" parent="." unique_id=1824013333 groups=["persistent"] instance=ExtResource("1_f6udf")]
 z_index = 3
-
-[node name="SettingsMenu" parent="." unique_id=1799041464 instance=ExtResource("24_pqe63")]
-unique_name_in_owner = true
-visible = false
-z_index = 17
-offset_left = 65.0
-offset_top = -301.0
-offset_right = 65.0
-offset_bottom = -301.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1630180019]
 z_index = 1
@@ -1071,13 +1065,15 @@ volume_db = -80.0
 pitch_scale = 4.0
 bus = &"SFX"
 
+[node name="SettingsMenu" parent="." unique_id=1799041464 instance=ExtResource("24_pqe63")]
+visible = false
+z_index = 17
+offset_left = 65.0
+offset_top = -301.0
+offset_right = 65.0
+offset_bottom = -301.0
+
 [connection signal="selectedUpgrade" from="UpgradeMenu" to="GameManager" method="_on_upgrade_menu_selected_upgrade"]
-[connection signal="menuClosed" from="GameManager" to="UpgradeMenu" method="_on_game_manager_menu_closed"]
-[connection signal="menuOpened" from="GameManager" to="UpgradeMenu" method="_on_game_manager_menu_opened"]
-[connection signal="bgscrolling" from="SettingsMenu" to="Design/Parallax2D" method="_on_settings_menu_bgscrolling"]
-[connection signal="changeColor" from="SettingsMenu" to="GameManager" method="_on_settings_menu_change_color"]
-[connection signal="menuClosed" from="SettingsMenu" to="UpgradeMenu" method="_on_settings_menu_menu_closed"]
-[connection signal="showControls" from="SettingsMenu" to="GameManager" method="_on_settings_menu_show_controls"]
 [connection signal="timeout" from="Design/Timer" to="Design/Parallax2D" method="_on_timer_timeout"]
 [connection signal="toggled" from="Dices/DiceContainer/D1" to="GameManager" method="_on_d_1_toggled"]
 [connection signal="toggled" from="Dices/DiceContainer/D2" to="GameManager" method="_on_d_2_toggled"]
@@ -1095,3 +1091,6 @@ bus = &"SFX"
 [connection signal="timeout" from="diceSFX/diceSFXTimer" to="GameManager" method="_on_dice_sfx_timer_timeout"]
 [connection signal="timeout" from="ExtraDiceSFX/extraDiceSFXTimer" to="GameManager" method="_on_extra_dice_sfx_timer_timeout"]
 [connection signal="timeout" from="canThrowTimer" to="GameManager" method="_on_can_throw_timer_timeout"]
+[connection signal="bgscrolling" from="SettingsMenu" to="Design/Parallax2D" method="_on_settings_menu_bgscrolling"]
+[connection signal="changeColor" from="SettingsMenu" to="GameManager" method="_on_settings_menu_change_color"]
+[connection signal="showControls" from="SettingsMenu" to="GameManager" method="_on_settings_menu_show_controls"]

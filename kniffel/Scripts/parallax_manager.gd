@@ -35,12 +35,12 @@ func _on_timer_timeout() -> void:
 	var tween_menu = create_tween()
 	var tween_roll_button = create_tween()
 	var tween_unlock_button = create_tween()
-	tween_roll_button.tween_property(rolldicebutton, "modulate", gamemanager.color_values[color_counter], 0.5)
-	tween_unlock_button.tween_property(unlockallbutton, "modulate", gamemanager.color_values[color_counter], 0.5)
-	tween_overlay.tween_property(overlay, "modulate", gamemanager.color_values[color_counter], 0.5)
-	tween_bg.tween_property(scrollingbg, "modulate", gamemanager.color_values[color_counter], 0.5)
-	tween_menu_overlay.tween_property(kniffelmenuoverlay, "modulate", gamemanager.color_values[color_counter], 0.5)
-	tween_menu.tween_property(menu, "modulate", gamemanager.color_values[color_counter], 0.5)
+	tween_roll_button.tween_property(rolldicebutton, "modulate", Color(gamemanager.color_values[color_counter]), 0.5)
+	tween_unlock_button.tween_property(unlockallbutton, "modulate", Color(gamemanager.color_values[color_counter]), 0.5)
+	tween_overlay.tween_property(overlay, "modulate", Color(gamemanager.color_values[color_counter]), 0.5)
+	tween_bg.tween_property(scrollingbg, "modulate", Color(gamemanager.color_values[color_counter]), 0.5)
+	tween_menu_overlay.tween_property(kniffelmenuoverlay, "modulate", Color(gamemanager.color_values[color_counter]), 0.5)
+	tween_menu.tween_property(menu, "modulate", Color(gamemanager.color_values[color_counter]), 0.5)
 	color_counter += 1 if color_counter < 5 else -5
 
 

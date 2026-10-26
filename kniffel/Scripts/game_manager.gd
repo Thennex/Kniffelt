@@ -1,8 +1,5 @@
 extends Node2D
 
-signal menuClosed
-signal menuOpened
-
 
 #region Variables for Paths
 ############################################################
@@ -10,7 +7,7 @@ signal menuOpened
 ############################################################
 @onready var selectsfx: AudioStreamPlayer = $"../SelectSFX"
 @onready var countersfx: AudioStreamPlayer = $"../CounterSFX"
-@onready var settingsmanager: Control = %SettingsMenu
+@onready var settingsmanager: Control = $"../SettingsMenu"
 @onready var end_menu: Control = $"../EndMenu"
 @onready var menu: VBoxContainer = $"../Menu/VBoxContainer"
 @onready var upgrademenu: Control = $"../UpgradeMenu"
@@ -19,6 +16,8 @@ signal menuOpened
 @onready var dicesfxtimer: Timer = $"../diceSFX/diceSFXTimer"
 @onready var kniffelpaper: Node2D = $"../Kniffel_paper"
 @onready var camera: Camera2D = $"../Camera2D"
+
+@onready var savemanager: save_manager = $"../Save_manager"
 
 
 ########################
@@ -118,7 +117,14 @@ const kniffelpaper_node : PackedScene = preload("uid://bux05u53jlkja")
 ####################################
 #####   Variables for Design   #####
 ####################################
-var color_values : Array = [Color(0.7, 0.7, 0.0), Color(0.0, 0.7, 0.0), Color(0.0, 0.7, 0.7), Color(0.0, 0.604, 1.0, 1.0), Color(0.7, 0.0, 0.7), Color(0.7, 0.0, 0.0)]
+var color1 = "b3b300"
+var color2 = "00b300"
+var color3 = "00b3b3"
+var color4 = "009aff"
+var color5 = "b300b3"
+var color6 = "b30000"
+var color_values : Array = ["b3b300", "00b300", "00b3b3"\
+, "009aff", "b300b3", "b30000"]
 #endregion
 
 #region METHODS
@@ -130,76 +136,72 @@ var color_values : Array = [Color(0.7, 0.7, 0.0), Color(0.0, 0.7, 0.0), Color(0.
 #####   Methods for calc   #####
 ################################r
 func _ready() -> void:
+	pass
+
+func save():
+	var save_dict = {
+		"filename" : get_scene_file_path(),
+		"parent" : get_parent().get_path(),
+		"pos_x" : position.x,
+		"pos_y" : position.y,
+		"savemanager" : savemanager,
+		"color_values" : color_values,
+		"color1" : color1,
+		"color2" : color2,
+		"color3" : color3,
+		"color4" : color4,
+		"color5" : color5,
+		"color6" : color6,
+		
+		
+		"dices" : dices,
+		"pickedUpgrades" : pickedUpgrades,
+		"throw_count" : throw_count,
+		"locked_slot" : locked_slot,
+		"diceValues" : diceValues,
+		
+		"d1_upgraded_sides" : d1_upgraded_sides,
+		"d2_upgraded_sides" : d1_upgraded_sides,
+		"d3_upgraded_sides" : d1_upgraded_sides,
+		"d4_upgraded_sides" : d1_upgraded_sides,
+		"d5_upgraded_sides" : d1_upgraded_sides,
+		
+		"d1_sides" : d1_upgraded_sides,
+		"d2_sides" : d1_upgraded_sides,
+		"d3_sides" : d1_upgraded_sides,
+		"d4_sides" : d1_upgraded_sides,
+		"d5_sides" : d1_upgraded_sides,
+		
+		"d1" : d1,
+		"d2" : d2,
+		"d3" : d3,
+		"d4" : d4,
+		"d5" : d5,
+		
+	}
+	return save_dict
+
+
+func load_game_manager():
+	for i in color_values.size():
+		match i:
+			0:
+				color_values[i] = color1 
+			1:
+				color_values[i] = color2
+			2:
+				color_values[i] = color3
+			3:
+				color_values[i] = color4
+			4:
+				color_values[i] = color5
+			5:
+				color_values[i] = color6
 	setColor()
 	resetDice()
-	await $"..".ready
-	load_game()
+	print(color_values)
 
-#######################################################################
-#####       funcs for the saving and loading the whole game       #####
-#######################################################################
-func save_game():
-	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
-	var save_nodes = get_tree().get_nodes_in_group("persistent")
-	for node in save_nodes:
-		if node.scene_file_path.is_empty():
-			continue
-		# Check if the node has a save function.
-		if !node.has_method("save"):
-			continue
-		
-		# Call the node's save function.
-		var node_data = node.call("save")
 
-		# JSON provides a static method to serialized JSON string.
-		var json_string = JSON.stringify(node_data)
-
-		# Store the save dictionary as a new line in the save file.
-		save_file.store_line(json_string)
-
-func load_game():
-	if not FileAccess.file_exists("user://savegame.save"):
-		return 
-	var save_nodes = get_tree().get_nodes_in_group("persistent")
-	for node in save_nodes:
-		node.queue_free()
-
-	var save_file = FileAccess.open("user://savegame.save", FileAccess.READ)
-	while save_file.get_position() < save_file.get_length():
-		var json_string = save_file.get_line()
-
-		# Creates the helper class to interact with JSON.
-		var json = JSON.new()
-
-		# Check if there is any error while parsing the JSON string, skip in case of failure.
-		var parse_result = json.parse(json_string)
-		if not parse_result == OK:
-			print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
-			continue
-
-		# Get the data from the JSON object.
-		var node_data = json.data
-
-		var new_object = load(node_data["filename"]).instantiate()
-		get_node(node_data["parent"]).add_child(new_object)
-		new_object.add_to_group("persistent")
-		new_object.position = Vector2(node_data["pos_x"], node_data["pos_y"])
-
-		# Now we set the remaining variables.
-		for i in node_data.keys():
-			if i == "filename" or i == "parent" or i == "pos_x" or i == "pos_y":
-				continue
-			new_object.set(i, node_data[i])
-		
-		match node_data["filename"]:
-			"res://Scene/settings_menu.tscn":
-				settingsmanager = new_object
-				settingsmanager.load_audio()
-			"res://Scene/Kniffel_paper.tscn":
-				kniffelpaper = new_object
-				kniffelpaper.loadPaper()
-			"res://Scene/upgrade_menu.tscn":
-				upgrademenu = new_object
 
 #######################################################################
 #####                   funcs for the throwing                    #####
@@ -255,7 +257,7 @@ func set_d1(die_value):
 	var tween_of = create_tween()
 	tween_of.tween_property(sd1, "offset_transform_position", Vector2(0, -2), .05).set_trans(Tween.TRANS_BOUNCE)
 	tween_of.chain().tween_property(sd1, "offset_transform_position", Vector2(0, 0), .2).set_trans(Tween.TRANS_QUAD)
-	tween.tween_property(sd1, "self_modulate", color_values[die_value - 1], 0.2)
+	tween.tween_property(sd1, "self_modulate", Color(color_values[die_value - 1]), 0.2)
 func set_d2(die_value):
 	if die_value < 0:
 		die_value *= -1
@@ -264,7 +266,7 @@ func set_d2(die_value):
 	var tween_of = create_tween()
 	tween_of.tween_property(sd2, "offset_transform_position", Vector2(0, -2), .05).set_trans(Tween.TRANS_BOUNCE)
 	tween_of.chain().tween_property(sd2, "offset_transform_position", Vector2(0, 0), .2).set_trans(Tween.TRANS_QUAD)
-	tween.tween_property(sd2, "self_modulate", color_values[die_value - 1], 0.2)
+	tween.tween_property(sd2, "self_modulate", Color(color_values[die_value - 1]), 0.2)
 func set_d3(die_value):
 	if die_value < 0:
 		die_value *= -1
@@ -273,7 +275,7 @@ func set_d3(die_value):
 	var tween_of = create_tween()
 	tween_of.tween_property(sd3, "offset_transform_position", Vector2(0, -2), .05).set_trans(Tween.TRANS_BOUNCE)
 	tween_of.chain().tween_property(sd3, "offset_transform_position", Vector2(0, 0), .2).set_trans(Tween.TRANS_QUAD)
-	tween.tween_property(sd3, "self_modulate", color_values[die_value - 1], 0.2)
+	tween.tween_property(sd3, "self_modulate", Color(color_values[die_value - 1]), 0.2)
 func set_d4(die_value):
 	if die_value < 0:
 		die_value *= -1
@@ -282,7 +284,7 @@ func set_d4(die_value):
 	var tween_of = create_tween()
 	tween_of.tween_property(sd4, "offset_transform_position", Vector2(0, -2), .05).set_trans(Tween.TRANS_BOUNCE)
 	tween_of.chain().tween_property(sd4, "offset_transform_position", Vector2(0, 0), .2).set_trans(Tween.TRANS_QUAD)
-	tween.tween_property(sd4, "self_modulate", color_values[die_value - 1], 0.2)
+	tween.tween_property(sd4, "self_modulate", Color(color_values[die_value - 1]), 0.2)
 func set_d5(die_value):
 	if die_value < 0:
 		die_value *= -1
@@ -291,7 +293,7 @@ func set_d5(die_value):
 	var tween_of = create_tween()
 	tween_of.tween_property(sd5, "offset_transform_position", Vector2(0, -2), .05).set_trans(Tween.TRANS_BOUNCE)
 	tween_of.chain().tween_property(sd5, "offset_transform_position", Vector2(0, 0), .2).set_trans(Tween.TRANS_QUAD)
-	tween.tween_property(sd5, "self_modulate", color_values[die_value - 1], 0.2)
+	tween.tween_property(sd5, "self_modulate", Color(color_values[die_value - 1]), 0.2)
 var setd_array : Array = [set_d1, set_d2, set_d3, set_d4, set_d5]
 
 func choseDie(die) -> void:
@@ -493,20 +495,17 @@ func _on_open_menu_button_pressed() -> void:
 		$"../Menu/ColorRect".visible = false
 		$"../Menu/MenuCloser".visible = false
 		menu.visible = false
-		menuClosed.emit()
 	else:
 		$"../Menu/ColorRect".visible = true
 		$"../Menu/MenuCloser".visible = true
 		settingsmanager.visible = false
 		menu.visible = true
-		menuOpened.emit()
 
 func _on_menu_closer_pressed() -> void:
 		selectsfx.play()
 		$"../Menu/ColorRect".visible = false
 		$"../Menu/MenuCloser".visible = false
 		menu.visible = false
-		menuClosed.emit()
 
 func _on_reload_button_pressed() -> void:
 	selectsfx.play()
@@ -528,12 +527,11 @@ func _on_control_button_pressed() -> void:
 	selectsfx.play()
 	if settingsmanager.visible:
 		settingsmanager.visible = false
-		menuClosed.emit()
+		$"../Menu/MenuCloser".visible = false
+		$"../Menu/ColorRect".visible = false
 	else:
 		menu.visible = false
-		$"../Menu/MenuCloser".visible = false
 		settingsmanager.visible = true
-		menuOpened.emit()
 
 func _on_control_button_2_pressed() -> void:
 	selectsfx.play()
@@ -548,7 +546,7 @@ func _on_control_button_2_pressed() -> void:
 
 func _on_close_game_button_pressed() -> void:
 	selectsfx.play()
-	save_game()
+	savemanager.save_game()
 	get_tree().quit()
 #endregion 
 
@@ -578,6 +576,20 @@ func _on_can_throw_timer_timeout() -> void:
 ################################
 func _on_settings_menu_change_color(array: Variant) -> void:
 	color_values = array
+	for i in color_values.size():
+		match i:
+			0:
+				color1 = color_values[i]
+			1:
+				color2 = color_values[i]
+			2:
+				color3 = color_values[i]
+			3:
+				color4 = color_values[i]
+			4:
+				color5 = color_values[i]
+			5:
+				color6 = color_values[i]
 	setColor()
 
 func _on_settings_menu_show_controls(show_controls: Variant) -> void:
