@@ -131,15 +131,22 @@ func save():
 	return save_dict
 
 func loadDices():
+	var color = color_values[RandomNumberGenerator.new().randi_range(0,5)]
+	for i in sDices.size():	 sDices[i].self_modulate = color
+	ld1.text = "D"
+	ld2.text = "I"
+	ld3.text = "C"
+	ld4.text = "E"
+	ld5.text = "S"
 	kniffelpaper.kniffelpaper_is_ready.connect(load_rest)
 	lrolldice.text = str("Roll Dice (", max_throw_count - throw_count, ")")
 	for i in dices.size():	dices[i] = int(dices[i])
-	
+
 
 func load_rest():
 	await get_tree().create_timer(0.2).timeout
-	resetLocked()
 	for i in dices.size():
+		if dices[0] == 0:	continue
 		dicesfx.playing = false
 		dicesfx.volume_db = -5
 		var sfxPitch = 5.0
@@ -153,12 +160,11 @@ func load_rest():
 		selectsfx.play()
 		dicesfxtimer.start()
 		choseDie(i)
-		await get_tree().create_timer(0.1).timeout
-		print(locked_slot)
-		if locked_slot[i] == true:
-			sDices[i].button_toggled = true
+		await get_tree().create_timer(0.3).timeout
+		if locked_slot[i]:
 			dlocked_array[i].visible = true
-		
+			sDices[i].button_pressed = true
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -196,38 +202,40 @@ func set_DiceColors() -> void:
 		kniffelpaper.dcolor_array[i - 1].modulate = color_values[i - 1]
 
 func throwDices() -> void:
-	if can_throw && !areAllLocked():
-		can_throw = false
-		can_throw_timer.start()
-		selectsfx.play()
-		if throw_count == 0:
-			resetLocked()
-		if throw_count < max_throw_count:
-			throw_count += 1
-			lrolldice.text = str("Roll Dice (", max_throw_count - throw_count, ")")
-			for i in dices.size():
-				if locked_slot[i] == false:
-					dicesfx.playing = false
-					dicesfx.volume_db = -5
-					var sfxPitch = 5.0
-					if throw_count == 1:
-						dicesfx.pitch_scale = 1.0 + (sfxPitch/1000.0)
-					elif throw_count == 2:
-						dicesfx.pitch_scale = 1.0 + (sfxPitch/200.0)
-					else:
-						dicesfx.pitch_scale = 1.0 + (sfxPitch/100.0)
-					dicesfx.play()
-					selectsfx.play()
-					dicesfxtimer.start()
-					dices[i - 1] = rng(i)
-					choseDie(i)
-					endrollsfx.play()
-					await get_tree().create_timer(0.1).timeout
-			kniffelpaper.checkTopActionsPoints()
-			kniffelpaper.checkBottomActionsPoints()
+	if !can_throw:	return
+	if areAllLocked():	return
+	can_throw = false
+	can_throw_timer.start()
+	selectsfx.play()
+	if throw_count == 0:	resetLocked()
+	for i in dices.size():	if !locked_slot[i]:	dices[i] = rng(i)
+	if throw_count < max_throw_count:
+		throw_count += 1
+		lrolldice.text = str("Roll Dice (", max_throw_count - throw_count, ")")
+		for i in dices.size():
+			if locked_slot[i]:	continue
+			dicesfx.playing = false
+			dicesfx.volume_db = -5
+			var sfxPitch = 5.0
+			if throw_count == 1:
+				dicesfx.pitch_scale = 1.0 + (sfxPitch/1000.0)
+			elif throw_count == 2:
+				dicesfx.pitch_scale = 1.0 + (sfxPitch/200.0)
+			else:
+				dicesfx.pitch_scale = 1.0 + (sfxPitch/100.0)
+			dicesfx.play()
+			selectsfx.play()
+			dicesfxtimer.start()
+			choseDie(i)
+			endrollsfx.play()
+			await get_tree().create_timer(0.1).timeout
+		kniffelpaper.checkTopActionsPoints()
+		kniffelpaper.checkBottomActionsPoints()
+		print(dices)
+
 
 func delayDice(die_slot) -> int:
-	return (dices[die_slot - 1] - 6)
+	return (dices[die_slot] - 6)
 
 func set_d1(die_value):
 	if die_value < 0:
@@ -279,11 +287,12 @@ var setd_array : Array = [set_d1, set_d2, set_d3, set_d4, set_d5]
 func choseDie(die) -> void:
 	var duration = 0.4
 	var tween = create_tween()
-	tween.tween_method(setd_array[die].call, delayDice(die), dices[die - 1], duration).set_trans(Tween.TRANS_QUAD)
+	tween.tween_method(setd_array[die].call, delayDice(die), dices[die], duration).set_trans(Tween.TRANS_QUAD)
 
 func rng(die) -> int:
-	var number = d_sides_array[die][RandomNumberGenerator.new().randi_range(1,6) - 1] 
+	var number = d_sides_array[die][RandomNumberGenerator.new().randi_range(0,5)] 
 	diceCounted.emit(number - 1)
+	print(number)
 	return(number)
 
 func resetDice() -> void:
@@ -304,9 +313,6 @@ func resetDice() -> void:
 	throw_count = 0
 
 
-
-
-
 func resetLocked() -> void:
 	selectsfx.play()
 	locked_slot = [false, false, false, false, false]
@@ -323,58 +329,43 @@ func areAllLocked() -> bool:
 
 func d1pressed():
 	selectsfx.play()
-	if sd1.button_toggled == false:
-			locked_slot[0] = true
-			sd1.button_toggled = true
-			dlocked_array[0].visible = true
-	else:
-		locked_slot[0] = false
-		sd1.button_toggled = false
-		dlocked_array[0].visible = false
+	if sd1.button_pressed == false:
+		locked_slot[0] = true
+		sd1.button_pressed = true
+		dlocked_array[0].visible = true
+		ld_array[0].modulate = Color.BLACK
 
 func d2pressed():
 	selectsfx.play()
-	if sd2.button_toggled == false:
-			locked_slot[1] = true
-			sd2.button_toggled = true
-			dlocked_array[1].visible = true
-	else:
-		locked_slot[1] = false
-		sd2.button_toggled = false
-		dlocked_array[1].visible = false
+	if sd2.button_pressed == false:
+		locked_slot[1] = true
+		sd2.button_pressed = true
+		dlocked_array[1].visible = true
+		ld_array[1].modulate = Color.BLACK
 
 func d3pressed():
 	selectsfx.play()
-	if sd3.button_toggled == false:
-			locked_slot[2] = true
-			sd3.button_toggled = true
-			dlocked_array[2].visible = true
-	else:
-		locked_slot[2] = false
-		sd3.button_toggled = false
-		dlocked_array[2].visible = false
+	if sd3.button_pressed == false:
+		locked_slot[2] = true
+		sd3.button_pressed = true
+		dlocked_array[2].visible = true
+		ld_array[2].modulate = Color.BLACK
 
 func d4pressed():
 	selectsfx.play()
-	if sd4.button_toggled == false:
-			locked_slot[3] = true
-			sd4.button_toggled = true
-			dlocked_array[3].visible = true
-	else:
-		locked_slot[3] = false
-		sd4.button_toggled = false
-		dlocked_array[3].visible = false
+	if sd4.button_pressed == false:
+		locked_slot[3] = true
+		sd4.button_pressed = true
+		dlocked_array[3].visible = true
+		ld_array[3].modulate = Color.BLACK
 
 func d5pressed():
 	selectsfx.play()
-	if sd5.button_toggled == false:
-			locked_slot[4] = true
-			sd5.button_toggled = true
-			dlocked_array[4].visible = true
-	else:
-		locked_slot[4] = false
-		sd5.button_toggled = false
-		dlocked_array[4].visible = false
+	if sd5.button_pressed == false:
+		locked_slot[4] = true
+		sd5.button_pressed = true
+		dlocked_array[4].visible = true
+		ld_array[4].modulate = Color.BLACK
 var dpressed_array : Array = [d1pressed, d2pressed, d3pressed, d4pressed, d5pressed]
 ###############################
 #####   keyboard compat   #####
