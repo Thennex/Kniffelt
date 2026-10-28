@@ -1,0 +1,6 @@
+res://Scene/main.tscn
+res://Scripts/dice_manager.gd
+res://Scripts/game_manager.gd
+res://Scripts/parallax_manager.gd
+res://Scripts/kniffel_paper_manager.gd
+res://Scene/dice_manager.tscn
