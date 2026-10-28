@@ -4,6 +4,8 @@
 [ext_resource type="FontFile" uid="uid://du32f37clc06n" path="res://Fonts/Delta Block/OpenType (.otf)/DeltaBlock-Regular.otf" id="1_pyvgt"]
 [ext_resource type="Texture2D" uid="uid://bpaariu8tgn5p" path="res://Art/Kniffel_settings_menu.png" id="2_uo8kq"]
 [ext_resource type="Texture2D" uid="uid://c5qtivghrqtxk" path="res://Art/Kniffel_settings_Buttons.png" id="3_c3yqc"]
+[ext_resource type="AudioStream" uid="uid://bceno77oukerm" path="res://sfx/selectSFX.wav" id="5_ltlv5"]
+[ext_resource type="AudioStream" uid="uid://cyr24cynd1dhm" path="res://sfx/CounterSFX.wav" id="6_12518"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f1f6b"]
 
@@ -373,6 +375,15 @@ text = "reset"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
+
+[node name="selectSFX" type="AudioStreamPlayer" parent="." unique_id=327601853]
+stream = ExtResource("5_ltlv5")
+bus = &"SFX"
+
+[node name="counterSFX" type="AudioStreamPlayer" parent="." unique_id=593194371]
+stream = ExtResource("6_12518")
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Sprite2D/BackgroundScrollingButton" to="." method="_on_background_scrolling_button_pressed"]

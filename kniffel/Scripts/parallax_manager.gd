@@ -6,9 +6,7 @@ extends Parallax2D
 @onready var kniffelmenuoverlay: Sprite2D = $"../KniffelMenuOverlayt"
 @onready var menu: Control = $"../../Menu"
 @onready var gamemanager: Node2D = $"../../GameManager"
-@onready var selectsfx: AudioStreamPlayer = $"../../SelectSFX"
-@onready var unlockallbutton: Button = $"../../Dices/UnlockAllButton"
-@onready var rolldicebutton: Button = $"../../Dices/RollDiceButton"
+@onready var selectsfx: AudioStreamPlayer = $"../selectSFX"
 
 
 var SCROLLINGSPEED = Vector2(20, 20)
@@ -24,8 +22,6 @@ func _ready() -> void:
 	kniffelmenuoverlay.modulate = gamemanager.color_values[0]
 	menu.modulate = gamemanager.color_values[0]
 	gamemanager.modulate = gamemanager.color_values[0]
-	unlockallbutton.modulate = gamemanager.color_values[0]
-	rolldicebutton.modulate = gamemanager.color_values[0]
 
 func _on_timer_timeout() -> void:
 	if no_switch == true:	return
@@ -33,10 +29,6 @@ func _on_timer_timeout() -> void:
 	var tween_overlay = create_tween()
 	var tween_menu_overlay = create_tween()
 	var tween_menu = create_tween()
-	var tween_roll_button = create_tween()
-	var tween_unlock_button = create_tween()
-	tween_roll_button.tween_property(rolldicebutton, "modulate", gamemanager.color_values[color_counter], 0.5)
-	tween_unlock_button.tween_property(unlockallbutton, "modulate", gamemanager.color_values[color_counter], 0.5)
 	tween_overlay.tween_property(overlay, "modulate", gamemanager.color_values[color_counter], 0.5)
 	tween_bg.tween_property(scrollingbg, "modulate", gamemanager.color_values[color_counter], 0.5)
 	tween_menu_overlay.tween_property(kniffelmenuoverlay, "modulate", gamemanager.color_values[color_counter], 0.5)

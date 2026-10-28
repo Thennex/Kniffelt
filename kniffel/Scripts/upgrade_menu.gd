@@ -32,7 +32,7 @@ var upgrade_probabilities_array : Array = [legendary_propability, rare_propabili
 		#"parent" : get_parent().get_path(),
 		#"pos_x" : position.x,
 		#"pos_y" : position.y,
-		#
+		#"z_index" : z_index,
 	#}
 	#return save_dict 
 

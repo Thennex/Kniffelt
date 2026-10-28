@@ -3,9 +3,13 @@ extends Control
 signal changeColor(array)
 signal bgscrolling(background_scrolling)
 signal showControls(show_controls)
-signal menuClosed
+
 
 @onready var gamemanager: Node2D = $"../GameManager"
+
+@onready var selectsfx: AudioStreamPlayer = $selectSFX
+@onready var countersfx: AudioStreamPlayer = $counterSFX
+
 
 
 @onready var sfxslider: HSlider = $Sprite2D/SFXSlider
@@ -91,24 +95,21 @@ func _on_d_1_color_button_6_color_changed(color: Color) -> void:
 
 
 func _on_apply_button_pressed() -> void:
-	gamemanager.selectsfx.play()
+	selectsfx.play()
 	$"../Menu/ColorRect".visible = false
 	changeColor.emit(change_color_values)
-	menuClosed.emit()
 	visible = false
 
 
 func _on_reset_button_pressed() -> void:
-	gamemanager.selectsfx.play()
+	selectsfx.play()
 	$"../Menu/ColorRect".visible = false
 	changeColor.emit(color_values)
-	menuClosed.emit()
 	visible = false
 
 
 func _on_close_button_pressed() -> void:
-	gamemanager.selectsfx.play()
-	menuClosed.emit()
+	selectsfx.play()
 	$"../Menu/ColorRect".visible = false
 	$"../Menu".visible = true
 	$"../Menu/MenuCloser".visible = true
@@ -137,7 +138,7 @@ func _on_show_controls_button_pressed() -> void:
 
 
 func _on_fullscreen_button_pressed() -> void:
-	gamemanager.selectsfx.play()
+	selectsfx.play()
 	if DisplayServer.window_get_mode() == 0:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN) 
 	else:
@@ -145,19 +146,19 @@ func _on_fullscreen_button_pressed() -> void:
 
 
 func _on_sfx_slider_value_changed(value: float) -> void:
-	gamemanager.selectsfx.play()
+	selectsfx.play()
 	current_volume_sfx = value
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))
 
 
 func _on_music_slider_value_changed(value: float) -> void:
-	gamemanager.selectsfx.play()
+	selectsfx.play()
 	current_volume_music = value
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))
 
 
 func _on_button_pressed() -> void:
-	gamemanager.selectsfx.play()
+	selectsfx.play()
 	$"../Menu/VBoxContainer".visible = true
 	$"../Menu/MenuCloser".visible = true
 	visible = false

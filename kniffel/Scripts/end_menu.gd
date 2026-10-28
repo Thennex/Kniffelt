@@ -1,7 +1,8 @@
 extends Control
 
-@onready var endmenu: Control = $"."
 @onready var gamemanager: Node2D = $"../GameManager"
+@onready var kniffelpaper: Node2D = $"../Kniffel_paper"
+@onready var dicemanager: Control = $"../dice_manager"
 
 @onready var lthrown1: Label = $Stats/Lthrown1s
 @onready var lthrown2: Label = $Stats/Lthrown2s
@@ -19,7 +20,7 @@ extends Control
 @onready var diceColor6: Sprite2D = $KniffelDiceReworked6
 @onready var diceColor_array : Array = [diceColor1, diceColor2, diceColor3, diceColor4, diceColor5, diceColor6]
 
-const kniffelpaper : PackedScene = preload("uid://bux05u53jlkja")
+const kniffelpaperscene : PackedScene = preload("uid://bux05u53jlkja")
 
 var what_die : int = 0
 
@@ -43,11 +44,13 @@ func _on_button_pressed() -> void:
 	var tmp_array : Array = get_tree().get_nodes_in_group("Kniffelpaper")
 	for i in tmp_array.size():
 		tmp_array[i - 1].queue_free()
-	var Kniffel_paper = kniffelpaper.instantiate()
+	var Kniffel_paper = kniffelpaperscene.instantiate()
+	kniffelpaper = Kniffel_paper
+	dicemanager.kniffelpaper = Kniffel_paper
 	$"..".add_child(Kniffel_paper)
 	Kniffel_paper.add_to_group("Kniffelpaper")
 	Kniffel_paper.add_to_group("persistent")
 	gamemanager.kniffelpaper = Kniffel_paper
 	Kniffel_paper.z_index = 3
-	endmenu.visible = false
-	gamemanager.reset()
+	visible = false
+	kniffelpaper.reset()

@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://brg7e7khjbirr" path="res://Art/KniffelProgressbar/over_progressbart.png" id="10_kpud5"]
 [ext_resource type="Texture2D" uid="uid://gkcfwgrpm0bq" path="res://Art/KniffelProgressbar/progressbar.png" id="11_ghiq7"]
 [ext_resource type="AudioStream" uid="uid://hwlwheixoawu" path="res://sfx/explosion.wav" id="13_ghiq7"]
+[ext_resource type="AudioStream" uid="uid://bceno77oukerm" path="res://sfx/selectSFX.wav" id="14_onsfn"]
+[ext_resource type="AudioStream" uid="uid://cyr24cynd1dhm" path="res://sfx/CounterSFX.wav" id="15_y2jsj"]
 
 [sub_resource type="Gradient" id="Gradient_sglly"]
 offsets = PackedFloat32Array(1)
@@ -10387,6 +10389,15 @@ uppercase = true
 stream = ExtResource("13_ghiq7")
 volume_db = -10.832
 pitch_scale = 2.42
+bus = &"SFX"
+
+[node name="selectSFX" type="AudioStreamPlayer" parent="." unique_id=1756482635]
+stream = ExtResource("14_onsfn")
+bus = &"SFX"
+
+[node name="counterSFX" type="AudioStreamPlayer" parent="." unique_id=287106944]
+stream = ExtResource("15_y2jsj")
+volume_db = -5.0
 bus = &"SFX"
 
 [connection signal="pressed" from="SelectAction/OneSelectButton" to="." method="_on_one_select_button_pressed"]
