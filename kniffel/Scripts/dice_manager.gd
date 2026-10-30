@@ -142,7 +142,6 @@ func loadDices():
 	lrolldice.text = str("Roll Dice (", max_throw_count - throw_count, ")")
 	for i in dices.size():	dices[i] = int(dices[i])
 
-
 func load_rest():
 	await get_tree().create_timer(0.2).timeout
 	for i in dices.size():
@@ -164,6 +163,8 @@ func load_rest():
 		if locked_slot[i]:
 			dlocked_array[i].visible = true
 			sDices[i].button_pressed = true
+	kniffelpaper.checkTopActionsPoints()
+	kniffelpaper.checkBottomActionsPoints()
 
 
 # Called when the node enters the scene tree for the first time.
@@ -231,7 +232,6 @@ func throwDices() -> void:
 			await get_tree().create_timer(0.1).timeout
 		kniffelpaper.checkTopActionsPoints()
 		kniffelpaper.checkBottomActionsPoints()
-		print(dices)
 
 
 func delayDice(die_slot) -> int:
@@ -246,6 +246,8 @@ func set_d1(die_value):
 	tween_of.tween_property(sd1, "offset_transform_position", Vector2(0, -2), .05).set_trans(Tween.TRANS_BOUNCE)
 	tween_of.chain().tween_property(sd1, "offset_transform_position", Vector2(0, 0), .2).set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(sd1, "self_modulate", color_values[die_value - 1], 0.2)
+	$DiceContainer/D1/Dice_Particles/GPUParticles2D.emitting = true
+	$DiceContainer/D1/Dice_passive_particles/GPUParticles2D.modulate = color_values[die_value - 1]
 func set_d2(die_value):
 	if die_value < 0:
 		die_value *= -1
@@ -255,6 +257,8 @@ func set_d2(die_value):
 	tween_of.tween_property(sd2, "offset_transform_position", Vector2(0, -2), .05).set_trans(Tween.TRANS_BOUNCE)
 	tween_of.chain().tween_property(sd2, "offset_transform_position", Vector2(0, 0), .2).set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(sd2, "self_modulate", color_values[die_value - 1], 0.2)
+	$DiceContainer/D2/Dice_Particles/GPUParticles2D.emitting = true
+	$DiceContainer/D2/Dice_passive_particles/GPUParticles2D.modulate = color_values[die_value - 1]
 func set_d3(die_value):
 	if die_value < 0:
 		die_value *= -1
@@ -264,6 +268,8 @@ func set_d3(die_value):
 	tween_of.tween_property(sd3, "offset_transform_position", Vector2(0, -2), .05).set_trans(Tween.TRANS_BOUNCE)
 	tween_of.chain().tween_property(sd3, "offset_transform_position", Vector2(0, 0), .2).set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(sd3, "self_modulate", color_values[die_value - 1], 0.2)
+	$DiceContainer/D3/Dice_Particles/GPUParticles2D.emitting = true
+	$DiceContainer/D3/Dice_passive_particles/GPUParticles2D.modulate = color_values[die_value - 1]
 func set_d4(die_value):
 	if die_value < 0:
 		die_value *= -1
@@ -273,6 +279,8 @@ func set_d4(die_value):
 	tween_of.tween_property(sd4, "offset_transform_position", Vector2(0, -2), .05).set_trans(Tween.TRANS_BOUNCE)
 	tween_of.chain().tween_property(sd4, "offset_transform_position", Vector2(0, 0), .2).set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(sd4, "self_modulate", color_values[die_value - 1], 0.2)
+	$DiceContainer/D4/Dice_Particles/GPUParticles2D.emitting = true
+	$DiceContainer/D4/Dice_passive_particles/GPUParticles2D.modulate = color_values[die_value - 1]
 func set_d5(die_value):
 	if die_value < 0:
 		die_value *= -1
@@ -282,6 +290,8 @@ func set_d5(die_value):
 	tween_of.tween_property(sd5, "offset_transform_position", Vector2(0, -2), .05).set_trans(Tween.TRANS_BOUNCE)
 	tween_of.chain().tween_property(sd5, "offset_transform_position", Vector2(0, 0), .2).set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(sd5, "self_modulate", color_values[die_value - 1], 0.2)
+	$DiceContainer/D5/Dice_Particles/GPUParticles2D.emitting = true
+	$DiceContainer/D5/Dice_passive_particles/GPUParticles2D.modulate = color_values[die_value - 1]
 var setd_array : Array = [set_d1, set_d2, set_d3, set_d4, set_d5]
 
 func choseDie(die) -> void:
@@ -312,7 +322,7 @@ func resetDice() -> void:
 	resetLocked()
 	throw_count = 0
 
-
+#region LOCKED FUNCTIONS
 func resetLocked() -> void:
 	selectsfx.play()
 	locked_slot = [false, false, false, false, false]
@@ -326,47 +336,77 @@ func areAllLocked() -> bool:
 			return false
 	return true
 
-
 func d1pressed():
+	var die : int = 0 
 	selectsfx.play()
 	if sd1.button_pressed == false:
-		locked_slot[0] = true
+		locked_slot[die] = true
 		sd1.button_pressed = true
-		dlocked_array[0].visible = true
-		ld_array[0].modulate = Color.BLACK
+		dlocked_array[die].visible = true
+		ld_array[die].modulate = Color.BLACK
+	else:
+		locked_slot[die] = true
+		sd1.button_pressed = true
+		dlocked_array[die].visible = true
+		ld_array[die].modulate = "a4a4a4"
 
 func d2pressed():
+	var die : int = 1 
 	selectsfx.play()
 	if sd2.button_pressed == false:
-		locked_slot[1] = true
+		locked_slot[die] = true
 		sd2.button_pressed = true
-		dlocked_array[1].visible = true
-		ld_array[1].modulate = Color.BLACK
+		dlocked_array[die].visible = true
+		ld_array[die].modulate = Color.BLACK
+	else:
+		locked_slot[die] = true
+		sd2.button_pressed = true
+		dlocked_array[die].visible = true
+		ld_array[die].modulate = "a4a4a4"
 
 func d3pressed():
+	var die : int = 2 
 	selectsfx.play()
 	if sd3.button_pressed == false:
-		locked_slot[2] = true
+		locked_slot[die] = true
 		sd3.button_pressed = true
-		dlocked_array[2].visible = true
-		ld_array[2].modulate = Color.BLACK
+		dlocked_array[die].visible = true
+		ld_array[die].modulate = Color.BLACK
+	else:
+		locked_slot[die] = true
+		sd3.button_pressed = true
+		dlocked_array[die].visible = true
+		ld_array[die].modulate = "a4a4a4"
 
 func d4pressed():
+	var die : int = 3 
 	selectsfx.play()
 	if sd4.button_pressed == false:
-		locked_slot[3] = true
+		locked_slot[die] = true
 		sd4.button_pressed = true
-		dlocked_array[3].visible = true
-		ld_array[3].modulate = Color.BLACK
+		dlocked_array[die].visible = true
+		ld_array[die].modulate = Color.BLACK
+	else:
+		locked_slot[die] = true
+		sd4.button_pressed = true
+		dlocked_array[die].visible = true
+		ld_array[die].modulate = "a4a4a4"
 
 func d5pressed():
+	var die : int = 4 
 	selectsfx.play()
 	if sd5.button_pressed == false:
-		locked_slot[4] = true
+		locked_slot[die] = true
 		sd5.button_pressed = true
-		dlocked_array[4].visible = true
-		ld_array[4].modulate = Color.BLACK
-var dpressed_array : Array = [d1pressed, d2pressed, d3pressed, d4pressed, d5pressed]
+		dlocked_array[die].visible = true
+		ld_array[die].modulate = Color.BLACK
+	else:
+		locked_slot[die] = true
+		sd5.button_pressed = true
+		dlocked_array[die].visible = true
+		ld_array[die].modulate = "a4a4a4"
+#endregion
+
 ###############################
 #####   keyboard compat   #####
 ###############################

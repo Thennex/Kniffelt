@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bqlygc5581mkg"]
+
+[ext_resource type="Texture2D" uid="uid://cnvup1aojmfvd" path="res://VFX/particles/alpha/star_01_a.png" id="1_obxcw"]
+[ext_resource type="Script" uid="uid://cmea0ciwqv3ot" path="res://Scripts/select_particles.gd" id="1_pcnwe"]
+[ext_resource type="Texture2D" uid="uid://dxlkragw4mgdw" path="res://VFX/particles/alpha/star_08_a.png" id="2_udi0s"]
+
+[sub_resource type="Curve" id="Curve_8dh1l"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7050691, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_usw62"]
+curve = SubResource("Curve_8dh1l")
+
+[sub_resource type="Gradient" id="Gradient_8dh1l"]
+colors = PackedColorArray(0.09302468, 0.09302468, 0.09302468, 1, 10.175062, 10.175062, 10.175062, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8dh1l"]
+gradient = SubResource("Gradient_8dh1l")
+
+[sub_resource type="Curve" id="Curve_0lwpn"]
+_data = [Vector2(0, 0.4044944), 0.0, 0.0, 0, 0, Vector2(0.281106, 0.41573036), 2.0449443, 2.0449443, 0, 0, Vector2(0.359447, 0.6741574), 1.1861519, 1.1861519, 0, 0, Vector2(0.5852535, 0.28089893), 0.4302709, 0.4302709, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_8dh1l"]
+curve = SubResource("Curve_0lwpn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4o7ex"]
+lifetime_randomness = 0.42
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(92.245, 36.015, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 180.0
+flatness = 0.614
+angular_velocity_min = -1.0000161
+angular_velocity_max = 0.9999839
+angular_velocity_curve = SubResource("CurveTexture_usw62")
+gravity = Vector3(0, 98, 0)
+linear_accel_min = 54.899998
+linear_accel_max = 99.99999
+scale_min = 0.099999994
+scale_max = 0.19999999
+scale_curve = SubResource("CurveTexture_8dh1l")
+color_ramp = SubResource("GradientTexture1D_8dh1l")
+turbulence_enabled = true
+
+[node name="SelectParticles" type="Node2D" unique_id=686324232]
+script = ExtResource("1_pcnwe")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=134300934]
+texture_filter = 4
+emitting = false
+amount = 10
+texture = ExtResource("2_udi0s")
+lifetime = 0.81
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_4o7ex")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." unique_id=1789503746]
+texture_filter = 4
+emitting = false
+amount = 10
+texture = ExtResource("1_obxcw")
+lifetime = 0.81
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_4o7ex")

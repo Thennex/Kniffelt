@@ -43,6 +43,21 @@ keycode = 4194305
 [sub_resource type="Shortcut" id="Shortcut_ow1sv"]
 events = [SubResource("InputEventKey_ow1sv")]
 
+[sub_resource type="Curve" id="Curve_0y2cb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0y2cb"]
+curve = SubResource("Curve_0y2cb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4o7ex"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(602.46, 330.175, 1)
+gravity = Vector3(0, 98, 0)
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_0y2cb")
+
 [node name="Main" type="Node2D" unique_id=265119633]
 
 [node name="ShowControls" type="Control" parent="." unique_id=1435994165]
@@ -317,6 +332,7 @@ uppercase = true
 z_index = 7
 
 [node name="UpgradeMenu" parent="." unique_id=460068291 instance=ExtResource("24_aam5o")]
+visible = false
 z_index = 2
 offset_left = 266.0
 offset_top = -293.0
@@ -608,7 +624,7 @@ position = Vector2(314, -7)
 [node name="KniffelMenuOverlayt" type="Sprite2D" parent="Design" unique_id=1702140881]
 modulate = Color(0.7, 0.7, 0, 1)
 z_index = 17
-position = Vector2(-27, 4)
+position = Vector2(-29, 3)
 texture = ExtResource("4_p4j74")
 
 [node name="Parallax2D" type="Parallax2D" parent="Design" unique_id=680368821]
@@ -634,13 +650,22 @@ texture_filter = 4
 position = Vector2(-28, 3)
 texture = ExtResource("19_p2wc2")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Design/KniffelOverlay" unique_id=1798160782]
+z_index = 1
+position = Vector2(7, -2)
+amount = 419
+lifetime = 1.77
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_4o7ex")
+
 [node name="ColorRect" type="ColorRect" parent="Design" unique_id=1162804710]
 modulate = Color(0.1882353, 0.1882353, 0.1882353, 0.9098039)
 top_level = true
-offset_left = -314.0
-offset_top = -342.0
-offset_right = 887.0
-offset_bottom = 334.0
+offset_left = -316.00003
+offset_top = -343.00003
+offset_right = 885.0
+offset_bottom = 332.99997
+scale = Vector2(1.0019526, 1.0024731)
 mouse_filter = 2
 color = Color(1, 0, 1, 1)
 

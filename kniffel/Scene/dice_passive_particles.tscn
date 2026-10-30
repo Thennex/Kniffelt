@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bgnildjnm4ipd"]
+
+[ext_resource type="Texture2D" uid="uid://bxywxlj5wl2te" path="res://Art/Dies/Kniffel_Dice_reworked.png" id="1_djggw"]
+
+[sub_resource type="Curve" id="Curve_djggw"]
+_data = [Vector2(0, 0.43820232), 0.0, 0.0, 0, 0, Vector2(0.42774564, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_djggw"]
+curve = SubResource("Curve_djggw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qvobx"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(24.5, 24.5, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, -98, 0)
+damping_max = 42.181004
+scale_curve = SubResource("CurveTexture_djggw")
+turbulence_noise_strength = 0.61
+
+[node name="Dice_passive_particles" type="Node2D" unique_id=1435425842]
+position = Vector2(25, 25)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1896601276]
+z_index = 3
+amount = 18
+lifetime = 0.61
+preprocess = 0.53
+speed_scale = 0.7
+fixed_fps = 24
+trail_enabled = true
+trail_lifetime = 0.29000000000000004
+trail_sections = 2
+trail_section_subdivisions = 1
+process_material = SubResource("ParticleProcessMaterial_qvobx")
+
+[node name="KniffelDiceLockedKniffelpaperExport" type="Sprite2D" parent="." unique_id=1261060811]
+visible = false
+modulate = Color(0.14406255, 0.14406255, 0.14406255, 1)
+texture = ExtResource("1_djggw")

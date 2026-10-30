@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bttaoj4ggv4bu" path="res://Art/Light/2d_lights_and_shadows_neutral_point_light.webp" id="4_3sf8g"]
 [ext_resource type="Texture2D" uid="uid://bq71ulhlbfcvv" path="res://Art/Dies/Kniffel_dice.png" id="5_rjx1q"]
 [ext_resource type="Texture2D" uid="uid://dv58cx4brbeo2" path="res://Art/Dies/Kniffel_dice_locked-export.png" id="6_0dlvb"]
+[ext_resource type="PackedScene" uid="uid://by321xgoxn2kc" path="res://Scene/dice_particles.tscn" id="6_31exl"]
 [ext_resource type="Texture2D" uid="uid://dyxnamhhh1xd3" path="res://Art/Kniffel_unlock_all.png" id="7_31exl"]
+[ext_resource type="PackedScene" uid="uid://bgnildjnm4ipd" path="res://Scene/dice_passive_particles.tscn" id="7_j0es1"]
 [ext_resource type="Texture2D" uid="uid://g8c2agqtpeg2" path="res://Art/Kniffel_roll_button.png" id="8_j0es1"]
 [ext_resource type="AudioStream" uid="uid://dktef6aonmnow" path="res://sfx/DiceRollSFX.wav" id="10_3sf8g"]
 [ext_resource type="AudioStream" uid="uid://bceno77oukerm" path="res://sfx/selectSFX.wav" id="11_3sf8g"]
@@ -127,6 +129,11 @@ texture = ExtResource("4_3sf8g")
 offset = Vector2(25, 25)
 texture_scale = 0.15
 
+[node name="Dice_Particles" parent="DiceContainer/D1" unique_id=686324232 instance=ExtResource("6_31exl")]
+position = Vector2(25, 25)
+
+[node name="Dice_passive_particles" parent="DiceContainer/D1" unique_id=1435425842 instance=ExtResource("7_j0es1")]
+
 [node name="D2" type="Button" parent="DiceContainer" unique_id=1229880292]
 modulate = Color(0.89492244, 0.89492244, 0.8949223, 1)
 z_index = 2
@@ -183,6 +190,11 @@ texture = ExtResource("4_3sf8g")
 offset = Vector2(25, 25)
 texture_scale = 0.15
 
+[node name="Dice_Particles" parent="DiceContainer/D2" unique_id=1161809239 instance=ExtResource("6_31exl")]
+position = Vector2(25, 25)
+
+[node name="Dice_passive_particles" parent="DiceContainer/D2" unique_id=571788142 instance=ExtResource("7_j0es1")]
+
 [node name="D3" type="Button" parent="DiceContainer" unique_id=858535897]
 modulate = Color(0.89492244, 0.89492244, 0.8949223, 1)
 z_index = 2
@@ -238,6 +250,11 @@ scale = Vector2(0.9999999, 0.9999999)
 texture = ExtResource("4_3sf8g")
 offset = Vector2(25, 25)
 texture_scale = 0.15
+
+[node name="Dice_Particles" parent="DiceContainer/D3" unique_id=1307789658 instance=ExtResource("6_31exl")]
+position = Vector2(25, 25)
+
+[node name="Dice_passive_particles" parent="DiceContainer/D3" unique_id=786802518 instance=ExtResource("7_j0es1")]
 
 [node name="D4" type="Button" parent="DiceContainer" unique_id=650399884]
 modulate = Color(0.89492244, 0.89492244, 0.8949223, 1)
@@ -297,6 +314,11 @@ texture = ExtResource("4_3sf8g")
 offset = Vector2(25, 25)
 texture_scale = 0.15
 
+[node name="Dice_Particles" parent="DiceContainer/D4" unique_id=813082383 instance=ExtResource("6_31exl")]
+position = Vector2(25, 25)
+
+[node name="Dice_passive_particles" parent="DiceContainer/D4" unique_id=930387216 instance=ExtResource("7_j0es1")]
+
 [node name="D5" type="Button" parent="DiceContainer" unique_id=1277837373]
 modulate = Color(0.89492244, 0.89492244, 0.8949223, 1)
 z_index = 2
@@ -354,6 +376,11 @@ scale = Vector2(0.99999976, 0.99999976)
 texture = ExtResource("4_3sf8g")
 offset = Vector2(25, 25)
 texture_scale = 0.15
+
+[node name="Dice_Particles" parent="DiceContainer/D5" unique_id=2086047021 instance=ExtResource("6_31exl")]
+position = Vector2(25, 25)
+
+[node name="Dice_passive_particles" parent="DiceContainer/D5" unique_id=148425414 instance=ExtResource("7_j0es1")]
 
 [node name="UnlockAllButton" type="Button" parent="." unique_id=531074422]
 texture_filter = 4
@@ -451,3 +478,6 @@ bus = &"SFX"
 [connection signal="pressed" from="RollDiceButton" to="." method="_on_roll_dice_button_pressed"]
 [connection signal="timeout" from="diceSFX/diceSFXTimer" to="." method="_on_dice_sfx_timer_timeout"]
 [connection signal="timeout" from="can_throw_Timer" to="." method="_on_can_throw_timer_timeout"]
+
+[editable path="DiceContainer/D1/Dice_Particles"]
+[editable path="DiceContainer/D1/Dice_passive_particles"]

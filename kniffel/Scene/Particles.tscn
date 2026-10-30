@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cq8y408d3wmpb"]
+
+[ext_resource type="Texture2D" uid="uid://cnvup1aojmfvd" path="res://VFX/particles/alpha/star_01_a.png" id="1_8dh1l"]
+
+[sub_resource type="Curve" id="Curve_8dh1l"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7050691, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_usw62"]
+curve = SubResource("Curve_8dh1l")
+
+[sub_resource type="Gradient" id="Gradient_8dh1l"]
+colors = PackedColorArray(0.09302468, 0.09302468, 0.09302468, 1, 10.175062, 10.175062, 10.175062, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8dh1l"]
+gradient = SubResource("Gradient_8dh1l")
+
+[sub_resource type="Curve" id="Curve_0lwpn"]
+_data = [Vector2(0, 0.57303375), 0.0, 0.0, 0, 0, Vector2(0.7603687, 0.50561804), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_8dh1l"]
+curve = SubResource("Curve_0lwpn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4o7ex"]
+lifetime_randomness = 0.42
+particle_flag_rotate_y = true
+emission_shape_scale = Vector3(280.99, 68.98, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 180.0
+flatness = 0.614
+angular_velocity_min = -1.0000161
+angular_velocity_max = 0.9999839
+angular_velocity_curve = SubResource("CurveTexture_usw62")
+linear_accel_min = 54.899998
+linear_accel_max = 99.99999
+scale_min = 0.19999999
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_8dh1l")
+color_ramp = SubResource("GradientTexture1D_8dh1l")
+
+[node name="SelectParticles" type="Node2D" unique_id=686324232]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=134300934]
+texture_filter = 4
+position = Vector2(345, 232)
+emitting = false
+amount = 10
+texture = ExtResource("1_8dh1l")
+lifetime = 0.81
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_4o7ex")

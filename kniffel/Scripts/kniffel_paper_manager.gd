@@ -3,46 +3,11 @@ class_name Kniffelpaper
 
 signal kniffelpaper_is_ready
 
-
-
-
-
-
-
-
-
-
-# FIX the LoadPaper() Function
-# everytime an Action was selected where the  
-# criteria wasn't met and saved
-# should be load in without showing numbers when loading in
-#
-#
-#
-#
-#
-#
-#
-#
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @onready var extrasfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var topbar: TextureProgressBar = $KniffelBonusMeter/TextureProgressBar
+@onready var progress_part = $KniffelBonusMeter/TextureProgressBar/Progressbar_particles/GPUParticles2D
+@onready var progress_pos = $KniffelBonusMeter/TextureProgressBar/Progressbar_particles
+
 
 @onready var selectsfx: AudioStreamPlayer = $selectSFX
 @onready var countersfx: AudioStreamPlayer = $counterSFX
@@ -368,8 +333,8 @@ func topDs(number) -> void:
 	for i in top_dices_count_array[dice_counted - 1]:
 		dselectcolor_array[dice_counted - 1][i].texture = dice_unlocked
 		dselectcolor_array[dice_counted - 1][i].modulate = gamemanager.color_values[dice_counted - 1]
-	l_array[dice_counted - 1].text = str(dicemanager.diceValues[dice_counted - 1])
-	top_points_array[dice_counted - 1] = str(dicemanager.diceValues[dice_counted - 1])
+	l_array[dice_counted - 1].text = str(int(dicemanager.diceValues[dice_counted - 1])) if int(dicemanager.diceValues[dice_counted - 1]) != 0 else ""
+	top_points_array[dice_counted - 1] = str(dicemanager.diceValues[dice_counted - 1]) if int(dicemanager.diceValues[dice_counted - 1]) != 0 else ""
 	top_points_counter += dicemanager.diceValues[dice_counted - 1]
 	actions[dice_counted - 1] = true
 	animtoplayer.play(dice_top_anim_array[dice_counted - 1] + "_select")
@@ -468,7 +433,7 @@ func full_house() -> void:
 		lfullhouse.text = "25"
 		bottom_points_array[2] = "25"
 		dicemanager.dices.sort()
-		full_house_dices_array = gamemanager.dices
+		full_house_dices_array = dicemanager.dices
 		for i in dicemanager.dices.size():
 			lfullhouseanim_array[i - 1].text = str(dicemanager.dices[i - 1])
 			fullhouseanim_array[i - 1].modulate = gamemanager.color_values[dicemanager.dices[i - 1] - 1]
@@ -666,8 +631,10 @@ func loadPaper():
 			dselectcolor_array[i][j].texture = dice_unlocked
 			dselectcolor_array[i][j].modulate = gamemanager.color_values[i]
 	var top_duration = float(top_points_counter - int(ltoppoints.text))/100 if float(top_points_counter - int(ltoppoints.text))/100 > 0.3 else 0.3 
+	if top_points_counter >= 1:progress_part.emitting = true
 	var tween1 = create_tween()
 	tween1.tween_method(setTopCounter, int(ltoppoints.text), top_points_counter, top_duration)
+	tween1.parallel().tween_property(progress_pos, "position", Vector2(clampf((6.5  * top_points_counter) , 6.5, 404.5), 15), top_duration)
 	var tween = create_tween()
 	tween.tween_property(topbar, "value", top_points_counter, 0.5).set_trans(Tween.TRANS_EXPO)
 	tween.parallel().tween_property($KniffelBonusMeter/TextureProgressBarFast, "value", top_points_counter + 0.2, 0.1)
@@ -680,36 +647,42 @@ func loadPaper():
 		match i:
 			0:
 				for l in lx3danim_array.size():
+					if x3_dice == 0:	continue
 					x3danim_array[l].texture = dice_unlocked
 					lx3danim_array[l].text = str(int(x3_dice))
 					lx3danim_array[l].modulate = gamemanager.color_values[x3_dice - 1]
 					x3danim_array[l].modulate = gamemanager.color_values[x3_dice - 1]
 			1:
 				for l in lx4danim_array.size():
+					if x4_dice == 0:	continue
 					x4danim_array[l].texture = dice_unlocked
 					lx4danim_array[l].text = str(int(x4_dice))
 					lx4danim_array[l].modulate = gamemanager.color_values[x4_dice - 1]
 					x4danim_array[l].modulate = gamemanager.color_values[x4_dice - 1]
 			2:
 				for l in lfullhouseanim_array.size():
+					if full_house_dices_array[0] == 0:	continue
 					fullhouseanim_array[l].texture = dice_unlocked
 					lfullhouseanim_array[l].text = str(int(full_house_dices_array[l]))
 					lfullhouseanim_array[l].modulate = gamemanager.color_values[int(full_house_dices_array[l]) - 1]
 					fullhouseanim_array[l].modulate = gamemanager.color_values[int(full_house_dices_array[l]) - 1]
 			3:
 				for l in lsmallstraight_array.size():
+					if small_straight_dices_array[0] == 0:	continue
 					smallstraightanim_array[l].texture = dice_unlocked
 					lsmallstraightanim_array[l].text = str(int(small_straight_dices_array[l]))
 					lsmallstraight_array[l].modulate = gamemanager.color_values[int(small_straight_dices_array[l]) - 1]
 					smallstraightanim_array[l].modulate = gamemanager.color_values[int(small_straight_dices_array[l]) - 1]
 			4:
 				for l in lbigstraight_array.size():
+					if big_straight_dices_array[0] == 0:	continue
 					bigstraightanim_array[l].texture = dice_unlocked
 					lbigstraightanim_array[l].text = str(int(big_straight_dices_array[l]))
 					lbigstraight_array[l].modulate = gamemanager.color_values[int(big_straight_dices_array[l]) - 1]
 					bigstraightanim_array[l].modulate = gamemanager.color_values[int(big_straight_dices_array[l]) - 1]
 			5:
 				for l in lkniffel_array.size():
+					if small_straight_dices_array[0] == 0:	continue
 					kniffelanim_array[l].texture = dice_unlocked
 					lkniffelanim_array[l].text = str(int(kniffel_dices_array[l]))
 					lkniffel_array[l].modulate = gamemanager.color_values[int(kniffel_dices_array[l]) - 1]
@@ -730,13 +703,23 @@ func loadPaper():
 	kniffelpaper_is_ready.emit()
 
 func reset() -> void:
+	top_points_array = ["", "", "", "", "", "", ""]
+	bottom_points_array = ["", "", "", "", "", "", "", ""]
 	number_counter_array = [0, 0, 0, 0, 0, 0]
+	top_dices_count_array = [0, 0, 0, 0, 0, 0]
+	x3_dice = 0
+	x4_dice = 0
+	full_house_dices_array = [0, 0, 0, 0, 0]
+	small_straight_dices_array = [0, 0, 0, 0, 0]
+	big_straight_dices_array = [0, 0, 0, 0, 0]
+	kniffel_dices_array = [0, 0, 0, 0, 0]
+	chance_dices_array = [0, 0, 0, 0, 0]
 	all_points = 0
 	top_points_counter = 0
 	bottom_points_counter = 0
 	dicemanager.visible = true
 	$"../ShowControls".visible = true
-	upgrademenu.visible = true
+	upgrademenu.visible = false
 	done = 0
 	dicemanager.resetDice()
 
@@ -829,9 +812,14 @@ func checkActions() -> void:
 	$KniffelBonusMeter/TextureProgressBarFast.value = top_points_counter + 0.2
 	tween.tween_method(set_BarValue, int(ltoppoints.text), top_points_counter, 0.4,).set_trans(Tween.TRANS_EXPO)
 	if int(ltoppoints.text) != top_points_counter:
+		if top_points_counter >= 1:
+			progress_part.emitting = true
+		else:
+			progress_part.emitting = false
 		var duration = .3
 		var tween1 = create_tween()
 		tween1.tween_method(setTopCounter, int(ltoppoints.text), top_points_counter, duration)
+		tween1.parallel().tween_property(progress_pos, "position", Vector2(clampf((6.5  * top_points_counter) , 6.5, 404.5), 15), duration)
 		await tween.finished
 		ltoppoints.rotation = 0
 	var all_actions_done = 0

@@ -1,0 +1,16 @@
+res://Scene/dice_manager.tscn::ec10baccb8aad86a25c6e8d2b72605fb::1793356371::res://.godot/exported/133200997/export-0d9586422d75683914cf7d4decc15106-dice_manager.scn
+res://Scene/dice_particles.tscn::2acfe6cceca41aa28dc12b64353e0d84::1793384703::res://.godot/exported/133200997/export-5cba8c11dd524dc85952f65bf40dcd40-dice_particles.scn
+res://Scene/dice_passive_particles.tscn::475fe6167e4fe749666a392ee2250d89::1793356556::res://.godot/exported/133200997/export-d633d9af457d21530fe96a7c824c273b-dice_passive_particles.scn
+res://Scene/end_menu.tscn::b24ee368301d5ef6758cc5b3fd67f19a::1793019380::res://.godot/exported/133200997/export-206f172750b17c3e2457cfec43ea008a-end_menu.scn
+res://Scene/game_manager.tscn::abceff8e2293c0686299d8414bb6beb8::1793397947::res://.godot/exported/133200997/export-5ddab67b9173a8b4ea3d90b3a18839f4-game_manager.scn
+res://Scene/Kniffel_paper.tscn::8cbd04ef59f573c4dbf2b743ce7e504d::1793383597::res://.godot/exported/133200997/export-2f7e6ac1d035181c52214e6c7ab3ee01-Kniffel_paper.scn
+res://Scene/level.tscn::8710ed0351fae5c0710488e4705c54b2::1793019380::res://.godot/exported/133200997/export-9a0bd6ebec2d54b6fde5cdb40ca63c84-level.scn
+res://Scene/main.tscn::1d9764bf7de912902be3d5dff323a79c::1793398665::res://.godot/exported/133200997/export-12e89150360f40f5e75c345d09a6bab0-main.scn
+res://Scene/Particles.tscn::893c6cb689b0de50fa148bd030ffaddb::1793280481::res://.godot/exported/133200997/export-66906f6f495f8e0e5c3412da6f832766-Particles.scn
+res://Scene/progressbar_particles.tscn::c84e2f5da94aa0652379a9bcb503fe75::1793383379::res://.godot/exported/133200997/export-84a63e1df891bcb23e28774b1989e153-progressbar_particles.scn
+res://Scene/Select_particles.tscn::4019e0228baeacb6f49cd5a4abb02fd4::1793354594::res://.godot/exported/133200997/export-a2fe9806066813ce6236cbcf44f33073-Select_particles.scn
+res://Scene/settings_menu.tscn::d161f0f099bf8ab790c707087096d2f6::1793052165::res://.godot/exported/133200997/export-9e9d02d155667d011caac6063eef2333-settings_menu.scn
+res://Scene/upgrade_menu.tscn::4c94c40ece610b131b2f8be458394e82::1793019380::res://.godot/exported/133200997/export-6a75a8b514a1f82a22a6b1371e5cb017-upgrade_menu.scn
+res://Shader/main.tres::b409e83edf0f56f8bdccc403a91a6747::1793019380::res://.godot/exported/133200997/export-6a02b08dcf924e9e706b563dd8ebef36-main.res
+res://default_bus_layout.tres::b3a4cba3f9335a660838070ca4c6a5f5::1793019380::res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res
+res://level.tscn::73f036d6daa64cae919597f42825406d::1793019380::res://.godot/exported/133200997/export-d85448a68f01bbd6644b4b40ef87233e-level.scn

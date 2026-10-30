@@ -1,2 +1,6 @@
+GPUParticles2D
+FogVolume
+AnimatedSprite2D
+CPUParticles2D
 MarginContainer
 Timer

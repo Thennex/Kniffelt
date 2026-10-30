@@ -54,3 +54,4 @@ func _on_button_pressed() -> void:
 	Kniffel_paper.z_index = 3
 	visible = false
 	kniffelpaper.reset()
+	dicemanager.resetDice()

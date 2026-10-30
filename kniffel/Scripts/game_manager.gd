@@ -51,6 +51,7 @@ Color(0.7, 0.0, 0.7), Color(0.7, 0.0, 0.0)]
 ################################r
 func _ready() -> void:
 	await $"..".ready
+	if not FileAccess.file_exists("user://savegame.save"): save_game()
 	load_game()
 
 #######################################################################
@@ -135,9 +136,8 @@ func load_game():
 
 
 func end():
-	$"../dice_manager".visible = false
+	dicemanager.visible = false
 	$"../ShowControls".visible = false
-	$"../UpgradeMenu".visible = false
 	end_menu.changeStatlabel(kniffelpaper.number_counter_array)
 
 
@@ -182,7 +182,7 @@ func _on_reload_button_pressed() -> void:
 	$"../Menu/ColorRect".visible = false
 	kniffelpaper.dicemanager = dicemanager
 	kniffelpaper.reset()
-	
+	dicemanager.resetDice()
 
 func _on_control_button_pressed() -> void:
 	selectsfx.play()
